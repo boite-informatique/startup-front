@@ -8,7 +8,7 @@ Upon opening this repository in VS Code it will prompt you to install recommende
 
 You will also find VS Code workspace settings for formatting text and indentation already set up. As Well as running pre-commit hooks from npm/husky to run formatting and linting checks. -->
 
-## Installation
+## 🛠 Installation
 
 1. clone project locally
 
