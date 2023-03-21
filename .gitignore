@@ -14,10 +14,13 @@ dist-ssr
 
 .todo
 
-# Editor directories and files
-.vscode
+# Editor directories and files - VSCode
 .vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
 !.vscode/extensions.json
+
 .idea
 .DS_Store
 *.suo
