@@ -2,7 +2,14 @@ const config = {
     content: ["./src/**/*.{html,js,svelte,ts}", "index.html"],
 
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                darkest: "#2C3333",
+                dark: "#2E4F4F",
+                light: "#0E8388",
+                lightest: "#CBE4DE",
+            },
+        },
     },
 
     plugins: [require("daisyui")],
