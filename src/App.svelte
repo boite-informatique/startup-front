@@ -13,11 +13,11 @@
     };
 </script>
 
-<main class="bg-gray-300 dark:bg-gray-700 h-screen">
-    <div class="dark:text-gray-200 text-gray-800">{$_("content")}</div>
+<main class="h-screen bg-gray-300 dark:bg-gray-700">
+    <div class="text-gray-800 dark:text-gray-200">{$_("content")}</div>
     <div class="flex flex-row gap-2">
         <div
-            class="btn btn-primary"
+            class="btn-primary btn"
             on:click={() => {
                 changleLanguage("fr");
             }}
@@ -25,14 +25,14 @@
             french
         </div>
         <div
-            class="btn btn-primary"
+            class="btn-primary btn"
             on:click={() => {
                 changleLanguage("en");
             }}
         >
             english
         </div>
-        <div class="btn btn-secondary" on:click={toggleDarkMode}>
+        <div class="btn-secondary btn" on:click={toggleDarkMode}>
             toggle dark mode
         </div>
     </div>
