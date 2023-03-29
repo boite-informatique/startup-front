@@ -1,22 +1,10 @@
 <script>
     // importing Modules
-    import { _, locale } from "svelte-i18n";
+    import { _ } from "svelte-i18n";
 
     // importing components
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
-
-    import { mode } from "../stores/darkModeStore";
-
-    const myPage = document.getElementsByTagName("html");
-    const toggleDarkMode = () => {
-        myPage[0].className = $mode == "dark" ? "" : "dark";
-        $mode = myPage[0].className;
-    };
-
-    const changleLanguage = (lang) => {
-        locale.set(lang);
-    };
 </script>
 
 <div
@@ -36,7 +24,7 @@
             <h2
                 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900"
             >
-                Sign in to your account
+                {$_("content")}
             </h2>
             <p class="mt-2 text-center text-sm text-gray-600">
                 Or
@@ -129,58 +117,3 @@
         </form>
     </div>
 </div>
-
-<!-- <script>
-    // importing Modules
-    import { Router, Route } from "svelte-navigator";
-    import { _, locale } from "svelte-i18n";
-
-    // importing routes
-    import Login from "./routes/Login.svelte";
-
-    import { mode } from "./stores/darkModeStore";
-
-    const myPage = document.getElementsByTagName("html");
-    const toggleDarkMode = () => {
-        myPage[0].className = $mode == "dark" ? "" : "dark";
-        $mode = myPage[0].className;
-    };
-
-    const changleLanguage = (lang) => {
-        locale.set(lang);
-    };
-</script>
- -->
-
-<!-- 
-    <Router>
-    <main class="h-screen bg-gray-300 dark:bg-gray-700">
-        <div class="text-gray-800 dark:text-gray-200">{$_("content")}</div>
-        <div class="flex flex-row gap-2">
-            <div
-                class="btn-primary btn"
-                on:click={() => {
-                    changleLanguage("fr");
-                }}
-            >
-                french
-            </div>
-            <div
-                class="btn-primary btn"
-                on:click={() => {
-                    changleLanguage("en");
-                }}
-            >
-                english
-            </div>
-            <div class="btn-secondary btn" on:click={toggleDarkMode}>
-                toggle dark mode
-            </div>
-        </div>
-        <Route path="login">
-            <Login />
-        </Route>
-    </main>
-</Router>
-
-  -->
