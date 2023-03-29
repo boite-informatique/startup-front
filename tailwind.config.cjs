@@ -13,7 +13,7 @@ const config = {
         },
     },
 
-    plugins: [require("daisyui")],
+    plugins: [require("daisyui"), require("@tailwindcss/forms")],
 };
 
 module.exports = config;
