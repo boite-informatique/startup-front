@@ -2,6 +2,10 @@
     // importing Modules
     import { _, locale } from "svelte-i18n";
 
+    // importing components
+    import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
+    import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
+
     import { mode } from "../stores/darkModeStore";
 
     const myPage = document.getElementsByTagName("html");
@@ -18,7 +22,10 @@
 <div
     class="relative flex min-h-screen w-full items-center justify-center justify-self-center px-4 py-12 sm:px-6 lg:px-8"
 >
-    <div class="absolute top-5 right-5" on:click={toggleDarkMode}>hehe</div>
+    <div class="absolute top-5 right-5 flex gap-4">
+        <DarkModeTogglerLogin />
+        <LanguageMenuLogin />
+    </div>
     <div class="w-full max-w-md space-y-8">
         <div>
             <img
