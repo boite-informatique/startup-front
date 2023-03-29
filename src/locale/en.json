@@ -1,3 +1,9 @@
 {
-    "content": "yes yes yes I am good"
+    "login": {
+        "Sign in to your account": "Sign in to your account",
+        "Email address": "Email address",
+        "Password": "Password",
+        "Remember me": "Remember me",
+        "Sign in": "Sign in"
+    }
 }

@@ -1,3 +1,9 @@
 {
-    "content": "oui oui oui je suis bien"
+    "login": {
+        "Sign in to your account": "Connectez-vous à votre compte",
+        "Email address": "Adresse email",
+        "Password": "Mot de passe",
+        "Remember me": "Se souvenir de moi",
+        "Sign in": "Se connecter"
+    }
 }

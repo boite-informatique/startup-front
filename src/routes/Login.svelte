@@ -21,26 +21,18 @@
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                 alt="Your Company"
             />
-            <h2
-                class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900"
+            <div
+                class="-mx-1 mt-6 text-center text-3xl font-bold tracking-tight text-gray-900"
             >
-                {$_("content")}
-            </h2>
-            <p class="mt-2 text-center text-sm text-gray-600">
-                Or
-                <a
-                    href="#"
-                    class="font-medium text-indigo-600 hover:text-indigo-500"
-                    >start your 14-day free trial</a
-                >
-            </p>
+                {$_("login.Sign in to your account")}
+            </div>
         </div>
         <form class="mt-8 space-y-6" action="#" method="POST">
             <input type="hidden" name="remember" value="true" />
             <div class="-space-y-px rounded-md shadow-sm">
                 <div>
                     <label for="email-address" class="sr-only"
-                        >Email address</label
+                        >{$_("login.Email address")}</label
                     >
                     <input
                         id="email-address"
@@ -49,11 +41,13 @@
                         autocomplete="email"
                         required
                         class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        placeholder="Email address"
+                        placeholder={$_("login.Email address")}
                     />
                 </div>
                 <div>
-                    <label for="password" class="sr-only">Password</label>
+                    <label for="password" class="sr-only"
+                        >{$_("login.Password")}</label
+                    >
                     <input
                         id="password"
                         name="password"
@@ -61,7 +55,7 @@
                         autocomplete="current-password"
                         required
                         class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        placeholder="Password"
+                        placeholder={$_("login.Password")}
                     />
                 </div>
             </div>
@@ -77,15 +71,7 @@
                     <label
                         for="remember-me"
                         class="ml-2 block text-sm text-gray-900"
-                        >Remember me</label
-                    >
-                </div>
-
-                <div class="text-sm">
-                    <a
-                        href="#"
-                        class="font-medium text-indigo-600 hover:text-indigo-500"
-                        >Forgot your password?</a
+                        >{$_("login.Remember me")}</label
                     >
                 </div>
             </div>
@@ -111,7 +97,7 @@
                             />
                         </svg>
                     </span>
-                    Sign in
+                    {$_("login.Sign in")}
                 </button>
             </div>
         </form>
