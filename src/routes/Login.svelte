@@ -6,33 +6,62 @@
     // importing components
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
+    import Indicator from "../lib/Indicator.svelte";
 
+    let rememberMe = false;
     let email = "";
     let password = "";
+    let indicatorType;
+    let indicatorContent;
+
+    let indicatorVisible = false;
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
             let response = await authenticateUser(email, password);
-            // let res = await response.json();
-            // if (res.status >= 200 && res.status < 300) {
-            //     console.log("login success");
-            // } else if (res.status >= 400 && res.status < 500) {
-            //     console.log("unauthorized");
-            // } else if (res.status >= 500 && res.status < 600) {
-            //     console.log(
-            //         "an internal server error occurred, please try again"
-            //     );
-            // } else {
-            //     console.log("An error occurred");
-            // }
-            console.log(response);
+            if (response.status >= 200 && response.status < 300) {
+                indicateLoginSuccess();
+            } else if (response.status >= 400 && response.status < 500) {
+                indicateUnauthorized();
+            } else if (response.status >= 500 && response.status < 600) {
+                indicateInternalServerError();
+            } else {
+                indicateErrorOccurred();
+            }
         } catch (error) {
-            console.log("error is happening bruhh");
+            console.log(error);
         }
+    };
+
+    let indicateInternalServerError = () => {
+        indicatorType = "btn-error";
+        indicatorContent =
+            "an internal server error occurred, please try again";
+        indicatorVisible = true;
+    };
+    let indicateLoginSuccess = () => {
+        indicatorType = "btn-success";
+        indicatorContent = "login success";
+        indicatorVisible = true;
+    };
+    let indicateUnauthorized = () => {
+        indicatorType = "btn-error";
+        indicatorContent = "Invalid email or password. Please try again";
+        indicatorVisible = true;
+    };
+    let indicateErrorOccurred = () => {
+        indicatorType = "btn-warning";
+        indicatorContent = "an error occured, please try again";
+        indicatorVisible = true;
     };
 </script>
 
+<Indicator
+    bind:isVisible={indicatorVisible}
+    {indicatorContent}
+    {indicatorType}
+/>
 <div
     class="relative flex min-h-screen w-full items-center justify-center justify-self-center px-4 py-12 sm:px-6 lg:px-8"
 >
@@ -72,7 +101,7 @@
                         type="email"
                         autocomplete="email"
                         required
-                        class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
+                        class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
                         placeholder={$_("login.Email address")}
                     />
                 </div>
@@ -87,7 +116,7 @@
                         type="password"
                         autocomplete="current-password"
                         required
-                        class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
+                        class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
                         placeholder={$_("login.Password")}
                     />
                 </div>
@@ -96,6 +125,7 @@
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <input
+                        bind:checked={rememberMe}
                         id="remember-me"
                         name="remember-me"
                         type="checkbox"
