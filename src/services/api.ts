@@ -48,6 +48,16 @@ const put = (url, body) => apiRequest("put", url, body);
 // function to execute the http patch request
 const patch = (url, body) => apiRequest("patch", url, body);
 
+// making an axios interceptor to return all responses (including error responses)
+axiosAPI.interceptors.response.use(
+    (response) => {
+        return response;
+    },
+    (error) => {
+        return error.response;
+    }
+);
+
 // expose your method to other services or actions
 const api = {
     get,
