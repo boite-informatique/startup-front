@@ -26,7 +26,7 @@ const apiRequest = (method, url, body) => {
         headers,
     })
         .then((res) => {
-            return Promise.resolve(res.data);
+            return Promise.resolve(res);
         })
         .catch((err) => {
             return Promise.reject(err);
