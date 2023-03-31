@@ -1,10 +1,36 @@
 <script>
     // importing Modules
     import { _ } from "svelte-i18n";
+    import authenticateUser from "../api/authentication";
 
     // importing components
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
+
+    let email = "";
+    let password = "";
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            let response = await authenticateUser(email, password);
+            // let res = await response.json();
+            // if (res.status >= 200 && res.status < 300) {
+            //     console.log("login success");
+            // } else if (res.status >= 400 && res.status < 500) {
+            //     console.log("unauthorized");
+            // } else if (res.status >= 500 && res.status < 600) {
+            //     console.log(
+            //         "an internal server error occurred, please try again"
+            //     );
+            // } else {
+            //     console.log("An error occurred");
+            // }
+            console.log(response);
+        } catch (error) {
+            console.log("error is happening bruhh");
+        }
+    };
 </script>
 
 <div
@@ -27,7 +53,12 @@
                 {$_("login.Sign in to your account")}
             </div>
         </div>
-        <form class="mt-8 space-y-6" action="#" method="POST">
+        <form
+            class="mt-8 space-y-6"
+            action="#"
+            method="POST"
+            on:submit|preventDefault={handleFormSubmit}
+        >
             <input type="hidden" name="remember" value="true" />
             <div class="-space-y-px rounded-md shadow-sm">
                 <div>
@@ -35,6 +66,7 @@
                         >{$_("login.Email address")}</label
                     >
                     <input
+                        bind:value={email}
                         id="email-address"
                         name="email"
                         type="email"
@@ -49,6 +81,7 @@
                         >{$_("login.Password")}</label
                     >
                     <input
+                        bind:value={password}
                         id="password"
                         name="password"
                         type="password"

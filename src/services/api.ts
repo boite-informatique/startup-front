@@ -5,7 +5,7 @@ const axiosAPI = axios.create({
     baseURL: "http://localhost:3001/",
 });
 
-const apiRequest = (method, url, request) => {
+const apiRequest = (method, url, body) => {
     // get authorization token from localstorage
     let token = localStorage.getItem("token");
 
@@ -22,7 +22,7 @@ const apiRequest = (method, url, request) => {
     return axiosAPI({
         method,
         url,
-        data: request,
+        data: body,
         headers,
     })
         .then((res) => {
@@ -40,13 +40,13 @@ const get = (url) => apiRequest("get", url, {}); // passed {} for body because u
 const deleteRequest = (url) => apiRequest("delete", url, {}); // passed {} for body because usually delete requests don't have a body
 
 // function to execute the http post request
-const post = (url, request) => apiRequest("post", url, request);
+const post = (url, body) => apiRequest("post", url, body);
 
 // function to execute the http put request
-const put = (url, request) => apiRequest("put", url, request);
+const put = (url, body) => apiRequest("put", url, body);
 
 // function to execute the http patch request
-const patch = (url, request) => apiRequest("patch", url, request);
+const patch = (url, body) => apiRequest("patch", url, body);
 
 // expose your method to other services or actions
 const api = {
