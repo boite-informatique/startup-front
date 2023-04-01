@@ -2,11 +2,14 @@
     // importing Modules
     import { _ } from "svelte-i18n";
     import authenticateUser from "../api/authentication";
+    import { useNavigate } from "svelte-navigator";
 
     // importing components
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
     import Indicator from "../lib/Indicator.svelte";
+
+    const navigate = useNavigate();
 
     let rememberMe = false;
     let email = "";
@@ -22,6 +25,7 @@
             let response = await authenticateUser(email, password);
             if (response.status >= 200 && response.status < 300) {
                 indicateLoginSuccess();
+                navigate("/");
             } else if (response.status >= 400 && response.status < 500) {
                 indicateUnauthorized();
             } else if (response.status >= 500 && response.status < 600) {
