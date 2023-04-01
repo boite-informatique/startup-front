@@ -1,4 +1,8 @@
 <script>
+    // importing components
+    import HomeAuthorizedUser from "../lib/HomeAuthorizedUser.svelte";
+    import HomeUnauthorizedUser from "../lib/HomeUnauthorizedUser.svelte";
+
     let userIsLoggedIn;
 
     if (localStorage.getItem("token") || sessionStorage.getItem("token")) {
@@ -10,7 +14,7 @@
 </script>
 
 {#if userIsLoggedIn}
-    user is logged in
+    <HomeAuthorizedUser />
 {:else}
-    user is not logged in
+    <HomeUnauthorizedUser />
 {/if}
