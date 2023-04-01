@@ -24,6 +24,9 @@
             let response = await authenticateUser(email, password);
             if (response.status >= 200 && response.status < 300) {
                 indicateLoginSuccess();
+                // write token in sessionStorage or localStorage
+                const storageType = rememberMe ? localStorage : sessionStorage;
+                storageType.setItem("token", response.data.token);
                 navigate("/");
             } else if (response.status >= 400 && response.status < 500) {
                 indicateUnauthorized();
