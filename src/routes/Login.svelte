@@ -8,7 +8,7 @@
     // importing components
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
-    import Indicator from "../lib/Indicator.svelte";
+    import MesrsLogo from "../lib/MesrsLogo.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -77,8 +77,9 @@
 </script>
 
 <div
-    class="relative flex min-h-screen w-full items-center justify-center justify-self-center px-4 py-12 sm:px-6 lg:px-8"
+    class="relative flex h-screen w-full items-center justify-center justify-self-center overflow-hidden px-4 py-12 sm:px-6 lg:px-8"
 >
+    <MesrsLogo />
     <div class="absolute top-5 right-5 flex gap-4">
         <DarkModeTogglerLogin />
         <LanguageMenuLogin />
@@ -143,7 +144,7 @@
                         id="remember-me"
                         name="remember-me"
                         type="checkbox"
-                        class="h-4 w-4 rounded border-gray-300 text-light focus:ring-light"
+                        class="z-20 h-4 w-4 rounded border-gray-300 text-light focus:ring-light"
                     />
                     <label
                         for="remember-me"
