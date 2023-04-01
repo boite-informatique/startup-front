@@ -36,23 +36,28 @@
 
     let indicateInternalServerError = () => {
         indicatorType = "btn-error";
-        indicatorContent =
-            "an internal server error occurred, please try again";
+        indicatorContent = $_(
+            "login.indicator.an internal server error occurred, please try again"
+        );
         indicatorVisible = true;
     };
     let indicateLoginSuccess = () => {
         indicatorType = "btn-success";
-        indicatorContent = "login success";
+        indicatorContent = $_("login.indicator.login success");
         indicatorVisible = true;
     };
     let indicateUnauthorized = () => {
         indicatorType = "btn-error";
-        indicatorContent = "Invalid email or password. Please try again";
+        indicatorContent = $_(
+            "login.indicator.Invalid email or password. Please try again"
+        );
         indicatorVisible = true;
     };
     let indicateErrorOccurred = () => {
         indicatorType = "btn-warning";
-        indicatorContent = "an error occured, please try again";
+        indicatorContent = $_(
+            "login.indicator.an error occured, please try again"
+        );
         indicatorVisible = true;
     };
 </script>
