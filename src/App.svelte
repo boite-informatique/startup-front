@@ -4,6 +4,7 @@
 
     // importing routes
     import Login from "./routes/Login.svelte";
+    import Home from "./routes/Home.svelte";
 
     // importing components
     import Indicator from "./lib/Indicator.svelte";
@@ -29,6 +30,9 @@
     <main class="flex min-h-screen flex-col items-center justify-between">
         <Route path="login">
             <Login on:showIndicator={showIndicator} />
+        </Route>
+        <Route path="/">
+            <Home />
         </Route>
     </main>
 </Router>
