@@ -3,21 +3,20 @@
     import { _ } from "svelte-i18n";
     import authenticateUser from "../api/authentication";
     import { useNavigate } from "svelte-navigator";
+    import { createEventDispatcher } from "svelte";
 
     // importing components
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
     import Indicator from "../lib/Indicator.svelte";
 
+    const dispatch = createEventDispatcher();
+
     const navigate = useNavigate();
 
     let rememberMe = false;
     let email = "";
     let password = "";
-    let indicatorType;
-    let indicatorContent;
-
-    let indicatorVisible = false;
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -39,38 +38,41 @@
     };
 
     let indicateInternalServerError = () => {
-        indicatorType = "btn-error";
-        indicatorContent = $_(
-            "login.indicator.an internal server error occurred, please try again"
-        );
-        indicatorVisible = true;
+        dispatch("showIndicator", {
+            indicatorType: "btn-error",
+            indicatorContent: $_(
+                "login.indicator.an internal server error occurred, please try again"
+            ),
+            indicatorVisible: true,
+        });
     };
     let indicateLoginSuccess = () => {
-        indicatorType = "btn-success";
-        indicatorContent = $_("login.indicator.login success");
-        indicatorVisible = true;
+        dispatch("showIndicator", {
+            indicatorType: "btn-success",
+            indicatorContent: $_("login.indicator.login success"),
+            indicatorVisible: true,
+        });
     };
     let indicateUnauthorized = () => {
-        indicatorType = "btn-error";
-        indicatorContent = $_(
-            "login.indicator.Invalid email or password. Please try again"
-        );
-        indicatorVisible = true;
+        dispatch("showIndicator", {
+            indicatorType: "btn-error",
+            indicatorContent: $_(
+                "login.indicator.Invalid email or password. Please try again"
+            ),
+            indicatorVisible: true,
+        });
     };
     let indicateErrorOccurred = () => {
-        indicatorType = "btn-warning";
-        indicatorContent = $_(
-            "login.indicator.an error occured, please try again"
-        );
-        indicatorVisible = true;
+        dispatch("showIndicator", {
+            indicatorType: "btn-warning",
+            indicatorContent: $_(
+                "login.indicator.an error occured, please try again"
+            ),
+            indicatorVisible: true,
+        });
     };
 </script>
 
-<Indicator
-    bind:isVisible={indicatorVisible}
-    {indicatorContent}
-    {indicatorType}
-/>
 <div
     class="relative flex min-h-screen w-full items-center justify-center justify-self-center px-4 py-12 sm:px-6 lg:px-8"
 >

@@ -4,12 +4,31 @@
 
     // importing routes
     import Login from "./routes/Login.svelte";
+
+    // importing components
+    import Indicator from "./lib/Indicator.svelte";
+
+    let indicatorVisible = false;
+    let indicatorContent;
+    let indicatorType;
+
+    let showIndicator = (event) => {
+        indicatorContent = event.detail.indicatorContent;
+        indicatorType = event.detail.indicatorType;
+        indicatorVisible = event.detail.indicatorVisible;
+    };
 </script>
+
+<Indicator
+    bind:isVisible={indicatorVisible}
+    {indicatorContent}
+    {indicatorType}
+/>
 
 <Router>
     <main class="flex min-h-screen flex-col items-center justify-between">
         <Route path="login">
-            <Login />
+            <Login on:showIndicator={showIndicator} />
         </Route>
     </main>
 </Router>
