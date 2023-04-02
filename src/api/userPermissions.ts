@@ -6,7 +6,9 @@ import { userPermissions } from "../stores/userPermissions";
 const fetchUserPermissions = async () => {
     try {
         const response = await api.get("/users/permissions");
-        userPermissions.set(response.data);
+        if (response.status >= 200 && response.status < 300) {
+            userPermissions.set(response.data);
+        }
     } catch (error) {
         console.error(error);
     }
