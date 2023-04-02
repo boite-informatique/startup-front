@@ -11,5 +11,10 @@
             "Invalid email or password. Please try again": "e-mail ou mot de passe invalide. Veuillez réessayer",
             "an error occured, please try again": "Une erreur est survenue, veuillez réessayer"
         }
+    },
+    "admin": {
+        "indicator": {
+            "You are not authorized to access '/admin' route": "Vous n'êtes pas autorisé à accéder à la section '/admin'"
+        }
     }
 }

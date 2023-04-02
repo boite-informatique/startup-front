@@ -11,5 +11,10 @@
             "Invalid email or password. Please try again": "Invalid email or password. Please try again",
             "an error occured, please try again": "an error occured, please try again"
         }
+    },
+    "admin": {
+        "indicator": {
+            "You are not authorized to access '/admin' route": "You are not authorized to access '/admin' route"
+        }
     }
 }
