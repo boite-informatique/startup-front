@@ -2,8 +2,12 @@
     // importing modules
     import { _ } from "svelte-i18n";
     import { onMount } from "svelte";
-    import { useNavigate } from "svelte-navigator";
+    import { Route, useNavigate, useLocation } from "svelte-navigator";
     import { createEventDispatcher } from "svelte";
+
+    // importing routes
+    import AdminRoles from "./AdminRoles.svelte";
+    import AdminUsers from "./AdminUsers.svelte";
 
     // importing stores
     import { userPermissions } from "../stores/userPermissions";
@@ -22,6 +26,7 @@
         });
     };
 
+    const location = useLocation();
     onMount(() => {
         let userIsAdmin = $userPermissions.some(
             (obj) => obj.name === "canManageAll"
@@ -30,6 +35,18 @@
         if (!userIsAdmin) {
             indicateUnauthorizedToAccessAdmin();
             navigate("/");
+        } else {
+            if ($location.pathname == "/admin") {
+                navigate("/admin/users");
+            }
         }
     });
 </script>
+
+you are in admin
+<Route path="/users">
+    <AdminUsers />
+</Route>
+<Route path="/roles">
+    <AdminRoles />
+</Route>
