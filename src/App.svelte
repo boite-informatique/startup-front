@@ -1,6 +1,8 @@
 <script>
     // importing Modules
     import { Router, Route } from "svelte-navigator";
+    import { onMount } from "svelte";
+    import fetchUserPermissions from "./api/userPermissions";
 
     // importing routes
     import Login from "./routes/Login.svelte";
@@ -18,6 +20,10 @@
         indicatorType = event.detail.indicatorType;
         indicatorVisible = event.detail.indicatorVisible;
     };
+
+    onMount(async () => {
+        await fetchUserPermissions();
+    });
 </script>
 
 <Indicator

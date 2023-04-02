@@ -2,6 +2,7 @@
     // importing Modules
     import { _ } from "svelte-i18n";
     import authenticateUser from "../api/authentication";
+    import fetchUserPermissions from "../api/userPermissions";
     import { useNavigate } from "svelte-navigator";
     import { createEventDispatcher } from "svelte";
 
@@ -27,6 +28,7 @@
                 // write token in sessionStorage or localStorage
                 const storageType = rememberMe ? localStorage : sessionStorage;
                 storageType.setItem("token", response.data.token);
+                await fetchUserPermissions();
                 navigate("/");
             } else if (response.status >= 400 && response.status < 500) {
                 indicateUnauthorized();
