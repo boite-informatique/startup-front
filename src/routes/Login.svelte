@@ -24,7 +24,6 @@
         try {
             let response = await authenticateUser(email, password);
             if (response.status >= 200 && response.status < 300) {
-                indicateLoginSuccess();
                 // write token in sessionStorage or localStorage
                 const storageType = rememberMe ? localStorage : sessionStorage;
                 storageType.setItem("token", response.data.token);
@@ -48,13 +47,6 @@
             indicatorContent: $_(
                 "login.indicator.an internal server error occurred, please try again"
             ),
-            indicatorVisible: true,
-        });
-    };
-    let indicateLoginSuccess = () => {
-        dispatch("showIndicator", {
-            indicatorType: "btn-success",
-            indicatorContent: $_("login.indicator.login success"),
             indicatorVisible: true,
         });
     };
