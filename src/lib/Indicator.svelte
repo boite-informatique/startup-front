@@ -34,7 +34,7 @@
             delay: 0,
             opacity: 0,
         }}
-        class="absolute top-0 left-0 flex h-20 w-screen select-none items-center justify-center overflow-hidden"
+        class="absolute top-0 left-0 z-50 flex h-20 w-screen select-none items-center justify-center overflow-hidden"
     >
         <div
             class="{indicatorType} no-animation btn-xs btn z-30 cursor-auto ring-2 ring-gray-800 sm:btn-sm md:btn-md dark:ring-gray-200"

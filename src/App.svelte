@@ -11,6 +11,13 @@
 
     // importing components
     import Indicator from "./lib/Indicator.svelte";
+    import Navbar from "./lib/Navbar.svelte";
+    import Menu from "./lib/Menu.svelte";
+
+    let menu = false;
+    const toggleMenu = () => {
+        menu = !menu;
+    };
 
     let indicatorVisible = false;
     let indicatorContent;
@@ -39,6 +46,9 @@
 
     <Router>
         <main class="flex min-h-screen flex-col items-center justify-between">
+            <Navbar on:toggleMenu={toggleMenu} />
+            <Menu {menu} />
+
             <Route path="login">
                 <Login on:showIndicator={showIndicator} />
             </Route>
