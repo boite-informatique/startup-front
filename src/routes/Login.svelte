@@ -29,7 +29,7 @@
                 const storageType = rememberMe ? localStorage : sessionStorage;
                 storageType.setItem("token", response.data.token);
                 await fetchUserPermissions();
-                navigate("/");
+                window.location.href = "/";
             } else if (response.status >= 400 && response.status < 500) {
                 indicateUnauthorized();
             } else if (response.status >= 500 && response.status < 600) {
