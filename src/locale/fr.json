@@ -1,4 +1,11 @@
 {
+    "navbar": {
+        "admin": "admin",
+        "projects": "projets",
+        "announcements": "annonces",
+        "profile": "profil",
+        "my project": "mon projet"
+    },
     "login": {
         "Sign in to your account": "Connectez-vous à votre compte",
         "Email address": "Adresse email",

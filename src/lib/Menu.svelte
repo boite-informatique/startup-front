@@ -3,6 +3,7 @@
     import { userPermissions } from "../stores/userPermissions";
     import routes from "../config/routesList";
     import { useLocation } from "svelte-navigator";
+    import { _ } from "svelte-i18n";
 
     export let menu;
 
@@ -57,7 +58,7 @@
                         d="M9 5l7 7-7 7"
                     /></svg
                 >
-                <Link to="/{route.path}">{route.path}</Link>
+                <Link to="/{route.path}">{$_(`navbar.${route.path}`)}</Link>
             </div>
         {:else}
             <div class="flex justify-start gap-4 px-2">

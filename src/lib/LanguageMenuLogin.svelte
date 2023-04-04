@@ -29,7 +29,7 @@
     <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <ul
         tabindex="0"
-        class="dropdown-content menu mt-2 w-52 rounded-md bg-black bg-opacity-20 p-2 text-gray-800 shadow dark:bg-white dark:bg-opacity-20 dark:text-slate-300"
+        class="dropdown-content menu mt-2 w-52 rounded-md bg-black bg-opacity-20 p-2 font-medium text-gray-800 shadow backdrop-blur-lg dark:bg-white dark:bg-opacity-20 dark:text-slate-300"
     >
         <!-- svelte-ignore a11y-missing-attribute -->
         <!-- svelte-ignore a11y-click-events-have-key-events -->

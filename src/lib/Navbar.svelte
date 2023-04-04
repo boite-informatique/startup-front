@@ -4,6 +4,7 @@
     import { useLocation } from "svelte-navigator";
     import { fly } from "svelte/transition";
     import { quintInOut } from "svelte/easing";
+    import { _ } from "svelte-i18n";
     import { userPermissions } from "../stores/userPermissions";
     import innoviumLogo from "../assets/innovium_logos/innovium_light.png";
     import routes from "../config/routesList";
@@ -129,7 +130,9 @@
                             ? 'opacity-100'
                             : 'opacity-60'} transition-all"
                     >
-                        <Link to="/{route.path}">{route.path}</Link>
+                        <Link to="/{route.path}"
+                            >{$_(`navbar.${route.path}`)}</Link
+                        >
                         <span
                             class="absolute -bottom-1 left-0 h-1 {$location.pathname.startsWith(
                                 `/${route.path}`
