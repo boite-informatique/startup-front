@@ -13,9 +13,9 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
     on:click={toggleDarkMode}
-    class="flex cursor-pointer select-none flex-row items-center gap-3 rounded-md bg-black bg-opacity-20 py-2 px-3 font-semibold text-gray-800 transition-all duration-300 hover:scale-[1.02] hover:bg-opacity-25 dark:bg-white dark:bg-opacity-20 dark:text-slate-300 dark:hover:bg-opacity-25"
+    class="flex cursor-pointer select-none flex-row items-center gap-3 rounded-md bg-black bg-opacity-20 py-2 px-2 font-semibold text-gray-800 transition-all duration-300 hover:scale-[1.02] hover:bg-opacity-25 dark:bg-white dark:bg-opacity-20 dark:text-slate-300 dark:hover:bg-opacity-25 md:px-3"
 >
-    <div>Mode</div>
+    <div class="hidden md:block">Mode</div>
     <label class="swap-rotate swap -mt-1">
         <!-- this hidden checkbox controls the state -->
         <input type="checkbox" class="hidden" bind:checked />
@@ -24,7 +24,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <svg
             on:click={toggleDarkMode}
-            class="swap-on h-7 w-7 translate-y-1 fill-gray-800 dark:fill-slate-300"
+            class="swap-on h-6 w-6 translate-y-1 fill-gray-800 dark:fill-slate-300 md:h-7 md:w-7"
             style="--tw-translate-y: 3px;
             transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));"
             xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <svg
             on:click={toggleDarkMode}
-            class="swap-off h-7 w-7 translate-y-1 fill-gray-800 dark:fill-slate-300"
+            class="swap-off h-6 w-6 translate-y-1 fill-gray-800 dark:fill-slate-300 md:h-7 md:w-7"
             style="--tw-translate-y: 3px;
             transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));"
             xmlns="http://www.w3.org/2000/svg"

@@ -148,7 +148,7 @@
         <!-- added this to take the place of the darkMode btn and language button since they are absolute -->
     </nav>
     <div
-        class="absolute right-5 top-5 z-50 flex gap-4"
+        class="absolute right-5 top-5 z-50 flex gap-3 md:gap-4"
         in:fly={{
             x: 40,
             duration: 500,
