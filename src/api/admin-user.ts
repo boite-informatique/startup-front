@@ -15,9 +15,8 @@ type ModifyUserPayload = {
 };
 
 export const fetchUsers = async (query?: FetchUsersQuery) => {
-    //todo add query params to request
     try {
-        const response = await api.get("/users");
+        const response = await api.getWithQuery("/users", query);
         return response;
     } catch (error) {
         console.error(error);

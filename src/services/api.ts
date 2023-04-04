@@ -7,7 +7,7 @@ const axiosAPI = axios.create({
     baseURL: baseURL,
 });
 
-const apiRequest = (method, url, body) => {
+const apiRequest = (method, url, body, params?) => {
     // get authorization token from localstorage
     let token = localStorage.getItem("token");
 
@@ -26,6 +26,7 @@ const apiRequest = (method, url, body) => {
         url,
         data: body,
         headers,
+        params,
     })
         .then((res) => {
             return Promise.resolve(res);
@@ -37,6 +38,11 @@ const apiRequest = (method, url, body) => {
 
 // function to execute the http get request
 const get = (url) => apiRequest("get", url, {}); // passed {} for body because usually get requests don't have a body
+
+// function to execute the http get request with query parameters
+const getWithQuery = (url, params) => {
+    return apiRequest("get", url, {}, params); // passed {} for body because usually get requests don't have a body
+};
 
 // function to execute the http delete request
 const deleteRequest = (url) => apiRequest("delete", url, {}); // passed {} for body because usually delete requests don't have a body
@@ -63,6 +69,7 @@ axiosAPI.interceptors.response.use(
 // expose your method to other services or actions
 const api = {
     get,
+    getWithQuery,
     delete: deleteRequest,
     post,
     put,
