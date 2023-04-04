@@ -6,6 +6,16 @@
         "profile": "profil",
         "my project": "mon projet"
     },
+    "sidebar": {
+        "admin": {
+            "users": "utilisateurs",
+            "roles": "rôles"
+        },
+        "projects": {},
+        "announcements": {},
+        "profile": {},
+        "my project": {}
+    },
     "login": {
         "Sign in to your account": "Connectez-vous à votre compte",
         "Email address": "Adresse email",
