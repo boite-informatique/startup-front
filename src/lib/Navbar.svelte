@@ -124,9 +124,9 @@
                             opacity: 0,
                             easing: quintInOut,
                         }}
-                        class="relative cursor-pointer px-2 hover:opacity-100 {$location.pathname.startsWith(
-                            `/${route.path}`
-                        )
+                        class="relative cursor-pointer px-2 hover:opacity-100 {$location.pathname
+                            .replace(/%20/g, ' ')
+                            .startsWith(`/${route.path}`)
                             ? 'opacity-100'
                             : 'opacity-60'} transition-all"
                     >
@@ -134,9 +134,9 @@
                             >{$_(`navbar.${route.path}`)}</Link
                         >
                         <span
-                            class="absolute -bottom-1 left-0 h-1 {$location.pathname.startsWith(
-                                `/${route.path}`
-                            )
+                            class="absolute -bottom-1 left-0 h-1 {$location.pathname
+                                .replace(/%20/g, ' ')
+                                .startsWith(`/${route.path}`)
                                 ? 'w-full'
                                 : 'w-0'}  bg-slate-900 bg-opacity-90 transition-all group-hover:w-full dark:bg-light dark:bg-opacity-90"
                         />
