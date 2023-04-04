@@ -59,7 +59,7 @@
             <Navbar on:toggleMenu={toggleMenu} />
             <Menu {menu} />
 
-            <div class="h-full w-full">
+            <div class="flex h-full w-full flex-1 flex-col lg:flex-row">
                 {#if userIsLoggedIn}
                     <Sidebar />
                 {/if}

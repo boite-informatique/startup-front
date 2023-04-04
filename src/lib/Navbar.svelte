@@ -50,7 +50,7 @@
 
 {#if showNavbar}
     <nav
-        class="sticky top-0 z-10 flex w-full select-none items-center justify-between overflow-visible overflow-x-hidden bg-light bg-opacity-10 py-3 pr-1 backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-50 lg:px-5"
+        class="sticky top-0 z-10 flex w-full select-none items-center justify-between overflow-visible overflow-x-hidden bg-light bg-opacity-10 py-3 pr-1 shadow-lg backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-50 lg:px-5"
     >
         <button
             in:fly={{

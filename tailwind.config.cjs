@@ -4,6 +4,9 @@ const config = {
 
     theme: {
         extend: {
+            boxShadow: {
+                left: "3px 0 15px -3px rgba(0, 0, 0, 0.3)",
+            },
             colors: {
                 darkest: "#2C3333",
                 dark: "#2E4F4F",
