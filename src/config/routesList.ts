@@ -16,6 +16,6 @@ let routesByUsers = {
         { path: "announcements", index: 1 },
         { path: "profile", index: 2 },
     ],
-    guest: [{ path: "haja", index: 0 }],
+    guest: [],
 };
 export default routesByUsers;
