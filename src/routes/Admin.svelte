@@ -41,9 +41,12 @@
             }
         }
     });
+
+    $: if ($location.pathname == "/admin") {
+        navigate("/admin/users");
+    }
 </script>
 
-you are in admin
 <Route path="/users">
     <AdminUsers />
 </Route>
