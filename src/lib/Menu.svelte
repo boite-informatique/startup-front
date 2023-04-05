@@ -39,7 +39,7 @@
 
 {#if showMenu}
     <div
-        class="fixed top-24 z-10 flex flex-col gap-3 rounded-r-lg bg-light bg-opacity-25 py-3 pl-1 pr-3 text-xl capitalize text-gray-900 transition-all duration-1000 dark:bg-gray-700 dark:text-white lg:hidden {menu
+        class="fixed top-24 z-40 flex flex-col gap-3 rounded-r-lg bg-black bg-opacity-20 py-3 pl-1 pr-3 text-xl capitalize text-gray-800 shadow backdrop-blur-md transition-all duration-1000 dark:bg-white dark:bg-opacity-20 dark:text-slate-300 lg:hidden {menu
             ? 'left-0 opacity-100'
             : '-left-32 opacity-0'}"
     >

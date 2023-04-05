@@ -60,7 +60,7 @@
                 opacity: 0,
                 easing: quintInOut,
             }}
-            class="rounded-r-2xl bg-indigo-300 py-1 pl-1 pr-2 dark:bg-gray-700 lg:hidden"
+            class="rounded-r-2xl bg-black bg-opacity-20 py-1 pl-1 pr-2 text-gray-800 dark:bg-white dark:bg-opacity-20 dark:text-slate-300 lg:hidden"
         >
             <label class="swap-rotate swap">
                 <!-- this hidden checkbox controls the state -->
@@ -148,7 +148,7 @@
         <!-- added this to take the place of the darkMode btn and language button since they are absolute -->
     </nav>
     <div
-        class="absolute right-5 top-5 z-50 flex gap-3 md:gap-4"
+        class="fixed right-5 top-5 z-50 flex gap-3 md:gap-4"
         in:fly={{
             x: 40,
             duration: 500,
