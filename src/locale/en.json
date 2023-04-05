@@ -32,6 +32,13 @@
     "admin": {
         "indicator": {
             "You are not authorized to access '/admin' route": "You are not authorized to access '/admin' route"
+        },
+        "users": {
+            "add a user": "add a user",
+            "filter users by...": "filter users by...",
+            "first name": "first name",
+            "sex": "sex",
+            "type": "type"
         }
     }
 }
