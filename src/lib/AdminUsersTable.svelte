@@ -1,8 +1,8 @@
-<div class="w-full overflow-x-auto">
+<div class="h-[400px] w-full overflow-x-auto rounded-lg scrollbar-hide">
     <table class="table w-full">
         <!-- head -->
         <thead>
-            <tr>
+            <tr class="sticky top-0 z-10 bg-opacity-100 backdrop-blur-md">
                 <th />
                 <th>User</th>
                 <th>type</th>
@@ -14,7 +14,7 @@
         <tbody>
             <!-- duplicate -->
             <tr>
-                <th>
+                <td>
                     <!-- <label>
                         <input
                             type="checkbox"
@@ -33,7 +33,7 @@
                         disabled
                         checked
                     />
-                </th>
+                </td>
                 <td>
                     <div class="flex items-center space-x-3">
                         <div class="avatar">

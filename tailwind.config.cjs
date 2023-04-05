@@ -16,7 +16,11 @@ const config = {
         },
     },
 
-    plugins: [require("daisyui"), require("@tailwindcss/forms")],
+    plugins: [
+        require("daisyui"),
+        require("@tailwindcss/forms"),
+        require("tailwind-scrollbar-hide"),
+    ],
 };
 
 module.exports = config;
