@@ -38,7 +38,10 @@
             "filter users by...": "filter users by...",
             "first name": "first name",
             "sex": "sex",
-            "type": "type"
+            "type": "type",
+            "user": "user",
+            "roles": "roles",
+            "birthday infos": "birthday infos"
         }
     }
 }

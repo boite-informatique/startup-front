@@ -1,3 +1,7 @@
+<script>
+    import { _ } from "svelte-i18n";
+</script>
+
 <div class="h-[400px] w-full overflow-x-auto rounded-lg scrollbar-hide">
     <table class="table w-full">
         <!-- head -->
@@ -8,23 +12,23 @@
                 />
                 <th
                     class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
-                    >User</th
+                    >{$_("admin.users.user")}</th
                 >
                 <th
                     class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
-                    >type</th
+                    >{$_("admin.users.type")}</th
                 >
                 <th
                     class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
-                    >roles</th
+                    >{$_("admin.users.roles")}</th
                 >
                 <th
                     class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
-                    >sex</th
+                    >{$_("admin.users.sex")}</th
                 >
                 <th
                     class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
-                    >birth infos</th
+                    >{$_("admin.users.birthday infos")}</th
                 >
             </tr>
         </thead>

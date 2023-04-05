@@ -38,7 +38,10 @@
             "filter users by...": "filtrer les utilisateurs par...",
             "first name": "prénom",
             "sex": "sexe",
-            "type": "type"
+            "type": "type",
+            "user": "utilisateur",
+            "roles": "rôles",
+            "birthday infos": "infos de naissance"
         }
     }
 }
