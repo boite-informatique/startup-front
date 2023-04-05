@@ -25,12 +25,12 @@
     );
 
     let sidebarList;
-    if (userIsStudent) {
-        sidebarList = allSidebarList.student;
+    if (userIsAdmin) {
+        sidebarList = allSidebarList.admin;
     } else if (userIsTeacher) {
         sidebarList = allSidebarList.teacher;
-    } else if (userIsAdmin) {
-        sidebarList = allSidebarList.admin;
+    } else if (userIsStudent) {
+        sidebarList = allSidebarList.student;
     }
 </script>
 

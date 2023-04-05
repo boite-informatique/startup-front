@@ -20,12 +20,12 @@
     );
 
     let routesList;
-    if (userIsStudent) {
-        routesList = routes.student;
+    if (userIsAdmin) {
+        routesList = routes.admin;
     } else if (userIsTeacher) {
         routesList = routes.teacher;
-    } else if (userIsAdmin) {
-        routesList = routes.admin;
+    } else if (userIsStudent) {
+        routesList = routes.student;
     } else {
         routesList = routes.guest;
     }
