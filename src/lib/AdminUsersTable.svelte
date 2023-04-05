@@ -3,18 +3,37 @@
         <!-- head -->
         <thead>
             <tr class="sticky top-0 z-10 bg-opacity-100 backdrop-blur-md">
-                <th />
-                <th>User</th>
-                <th>type</th>
-                <th>roles</th>
-                <th>sex</th>
-                <th>birth infos</th>
+                <th
+                    class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
+                />
+                <th
+                    class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
+                    >User</th
+                >
+                <th
+                    class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
+                    >type</th
+                >
+                <th
+                    class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
+                    >roles</th
+                >
+                <th
+                    class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
+                    >sex</th
+                >
+                <th
+                    class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
+                    >birth infos</th
+                >
             </tr>
         </thead>
         <tbody>
             <!-- duplicate -->
             <tr>
-                <td>
+                <td
+                    class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                >
                     <!-- <label>
                         <input
                             type="checkbox"
@@ -28,13 +47,15 @@
 
                     <input
                         type="checkbox"
-                        class="checkbox cursor-default"
+                        class="checkbox cursor-default ring-1 ring-black"
                         style="cursor: default;"
                         disabled
                         checked
                     />
                 </td>
-                <td>
+                <td
+                    class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                >
                     <div class="flex items-center space-x-3">
                         <div class="avatar">
                             <div class="mask mask-squircle h-12 w-12">
@@ -55,7 +76,7 @@
                     </div>
                 </td>
                 <td
-                    class="cursor-pointer font-bold transition-all duration-300 hover:bg-opacity-75"
+                    class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
                 >
                     student
                     <br />
@@ -64,7 +85,7 @@
                     >
                 </td>
                 <td
-                    class="cursor-pointer font-bold transition-all duration-300 hover:bg-opacity-75"
+                    class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
                 >
                     3 roles
                     <br />
@@ -72,8 +93,13 @@
                         >click to see more</span
                     >
                 </td>
-                <td class="capitalize">male</td>
-                <td>
+                <td
+                    class="bg-gray-200 capitalize text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                    >male</td
+                >
+                <td
+                    class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                >
                     10-12-2002
                     <br />
                     <span class="text-sm font-medium opacity-90"
