@@ -29,6 +29,8 @@
                 storageType.setItem("token", response.data.token);
                 await fetchUserPermissions();
                 window.location.href = "/";
+            } else if (response.status == 403) {
+                indicateDeactivatedAccount();
             } else if (response.status >= 400 && response.status < 500) {
                 indicateUnauthorized();
             } else if (response.status >= 500 && response.status < 600) {
@@ -47,6 +49,13 @@
             indicatorContent: $_(
                 "login.indicator.an internal server error occurred, please try again"
             ),
+            indicatorVisible: true,
+        });
+    };
+    let indicateDeactivatedAccount = () => {
+        dispatch("showIndicator", {
+            indicatorType: "btn-error",
+            indicatorContent: $_("login.indicator.this account is deactivated"),
             indicatorVisible: true,
         });
     };

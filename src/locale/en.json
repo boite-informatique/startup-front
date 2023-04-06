@@ -26,7 +26,8 @@
             "an internal server error occurred, please try again": "an internal server error occurred, please try again",
             "login success": "login success",
             "Invalid email or password. Please try again": "Invalid email or password. Please try again",
-            "an error occured, please try again": "an error occured, please try again"
+            "an error occured, please try again": "an error occured, please try again",
+            "this account is deactivated": "this account is deactivated"
         }
     },
     "admin": {

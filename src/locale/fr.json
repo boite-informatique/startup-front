@@ -26,7 +26,8 @@
             "an internal server error occurred, please try again": "Une erreur interne du serveur est survenue, veuillez réessayer",
             "login success": "Connexion réussie",
             "Invalid email or password. Please try again": "e-mail ou mot de passe invalide. Veuillez réessayer",
-            "an error occured, please try again": "Une erreur est survenue, veuillez réessayer"
+            "an error occured, please try again": "Une erreur est survenue, veuillez réessayer",
+            "this account is deactivated": "Ce compte est désactivé"
         }
     },
     "admin": {
