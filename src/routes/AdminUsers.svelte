@@ -4,6 +4,11 @@
     import AddUser from "../lib/AddUser.svelte";
     import AdminUsersTable from "../lib/AdminUsersTable.svelte";
     import PaginationButtons from "../lib/PaginationButtons.svelte";
+
+    let filter = {};
+    let applyFilters = (e) => {
+        filter = e.detail;
+    };
 </script>
 
 <div class="flex w-full flex-col gap-4 p-4 md:gap-5 md:px-12 md:pt-7">
@@ -12,9 +17,9 @@
         class="-mb-2 flex flex-col items-center justify-between gap-2 md:flex-row"
     >
         <AddUser />
-        <UserFilter />
+        <UserFilter on:applyFilters={applyFilters} />
     </div>
-    <AdminUsersTable />
+    <AdminUsersTable {filter} />
     <div class="flex w-full items-center justify-end">
         <PaginationButtons />
     </div>
