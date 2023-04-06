@@ -41,7 +41,14 @@
             "type": "type",
             "user": "utilisateur",
             "roles": "rôles",
-            "birthday infos": "infos de naissance"
+            "birthday infos": "infos de naissance",
+            "no users available": "aucun utilisateur disponible",
+            "click to see more": "cliquer pour voir plus",
+            "loading": "chargement en cours",
+            "male": "homme",
+            "female": "femme",
+            "student": "étudiant",
+            "teacher": "enseignant"
         }
     }
 }

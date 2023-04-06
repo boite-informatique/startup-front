@@ -1,5 +1,8 @@
 <script>
+    import { fetchUserRoles, fetchUsers } from "../api/admin-user";
     import { _ } from "svelte-i18n";
+
+    let users = fetchUsers();
 </script>
 
 <div class="h-[400px] w-full overflow-x-auto rounded-lg scrollbar-hide">
@@ -33,85 +36,117 @@
             </tr>
         </thead>
         <tbody>
-            <!-- duplicate -->
-            <tr>
-                <td
-                    class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                >
-                    <!-- <label>
-                        <input
-                            type="checkbox"
-                            class="checkbox-primary checkbox cursor-default focus:ring-0"
-                            checked={true}
-                            on:click={(e) => {
-                                e.preventDefault();
-                            }}
-                        />
-                    </label> -->
-
-                    <input
-                        type="checkbox"
-                        class="checkbox cursor-default ring-1 ring-black"
-                        style="cursor: default;"
-                        disabled
-                        checked
-                    />
-                </td>
-                <td
-                    class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                >
-                    <div class="flex items-center space-x-3">
-                        <div class="avatar">
-                            <div class="mask mask-squircle h-12 w-12">
-                                <img
-                                    src="https://avatars.githubusercontent.com/u/100171494?v=4"
-                                    alt="Avatar Tailwind CSS Component"
+            {#await users}
+                <button class="btn loading">{$_("admin.users.loading")}</button>
+            {:then res}
+                {#each res.data as user}
+                    <tr>
+                        <td
+                            class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                        >
+                            {#if user.activated}
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        class="checkbox-primary checkbox cursor-default focus:ring-0"
+                                        checked={true}
+                                        on:click={(e) => {
+                                            e.preventDefault();
+                                        }}
+                                    />
+                                </label>
+                            {:else}
+                                <input
+                                    type="checkbox"
+                                    class="checkbox cursor-default ring-1 ring-black"
+                                    style="cursor: default;"
+                                    disabled
+                                    checked
                                 />
+                            {/if}
+                        </td>
+                        <td
+                            class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                        >
+                            <div class="flex items-center space-x-3">
+                                <div class="avatar">
+                                    <div class="mask mask-squircle h-12 w-12">
+                                        <img
+                                            src="https://avatars.githubusercontent.com/u/100171494?v=4"
+                                            alt="Avatar of a user"
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="font-bold">
+                                        {user.first_name}
+                                        {user.middle_name}
+                                        {user.last_name}
+                                    </div>
+                                    <div class="text-sm font-medium opacity-90">
+                                        {user.email}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="font-bold">
-                                ouzane mohamed chakib dhiyaa eddine
-                            </div>
-                            <div class="text-sm font-medium opacity-90">
-                                email
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td
-                    class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
-                >
-                    student
-                    <br />
-                    <span class="text-sm font-medium opacity-50"
-                        >click to see more</span
+                        </td>
+                        <td
+                            class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                        >
+                            {$_(`admin.users.${`${user.type}`.toLowerCase()}`)}
+                            <br />
+                            <span class="text-sm font-medium opacity-50"
+                                >{$_("admin.users.click to see more")}</span
+                            >
+                        </td>
+                        <td
+                            class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                        >
+                            {#await fetchUserRoles(user.id)}
+                                {$_("admin.users.loading")}
+                            {:then res}
+                                {res.data.length} {$_("admin.users.roles")}
+                            {:catch error}
+                                <p
+                                    class="text-red-800 dark:text-red-200 capitalize font-semibold"
+                                >
+                                    {error.message}
+                                </p>
+                            {/await}
+                            <br />
+                            <span class="text-sm font-medium opacity-50"
+                                >{$_("admin.users.click to see more")}</span
+                            >
+                        </td>
+                        <td
+                            class="bg-gray-200 capitalize text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                            >{$_(
+                                `admin.users.${`${user.sex}`.toLowerCase()}`
+                            )}</td
+                        >
+                        <td
+                            class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                        >
+                            {user.date_of_birth.split("T")[0]}
+                            <br />
+                            <span class="text-sm font-medium opacity-90"
+                                >{user.location_of_birth}</span
+                            >
+                        </td>
+                    </tr>
+                {:else}
+                    <p
+                        class="text-gray-800 dark:text-gray-200 text-center text-lg capitalize font-semibold"
                     >
-                </td>
-                <td
-                    class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                        {$_("admin.users.no users available")}
+                    </p>
+                {/each}
+            {:catch error}
+                <p
+                    class="text-red-800 dark:text-red-200 text-center text-lg capitalize font-semibold"
                 >
-                    3 roles
-                    <br />
-                    <span class="text-sm font-medium opacity-50"
-                        >click to see more</span
-                    >
-                </td>
-                <td
-                    class="bg-gray-200 capitalize text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                    >male</td
-                >
-                <td
-                    class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                >
-                    10-12-2002
-                    <br />
-                    <span class="text-sm font-medium opacity-90"
-                        >hammadia - tiaret</span
-                    >
-                </td>
-            </tr>
-            <!-- duplicate -->
+                    {error.message}
+                </p>
+            {/await}
         </tbody>
     </table>
 </div>

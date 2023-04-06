@@ -43,3 +43,12 @@ export const modifyOneUser = async (
         console.error(error);
     }
 };
+
+export const fetchUserRoles = async (userId: number) => {
+    try {
+        const response = await api.get(`/users/${userId}/roles`);
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
+};
