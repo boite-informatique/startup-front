@@ -1,8 +1,14 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     import { fetchUserRoles, fetchUsers } from "../api/admin-user";
     import { _ } from "svelte-i18n";
 
-    export let filter = {};
+    const dispatch = createEventDispatcher();
+
+    export let filter = {
+        skip: 0,
+        take: 10,
+    };
 
     $: users = fetchUsers(filter);
 </script>
@@ -42,6 +48,12 @@
                 <button class="btn loading">{$_("admin.users.loading")}</button>
             {:then res}
                 {#if res.status >= 200 && res.status < 300}
+                    <div class="hidden">
+                        {res.data.length < 10
+                            ? dispatch("stopPagination", true)
+                            : dispatch("stopPagination", false)}
+                        <!-- added this to indicate that pagination buttons should not show more indexes because we reached the end -->
+                    </div>
                     {#each res.data as user}
                         <tr>
                             <td

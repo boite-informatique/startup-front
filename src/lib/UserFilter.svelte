@@ -18,6 +18,8 @@
 
     let applyFilters = () => {
         filter = {
+            skip: 0,
+            take: 10,
             first_name: firstName,
             sex: sex,
             type: type,

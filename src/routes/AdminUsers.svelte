@@ -5,9 +5,22 @@
     import AdminUsersTable from "../lib/AdminUsersTable.svelte";
     import PaginationButtons from "../lib/PaginationButtons.svelte";
 
-    let filter = {};
+    let stopPagination = false; // this variable tells if the pagination should stop or not (in case user reached the end)
+
+    let pageIndex = 1;
+    let changePage = (e) => {
+        pageIndex = e.detail;
+        filter.skip = (pageIndex - 1) * 10;
+        filter.take = 10;
+    };
+
+    let filter = {
+        skip: 0,
+        take: 10,
+    };
     let applyFilters = (e) => {
         filter = e.detail;
+        pageIndex = 1;
     };
 </script>
 
@@ -19,8 +32,17 @@
         <AddUser />
         <UserFilter on:applyFilters={applyFilters} />
     </div>
-    <AdminUsersTable {filter} />
+    <AdminUsersTable
+        on:stopPagination={(e) => {
+            e.detail ? (stopPagination = true) : (stopPagination = false);
+        }}
+        {filter}
+    />
     <div class="flex w-full items-center justify-end">
-        <PaginationButtons />
+        <PaginationButtons
+            on:changePage={changePage}
+            {pageIndex}
+            {stopPagination}
+        />
     </div>
 </div>
