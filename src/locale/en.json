@@ -36,6 +36,7 @@
         "users": {
             "add a user": "add a user",
             "filter users by...": "filter users by...",
+            "no filter": "no filter",
             "first name": "first name",
             "sex": "sex",
             "type": "type",
@@ -48,7 +49,15 @@
             "male": "male",
             "female": "female",
             "student": "student",
-            "teacher": "teacher"
+            "teacher": "teacher",
+            "staff": "staff",
+            "filter": {
+                "apply filters": "apply filters",
+                "filter users as you like": "filter users as you like",
+                "Type here": "Type here",
+                "remove all filters": "remove all filters",
+                "cancel": "cancel"
+            }
         }
     }
 }

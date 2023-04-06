@@ -36,6 +36,7 @@
         "users": {
             "add a user": "ajouter un utilisateur",
             "filter users by...": "filtrer les utilisateurs par...",
+            "no filter": "pas de filtre",
             "first name": "prénom",
             "sex": "sexe",
             "type": "type",
@@ -45,10 +46,18 @@
             "no users available": "aucun utilisateur disponible",
             "click to see more": "cliquer pour voir plus",
             "loading": "chargement en cours",
-            "male": "homme",
-            "female": "femme",
+            "male": "masculin",
+            "female": "féminin",
             "student": "étudiant",
-            "teacher": "enseignant"
+            "teacher": "enseignant",
+            "staff": "employé",
+            "filter": {
+                "apply filters": "appliquer les filtres",
+                "filter users as you like": "filtrez les utilisateurs comme vous le souhaitez",
+                "Type here": "Tapez ici",
+                "remove all filters": "supprimer tous les filtres",
+                "cancel": "annuler"
+            }
         }
     }
 }
