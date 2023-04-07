@@ -52,6 +52,7 @@
             "student": "étudiant",
             "teacher": "enseignant",
             "staff": "employé",
+            "this user has the following roles": "cet utilisateur a les rôles suivants",
             "filter": {
                 "apply filters": "appliquer les filtres",
                 "filter users as you like": "filtrez les utilisateurs comme vous le souhaitez",

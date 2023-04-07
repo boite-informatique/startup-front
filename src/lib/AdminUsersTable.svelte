@@ -2,8 +2,12 @@
     import { createEventDispatcher } from "svelte";
     import { fetchUserRoles, fetchUsers } from "../api/admin-user";
     import { _ } from "svelte-i18n";
+    import RolesModal from "./RolesModal.svelte";
 
     const dispatch = createEventDispatcher();
+
+    let modalState = false;
+    let rolesData;
 
     export let filter = {
         skip: 0,
@@ -119,25 +123,53 @@
                                     >{$_("admin.users.click to see more")}</span
                                 >
                             </td>
-                            <td
-                                class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
-                            >
-                                {#await fetchUserRoles(user.id)}
+                            {#await fetchUserRoles(user.id)}
+                                <td
+                                    class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                                >
                                     {$_("admin.users.loading")}
-                                {:then res}
-                                    {res.data.length} {$_("admin.users.roles")}
-                                {:catch error}
+                                    <br />
+                                    <span class="text-sm font-medium opacity-50"
+                                        >{$_(
+                                            "admin.users.click to see more"
+                                        )}</span
+                                    >
+                                </td>
+                            {:then rolesRes}
+                                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                                <td
+                                    class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                                    on:click={() => {
+                                        modalState = true;
+                                        rolesData = rolesRes.data;
+                                    }}
+                                >
+                                    {rolesRes.data.length}
+                                    {$_("admin.users.roles")}
+                                    <br />
+                                    <span class="text-sm font-medium opacity-50"
+                                        >{$_(
+                                            "admin.users.click to see more"
+                                        )}</span
+                                    >
+                                </td>
+                            {:catch error}
+                                <td
+                                    class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                                >
                                     <p
                                         class="text-red-800 dark:text-red-200 capitalize font-semibold"
                                     >
                                         {error.message}
                                     </p>
-                                {/await}
-                                <br />
-                                <span class="text-sm font-medium opacity-50"
-                                    >{$_("admin.users.click to see more")}</span
-                                >
-                            </td>
+                                    <br />
+                                    <span class="text-sm font-medium opacity-50"
+                                        >{$_(
+                                            "admin.users.click to see more"
+                                        )}</span
+                                    >
+                                </td>
+                            {/await}
                             <td
                                 class="bg-gray-200 capitalize text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
                                 >{$_(
@@ -178,3 +210,5 @@
         </tbody>
     </table>
 </div>
+
+<RolesModal {rolesData} bind:modalState />
