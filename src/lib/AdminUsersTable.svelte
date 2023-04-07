@@ -4,11 +4,13 @@
     import { _ } from "svelte-i18n";
     import RolesModal from "./RolesModal.svelte";
     import UserTypeModal from "./UserTypeModal.svelte";
+    import ModifyUserModal from "./ModifyUserModal.svelte";
 
     const dispatch = createEventDispatcher();
 
     let modalState = false;
     let UserTypeModalState = false;
+    // let ModifyUserModalState = false;
     let rolesData;
     let UserTypeModalData;
     let UserType;
@@ -89,7 +91,10 @@
                                 {/if}
                             </td>
                             <td
-                                class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                                title={$_(
+                                    "admin.users.click to modify the user's informations"
+                                )}
+                                class="cursor-pointer bg-gray-200 text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800"
                             >
                                 <div class="flex items-center space-x-3">
                                     <div class="avatar">
@@ -237,3 +242,4 @@
 
 <RolesModal {rolesData} bind:modalState />
 <UserTypeModal {UserTypeModalData} {UserType} bind:UserTypeModalState />
+<ModifyUserModal />
