@@ -18,14 +18,22 @@
             class="btn-sm btn-circle btn absolute right-2 top-2 border border-gray-500 text-gray-200"
             >✕</label
         >
-        <h3 class="text-lg font-bold capitalize">
-            {$_("admin.users.this user has the following roles")} ({rolesData.length})
-            :
-        </h3>
-        <p class="flex flex-col py-4">
-            {#each rolesData as role}
-                <div class="text-lg font-medium capitalize">- {role.name}</div>
-            {/each}
-        </p>
+        {#if rolesData.length > 0}
+            <h3 class="text-lg font-bold capitalize">
+                {$_("admin.users.this user has the following roles")} ({rolesData.length})
+                :
+            </h3>
+            <p class="flex flex-col py-4">
+                {#each rolesData as role}
+                    <div class="text-lg font-medium capitalize">
+                        - {role.name}
+                    </div>
+                {/each}
+            </p>
+        {:else}
+            <h3 class="text-lg font-bold capitalize">
+                {$_("admin.users.this user has no roles")} ({rolesData.length})
+            </h3>
+        {/if}
     </div>
 </div>

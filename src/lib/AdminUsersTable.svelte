@@ -144,10 +144,13 @@
                                         rolesRes.status >= 200 &&
                                         rolesRes.status < 300
                                             ? (rolesData = rolesRes.data)
-                                            : null;
+                                            : (rolesData = []);
                                     }}
                                 >
-                                    {rolesRes.data.length}
+                                    {rolesRes.status >= 200 &&
+                                    rolesRes.status < 300
+                                        ? rolesRes.data.length
+                                        : 0}
                                     {$_("admin.users.roles")}
                                     <br />
                                     <span class="text-sm font-medium opacity-50"
