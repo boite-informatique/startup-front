@@ -3,11 +3,15 @@
     import { fetchUserRoles, fetchUsers } from "../api/admin-user";
     import { _ } from "svelte-i18n";
     import RolesModal from "./RolesModal.svelte";
+    import UserTypeModal from "./UserTypeModal.svelte";
 
     const dispatch = createEventDispatcher();
 
     let modalState = false;
+    let UserTypeModalState = false;
     let rolesData;
+    let UserTypeModalData;
+    let UserType;
 
     export let filter = {
         skip: 0,
@@ -112,8 +116,18 @@
                                     </div>
                                 </div>
                             </td>
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
                                 class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                                on:click={() => {
+                                    UserTypeModalState = true;
+                                    UserType = user.type;
+                                    if (user.type === "Student") {
+                                        UserTypeModalData = user.student;
+                                    } else if (user.type === "Teacher") {
+                                        UserTypeModalData = user.teacher;
+                                    }
+                                }}
                             >
                                 {$_(
                                     `admin.users.${`${user.type}`.toLowerCase()}`
@@ -218,3 +232,4 @@
 </div>
 
 <RolesModal {rolesData} bind:modalState />
+<UserTypeModal {UserTypeModalData} {UserType} bind:UserTypeModalState />
