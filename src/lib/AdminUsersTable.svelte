@@ -118,7 +118,7 @@
                             </td>
                             <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
-                                class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                                class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800"
                                 on:click={() => {
                                     UserTypeModalState = true;
                                     UserType = user.type;
@@ -143,7 +143,7 @@
                             </td>
                             {#await fetchUserRoles(user.id)}
                                 <td
-                                    class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                                    class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800"
                                 >
                                     {$_("admin.users.loading")}
                                     <br />
@@ -156,7 +156,7 @@
                             {:then rolesRes}
                                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                                 <td
-                                    class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                                    class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800"
                                     on:click={() => {
                                         modalState = true;
                                         rolesRes.status >= 200 &&
@@ -179,7 +179,7 @@
                                 </td>
                             {:catch error}
                                 <td
-                                    class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                                    class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800"
                                 >
                                     <p
                                         class="text-red-800 dark:text-red-200 capitalize font-semibold"

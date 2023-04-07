@@ -1,12 +1,16 @@
 <script>
     import { createEventDispatcher } from "svelte";
 
-    $: indexes = // this array stores the indexes that should appear in the pagination buttons
-        pageIndex in [1, 2, 3]
-            ? [1, 2, 3, 4]
-            : stopPagination
-            ? [pageIndex - 3, pageIndex - 2, pageIndex - 1, pageIndex]
-            : [pageIndex - 2, pageIndex - 1, pageIndex, pageIndex + 1];
+    let indexes;
+    $: {
+        indexes = // this array stores the indexes that should appear in the pagination buttons
+            pageIndex in [1, 2, 3]
+                ? [1, 2, 3, 4]
+                : stopPagination
+                ? [pageIndex - 3, pageIndex - 2, pageIndex - 1, pageIndex]
+                : [pageIndex - 2, pageIndex - 1, pageIndex, pageIndex + 1];
+        indexes[0] < 1 ? (indexes = [1, 2, 3, 4]) : null;
+    }
 
     const dispatch = createEventDispatcher();
     export let pageIndex = 1;
