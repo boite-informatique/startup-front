@@ -10,7 +10,7 @@
 
     let modalState = false;
     let UserTypeModalState = false;
-    // let ModifyUserModalState = false;
+    let ModifyUserModalState = false;
     let rolesData;
     let UserTypeModalData;
     let UserType;
@@ -90,7 +90,11 @@
                                     />
                                 {/if}
                             </td>
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
+                                on:click={() => {
+                                    ModifyUserModalState = true;
+                                }}
                                 title={$_(
                                     "admin.users.click to modify the user's informations"
                                 )}
@@ -242,4 +246,4 @@
 
 <RolesModal {rolesData} bind:modalState />
 <UserTypeModal {UserTypeModalData} {UserType} bind:UserTypeModalState />
-<ModifyUserModal />
+<ModifyUserModal bind:ModifyUserModalState />

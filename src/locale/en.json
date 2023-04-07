@@ -57,6 +57,11 @@
             "informations about the": "informations about the ",
             "no informations about the": "no informations about the ",
             "click to modify the user's informations": "click to modify the user's informations",
+            "password": "password",
+            "activated": "activated",
+            "modify the user's informations": "modify the user's informations",
+            "modified informations": "modified informations",
+            "save & close": "save & close",
             "filter": {
                 "apply filters": "apply filters",
                 "filter users as you like": "filter users as you like",
