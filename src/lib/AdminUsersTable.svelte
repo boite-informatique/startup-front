@@ -141,7 +141,10 @@
                                     class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-75 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
                                     on:click={() => {
                                         modalState = true;
-                                        rolesData = rolesRes.data;
+                                        rolesRes.status >= 200 &&
+                                        rolesRes.status < 300
+                                            ? (rolesData = rolesRes.data)
+                                            : null;
                                     }}
                                 >
                                     {rolesRes.data.length}

@@ -2,7 +2,7 @@
     import { _ } from "svelte-i18n";
 
     export let modalState = false;
-    export let rolesData;
+    export let rolesData = [];
 </script>
 
 <input
