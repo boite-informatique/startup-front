@@ -123,9 +123,13 @@
                                     UserTypeModalState = true;
                                     UserType = user.type;
                                     if (user.type === "Student") {
-                                        UserTypeModalData = user.student;
+                                        UserTypeModalData = user.student
+                                            ? user.student
+                                            : {};
                                     } else if (user.type === "Teacher") {
-                                        UserTypeModalData = user.teacher;
+                                        UserTypeModalData = user.teacher
+                                            ? user.teacher
+                                            : {};
                                     }
                                 }}
                             >

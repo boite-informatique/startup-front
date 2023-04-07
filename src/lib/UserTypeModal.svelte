@@ -2,7 +2,7 @@
     import { _ } from "svelte-i18n";
 
     export let UserTypeModalState = false;
-    export let UserTypeModalData;
+    export let UserTypeModalData = {};
     export let UserType;
 </script>
 
@@ -19,16 +19,27 @@
             class="btn-sm btn-circle btn absolute right-2 top-2 border border-gray-500 text-gray-200"
             >✕</label
         >
-        <h3 class="text-lg font-bold capitalize">
-            {$_("admin.users.informations about the")}{$_(
-                `admin.users.${`${UserType}`.toLowerCase()}`
-            )} :
-        </h3>
-        <div class="flex flex-col py-4">
-            <div class="text-lg font-medium capitalize">
-                - {console.log(UserTypeModalData)}
+        {#if Object.keys(UserTypeModalData).length > 0}
+            <h3 class="text-lg font-bold capitalize">
+                {$_("admin.users.informations about the")}{$_(
+                    `admin.users.${`${UserType}`.toLowerCase()}`
+                )} :
+            </h3>
+            <div class="flex flex-col py-4">
+                {#each Object.entries(UserTypeModalData) as [key, value]}
+                    {#if value && key !== "id" && key !== "user_id"}
+                        <div class="text-lg font-medium capitalize">
+                            - {key} : {value}
+                        </div>
+                    {/if}
+                {/each}
             </div>
-            <div class="text-lg font-medium capitalize">- hahaaa</div>
-        </div>
+        {:else}
+            <h3 class="text-lg font-bold capitalize">
+                {$_("admin.users.no informations about the")}{$_(
+                    `admin.users.${`${UserType}`.toLowerCase()}`
+                )}.
+            </h3>
+        {/if}
     </div>
 </div>
