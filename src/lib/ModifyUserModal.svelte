@@ -3,6 +3,15 @@
     import { _ } from "svelte-i18n";
 
     export let ModifyUserModalState = false;
+    export let email = "";
+    export let activated;
+    export let ModifyUserModalData = {
+        email: "",
+        activated: true,
+        password: "",
+    };
+
+    let password = "";
     let showPassword = false;
     let inputType = "password";
 
@@ -27,6 +36,7 @@
         >
             <div class="text-lg font-semibold capitalize md:w-40">email :</div>
             <input
+                bind:value={email}
                 type="email"
                 placeholder={$_("admin.users.filter.Type here")}
                 class="input-bordered input w-full max-w-xs"
@@ -38,13 +48,14 @@
             <div class="text-lg font-semibold capitalize md:w-40">
                 {$_("admin.users.password")} :
             </div>
-            <div class="relative w-full max-w-xs">
-                <input
-                    type={inputType}
-                    placeholder={$_("admin.users.filter.Type here")}
-                    class="input-bordered input w-full max-w-xs select-none pr-10"
-                />
-                {#if showPassword}
+            {#if showPassword}
+                <div class="relative w-full max-w-xs">
+                    <input
+                        type="text"
+                        bind:value={password}
+                        placeholder={$_("admin.users.filter.Type here")}
+                        class="input-bordered input w-full max-w-xs select-none pr-10"
+                    />
                     <svg
                         on:click={() => {
                             showPassword = false;
@@ -64,7 +75,16 @@
                             d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
                         />
                     </svg>
-                {:else}
+                </div>
+            {:else}
+                <div class="relative w-full max-w-xs">
+                    <input
+                        type="password"
+                        bind:value={password}
+                        placeholder={$_("admin.users.filter.Type here")}
+                        class="input-bordered input w-full max-w-xs select-none pr-10"
+                    />
+
                     <svg
                         on:click={() => {
                             showPassword = true;
@@ -89,8 +109,8 @@
                             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                         />
                     </svg>
-                {/if}
-            </div>
+                </div>
+            {/if}
         </div>
         <div
             class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
@@ -100,16 +120,40 @@
             </div>
             <input
                 type="checkbox"
+                bind:checked={activated}
                 class="checkbox ml-[3px] border-0 outline-none focus:border-0 focus:outline-none active:border-0 active:outline-none"
             />
         </div>
         <div
             class="mt-3 flex flex-col items-start justify-start gap-2 md:flex-row md:items-center md:justify-between"
         >
-            <button
-                class="no-animation btn -mb-10 -ml-3 cursor-default border-0 bg-transparent text-base capitalize text-gray-200 hover:border-0 hover:bg-transparent"
-                >{$_("admin.users.modified informations")}:
-            </button>
+            {#if (ModifyUserModalData.email ? ModifyUserModalData.email != email : false) || (ModifyUserModalData.activated ? ModifyUserModalData.activated != activated : false) || password.length > 0}
+                <button
+                    class="no-animation btn -mb-10 -ml-3 cursor-default border-0 bg-transparent text-base capitalize text-gray-200 hover:border-0 hover:bg-transparent"
+                    >{$_("admin.users.modified informations")}: {ModifyUserModalData.email
+                        ? ModifyUserModalData.email != email
+                            ? "email"
+                            : ""
+                        : ""}{ModifyUserModalData.password
+                        ? password.length > 0
+                            ? `${
+                                  ModifyUserModalData.email != email ? ", " : ""
+                              }${$_("admin.users.password")}`
+                            : ""
+                        : ""}{ModifyUserModalData.activated
+                        ? ModifyUserModalData.activated != activated
+                            ? `${password.length > 0 ? ", " : ""}${$_(
+                                  "admin.users.activated"
+                              )}.`
+                            : "."
+                        : ""}
+                </button>
+            {:else}
+                <button
+                    class="no-animation btn -mb-10 -ml-3 cursor-default border-0 bg-transparent text-base capitalize text-gray-200 opacity-75 hover:border-0 hover:bg-transparent"
+                    >{$_("admin.users.no modified informations")}.
+                </button>
+            {/if}
             <div
                 class="flex flex-row items-center justify-start gap-1 md:gap-2"
             >

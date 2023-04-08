@@ -14,6 +14,11 @@
     let rolesData;
     let UserTypeModalData;
     let UserType;
+    let ModifyUserModalData = {
+        email: "",
+        activated: true,
+        password: "",
+    };
 
     export let filter = {
         skip: 0,
@@ -94,6 +99,7 @@
                             <td
                                 on:click={() => {
                                     ModifyUserModalState = true;
+                                    ModifyUserModalData = user;
                                 }}
                                 title={$_(
                                     "admin.users.click to modify the user's informations"
@@ -246,4 +252,9 @@
 
 <RolesModal {rolesData} bind:modalState />
 <UserTypeModal {UserTypeModalData} {UserType} bind:UserTypeModalState />
-<ModifyUserModal bind:ModifyUserModalState />
+<ModifyUserModal
+    {ModifyUserModalData}
+    email={ModifyUserModalData.email}
+    activated={ModifyUserModalData.activated}
+    bind:ModifyUserModalState
+/>
