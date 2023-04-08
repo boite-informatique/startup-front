@@ -46,8 +46,6 @@
             ModifyUserModalData.id,
             ModifyUserPayload
         );
-        // console.log(ModifyUserModalData);
-        // console.log(res);
 
         password = "";
     };
