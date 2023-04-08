@@ -12,6 +12,7 @@ type ModifyUserPayload = {
     email?: string;
     password?: string;
     roles?: number[];
+    activated?: boolean;
 };
 
 export const fetchUsers = async (query?: FetchUsersQuery) => {

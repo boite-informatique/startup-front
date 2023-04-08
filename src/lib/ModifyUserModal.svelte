@@ -1,11 +1,16 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
     import { _ } from "svelte-i18n";
+    import { modifyOneUser } from "../api/admin-user";
 
     export let ModifyUserModalState = false;
     export let email = "";
     export let activated;
-    export let ModifyUserModalData = {
+    export let ModifyUserModalData: {
+        email: string;
+        activated: boolean;
+        password: string;
+        id?: number;
+    } = {
         email: "",
         activated: true,
         password: "",
@@ -15,7 +20,37 @@
     let showPassword = false;
     let inputType = "password";
 
-    const dispatch = createEventDispatcher();
+    let handleCancel = () => {
+        password = "";
+    };
+
+    let handleSave = async () => {
+        let ModifyUserPayload: {
+            email?: string;
+            password?: string;
+            roles?: number[];
+            activated?: boolean;
+        } = {};
+
+        if (ModifyUserModalData.email != email) {
+            ModifyUserPayload.email = email;
+        }
+        if (ModifyUserModalData.activated != activated) {
+            ModifyUserPayload.activated = activated;
+        }
+        if (password.length > 0) {
+            ModifyUserPayload.password = password;
+        }
+
+        let res = await modifyOneUser(
+            ModifyUserModalData.id,
+            ModifyUserPayload
+        );
+        // console.log(ModifyUserModalData);
+        // console.log(res);
+
+        password = "";
+    };
 </script>
 
 <input
@@ -158,11 +193,17 @@
                 class="flex flex-row items-center justify-start gap-1 md:gap-2"
             >
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <label for="my-modal-2" class="modal-action btn"
+                <label
+                    for="my-modal-2"
+                    class="modal-action btn"
+                    on:click={handleCancel}
                     >{$_("admin.users.filter.cancel")}</label
                 >
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <label for="my-modal-2" class="modal-action btn"
+                <label
+                    for="my-modal-2"
+                    class="modal-action btn"
+                    on:click={handleSave}
                     >{$_("admin.users.save & close")}</label
                 >
             </div>
