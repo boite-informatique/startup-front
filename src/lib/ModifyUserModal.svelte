@@ -86,7 +86,9 @@
                     <input
                         type="text"
                         bind:value={password}
-                        placeholder={$_("admin.users.filter.Type here")}
+                        placeholder={$_(
+                            "admin.users.current password access restricted"
+                        )}
                         class="input-bordered input w-full max-w-xs select-none pr-10"
                     />
                     <svg
@@ -114,7 +116,9 @@
                     <input
                         type="password"
                         bind:value={password}
-                        placeholder={$_("admin.users.filter.Type here")}
+                        placeholder={$_(
+                            "admin.users.current password access restricted"
+                        )}
                         class="input-bordered input w-full max-w-xs select-none pr-10"
                     />
 

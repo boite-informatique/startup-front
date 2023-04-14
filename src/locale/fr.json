@@ -63,6 +63,7 @@
             "modified informations": "Informations modifiées",
             "save & close": "enregistrer & fermer",
             "no modified informations": "pas d'informations modifiées",
+            "current password access restricted": "Accès restreint au mot de passe",
             "filter": {
                 "apply filters": "appliquer les filtres",
                 "filter users as you like": "filtrez les utilisateurs comme vous le souhaitez",
