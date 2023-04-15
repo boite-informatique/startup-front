@@ -7,16 +7,19 @@
 
     export let ModifyUserModalState = false;
     export let email = "";
+    export let roles = [];
     export let activated;
     export let ModifyUserModalData: {
         email: string;
         activated: boolean;
+        roles: any[];
         password: string;
         id?: number;
     } = {
         email: "",
         activated: true,
         password: "",
+        roles: [],
     };
 
     let password = "";
@@ -41,6 +44,9 @@
                 : false) ||
             (ModifyUserModalData.activated
                 ? ModifyUserModalData.activated != activated
+                : false) ||
+            (ModifyUserModalData.roles
+                ? ModifyUserModalData.roles != roles
                 : false) ||
             password.length > 0
         );
@@ -225,6 +231,33 @@
             class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
         >
             <div class="text-lg font-semibold capitalize md:w-40">
+                {$_("admin.users.roles")} :
+            </div>
+            <div class="flex flex-row gap-1 md:gap-2">
+                {#each roles as role}
+                    <button
+                        class="btn-active no-animation btn cursor-auto capitalize text-gray-300"
+                        >{role.name}</button
+                    >
+                {:else}
+                    <button
+                        class="btn-active no-animation btn cursor-auto capitalize text-gray-300"
+                        >{$_("admin.users.this user has no roles")}</button
+                    >
+                {/each}
+                <button
+                    class="btn-ghost btn-active btn text-white opacity-80 hover:opacity-100"
+                    >add roles <div class="ml-[13px] scale-[1.7] font-bold">
+                        +
+                    </div></button
+                >
+            </div>
+        </div>
+
+        <div
+            class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
+        >
+            <div class="text-lg font-semibold capitalize md:w-40">
                 {$_("admin.users.activated")} :
             </div>
             <input
@@ -236,7 +269,7 @@
         <div
             class="mt-3 flex flex-col items-start justify-start gap-2 md:flex-row md:items-center md:justify-between"
         >
-            {#if (ModifyUserModalData.email ? ModifyUserModalData.email != email : false) || (ModifyUserModalData.activated ? ModifyUserModalData.activated != activated : false) || password.length > 0}
+            {#if (ModifyUserModalData.email ? ModifyUserModalData.email != email : false) || (ModifyUserModalData.activated ? ModifyUserModalData.activated != activated : false) || (ModifyUserModalData.roles ? ModifyUserModalData.roles != roles : false) || password.length > 0}
                 <button
                     class="no-animation btn -mb-10 -ml-3 cursor-default border-0 bg-transparent text-base capitalize text-gray-200 hover:border-0 hover:bg-transparent"
                     >{$_("admin.users.modified informations")}: {ModifyUserModalData.email
@@ -249,11 +282,17 @@
                                   ModifyUserModalData.email != email ? ", " : ""
                               }${$_("admin.users.password")}`
                             : ""
+                        : ""}{ModifyUserModalData.roles
+                        ? ModifyUserModalData.roles != roles
+                            ? `${password.length > 0 ? ", " : ""}${$_(
+                                  "admin.users.roles"
+                              )}`
+                            : ""
                         : ""}{ModifyUserModalData.activated
                         ? ModifyUserModalData.activated != activated
-                            ? `${password.length > 0 ? ", " : ""}${$_(
-                                  "admin.users.activated"
-                              )}.`
+                            ? `${
+                                  ModifyUserModalData.roles != roles ? ", " : ""
+                              }${$_("admin.users.activated")}.`
                             : "."
                         : ""}
                 </button>

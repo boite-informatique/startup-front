@@ -18,6 +18,7 @@
         email: "",
         activated: true,
         password: "",
+        roles: [],
     };
 
     export let filter = {
@@ -257,5 +258,6 @@
     {ModifyUserModalData}
     email={ModifyUserModalData.email}
     activated={ModifyUserModalData.activated}
+    roles={ModifyUserModalData.roles}
     bind:ModifyUserModalState
 />
