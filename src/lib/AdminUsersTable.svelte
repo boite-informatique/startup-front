@@ -253,6 +253,7 @@
 <RolesModal {rolesData} bind:modalState />
 <UserTypeModal {UserTypeModalData} {UserType} bind:UserTypeModalState />
 <ModifyUserModal
+    on:showIndicator
     {ModifyUserModalData}
     email={ModifyUserModalData.email}
     activated={ModifyUserModalData.activated}

@@ -1,6 +1,9 @@
 <script lang="ts">
     import { _ } from "svelte-i18n";
     import { modifyOneUser } from "../api/admin-user";
+    import { createEventDispatcher } from "svelte";
+
+    const dispatch = createEventDispatcher();
 
     export let ModifyUserModalState = false;
     export let email = "";
@@ -42,12 +45,57 @@
             ModifyUserPayload.password = password;
         }
 
-        let res = await modifyOneUser(
+        let response = await modifyOneUser(
             ModifyUserModalData.id,
             ModifyUserPayload
         );
 
+        if (response.status >= 200 && response.status < 300) {
+            indicateSuccess();
+        } else if (response.status >= 400 && response.status < 500) {
+            indicate4xx();
+        } else if (response.status >= 500 && response.status < 600) {
+            indicateInternalServerError();
+        } else {
+            indicateErrorOccurred();
+        }
+
         password = "";
+    };
+
+    let indicateInternalServerError = () => {
+        dispatch("showIndicator", {
+            indicatorType: "btn-error",
+            indicatorContent: $_(
+                "login.indicator.an internal server error occurred, please try again"
+            ),
+            indicatorVisible: true,
+        });
+    };
+    let indicateErrorOccurred = () => {
+        dispatch("showIndicator", {
+            indicatorType: "btn-warning",
+            indicatorContent: $_(
+                "login.indicator.an error occured, please try again"
+            ),
+            indicatorVisible: true,
+        });
+    };
+    let indicate4xx = () => {
+        dispatch("showIndicator", {
+            indicatorType: "btn-error",
+            indicatorContent: $_("admin.indicator.4xx error, please try again"),
+            indicatorVisible: true,
+        });
+    };
+    let indicateSuccess = () => {
+        dispatch("showIndicator", {
+            indicatorType: "btn-info",
+            indicatorContent: $_(
+                "admin.indicator.Your changes have been saved successfully"
+            ),
+            indicatorVisible: true,
+        });
     };
 </script>
 

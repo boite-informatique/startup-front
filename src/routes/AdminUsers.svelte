@@ -33,6 +33,7 @@
         <UserFilter on:applyFilters={applyFilters} />
     </div>
     <AdminUsersTable
+        on:showIndicator
         on:stopPagination={(e) => {
             e.detail ? (stopPagination = true) : (stopPagination = false);
         }}

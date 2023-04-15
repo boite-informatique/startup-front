@@ -32,7 +32,9 @@
     },
     "admin": {
         "indicator": {
-            "You are not authorized to access '/admin' route": "Vous n'êtes pas autorisé à accéder à la section '/admin'"
+            "You are not authorized to access '/admin' route": "Vous n'êtes pas autorisé à accéder à la section '/admin'",
+            "4xx error, please try again": "Erreur 4xx, veuillez réessayer",
+            "Your changes have been saved successfully": "Modifications enregistrées avec succès"
         },
         "users": {
             "add a user": "ajouter un utilisateur",

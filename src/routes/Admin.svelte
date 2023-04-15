@@ -48,7 +48,7 @@
 </script>
 
 <Route path="/users">
-    <AdminUsers />
+    <AdminUsers on:showIndicator />
 </Route>
 <Route path="/roles">
     <AdminRoles />
