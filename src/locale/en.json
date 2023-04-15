@@ -34,7 +34,8 @@
         "indicator": {
             "You are not authorized to access '/admin' route": "You are not authorized to access '/admin' route",
             "4xx error, please try again": "4xx error, please try again",
-            "Your changes have been saved successfully": "Your changes have been saved successfully"
+            "Your changes have been saved successfully": "Your changes have been saved successfully",
+            "no modifications were performed": "no modifications were performed"
         },
         "users": {
             "add a user": "add a user",

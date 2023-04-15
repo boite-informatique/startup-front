@@ -35,6 +35,21 @@
             activated?: boolean;
         } = {};
 
+        let userInformationsNotModified = !(
+            (ModifyUserModalData.email
+                ? ModifyUserModalData.email != email
+                : false) ||
+            (ModifyUserModalData.activated
+                ? ModifyUserModalData.activated != activated
+                : false) ||
+            password.length > 0
+        );
+
+        if (userInformationsNotModified) {
+            indicateUserInformationsNotModified();
+            return;
+        }
+
         if (ModifyUserModalData.email != email) {
             ModifyUserPayload.email = email;
         }
@@ -63,6 +78,15 @@
         password = "";
     };
 
+    let indicateUserInformationsNotModified = () => {
+        dispatch("showIndicator", {
+            indicatorType: "btn-warning",
+            indicatorContent: $_(
+                "admin.indicator.no modifications were performed"
+            ),
+            indicatorVisible: true,
+        });
+    };
     let indicateInternalServerError = () => {
         dispatch("showIndicator", {
             indicatorType: "btn-error",

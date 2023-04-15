@@ -34,7 +34,8 @@
         "indicator": {
             "You are not authorized to access '/admin' route": "Vous n'êtes pas autorisé à accéder à la section '/admin'",
             "4xx error, please try again": "Erreur 4xx, veuillez réessayer",
-            "Your changes have been saved successfully": "Modifications enregistrées avec succès"
+            "Your changes have been saved successfully": "Modifications enregistrées avec succès",
+            "no modifications were performed": "Aucune modification n'a été effectuée"
         },
         "users": {
             "add a user": "ajouter un utilisateur",
