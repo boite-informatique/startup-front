@@ -2,6 +2,7 @@
     import { _ } from "svelte-i18n";
     import { modifyOneUser } from "../api/admin-user";
     import { createEventDispatcher } from "svelte";
+    import ModifyUserRolesModal from "./modifyUserRolesModal.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -29,6 +30,8 @@
     let handleCancel = () => {
         password = "";
     };
+
+    let modifyRolesModalState;
 
     let handleSave = async () => {
         let ModifyUserPayload: {
@@ -247,6 +250,9 @@
                 {/each}
                 <button
                     class="btn-ghost btn-active btn flex flex-row items-center justify-between gap-3 text-white opacity-80 hover:opacity-100"
+                    on:click={() => {
+                        modifyRolesModalState = true;
+                    }}
                 >
                     <div class="mt-[1px]">
                         {$_("admin.users.modify roles")}
@@ -339,3 +345,5 @@
         </div>
     </div>
 </div>
+
+<ModifyUserRolesModal bind:modifyRolesModalState />

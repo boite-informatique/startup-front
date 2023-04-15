@@ -63,6 +63,7 @@
             "password": "mot de passe",
             "activated": "activé",
             "modify the user's informations": "modifier les informations de l'utilisateur",
+            "modify the user's roles": "modifier les rôles de l'utilisateur",
             "modified informations": "Informations modifiées",
             "save & close": "enregistrer & fermer",
             "no modified informations": "pas d'informations modifiées",

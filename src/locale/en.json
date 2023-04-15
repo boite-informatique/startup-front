@@ -63,6 +63,7 @@
             "password": "password",
             "activated": "activated",
             "modify the user's informations": "modify the user's informations",
+            "modify the user's roles": "modify the user's roles",
             "modified informations": "modified informations",
             "save & close": "save & close",
             "no modified informations": "no modified informations",
