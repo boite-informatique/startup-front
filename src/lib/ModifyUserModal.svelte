@@ -8,7 +8,10 @@
 
     export let ModifyUserModalState = false;
     export let email = "";
-    export let roles = [];
+    export let roles: {
+        name: string;
+        id: number;
+    }[] = [];
     export let activated;
     export let ModifyUserModalData: {
         email: string;
@@ -64,6 +67,9 @@
         }
         if (ModifyUserModalData.activated != activated) {
             ModifyUserPayload.activated = activated;
+        }
+        if (ModifyUserModalData.roles != roles) {
+            ModifyUserPayload.roles = roles.map((obj) => obj.id);
         }
         if (password.length > 0) {
             ModifyUserPayload.password = password;
@@ -346,4 +352,4 @@
     </div>
 </div>
 
-<ModifyUserRolesModal bind:modifyRolesModalState />
+<ModifyUserRolesModal bind:modifyRolesModalState bind:selectedRoles={roles} />
