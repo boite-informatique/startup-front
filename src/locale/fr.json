@@ -81,7 +81,12 @@
         },
         "roles": {
             "filter roles by...": "filtrer les rôles par...",
-            "add a role": "ajouter un rôle"
+            "add a role": "ajouter un rôle",
+            "role name": "nom du rôle",
+            "users": "utilisateurs",
+            "permissions": "permissions",
+            "click to modify the role's informations": "cliquez pour modifier les informations du rôle",
+            "no roles available": "aucun rôle disponible"
         }
     }
 }
