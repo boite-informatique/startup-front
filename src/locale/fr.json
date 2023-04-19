@@ -78,6 +78,10 @@
                 "remove all filters": "supprimer tous les filtres",
                 "cancel": "annuler"
             }
+        },
+        "roles": {
+            "filter roles by...": "filtrer les rôles par...",
+            "add a role": "ajouter un rôle"
         }
     }
 }
