@@ -1,92 +1,102 @@
 {
-    "navbar": {
-        "admin": "admin",
-        "projects": "projets",
-        "announcements": "annonces",
-        "profile": "profil",
-        "my project": "mon projet"
-    },
-    "sidebar": {
-        "admin": {
-            "users": "utilisateurs",
-            "roles": "rôles"
-        },
-        "projects": {},
-        "announcements": {},
-        "profile": {},
-        "my project": {}
-    },
-    "login": {
-        "Sign in to your account": "Connectez-vous à votre compte",
-        "Email address": "Adresse email",
-        "Password": "Mot de passe",
-        "Remember me": "Se souvenir de moi",
-        "Sign in": "Se connecter",
-        "indicator": {
-            "an internal server error occurred, please try again": "Une erreur interne du serveur est survenue, veuillez réessayer",
-            "login success": "Connexion réussie",
-            "Invalid email or password. Please try again": "e-mail ou mot de passe invalide. Veuillez réessayer",
-            "an error occured, please try again": "Une erreur est survenue, veuillez réessayer",
-            "this account is deactivated": "Ce compte est désactivé"
-        }
-    },
+  "navbar": {
+    "admin": "admin",
+    "projects": "projets",
+    "announcements": "annonces",
+    "profile": "profil",
+    "my project": "mon projet"
+  },
+  "sidebar": {
     "admin": {
-        "indicator": {
-            "You are not authorized to access '/admin' route": "Vous n'êtes pas autorisé à accéder à la section '/admin'",
-            "4xx error, please try again": "Erreur 4xx, veuillez réessayer",
-            "Your changes have been saved successfully": "Modifications enregistrées avec succès",
-            "no modifications were performed": "Aucune modification n'a été effectuée"
-        },
-        "users": {
-            "add a user": "ajouter un utilisateur",
-            "filter users by...": "filtrer les utilisateurs par...",
-            "no filter": "pas de filtre",
-            "first name": "prénom",
-            "sex": "sexe",
-            "type": "type",
-            "user": "utilisateur",
-            "roles": "rôles",
-            "birthday infos": "infos de naissance",
-            "no users available": "aucun utilisateur disponible",
-            "click to see more": "cliquer pour voir plus",
-            "loading": "chargement en cours",
-            "male": "masculin",
-            "female": "féminin",
-            "student": "étudiant",
-            "teacher": "enseignant",
-            "staff": "employé",
-            "this user has the following roles": "cet utilisateur a les rôles suivants",
-            "this user has no roles": "ce utilisateur n'a pas de rôle",
-            "informations about the": "informations sur l'",
-            "no informations about the": "pas d'informations sur l'",
-            "click to modify the user's informations": "cliquez pour modifier les informations de l'utilisateur",
-            "password": "mot de passe",
-            "activated": "activé",
-            "modify the user's informations": "modifier les informations de l'utilisateur",
-            "modify the user's roles": "modifier les rôles de l'utilisateur",
-            "check the roles that you want this user to have": "Sélectionnez les rôles que vous souhaitez attribuer à cet utilisateur",
-            "modified informations": "Informations modifiées",
-            "save & close": "enregistrer & fermer",
-            "close": "fermer",
-            "no modified informations": "pas d'informations modifiées",
-            "current password access restricted": "Accès restreint au mot de passe",
-            "modify roles": "Modifier les rôles",
-            "filter": {
-                "apply filters": "appliquer les filtres",
-                "filter users as you like": "filtrez les utilisateurs comme vous le souhaitez",
-                "Type here": "Tapez ici",
-                "remove all filters": "supprimer tous les filtres",
-                "cancel": "annuler"
-            }
-        },
-        "roles": {
-            "filter roles by...": "filtrer les rôles par...",
-            "add a role": "ajouter un rôle",
-            "role name": "nom du rôle",
-            "users": "utilisateurs",
-            "permissions": "permissions",
-            "click to modify the role's informations": "cliquez pour modifier les informations du rôle",
-            "no roles available": "aucun rôle disponible"
-        }
+      "users": "utilisateurs",
+      "roles": "rôles"
+    },
+    "projects": {},
+    "announcements": {},
+    "profile": {},
+    "my project": {}
+  },
+  "login": {
+    "Sign in to your account": "Connectez-vous à votre compte",
+    "Email address": "Adresse email",
+    "Password": "Mot de passe",
+    "Remember me": "Se souvenir de moi",
+    "Sign in": "Se connecter",
+    "indicator": {
+      "an internal server error occurred, please try again": "Une erreur interne du serveur est survenue, veuillez réessayer",
+      "login success": "Connexion réussie",
+      "Invalid email or password. Please try again": "e-mail ou mot de passe invalide. Veuillez réessayer",
+      "an error occured, please try again": "Une erreur est survenue, veuillez réessayer",
+      "this account is deactivated": "Ce compte est désactivé"
+    },
+    "fogetpwlink": "Mot de passe oublié?"
+  },
+  "admin": {
+    "indicator": {
+      "You are not authorized to access '/admin' route": "Vous n'êtes pas autorisé à accéder à la section '/admin'",
+      "4xx error, please try again": "Erreur 4xx, veuillez réessayer",
+      "Your changes have been saved successfully": "Modifications enregistrées avec succès",
+      "no modifications were performed": "Aucune modification n'a été effectuée"
+    },
+    "users": {
+      "add a user": "ajouter un utilisateur",
+      "filter users by...": "filtrer les utilisateurs par...",
+      "no filter": "pas de filtre",
+      "first name": "prénom",
+      "sex": "sexe",
+      "type": "type",
+      "user": "utilisateur",
+      "roles": "rôles",
+      "birthday infos": "infos de naissance",
+      "no users available": "aucun utilisateur disponible",
+      "click to see more": "cliquer pour voir plus",
+      "loading": "chargement en cours",
+      "male": "masculin",
+      "female": "féminin",
+      "student": "étudiant",
+      "teacher": "enseignant",
+      "staff": "employé",
+      "this user has the following roles": "cet utilisateur a les rôles suivants",
+      "this user has no roles": "ce utilisateur n'a pas de rôle",
+      "informations about the": "informations sur l'",
+      "no informations about the": "pas d'informations sur l'",
+      "click to modify the user's informations": "cliquez pour modifier les informations de l'utilisateur",
+      "password": "mot de passe",
+      "activated": "activé",
+      "modify the user's informations": "modifier les informations de l'utilisateur",
+      "modify the user's roles": "modifier les rôles de l'utilisateur",
+      "check the roles that you want this user to have": "Sélectionnez les rôles que vous souhaitez attribuer à cet utilisateur",
+      "modified informations": "Informations modifiées",
+      "save & close": "enregistrer & fermer",
+      "close": "fermer",
+      "no modified informations": "pas d'informations modifiées",
+      "current password access restricted": "Accès restreint au mot de passe",
+      "modify roles": "Modifier les rôles",
+      "filter": {
+        "apply filters": "appliquer les filtres",
+        "filter users as you like": "filtrez les utilisateurs comme vous le souhaitez",
+        "Type here": "Tapez ici",
+        "remove all filters": "supprimer tous les filtres",
+        "cancel": "annuler"
+      }
+    },
+    "roles": {
+      "filter roles by...": "filtrer les rôles par...",
+      "add a role": "ajouter un rôle",
+      "role name": "nom du rôle",
+      "users": "utilisateurs",
+      "permissions": "permissions",
+      "click to modify the role's informations": "cliquez pour modifier les informations du rôle",
+      "no roles available": "aucun rôle disponible"
     }
+  },
+  "forgotpw": {
+    "header": "Récupérer votre compte",
+    "indicator": {
+      "success": "Vérifiez votre e-mail pour le lien de récupération."
+    },
+    "submit": "Soumettre",
+    "loginlink": "Retournez à la page de login."
+  },
+  "Recover Your Account": "Récupérer votre compte."
 }

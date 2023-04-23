@@ -3,7 +3,7 @@
     import { _ } from "svelte-i18n";
     import authenticateUser from "../api/authentication";
     import fetchUserPermissions from "../api/userPermissions";
-    import { useNavigate } from "svelte-navigator";
+    import { Link, useNavigate } from "svelte-navigator";
     import { createEventDispatcher } from "svelte";
 
     // importing components
@@ -82,7 +82,7 @@
 <div
     class="relative flex h-screen w-full items-center justify-center justify-self-center overflow-hidden px-4 py-12 sm:px-6 lg:px-8"
 >
-    <MesrsLogo />
+    <!-- <MesrsLogo /> -->
     <div class="absolute top-5 right-5 flex gap-4">
         <DarkModeTogglerLogin />
         <LanguageMenuLogin />
@@ -182,5 +182,10 @@
                 </button>
             </div>
         </form>
+        <Link to="/forgot_password"
+            ><div class="link-hover link mt-4">
+                {$_("login.fogetpwlink")}
+            </div></Link
+        >
     </div>
 </div>

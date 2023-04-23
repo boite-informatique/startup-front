@@ -19,7 +19,7 @@
         (obj) => obj.name === "isTeacher" // later change this permission name 'isTeacher' to the name of permission in the store that only teachers have
     );
 
-    let routesList;
+    let routesList = [];
     if (userIsAdmin) {
         routesList = routes.admin;
     } else if (userIsTeacher) {

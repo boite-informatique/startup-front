@@ -11,14 +11,8 @@
 
     // importing components
     import Indicator from "./lib/Indicator.svelte";
-    import Navbar from "./lib/Navbar.svelte";
-    import Menu from "./lib/Menu.svelte";
-    import Sidebar from "./lib/Sidebar.svelte";
-
-    let menu = false;
-    const toggleMenu = () => {
-        menu = !menu;
-    };
+    // import ForgotPassword from "./routes/ForgotPassword.svelte";
+    import Layout from "./routes/Layout.svelte";
 
     let indicatorVisible = false;
     let indicatorContent;
@@ -56,24 +50,29 @@
 
     <Router>
         <main class="flex min-h-screen flex-col items-center justify-between">
-            <Navbar on:toggleMenu={toggleMenu} />
-            <Menu {menu} />
-
-            <div class="flex h-full w-full flex-1 flex-col lg:flex-row">
-                {#if userIsLoggedIn}
-                    <Sidebar />
-                {/if}
-
-                <Route path="login">
+            <!-- Components that don't need navbar and sidebar -->
+            <Route path="login">
+                <div class="flex h-full w-full flex-1 flex-col lg:flex-row">
                     <Login on:showIndicator={showIndicator} />
-                </Route>
-                <Route path="/">
+                </div>
+            </Route>
+            <!-- <Route path="forgot_password">
+                <div class="flex h-full w-full flex-1 flex-col lg:flex-row">
+                    <ForgotPassword on:showIndicator={showIndicator} />
+                </div>
+            </Route> -->
+
+            <!-- Components that need navbar and sidebar -->
+            <Route path="/">
+                <Layout>
                     <Home />
-                </Route>
-                <Route path="/admin/*">
+                </Layout>
+            </Route>
+            <Route path="/admin/*">
+                <Layout>
                     <Admin on:showIndicator={showIndicator} />
-                </Route>
-            </div>
+                </Layout>
+            </Route>
         </main>
     </Router>
 {/if}
