@@ -84,7 +84,7 @@
         "roles": {
             "add a role": "ajouter un rôle",
             "click to modify the role's informations": "cliquez pour modifier les informations du rôle",
-            "filter roles by": "",
+            "filter roles by...": "filtrer les rôles par...",
             "no roles available": "aucun rôle disponible",
             "permissions": "autorisations",
             "role name": "nom de rôle",

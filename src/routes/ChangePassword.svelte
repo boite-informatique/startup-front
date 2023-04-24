@@ -9,6 +9,7 @@
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
     import { Link } from "svelte-navigator";
     import logo from "../assets/innovium_logos/innovium_light.png";
+    import MesrsLogo from "../lib/MesrsLogo.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -85,7 +86,7 @@
 <div
     class="relative flex h-screen w-full items-center justify-center justify-self-center overflow-hidden px-4 py-12 sm:px-6 lg:px-8"
 >
-    <!-- <MesrsLogo /> -->
+    <MesrsLogo />
     <div class="absolute top-5 right-5 flex gap-4">
         <DarkModeTogglerLogin />
         <LanguageMenuLogin />
@@ -168,7 +169,7 @@
             </div>
         </form>
         <Link to="/login"
-            ><div class="link-hover link mt-4">
+            ><div class="link-hover link relative mt-4">
                 {$_("forgotpw.loginlink")}
             </div></Link
         >
