@@ -2,7 +2,6 @@
     import { Link } from "svelte-navigator";
     import { userPermissions } from "../stores/userPermissions";
     import routes from "../config/routesList";
-    import { useLocation } from "svelte-navigator";
     import { _ } from "svelte-i18n";
 
     export let menu;
@@ -29,8 +28,6 @@
     } else {
         routesList = routes.guest;
     }
-
-    const location = useLocation();
 </script>
 
 <div
