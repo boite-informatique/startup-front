@@ -9,11 +9,9 @@
     // importing components
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
-    import MesrsLogo from "../lib/MesrsLogo.svelte";
+    import logo from "../assets/innovium_logos/innovium_light.png";
 
     const dispatch = createEventDispatcher();
-
-    const navigate = useNavigate();
 
     let rememberMe = false;
     let email = "";
@@ -91,7 +89,7 @@
         <div>
             <img
                 class="mx-auto mb-10 h-16 md:h-24"
-                src="src/assets/innovium_logos/innovium_light.png"
+                src={logo}
                 alt="Innovium logo with text"
             />
             <div

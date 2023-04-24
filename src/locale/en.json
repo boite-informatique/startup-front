@@ -93,10 +93,18 @@
     "Recover Your Account": "Recover Your Account",
     "forgotpw": {
         "header": "Recover Your Password",
-        "submit": "submit",
+        "submit": "Submit",
         "indicator": {
             "success": "Check your email for recovery link."
         },
         "loginlink": "Go back to login page."
+    },
+    "changepw": {
+        "password": "Password",
+        "header": "Enter new password",
+        "password2": "Confirm password",
+        "inequalpw": "The two passwords are not equal",
+        "invalidpw": "Password invalid, try again",
+        "success": "Password changed successfully"
     }
 }

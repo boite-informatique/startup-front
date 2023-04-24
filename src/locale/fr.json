@@ -80,23 +80,32 @@
                 "cancel": "annuler"
             }
         },
+        "Recover Your Account": "Récupérer votre compte.",
         "roles": {
-            "filter roles by...": "filtrer les rôles par...",
             "add a role": "ajouter un rôle",
-            "role name": "nom du rôle",
-            "users": "utilisateurs",
-            "permissions": "permissions",
             "click to modify the role's informations": "cliquez pour modifier les informations du rôle",
-            "no roles available": "aucun rôle disponible"
+            "filter roles by": "",
+            "no roles available": "aucun rôle disponible",
+            "permissions": "autorisations",
+            "role name": "nom de rôle",
+            "users": "utilisateurs"
         }
     },
+    "changepw": {
+        "success": "Le mot de passe a été changé avec succès",
+        "inequalpw": "Les deux mots de passe ne sont pas égaux",
+        "invalidpw": "Mot de passe invalide, réessayez",
+        "header": "Entrez un nouveau mot de passe",
+        "password": "Mot de passe",
+        "password2": "Confirmer mot de passe"
+    },
     "forgotpw": {
-        "header": "Récupérer votre compte",
+        "submit": "Soumettre",
         "indicator": {
             "success": "Vérifiez votre e-mail pour le lien de récupération."
         },
-        "submit": "Soumettre",
+        "header": "Récupérer votre mot de passe",
         "loginlink": "Retournez à la page de login."
     },
-    "Recover Your Account": "Récupérer votre compte."
+    "Recover Your Account": "Récupérer votre compte"
 }

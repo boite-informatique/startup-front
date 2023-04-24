@@ -11,8 +11,9 @@
 
     // importing components
     import Indicator from "./lib/Indicator.svelte";
-    // import ForgotPassword from "./routes/ForgotPassword.svelte";
+    import ForgotPassword from "./routes/ForgotPassword.svelte";
     import Layout from "./routes/Layout.svelte";
+    import ChangePassword from "./routes/ChangePassword.svelte";
 
     let indicatorVisible = false;
     let indicatorContent;
@@ -52,15 +53,17 @@
         <main class="flex min-h-screen flex-col items-center justify-between">
             <!-- Components that don't need navbar and sidebar -->
             <Route path="login">
-                <div class="flex h-full w-full flex-1 flex-col lg:flex-row">
-                    <Login on:showIndicator={showIndicator} />
-                </div>
+                <Login on:showIndicator={showIndicator} />
             </Route>
-            <!-- <Route path="forgot_password">
-                <div class="flex h-full w-full flex-1 flex-col lg:flex-row">
-                    <ForgotPassword on:showIndicator={showIndicator} />
-                </div>
-            </Route> -->
+            <Route path="forgot_password">
+                <ForgotPassword on:showIndicator={showIndicator} />
+            </Route>
+            <Route path="change_password/:token" let:params>
+                <ChangePassword
+                    on:showIndicator={showIndicator}
+                    token={params.token}
+                />
+            </Route>
 
             <!-- Components that need navbar and sidebar -->
             <Route path="/">
