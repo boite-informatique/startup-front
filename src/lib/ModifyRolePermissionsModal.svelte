@@ -72,14 +72,14 @@
                         <p
                             class="text-gray-200 text-center text-lg capitalize font-semibold"
                         >
-                            {$_("admin.users.no roles available")}
+                            {$_("admin.roles.no permissions available")}
                         </p>
                     {/each}
                 {:else}
                     <p
                         class="text-gray-200 text-center text-lg capitalize font-semibold"
                     >
-                        {$_("admin.users.no roles available")}
+                        {$_("admin.roles.no permissions available")}
                     </p>
                 {/if}
             {:catch error}

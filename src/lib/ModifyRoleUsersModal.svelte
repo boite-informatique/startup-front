@@ -1,11 +1,11 @@
 <script lang="ts">
-    import { fetchRoles } from "../api/admin-role";
+    import { fetchUsers } from "../api/admin-user";
     import { _ } from "svelte-i18n";
 
     export let modifyUsersModalState = false;
-    export let selectedUsers: number[] = [];
+    export let selectedUsers: any[] = [];
 
-    let allRoles = fetchRoles();
+    let allUsers = fetchUsers();
 </script>
 
 <input
@@ -26,16 +26,16 @@
                 )}
             </p>
         </div>
-        <!-- <div class="flex flex-col gap-1">
-            {#await allRoles}
+        <div class="flex flex-col gap-3">
+            {#await allUsers}
                 <button class="btn loading">{$_("admin.users.loading")}</button>
             {:then res}
                 {#if res.status >= 200 && res.status < 300}
-                    {#each res.data as role}
+                    {#each res.data as user}
                         <div
-                            class="flex flex-row items-start justify-start gap-2 text-gray-100 md:items-center {selectedUsers.find(
+                            class="flex flex-row items-start justify-start gap-4 text-gray-100 md:items-center {selectedUsers.find(
                                 (obj) => {
-                                    return obj.id == role.id;
+                                    return obj.id == user.id;
                                 }
                             )
                                 ? 'opacity-100'
@@ -44,40 +44,51 @@
                             <input
                                 on:click={() => {
                                     selectedUsers.find((obj) => {
-                                        return obj.id == role.id;
+                                        return obj.id == user.id;
                                     })
                                         ? (selectedUsers = selectedUsers.filter(
-                                              (obj) => obj.id !== role.id
+                                              (obj) => obj.id !== user.id
                                           ))
                                         : (selectedUsers = [
                                               ...selectedUsers,
-                                              role,
+                                              user,
                                           ]);
                                 }}
                                 checked={selectedUsers.find((obj) => {
-                                    return obj.id == role.id;
+                                    return obj.id == user.id;
                                 })
                                     ? true
                                     : false}
                                 type="checkbox"
                                 class="checkbox ml-[3px] border-0 outline-none focus:border-0 focus:outline-none active:border-0 active:outline-none"
                             />
-                            <div class="text-lg font-semibold capitalize">
-                                {role.name}
+                            <div
+                                class="text-base font-semibold capitalize flex-col justify-start items-start"
+                            >
+                                <div class="-mb-1">
+                                    {user.first_name}
+                                    {user.last_name} ({user.type})
+                                </div>
+                                <div
+                                    class="font-normal opacity-90 -mt-1"
+                                    style="text-transform: none;"
+                                >
+                                    {user.email}
+                                </div>
                             </div>
                         </div>
                     {:else}
                         <p
                             class="text-gray-200 text-center text-lg capitalize font-semibold"
                         >
-                            {$_("admin.users.no roles available")}
+                            {$_("admin.roles.no users available")}
                         </p>
                     {/each}
                 {:else}
                     <p
                         class="text-gray-200 text-center text-lg capitalize font-semibold"
                     >
-                        {$_("admin.users.no roles available")}
+                        {$_("admin.roles.no users available")}
                     </p>
                 {/if}
             {:catch error}
@@ -87,7 +98,7 @@
                     {error.message}
                 </p>
             {/await}
-        </div> -->
+        </div>
         <div class="flex flex-row items-center justify-end">
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <label for="my-modal-12" class="modal-action btn"

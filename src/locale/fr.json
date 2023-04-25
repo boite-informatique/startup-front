@@ -97,7 +97,9 @@
             "modify the role's users": "modifier les utilisateurs du rôle",
             "modify the role's permissions": "modifier les permissions du rôle",
             "Please select the users that you want to assign to the selected role": "Veuillez sélectionner les utilisateurs que vous souhaitez assigner au rôle",
-            "Please select the permissions that you want to assign to the selected role": "Veuillez sélectionner les permissions que vous souhaitez assigner au rôle"
+            "Please select the permissions that you want to assign to the selected role": "Veuillez sélectionner les permissions que vous souhaitez assigner au rôle",
+            "no permissions available": "aucune permission disponible",
+            "no users available": "aucun utilisateur disponible"
         }
     },
     "changepw": {

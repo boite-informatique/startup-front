@@ -96,7 +96,9 @@
             "modify the role's users": "modify the role's users",
             "modify the role's permissions": "modify the role's permissions",
             "Please select the users that you want to assign to the selected role": "Please select the users that you want to assign to the selected role",
-            "Please select the permissions that you want to assign to the selected role": "Please select the permissions that you want to assign to the selected role"
+            "Please select the permissions that you want to assign to the selected role": "Please select the permissions that you want to assign to the selected role",
+            "no permissions available": "no permissions available",
+            "no users available": "no users available"
         }
     },
     "Recover Your Account": "Recover Your Account",
