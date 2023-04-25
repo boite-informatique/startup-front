@@ -1,11 +1,11 @@
 <script lang="ts">
-    import { fetchRoles } from "../api/admin-role";
+    import { getAllPermissions } from "../api/admin-role";
     import { _ } from "svelte-i18n";
 
     export let modifyPermissionsModalState = false;
-    export let selectedPermissions: number[] = [];
+    export let selectedPermissions: any[] = [];
 
-    let allRoles = fetchRoles();
+    let allPermissions = getAllPermissions();
 </script>
 
 <input
@@ -26,16 +26,16 @@
                 )}
             </p>
         </div>
-        <!-- <div class="flex flex-col gap-1">
-            {#await allRoles}
+        <div class="flex flex-col gap-1">
+            {#await allPermissions}
                 <button class="btn loading">{$_("admin.users.loading")}</button>
             {:then res}
                 {#if res.status >= 200 && res.status < 300}
-                    {#each res.data as role}
+                    {#each res.data as permission}
                         <div
                             class="flex flex-row items-start justify-start gap-2 text-gray-100 md:items-center {selectedPermissions.find(
                                 (obj) => {
-                                    return obj.id == role.id;
+                                    return obj.id == permission.id;
                                 }
                             )
                                 ? 'opacity-100'
@@ -44,19 +44,20 @@
                             <input
                                 on:click={() => {
                                     selectedPermissions.find((obj) => {
-                                        return obj.id == role.id;
+                                        return obj.id == permission.id;
                                     })
                                         ? (selectedPermissions =
                                               selectedPermissions.filter(
-                                                  (obj) => obj.id !== role.id
+                                                  (obj) =>
+                                                      obj.id !== permission.id
                                               ))
                                         : (selectedPermissions = [
                                               ...selectedPermissions,
-                                              role,
+                                              permission,
                                           ]);
                                 }}
                                 checked={selectedPermissions.find((obj) => {
-                                    return obj.id == role.id;
+                                    return obj.id == permission.id;
                                 })
                                     ? true
                                     : false}
@@ -64,7 +65,7 @@
                                 class="checkbox ml-[3px] border-0 outline-none focus:border-0 focus:outline-none active:border-0 active:outline-none"
                             />
                             <div class="text-lg font-semibold capitalize">
-                                {role.name}
+                                {permission.name}
                             </div>
                         </div>
                     {:else}
@@ -88,7 +89,7 @@
                     {error.message}
                 </p>
             {/await}
-        </div> -->
+        </div>
         <div class="flex flex-row items-center justify-end">
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <label for="my-modal-13" class="modal-action btn"
