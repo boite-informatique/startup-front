@@ -108,5 +108,13 @@
         "inequalpw": "The two passwords are not equal",
         "invalidpw": "Password invalid, try again",
         "success": "Password changed successfully"
+    },
+    "activateacc": {
+        "indicator": {
+            "success": "Your account has been activated"
+        },
+        "header": "Activate your account",
+        "submit": "Activate",
+        "loginlink": "Go to login page"
     }
 }

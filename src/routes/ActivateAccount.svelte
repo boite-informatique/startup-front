@@ -31,7 +31,7 @@
     let indicateSuccess = () => {
         dispatch("showIndicator", {
             indicatorType: "btn-success",
-            indicatorContent: $_("forgotpw.indicator.success"),
+            indicatorContent: $_("activateacc.indicator.success"),
             indicatorVisible: true,
         });
     };
@@ -64,7 +64,7 @@
             <div
                 class="-mx-1 mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100"
             >
-                {$_("forgotpw.header")}
+                {$_("activateacc.header")}
             </div>
         </div>
 
@@ -80,14 +80,14 @@
                         type="submit"
                         class="group relative flex w-full justify-center rounded-md bg-light px-3 py-2 text-sm font-semibold text-white hover:bg-opacity-75 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light"
                     >
-                        {$_("forgotpw.submit")}
+                        {$_("activateacc.submit")}
                     </button>
                 </div>
             </div>
         </form>
         <Link to="/login"
             ><div class="link-hover link relative mt-4">
-                {$_("forgotpw.loginlink")}
+                {$_("activateacc.loginlink")}
             </div></Link
         >
     </div>
