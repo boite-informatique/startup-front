@@ -9,8 +9,8 @@
 
     export let ModifyRoleModalState = false;
     export let name: string = "";
-    export let permissions: number[] = [];
-    export let users: number[] = [];
+    export let permissions: any[] = [];
+    export let users: any[] = [];
     export let ModifyRoleModalData: {
         _count?: {
             users: number;
@@ -61,10 +61,10 @@
             ModifyRolePayload.name = name;
         }
         if (ModifyRoleModalData.users != users) {
-            ModifyRolePayload.users = users;
+            ModifyRolePayload.users = users.map((obj) => obj.id);
         }
         if (ModifyRoleModalData.permissions != permissions) {
-            ModifyRolePayload.permissions = permissions;
+            ModifyRolePayload.permissions = permissions.map((obj) => obj.id);
         }
 
         let response = await modifyOneRole(
