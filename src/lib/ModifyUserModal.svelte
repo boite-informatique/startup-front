@@ -2,7 +2,7 @@
     import { _ } from "svelte-i18n";
     import { modifyOneUser } from "../api/admin-user";
     import { createEventDispatcher } from "svelte";
-    import ModifyUserRolesModal from "./modifyUserRolesModal.svelte";
+    import ModifyUserRolesModal from "./ModifyUserRolesModal.svelte";
 
     const dispatch = createEventDispatcher();
 
