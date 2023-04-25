@@ -14,6 +14,7 @@
     import ForgotPassword from "./routes/ForgotPassword.svelte";
     import Layout from "./routes/Layout.svelte";
     import ChangePassword from "./routes/ChangePassword.svelte";
+    import Register from "./routes/Register.svelte";
 
     let indicatorVisible = false;
     let indicatorContent;
@@ -64,7 +65,9 @@
                     token={params.token}
                 />
             </Route>
-
+            <Route path="register">
+                <Register on:showIndicator={showIndicator} />
+            </Route>
             <!-- Components that need navbar and sidebar -->
             <Route path="/">
                 <Layout>

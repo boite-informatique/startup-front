@@ -7,10 +7,8 @@ interface RegistrationInput {
     last_name: string;
     date_of_birth: Date;
     type: "student" | "teacher" | "staff";
-    activated?: boolean;
     phone: string;
     avatar?: string;
-    roles: any[];
     info: StudentInfo | TeacherInfo | StaffInfo;
 }
 
