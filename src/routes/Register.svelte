@@ -155,69 +155,107 @@
                     placeholder={$_("register.phone")}
                 />
                 <label for="date_of_birth">
-                    <span class="label-text">{$_("register.date.label")}</span>
+                    <span class="label-text">{$_("register.date.label")}</span
+                    ></label
+                >
+                <input
+                    bind:value={date_of_birth}
+                    type="date"
+                    name="date_of_birth"
+                    required
+                    class="relative block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
+                    placeholder={$_("register.date")}
+                />
+                <div>
+                    <label for="type">
+                        <span class="label-text"
+                            >{$_("register.select.label")}</span
+                        >
+                    </label>
+                    <select
+                        bind:value={type}
+                        name="type"
+                        required
+                        class="relative mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
+                    >
+                        <option value="student"
+                            >{$_("register.select.student")}</option
+                        >
+                        <option value="teacher"
+                            >{$_("register.select.teacher")}</option
+                        >
+                        <option value="staff"
+                            >{$_("register.select.staff")}</option
+                        >
+                    </select>
+                </div>
+                {#if type == "student"}
                     <input
-                        bind:value={date_of_birth}
-                        type="date"
-                        name="date_of_birth"
+                        bind:value={registration_num}
+                        type="text"
+                        required
+                        class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
+                        placeholder={$_("register.registrationnum")}
+                    />
+                    <input
+                        bind:value={establishment}
+                        type="text"
+                        required
+                        class="relative block w-full border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
+                        placeholder={$_("register.establishment")}
+                    />
+                    <input
+                        bind:value={filiere}
+                        type="text"
+                        required
+                        class="relative block w-full border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
+                        placeholder={$_("register.filiere")}
+                    />
+                    <input
+                        bind:value={specialty}
+                        type="text"
+                        required
+                        class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
+                        placeholder={$_("register.specialty")}
+                    />
+                {:else if type == "teacher"}
+                    <input
+                        bind:value={registration_num}
+                        type="text"
+                        required
+                        class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
+                        placeholder={$_("register.registrationnum")}
+                    />
+                    <input
+                        bind:value={establishment}
+                        type="text"
+                        required
+                        class="relative block w-full border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
+                        placeholder={$_("register.establishment")}
+                    />
+                    <input
+                        bind:value={grade}
+                        type="text"
+                        required
+                        class="relative block w-full border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
+                        placeholder={$_("register.grade")}
+                    />
+                    <input
+                        bind:value={specialty}
+                        type="text"
+                        required
+                        class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
+                        placeholder={$_("register.specialty")}
+                    />
+                {:else if type == "staff"}
+                    <input
+                        bind:value={grade}
+                        type="text"
                         required
                         class="relative block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                        placeholder={$_("register.date")}
+                        placeholder={$_("register.grade")}
                     />
-                    <div>
-                        <label for="type">
-                            <span class="label-text"
-                                >{$_("register.select.label")}</span
-                            >
-                        </label>
-                        <select
-                            bind:value={type}
-                            name="type"
-                            required
-                            class="relative mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                        >
-                            <option value="student"
-                                >{$_("register.select.student")}</option
-                            >
-                            <option value="teacher"
-                                >{$_("register.select.teacher")}</option
-                            >
-                            <option value="staff"
-                                >{$_("register.select.staff")}</option
-                            >
-                        </select>
-                    </div>
-                    {#if type == "student"}
-                        <input
-                            bind:value={registration_num}
-                            type="text"
-                            required
-                            class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                            placeholder={$_("register.registrationnum")}
-                        />
-                        <input
-                            bind:value={establishment}
-                            type="text"
-                            required
-                            class="relative block w-full border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                            placeholder={$_("register.establishment")}
-                        />
-                        <input
-                            bind:value={filiere}
-                            type="text"
-                            required
-                            class="relative block w-full border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                            placeholder={$_("register.filiere")}
-                        />
-                        <input
-                            bind:value={specialty}
-                            type="text"
-                            required
-                            class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                            placeholder={$_("register.specialty")}
-                        />
-                    {/if}
-                </label>
+                {/if}
             </div>
 
             <div>
