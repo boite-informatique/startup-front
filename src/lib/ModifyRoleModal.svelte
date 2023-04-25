@@ -2,7 +2,8 @@
     import { _ } from "svelte-i18n";
     import { modifyOneRole } from "../api/admin-role";
     import { createEventDispatcher } from "svelte";
-    import ModifyUserRolesModal from "./ModifyUserRolesModal.svelte";
+    import ModifyRoleUsersModal from "./ModifyRoleUsersModal.svelte";
+    import ModifyRolePermissionsModal from "./ModifyRolePermissionsModal.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -28,7 +29,8 @@
         permissions: [],
     };
 
-    let modifyRolesModalState;
+    let modifyPermissionsModalState;
+    let modifyUsersModalState;
 
     let handleSave = async () => {
         let ModifyRolePayload: {
@@ -166,7 +168,7 @@
                 <button
                     class="btn-ghost btn-active btn flex flex-row items-center justify-between gap-3 text-white opacity-80 hover:opacity-100"
                     on:click={() => {
-                        modifyRolesModalState = true;
+                        modifyUsersModalState = true;
                     }}
                 >
                     <div class="mt-[1px]">
@@ -207,7 +209,7 @@
                 <button
                     class="btn-ghost btn-active btn flex flex-row items-center justify-between gap-3 text-white opacity-80 hover:opacity-100"
                     on:click={() => {
-                        modifyRolesModalState = true;
+                        modifyPermissionsModalState = true;
                     }}
                 >
                     <div class="mt-[1px]">
@@ -281,4 +283,8 @@
     </div>
 </div>
 
-<!-- <ModifyUserRolesModal bind:modifyRolesModalState bind:selectedRoles={roles} /> -->
+<ModifyRolePermissionsModal
+    bind:modifyPermissionsModalState
+    bind:selectedPermissions={permissions}
+/>
+<ModifyRoleUsersModal bind:modifyUsersModalState bind:selectedUsers={users} />

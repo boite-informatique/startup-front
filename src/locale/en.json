@@ -92,7 +92,11 @@
             "no permissions associated to the role": "no permissions associated to the role",
             "modify the role's informations": "modify the role's informations",
             "modify users": "modify users",
-            "modify permissions": "modify permissions"
+            "modify permissions": "modify permissions",
+            "modify the role's users": "modify the role's users",
+            "modify the role's permissions": "modify the role's permissions",
+            "Please select the users that you want to assign to the selected role": "Please select the users that you want to assign to the selected role",
+            "Please select the permissions that you want to assign to the selected role": "Please select the permissions that you want to assign to the selected role"
         }
     },
     "Recover Your Account": "Recover Your Account",
