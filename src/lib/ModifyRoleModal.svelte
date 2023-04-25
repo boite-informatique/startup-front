@@ -19,6 +19,7 @@
         name?: string;
         users?: number[];
         permissions?: number[];
+        id?: number;
     } = {
         _count: {
             users: 0,
@@ -63,22 +64,23 @@
             ModifyRolePayload.users = users;
         }
         if (ModifyRoleModalData.permissions != permissions) {
-            ModifyRolePayload.permissions = permissions.map((obj) => obj);
+            ModifyRolePayload.permissions = permissions;
         }
 
-        // let response = await modifyOneRole(
-        //     // here put data.
-        // );
+        let response = await modifyOneRole(
+            ModifyRoleModalData.id,
+            ModifyRolePayload
+        );
 
-        // if (response.status >= 200 && response.status < 300) {
-        //     indicateSuccess();
-        // } else if (response.status >= 400 && response.status < 500) {
-        //     indicate4xx();
-        // } else if (response.status >= 500 && response.status < 600) {
-        //     indicateInternalServerError();
-        // } else {
-        //     indicateErrorOccurred();
-        // }
+        if (response.status >= 200 && response.status < 300) {
+            indicateSuccess();
+        } else if (response.status >= 400 && response.status < 500) {
+            indicate4xx();
+        } else if (response.status >= 500 && response.status < 600) {
+            indicateInternalServerError();
+        } else {
+            indicateErrorOccurred();
+        }
     };
 
     let indicateUserInformationsNotModified = () => {
@@ -253,7 +255,10 @@
                         : ""}{ModifyRoleModalData.permissions
                         ? ModifyRoleModalData.permissions != permissions
                             ? `${
-                                  ModifyRoleModalData.users != users ? ", " : ""
+                                  ModifyRoleModalData.users != users ||
+                                  ModifyRoleModalData.name != name
+                                      ? ", "
+                                      : ""
                               }${$_("admin.roles.permissions")}.`
                             : "."
                         : ""}
