@@ -1,6 +1,6 @@
 import api from "../services/api";
 
-interface registrationInput {
+interface RegistrationInput {
     email: string;
     password: string;
     first_name: string;
@@ -11,10 +11,28 @@ interface registrationInput {
     phone: string;
     avatar?: string;
     roles: any[];
-    info: any;
+    info: StudentInfo | TeacherInfo | StaffInfo;
 }
 
-export const register = async (input: registrationInput) => {
+interface StudentInfo {
+    registration_num: string;
+    establishment: string;
+    filiere: string;
+    specialty: string;
+}
+
+interface TeacherInfo {
+    registration_num: string;
+    establishment: string;
+    grade: string;
+    specialty: string;
+}
+
+interface StaffInfo {
+    grade: string;
+}
+
+export const register = async (input: RegistrationInput) => {
     try {
         const response = await api.post("/users/", { input });
         return response;
