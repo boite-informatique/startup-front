@@ -88,9 +88,12 @@
             "no roles available": "aucun rôle disponible",
             "the permissions associated to the role": "Les permissions associées au rôle",
             "no permissions associated to the role": "pas de permissions associées au rôle",
-            "permissions": "autorisations",
-            "role name": "nom de rôle",
-            "users": "utilisateurs"
+            "permissions": "permissions",
+            "role name": "nom du rôle",
+            "users": "utilisateurs",
+            "modify the role's informations": "modifier les informations du rôle",
+            "modify users": "modifier les utilisateurs",
+            "modify permissions": "modifier les permissions"
         }
     },
     "changepw": {
