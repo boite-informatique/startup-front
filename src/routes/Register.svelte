@@ -3,7 +3,7 @@
     import { _ } from "svelte-i18n";
     import { register } from "../api/user-register";
     import fetchUserPermissions from "../api/userPermissions";
-    import { Link } from "svelte-navigator";
+    import { Link, navigate } from "svelte-navigator";
     import { createEventDispatcher } from "svelte";
 
     // importing components
@@ -18,7 +18,7 @@
     let password = "";
     let first_name = "";
     let last_name = "";
-    let date_of_birth = "";
+    let date_of_birth;
     let phone = "";
     let type = "student";
     let registration_num = "";
@@ -28,24 +28,41 @@
     let grade = "";
 
     const handleFormSubmit = async (event) => {
-        //todo
         event.preventDefault();
-        try {
-            let response = await register(null);
-            if (response.status >= 200 && response.status < 300) {
-                // write token in sessionStorage or localStorage
-                const storageType = rememberMe ? localStorage : sessionStorage;
-                storageType.setItem("token", response.data.token);
-                await fetchUserPermissions();
-                window.location.href = "/";
-            } else if (response.status == 403) {
-                indicateDeactivatedAccount();
-            } else if (response.status >= 400 && response.status < 500) {
-                indicateUnauthorized();
-            } else if (response.status >= 500 && response.status < 600) {
-                indicateInternalServerError();
-            } else {
+        let info;
+        switch (type) {
+            case "student":
+                info = { registration_num, establishment, filiere, specialty };
+                break;
+            case "teacher":
+                info = { registration_num, establishment, grade, specialty };
+                break;
+            case "staff":
+                info = { grade };
+            default:
                 indicateErrorOccurred();
+                return;
+        }
+        try {
+            let response = await register({
+                email,
+                password,
+                first_name,
+                last_name,
+                date_of_birth,
+                phone,
+                type,
+                info,
+            });
+
+            switch (response.status) {
+                case 201:
+                    indicateSuccess();
+                    navigate("/login");
+                    break;
+                default:
+                    indicateErrorOccurred;
+                    break;
             }
         } catch (error) {
             console.log(error);
@@ -61,10 +78,10 @@
             indicatorVisible: true,
         });
     };
-    let indicateDeactivatedAccount = () => {
+    let indicateSuccess = () => {
         dispatch("showIndicator", {
-            indicatorType: "btn-error",
-            indicatorContent: $_("login.indicator.this account is deactivated"),
+            indicatorType: "btn-success",
+            indicatorContent: $_("register.indicator.success"),
             indicatorVisible: true,
         });
     };
