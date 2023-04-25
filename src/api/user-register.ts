@@ -14,14 +14,14 @@ interface RegistrationInput {
 
 interface StudentInfo {
     registration_num: string;
-    establishment: string;
+    establishement: string;
     filiere: string;
     specialty: string;
 }
 
 interface TeacherInfo {
     registration_num: string;
-    establishment: string;
+    establishement: string;
     grade: string;
     specialty: string;
 }
@@ -32,7 +32,7 @@ interface StaffInfo {
 
 export const register = async (input: RegistrationInput) => {
     try {
-        const response = await api.post("/users/", { input });
+        const response = await api.post("/users/", input);
         return response;
     } catch (error) {
         console.error(error);

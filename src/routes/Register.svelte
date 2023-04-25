@@ -2,7 +2,6 @@
     // importing Modules
     import { _ } from "svelte-i18n";
     import { register } from "../api/user-register";
-    import fetchUserPermissions from "../api/userPermissions";
     import { Link, navigate } from "svelte-navigator";
     import { createEventDispatcher } from "svelte";
 
@@ -13,7 +12,6 @@
 
     const dispatch = createEventDispatcher();
 
-    let rememberMe = false;
     let email = "";
     let password = "";
     let first_name = "";
@@ -22,7 +20,7 @@
     let phone = "";
     let type = "student";
     let registration_num = "";
-    let establishment = "";
+    let establishement = "";
     let specialty = "";
     let filiere = "";
     let grade = "";
@@ -32,10 +30,10 @@
         let info;
         switch (type) {
             case "student":
-                info = { registration_num, establishment, filiere, specialty };
+                info = { registration_num, establishement, filiere, specialty };
                 break;
             case "teacher":
-                info = { registration_num, establishment, grade, specialty };
+                info = { registration_num, establishement, grade, specialty };
                 break;
             case "staff":
                 info = { grade };
@@ -54,14 +52,16 @@
                 type,
                 info,
             });
-
             switch (response.status) {
                 case 201:
                     indicateSuccess();
                     navigate("/login");
                     break;
+                case 409:
+                    indicateEmailAlreadyExists();
+                    break;
                 default:
-                    indicateErrorOccurred;
+                    indicateErrorOccurred();
                     break;
             }
         } catch (error) {
@@ -69,12 +69,10 @@
         }
     };
 
-    let indicateInternalServerError = () => {
+    let indicateEmailAlreadyExists = () => {
         dispatch("showIndicator", {
             indicatorType: "btn-error",
-            indicatorContent: $_(
-                "login.indicator.an internal server error occurred, please try again"
-            ),
+            indicatorContent: $_("register.indicator.emailconflict"),
             indicatorVisible: true,
         });
     };
@@ -85,15 +83,7 @@
             indicatorVisible: true,
         });
     };
-    let indicateUnauthorized = () => {
-        dispatch("showIndicator", {
-            indicatorType: "btn-error",
-            indicatorContent: $_(
-                "login.indicator.Invalid email or password. Please try again"
-            ),
-            indicatorVisible: true,
-        });
-    };
+
     let indicateErrorOccurred = () => {
         dispatch("showIndicator", {
             indicatorType: "btn-warning",
@@ -215,7 +205,7 @@
                         placeholder={$_("register.registrationnum")}
                     />
                     <input
-                        bind:value={establishment}
+                        bind:value={establishement}
                         type="text"
                         required
                         class="relative block w-full border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
@@ -244,7 +234,7 @@
                         placeholder={$_("register.registrationnum")}
                     />
                     <input
-                        bind:value={establishment}
+                        bind:value={establishement}
                         type="text"
                         required
                         class="relative block w-full border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
