@@ -1,22 +1,26 @@
-<script>
+<script lang="ts">
     import { createEventDispatcher } from "svelte";
-    import { fetchUserRoles } from "../api/admin-user";
     import { fetchRoles } from "../api/admin-role";
     import { _ } from "svelte-i18n";
     import RolesModal from "./RolesModal.svelte";
-    import UserTypeModal from "./UserTypeModal.svelte";
-    import ModifyUserModal from "./ModifyUserModal.svelte";
+    import ModifyRoleModal from "./ModifyRoleModal.svelte";
+    import RolePermissionsModal from "./RolePermissionsModal.svelte";
 
     const dispatch = createEventDispatcher();
 
+    let rolePermissions;
     let modalState = false;
-    let ModifyUserModalState = false;
+    let RolePermissionsModalState = false;
+    let ModifyRoleModalState = false;
     let rolesData;
-    let ModifyUserModalData = {
-        email: "",
-        activated: true,
-        password: "",
-        roles: [],
+    let ModifyRoleModalData: {
+        name?: string;
+        users?: number[];
+        permissions?: number[];
+    } = {
+        name: "",
+        users: [],
+        permissions: [],
     };
 
     let roles = fetchRoles();
@@ -51,8 +55,8 @@
                             <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
                                 on:click={() => {
-                                    ModifyUserModalState = true;
-                                    ModifyUserModalData = role;
+                                    ModifyRoleModalState = true;
+                                    ModifyRoleModalData = role;
                                 }}
                                 title={$_(
                                     "admin.roles.click to modify the role's informations"
@@ -74,7 +78,12 @@
                                 {role._count.users}
                                 {$_("admin.roles.users")}
                             </td>
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
+                                on:click={() => {
+                                    RolePermissionsModalState = true;
+                                    rolePermissions = role.permissions;
+                                }}
                                 class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800"
                             >
                                 {role._count.permissions}
@@ -110,11 +119,13 @@
 </div>
 
 <RolesModal {rolesData} bind:modalState />
-<ModifyUserModal
+<ModifyRoleModal
     on:showIndicator
-    {ModifyUserModalData}
-    email={ModifyUserModalData.email}
-    activated={ModifyUserModalData.activated}
-    roles={ModifyUserModalData.roles}
-    bind:ModifyUserModalState
+    {ModifyRoleModalData}
+    name={ModifyRoleModalData.name}
+    users={ModifyRoleModalData.users}
+    permissions={ModifyRoleModalData.permissions}
+    bind:ModifyRoleModalState
 />
+
+<RolePermissionsModal bind:RolePermissionsModalState {rolePermissions} />

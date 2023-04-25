@@ -86,6 +86,8 @@
             "click to modify the role's informations": "cliquez pour modifier les informations du rôle",
             "filter roles by...": "filtrer les rôles par...",
             "no roles available": "aucun rôle disponible",
+            "the permissions associated to the role": "Les permissions associées au rôle",
+            "no permissions associated to the role": "pas de permissions associées au rôle",
             "permissions": "autorisations",
             "role name": "nom de rôle",
             "users": "utilisateurs"
