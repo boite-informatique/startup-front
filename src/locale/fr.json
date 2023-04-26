@@ -118,5 +118,13 @@
         "header": "Récupérer votre mot de passe",
         "loginlink": "Retournez à la page de login."
     },
-    "Recover Your Account": "Récupérer votre compte"
+    "Recover Your Account": "Récupérer votre compte",
+    "activateacc": {
+        "indicator": {
+            "success": "Votre compte a été activé"
+        },
+        "header": "Activez votre compte",
+        "submit": "Activez",
+        "loginlink": "Aller à la page de login"
+    }
 }

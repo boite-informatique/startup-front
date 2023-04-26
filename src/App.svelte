@@ -12,6 +12,7 @@
     import ForgotPassword from "./routes/ForgotPassword.svelte";
     import Layout from "./routes/Layout.svelte";
     import ChangePassword from "./routes/ChangePassword.svelte";
+    import ActivateAccount from "./routes/ActivateAccount.svelte";
 
     // importing components
     import Indicator from "./lib/Indicator.svelte";
@@ -61,6 +62,12 @@
             </Route>
             <Route path="change_password/:token" let:params>
                 <ChangePassword
+                    on:showIndicator={showIndicator}
+                    token={params.token}
+                />
+            </Route>
+            <Route path="activate_account/:token" let:params>
+                <ActivateAccount
                     on:showIndicator={showIndicator}
                     token={params.token}
                 />
