@@ -125,5 +125,11 @@
         "header": "Activate your account",
         "submit": "Activate",
         "loginlink": "Go to login page"
+    },
+    "projects": {
+        "indicator": {
+            "You are not authorized to access '/projects' route": "You are not authorized to access '/projects' route",
+            "You are not authorized to access '/my projects' route": "You are not authorized to access '/my projects' route"
+        }
     }
 }
