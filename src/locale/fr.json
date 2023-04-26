@@ -135,6 +135,16 @@
         "indicator": {
             "You are not authorized to access '/projects' route": "Vous n'êtes pas autorisé à accéder à la section '/projects'",
             "You are not authorized to access '/my projects' route": "Vous n'êtes pas autorisé à accéder à la section '/my projects'"
-        }
+        },
+        "product": "produit",
+        "brand": "marque",
+        "type": "type",
+        "resume": "résumé",
+        "owner": "propriétaire",
+        "supervisor": "encadrant",
+        "co_supervisor": "co_encadrant",
+        "created at": "créé le",
+        "validation": "validation",
+        "add a project": "ajouter un projet"
     }
 }
