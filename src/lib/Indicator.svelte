@@ -34,11 +34,11 @@
             delay: 0,
             opacity: 0,
         }}
-        class="absolute top-0 left-0 z-50 flex h-24 w-screen select-none items-center justify-center overflow-hidden overflow-y-visible sm:h-20"
+        class="absolute top-0 left-0 z-[9999] flex h-24 w-screen select-none items-center justify-center overflow-hidden overflow-y-visible sm:h-20"
     >
         {#if indicatorType == "btn-info"}
             <div
-                class="alert alert-info z-30 w-11/12 shadow-lg ring-2 ring-gray-800 dark:ring-gray-200 sm:max-w-md"
+                class="alert alert-info z-30 w-11/12 shadow-lg ring-2 ring-gray-800 dark:ring-gray-200 sm:max-w-lg"
             >
                 <div>
                     <svg
@@ -60,7 +60,7 @@
 
         {#if indicatorType == "btn-success"}
             <div
-                class="alert alert-success z-30 w-11/12 shadow-lg ring-2 ring-gray-800 dark:ring-gray-200 sm:max-w-md"
+                class="alert alert-success z-30 w-11/12 shadow-lg ring-2 ring-gray-800 dark:ring-gray-200 sm:max-w-lg"
             >
                 <div>
                     <svg
@@ -82,7 +82,7 @@
 
         {#if indicatorType == "btn-warning"}
             <div
-                class="alert alert-warning z-30 w-11/12 shadow-lg ring-2 ring-gray-800 dark:ring-gray-200 sm:max-w-md"
+                class="alert alert-warning z-30 w-11/12 shadow-lg ring-2 ring-gray-800 dark:ring-gray-200 sm:max-w-lg"
             >
                 <div>
                     <svg
@@ -104,7 +104,7 @@
 
         {#if indicatorType == "btn-error"}
             <div
-                class="alert alert-error z-30 w-11/12 shadow-lg ring-2 ring-gray-800 dark:ring-gray-200 sm:max-w-md"
+                class="alert alert-error z-30 w-11/12 shadow-lg ring-2 ring-gray-800 dark:ring-gray-200 sm:max-w-lg"
             >
                 <div>
                     <svg
