@@ -6,6 +6,10 @@
         "profile": "profile",
         "my project": "my project"
     },
+    "breadcrumb": {
+        "projects": "projects",
+        "my project": "my project"
+    },
     "sidebar": {
         "admin": {
             "users": "users",

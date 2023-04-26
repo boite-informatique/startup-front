@@ -5,6 +5,11 @@
     import { useNavigate } from "svelte-navigator";
     import { createEventDispatcher } from "svelte";
 
+    // importing modules
+    import Breadcrumb from "../lib/Breadcrumb.svelte";
+    import AddProject from "../lib/AddProject.svelte";
+    import ProjectsTables from "../lib/ProjectsTables.svelte";
+
     // importing stores
     import { userPermissions } from "../stores/userPermissions";
 
@@ -34,4 +39,12 @@
     });
 </script>
 
-this is my project for project holder (student)
+<div class="flex w-full flex-col gap-4 p-4 md:gap-5 md:px-12 md:pt-7">
+    <Breadcrumb breadcrumbItems={["my project"]} />
+    <div
+        class="-mb-2 flex flex-col items-start justify-start gap-2 md:flex-row"
+    >
+        <AddProject />
+    </div>
+    <ProjectsTables on:showIndicator />
+</div>
