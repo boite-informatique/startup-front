@@ -8,12 +8,13 @@
     import Login from "./routes/Login.svelte";
     import Home from "./routes/Home.svelte";
     import Admin from "./routes/Admin.svelte";
-
-    // importing components
-    import Indicator from "./lib/Indicator.svelte";
+    import MyProject from "./routes/MyProject.svelte";
     import ForgotPassword from "./routes/ForgotPassword.svelte";
     import Layout from "./routes/Layout.svelte";
     import ChangePassword from "./routes/ChangePassword.svelte";
+
+    // importing components
+    import Indicator from "./lib/Indicator.svelte";
 
     let indicatorVisible = false;
     let indicatorContent;
@@ -74,6 +75,11 @@
             <Route path="/admin/*">
                 <Layout>
                     <Admin on:showIndicator={showIndicator} />
+                </Layout>
+            </Route>
+            <Route path="/my%20project">
+                <Layout showSidebar={false}>
+                    <MyProject on:showIndicator={showIndicator} />
                 </Layout>
             </Route>
         </main>

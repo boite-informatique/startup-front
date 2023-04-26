@@ -4,6 +4,9 @@
     import Navbar from "../lib/Navbar.svelte";
     import Sidebar from "../lib/Sidebar.svelte";
 
+    export let showNavbar = true;
+    export let showSidebar = true;
+
     let menu = false;
     const toggleMenu = () => {
         menu = !menu;
@@ -19,11 +22,13 @@
     }
 </script>
 
-<Navbar on:toggleMenu={toggleMenu} />
-<Menu {menu} />
+{#if showNavbar}
+    <Navbar on:toggleMenu={toggleMenu} />
+    <Menu {menu} />
+{/if}
 
 <div class="flex h-full w-full flex-1 flex-col lg:flex-row">
-    {#if userIsLoggedIn}
+    {#if userIsLoggedIn && showSidebar}
         <Sidebar />
     {/if}
     <slot />
