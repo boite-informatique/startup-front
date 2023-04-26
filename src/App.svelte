@@ -9,6 +9,7 @@
     import Home from "./routes/Home.svelte";
     import Admin from "./routes/Admin.svelte";
     import MyProject from "./routes/MyProject.svelte";
+    import Projects from "./routes/Projects.svelte";
     import ForgotPassword from "./routes/ForgotPassword.svelte";
     import Layout from "./routes/Layout.svelte";
     import ChangePassword from "./routes/ChangePassword.svelte";
@@ -87,6 +88,11 @@
             <Route path="/my%20project">
                 <Layout showSidebar={false}>
                     <MyProject on:showIndicator={showIndicator} />
+                </Layout>
+            </Route>
+            <Route path="/projects">
+                <Layout showSidebar={false}>
+                    <Projects on:showIndicator={showIndicator} />
                 </Layout>
             </Route>
         </main>

@@ -2,8 +2,6 @@
     import { Link } from "svelte-navigator";
     import { createEventDispatcher } from "svelte";
     import { useLocation } from "svelte-navigator";
-    import { fly } from "svelte/transition";
-    import { quintInOut } from "svelte/easing";
     import { _ } from "svelte-i18n";
     import { userPermissions } from "../stores/userPermissions";
     import innoviumLogo from "../assets/innovium_logos/innovium_light.png";
@@ -48,13 +46,6 @@
     class="sticky top-0 z-10 flex w-full select-none items-center justify-between overflow-visible overflow-x-hidden bg-light bg-opacity-10 py-3 pr-1 shadow-lg backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-50 lg:px-5"
 >
     <button
-        in:fly={{
-            x: -40,
-            duration: 500,
-            delay: 550,
-            opacity: 0,
-            easing: quintInOut,
-        }}
         class="rounded-r-2xl bg-black bg-opacity-20 py-1 pl-1 pr-2 text-gray-800 dark:bg-white dark:bg-opacity-20 dark:text-slate-300 lg:hidden"
     >
         <label class="swap-rotate swap">
@@ -94,31 +85,13 @@
             >
         </label>
     </button>
-    <img
-        in:fly={{
-            y: -40,
-            duration: 500,
-            delay: 300,
-            opacity: 0,
-            easing: quintInOut,
-        }}
-        src={innoviumLogo}
-        alt="Innovium logo"
-        class="h-14"
-    />
+    <img src={innoviumLogo} alt="Innovium logo" class="h-14" />
     <ul
         class="hidden items-center justify-center gap-10 text-lg font-semibold capitalize text-gray-900 dark:text-white lg:flex"
     >
         {#each routesList as route}
             <div class="group">
                 <li
-                    in:fly={{
-                        y: -40,
-                        duration: 500,
-                        delay: 380 + route.index * 40,
-                        opacity: 0,
-                        easing: quintInOut,
-                    }}
                     class="relative cursor-pointer px-2 hover:opacity-100 {$location.pathname
                         .replace(/%20/g, ' ')
                         .startsWith(`/${route.path}`)
@@ -140,16 +113,7 @@
     <div class="w-28 lg:w-[270px]" />
     <!-- added this to take the place of the darkMode btn and language button since they are absolute -->
 </nav>
-<div
-    class="fixed right-5 top-5 z-50 flex gap-3 md:gap-4"
-    in:fly={{
-        x: 40,
-        duration: 500,
-        delay: 550,
-        opacity: 0,
-        easing: quintInOut,
-    }}
->
+<div class="fixed right-5 top-5 z-50 flex gap-3 md:gap-4">
     <DarkModeTogglerLogin />
     <LanguageMenuLogin />
 </div>
