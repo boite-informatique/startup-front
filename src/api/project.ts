@@ -36,6 +36,28 @@ export const getProjects = async () => {
                     validation: {
                         decision: "favorable",
                     },
+                    members: [
+                        {
+                            email: "hha@gmail.com",
+                            first_name: "john",
+                            last_name: "doe",
+                        },
+                        {
+                            email: "hha@gmail.com",
+                            first_name: "john",
+                            last_name: "doe",
+                        },
+                        {
+                            email: "hha@gmail.com",
+                            first_name: "john",
+                            last_name: "doe",
+                        },
+                        {
+                            email: "hha@gmail.com",
+                            first_name: "john",
+                            last_name: "doe",
+                        },
+                    ],
                 },
                 {
                     type: "startup",
@@ -65,6 +87,28 @@ export const getProjects = async () => {
                     validation: {
                         decision: "favorable",
                     },
+                    members: [
+                        {
+                            email: "hha@gmail.com",
+                            first_name: "john",
+                            last_name: "doe",
+                        },
+                        {
+                            email: "hha@gmail.com",
+                            first_name: "john",
+                            last_name: "doe",
+                        },
+                        {
+                            email: "hha@gmail.com",
+                            first_name: "john",
+                            last_name: "doe",
+                        },
+                        {
+                            email: "hha@gmail.com",
+                            first_name: "john",
+                            last_name: "doe",
+                        },
+                    ],
                 },
             ],
         };

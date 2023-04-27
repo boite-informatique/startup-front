@@ -150,6 +150,7 @@
         "a summary of the project idea": "un résumé de l'idée de projet",
         "the project validation state": "l'état de validation du projet",
         "informations about the project validation state": "informations sur l'état de validation du projet",
-        "no informations about the project validation state": "aucune information sur l'état de validation du projet"
+        "no informations about the project validation state": "aucune information sur l'état de validation du projet",
+        "members": "membres"
     }
 }
