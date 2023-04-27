@@ -2,8 +2,12 @@
     import { createEventDispatcher } from "svelte";
     import { getProjects } from "../api/project";
     import { _ } from "svelte-i18n";
+    import ProjectResumeModal from "./ProjectResumeModal.svelte";
 
     const dispatch = createEventDispatcher();
+
+    let projectResumeModalState = false;
+    let projectResumeModalData = "";
 
     $: projects = getProjects();
 </script>
@@ -70,7 +74,12 @@
                                 class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200 font-bold"
                                 >{project.type}</td
                             >
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
+                                on:click={() => {
+                                    projectResumeModalState = true;
+                                    projectResumeModalData = project.resume;
+                                }}
                                 class="cursor-pointer bg-gray-200 text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800 select-none font-semibold"
                                 >{project.resume
                                     .split(" ")
@@ -160,3 +169,5 @@
         </tbody>
     </table>
 </div>
+
+<ProjectResumeModal {projectResumeModalData} bind:projectResumeModalState />
