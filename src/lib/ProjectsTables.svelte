@@ -3,11 +3,14 @@
     import { getProjects } from "../api/project";
     import { _ } from "svelte-i18n";
     import ProjectResumeModal from "./ProjectResumeModal.svelte";
+    import ProjectValidationModal from "./ProjectValidationModal.svelte";
 
     const dispatch = createEventDispatcher();
 
     let projectResumeModalState = false;
     let projectResumeModalData = "";
+    let projectValidationModalState = false;
+    let projectValidationModalData = {};
 
     $: projects = getProjects();
 </script>
@@ -140,7 +143,13 @@
                             >
                                 {project.created_at.split("T")[0]}
                             </td>
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
+                                on:click={() => {
+                                    projectValidationModalState = true;
+                                    projectValidationModalData =
+                                        project.validation;
+                                }}
                                 class="cursor-pointer bg-gray-200 text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800 select-none font-semibold"
                                 >{project.validation.decision}</td
                             >
@@ -171,3 +180,7 @@
 </div>
 
 <ProjectResumeModal {projectResumeModalData} bind:projectResumeModalState />
+<ProjectValidationModal
+    {projectValidationModalData}
+    bind:projectValidationModalState
+/>

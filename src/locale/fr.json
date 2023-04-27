@@ -147,6 +147,7 @@
         "validation": "validation",
         "add a project": "ajouter un projet",
         "no projects available": "aucun projet disponible",
-        "a summary of the project idea": "un résumé de l'idée de projet"
+        "a summary of the project idea": "un résumé de l'idée de projet",
+        "the project validation state": "l'état de validation du projet"
     }
 }
