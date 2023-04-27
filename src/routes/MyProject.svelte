@@ -9,6 +9,7 @@
     import Breadcrumb from "../lib/Breadcrumb.svelte";
     import AddProject from "../lib/AddProject.svelte";
     import ProjectsTables from "../lib/ProjectsTables.svelte";
+    import { getProjects } from "../api/project";
 
     // importing stores
     import { userPermissions } from "../stores/userPermissions";
@@ -37,6 +38,8 @@
             navigate("/");
         }
     });
+
+    const projects = getProjects();
 </script>
 
 <div class="flex w-full flex-col gap-4 p-4 md:gap-5 md:px-12 md:pt-7">
@@ -44,7 +47,13 @@
     <div
         class="-mb-2 flex flex-col items-start justify-start gap-2 md:flex-row"
     >
-        <AddProject />
+        {#await projects then res}
+            {#if !res}
+                <AddProject />
+            {/if}
+        {/await}
+        <!-- added the previous #await and #if blocks to check if user has an existing project, if he does then the "add project" button should not appear -->
+        <!-- this is still inefficient because it requests a lot of data from the api just to verify whether the array is empty or not, this will be refactored later -->
     </div>
     <ProjectsTables on:showIndicator />
 </div>

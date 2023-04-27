@@ -144,6 +144,7 @@
         "co_supervisor": "co_supervisor",
         "created at": "created at",
         "validation": "validation",
-        "add a project": "add a project"
+        "add a project": "add a project",
+        "no projects available": "no projects available"
     }
 }

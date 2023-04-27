@@ -145,6 +145,7 @@
         "co_supervisor": "co_encadrant",
         "created at": "créé le",
         "validation": "validation",
-        "add a project": "ajouter un projet"
+        "add a project": "ajouter un projet",
+        "no projects available": "aucun projet disponible"
     }
 }
