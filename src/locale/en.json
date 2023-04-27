@@ -1,112 +1,114 @@
 {
-    "navbar": {
-        "admin": "admin",
-        "projects": "projects",
-        "announcements": "announcements",
-        "profile": "profile",
-        "my project": "my project"
-    },
-    "sidebar": {
-        "admin": {
-            "users": "users",
-            "roles": "roles"
-        },
-        "projects": {},
-        "announcements": {},
-        "profile": {},
-        "my project": {}
-    },
-    "login": {
-        "Sign in to your account": "Sign in to your account",
-        "Email address": "Email address",
-        "Password": "Password",
-        "Remember me": "Remember me",
-        "Sign in": "Sign in",
-        "indicator": {
-            "an internal server error occurred, please try again": "an internal server error occurred, please try again",
-            "login success": "login success",
-            "Invalid email or password. Please try again": "Invalid email or password. Please try again",
-            "an error occured, please try again": "an error occured, please try again",
-            "this account is deactivated": "this account is deactivated"
-        },
-        "fogetpwlink": "Forgot password?"
-    },
+  "navbar": {
+    "admin": "admin",
+    "projects": "projects",
+    "announcements": "announcements",
+    "profile": "profile",
+    "my project": "my project"
+  },
+  "sidebar": {
     "admin": {
-        "indicator": {
-            "You are not authorized to access '/admin' route": "You are not authorized to access '/admin' route",
-            "4xx error, please try again": "4xx error, please try again",
-            "Your changes have been saved successfully": "Your changes have been saved successfully",
-            "no modifications were performed": "no modifications were performed"
-        },
-        "users": {
-            "add a user": "add a user",
-            "filter users by...": "filter users by...",
-            "no filter": "no filter",
-            "first name": "first name",
-            "sex": "sex",
-            "type": "type",
-            "user": "user",
-            "roles": "roles",
-            "birthday infos": "birthday infos",
-            "no users available": "no users available",
-            "click to see more": "click to see more",
-            "loading": "loading",
-            "male": "male",
-            "female": "female",
-            "student": "student",
-            "teacher": "teacher",
-            "staff": "staff",
-            "this user has the following roles": "this user has the following roles",
-            "this user has no roles": "this user has no roles",
-            "informations about the": "informations about the ",
-            "no informations about the": "no informations about the ",
-            "click to modify the user's informations": "click to modify the user's informations",
-            "password": "password",
-            "activated": "activated",
-            "modify the user's informations": "modify the user's informations",
-            "modify the user's roles": "modify the user's roles",
-            "check the roles that you want this user to have": "check the roles that you want this user to have",
-            "modified informations": "modified informations",
-            "save & close": "save & close",
-            "close": "close",
-            "no modified informations": "no modified informations",
-            "current password access restricted": "current password access restricted",
-            "modify roles": "modify roles",
-            "filter": {
-                "apply filters": "apply filters",
-                "filter users as you like": "filter users as you like",
-                "Type here": "Type here",
-                "remove all filters": "remove all filters",
-                "cancel": "cancel"
-            }
-        },
-        "roles": {
-            "filter roles by...": "filter roles by...",
-            "add a role": "add a role",
-            "role name": "role name",
-            "users": "users",
-            "permissions": "permissions",
-            "click to modify the role's informations": "click to modify the role's informations",
-            "no roles available": "no roles available",
-            "the permissions associated to the role": "the permissions associated to the role",
-            "no permissions associated to the role": "no permissions associated to the role"
-        }
+      "users": "users",
+      "roles": "roles"
     },
-    "Recover Your Account": "Recover Your Account",
-    "forgotpw": {
-        "header": "Recover Your Password",
-        "submit": "Submit",
-        "indicator": {
-            "success": "Check your email for recovery link."
-        },
-        "loginlink": "Go back to login page."
+    "projects": {},
+    "announcements": {},
+    "profile": {},
+    "my project": {}
+  },
+  "login": {
+    "Sign in to your account": "Sign in to your account",
+    "Email address": "Email address",
+    "Password": "Password",
+    "Remember me": "Remember me",
+    "Sign in": "Sign in",
+    "indicator": {
+      "an internal server error occurred, please try again": "an internal server error occurred, please try again",
+      "login success": "login success",
+      "Invalid email or password. Please try again": "Invalid email or password. Please try again",
+      "an error occured, please try again": "an error occured, please try again",
+      "this account is deactivated": "this account is deactivated"
     },
-    "changepw": {
-        "password": "Password",
-        "header": "Enter new password",
-        "password2": "Confirm password",
-        "inequalpw": "The two passwords are not equal",
-        "invalidpw": "Password invalid, try again",
-        "success": "Password changed successfully"
+    "fogetpwlink": "Forgot password?"
+  },
+  "admin": {
+    "indicator": {
+      "You are not authorized to access '/admin' route": "You are not authorized to access '/admin' route",
+      "4xx error, please try again": "4xx error, please try again",
+      "Your changes have been saved successfully": "Your changes have been saved successfully",
+      "no modifications were performed": "no modifications were performed"
+    },
+    "users": {
+      "add a user": "add a user",
+      "filter users by...": "filter users by...",
+      "no filter": "no filter",
+      "first name": "first name",
+      "sex": "sex",
+      "type": "type",
+      "user": "user",
+      "roles": "roles",
+      "birthday infos": "birthday infos",
+      "no users available": "no users available",
+      "click to see more": "click to see more",
+      "loading": "loading",
+      "male": "male",
+      "female": "female",
+      "student": "student",
+      "teacher": "teacher",
+      "staff": "staff",
+      "this user has the following roles": "this user has the following roles",
+      "this user has no roles": "this user has no roles",
+      "informations about the": "informations about the ",
+      "no informations about the": "no informations about the ",
+      "click to modify the user's informations": "click to modify the user's informations",
+      "password": "password",
+      "activated": "activated",
+      "modify the user's informations": "modify the user's informations",
+      "modify the user's roles": "modify the user's roles",
+      "check the roles that you want this user to have": "check the roles that you want this user to have",
+      "modified informations": "modified informations",
+      "save & close": "save & close",
+      "close": "close",
+      "no modified informations": "no modified informations",
+      "current password access restricted": "current password access restricted",
+      "modify roles": "modify roles",
+      "filter": {
+        "apply filters": "apply filters",
+        "filter users as you like": "filter users as you like",
+        "Type here": "Type here",
+        "remove all filters": "remove all filters",
+        "cancel": "cancel"
+      }
+    },
+    "roles": {
+      "filter roles by...": "filter roles by...",
+      "add a role": "add a role",
+      "role name": "role name",
+      "users": "users",
+      "permissions": "permissions",
+      "click to modify the role's informations": "click to modify the role's informations",
+      "no roles available": "no roles available",
+      "the permissions associated to the role": "the permissions associated to the role",
+      "no permissions associated to the role": "no permissions associated to the role"
     }
+  },
+  "Recover Your Account": "Recover Your Account",
+  "forgotpw": {
+    "header": "Recover Your Password",
+    "submit": "Submit",
+    "indicator": {
+      "success": "Check your email for recovery link."
+    },
+    "loginlink": "Go back to login page.",
+    "emailerror": "Invalid email"
+  },
+  "changepw": {
+    "password": "Password",
+    "header": "Enter new password",
+    "password2": "Confirm password",
+    "inequalpw": "The two passwords are not equal",
+    "invalidpw": "Password invalid, try again",
+    "success": "Password changed successfully",
+    "tokenexpiration": "Changing password token has expired"
+  }
 }

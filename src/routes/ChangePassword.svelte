@@ -14,9 +14,11 @@
     const dispatch = createEventDispatcher();
 
     export let token;
-
     let password = "";
     let password2 = "";
+
+    const query = new URLSearchParams(window.location.search);
+    const email = query.get("email");
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -24,11 +26,12 @@
             indicatePasswordInequality();
         } else {
             try {
-                let response = await ChangePassword(password, token);
-                if (response.status >= 200 && response.status < 300) {
+                let response = await ChangePassword(email, password, token);
+                console.log("hello", response);
+                if (response.status == 200) {
                     indicateSuccess();
-                } else if (response.status >= 400 && response.status < 500) {
-                    indicateUnauthorized();
+                } else if (response.status == 403) {
+                    indicateTokenExpiration();
                 } else if (response.status >= 500 && response.status < 600) {
                     indicateInternalServerError();
                 } else {
@@ -41,7 +44,7 @@
     };
 
     let indicateSuccess = () => {
-        dispatch("showsrcIndicator", {
+        dispatch("showIndicator", {
             indicatorType: "btn-success",
             indicatorContent: $_("changepw.success"),
             indicatorVisible: true,
@@ -65,10 +68,10 @@
         });
     };
 
-    let indicateUnauthorized = () => {
+    let indicateTokenExpiration = () => {
         dispatch("showIndicator", {
             indicatorType: "btn-error",
-            indicatorContent: $_("changepw.invalidpw"),
+            indicatorContent: $_("changepw.tokenexpiration"),
             indicatorVisible: true,
         });
     };

@@ -19,14 +19,10 @@
         event.preventDefault();
         try {
             let response = await forgotPasswordFirstStep(email);
-            if (response.status >= 200 && response.status < 300) {
+            if (response.status == 201) {
                 indicateSuccess();
-            } else if (response.status == 403) {
-                indicateDeactivatedAccount();
-            } else if (response.status >= 400 && response.status < 500) {
-                indicateUnauthorized();
-            } else if (response.status >= 500 && response.status < 600) {
-                indicateInternalServerError();
+            } else if (response.status == 400 || response.status == 404) {
+                indicateInvalidEmail();
             } else {
                 indicateErrorOccurred();
             }
@@ -43,28 +39,10 @@
         });
     };
 
-    let indicateInternalServerError = () => {
+    let indicateInvalidEmail = () => {
         dispatch("showIndicator", {
             indicatorType: "btn-error",
-            indicatorContent: $_(
-                "login.indicator.an internal server error occurred, please try again"
-            ),
-            indicatorVisible: true,
-        });
-    };
-    let indicateDeactivatedAccount = () => {
-        dispatch("showIndicator", {
-            indicatorType: "btn-error",
-            indicatorContent: $_("login.indicator.this account is deactivated"),
-            indicatorVisible: true,
-        });
-    };
-    let indicateUnauthorized = () => {
-        dispatch("showIndicator", {
-            indicatorType: "btn-error",
-            indicatorContent: $_(
-                "login.indicator.Invalid email or password. Please try again"
-            ),
+            indicatorContent: $_("forgotpw.emailerror"),
             indicatorVisible: true,
         });
     };
