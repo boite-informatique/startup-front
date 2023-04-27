@@ -112,7 +112,8 @@
         "indicator": {
             "success": "Check your email for recovery link."
         },
-        "loginlink": "Go back to login page."
+        "loginlink": "Go back to login page.",
+        "emailerror": "Invalid email"
     },
     "changepw": {
         "password": "Password",
@@ -120,35 +121,12 @@
         "password2": "Confirm password",
         "inequalpw": "The two passwords are not equal",
         "invalidpw": "Password invalid, try again",
-        "success": "Password changed successfully"
+        "success": "Password changed successfully",
+        "tokenexpiration": "Changing password token has expired"
     },
-    "activateacc": {
+    "accactivation": {
         "indicator": {
-            "success": "Your account has been activated"
-        },
-        "header": "Activate your account",
-        "submit": "Activate",
-        "loginlink": "Go to login page"
-    },
-    "projects": {
-        "indicator": {
-            "You are not authorized to access '/projects' route": "You are not authorized to access '/projects' route",
-            "You are not authorized to access '/my projects' route": "You are not authorized to access '/my projects' route"
-        },
-        "product": "product",
-        "brand": "brand",
-        "type": "type",
-        "resume": "résumé",
-        "owner": "owner",
-        "supervisor": "supervisor",
-        "co_supervisor": "co_supervisor",
-        "created at": "created at",
-        "validation": "validation",
-        "add a project": "add a project",
-        "no projects available": "no projects available",
-        "a summary of the project idea": "a summary of the project idea",
-        "the project validation state": "the project validation state",
-        "informations about the project validation state": "informations about the project validation state",
-        "no informations about the project validation state": "no informations about the project validation state"
+            "success": "Check your email for activation link"
+        }
     }
 }

@@ -13,6 +13,9 @@
     import ForgotPassword from "./routes/ForgotPassword.svelte";
     import Layout from "./routes/Layout.svelte";
     import ChangePassword from "./routes/ChangePassword.svelte";
+    import Register from "./routes/Register.svelte";
+    import RequestActivation from "./routes/RequestActivation.svelte";
+
     import ActivateAccount from "./routes/ActivateAccount.svelte";
 
     // importing components
@@ -66,6 +69,12 @@
                     on:showIndicator={showIndicator}
                     token={params.token}
                 />
+            </Route>
+            <Route path="register">
+                <Register on:showIndicator={showIndicator} />
+            </Route>
+            <Route path="request_activation">
+                <RequestActivation on:showIndicator={showIndicator} />
             </Route>
             <Route path="activate_account/:token" let:params>
                 <ActivateAccount
