@@ -51,5 +51,5 @@
     <AdminUsers on:showIndicator />
 </Route>
 <Route path="/roles">
-    <AdminRoles />
+    <AdminRoles on:showIndicator />
 </Route>

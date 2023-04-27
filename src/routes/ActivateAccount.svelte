@@ -20,15 +20,10 @@
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
         try {
             let response = await activateAccount(email, token);
-            if (response.status == 200) {
+            if (response.status >= 200 && response.status < 300) {
                 indicateSuccess();
-            } else if (response.status == 403) {
-                indicateTokenExpiration();
-            } else if (response.status >= 500 && response.status < 600) {
-                indicateInternalServerError();
             } else {
                 indicateErrorOccurred();
             }
@@ -40,28 +35,11 @@
     let indicateSuccess = () => {
         dispatch("showIndicator", {
             indicatorType: "btn-success",
-            indicatorContent: $_("Account activated successfully"),
+            indicatorContent: $_("Account has been activated"),
             indicatorVisible: true,
         });
     };
 
-    let indicateInternalServerError = () => {
-        dispatch("showIndicator", {
-            indicatorType: "btn-error",
-            indicatorContent: $_(
-                "login.indicator.an internal server error occurred, please try again"
-            ),
-            indicatorVisible: true,
-        });
-    };
-
-    let indicateTokenExpiration = () => {
-        dispatch("showIndicator", {
-            indicatorType: "btn-error",
-            indicatorContent: $_("Account activation token has expired"),
-            indicatorVisible: true,
-        });
-    };
     let indicateErrorOccurred = () => {
         dispatch("showIndicator", {
             indicatorType: "btn-warning",
@@ -76,7 +54,6 @@
 <div
     class="relative flex h-screen w-full items-center justify-center justify-self-center overflow-hidden px-4 py-12 sm:px-6 lg:px-8"
 >
-    <MesrsLogo />
     <div class="absolute top-5 right-5 flex gap-4">
         <DarkModeTogglerLogin />
         <LanguageMenuLogin />

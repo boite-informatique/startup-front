@@ -13,6 +13,8 @@
             navigate(newPath);
         }
     };
+
+    export let breadcrumbItems = [];
 </script>
 
 <div class="flex items-center justify-start text-gray-800 dark:text-blue-200">
@@ -42,13 +44,14 @@
                 </div>
             </li>
 
-            {#each $location.pathname
-                .split("/")
-                .filter((n) => n !== "") as item, i}
+            {#each breadcrumbItems as breadcrumbItem}
                 <li>
                     <!-- svelte-ignore a11y-click-events-have-key-events -->
                     <!-- svelte-ignore a11y-missing-attribute -->
-                    <a on:click={() => handleClick(item.replace(/%20/g, " "))}>
+                    <a
+                        on:click={() => handleClick(breadcrumbItem)}
+                        class="capitalize"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -61,23 +64,51 @@
                                 d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
                             /></svg
                         >
-                        {#if $location.pathname
-                            .split("/")
-                            .filter((n) => n !== "")[$location.pathname
-                                .split("/")
-                                .filter((n) => n !== "").length - 1] == item}
-                            {$_(
-                                `sidebar.${
-                                    $location.pathname
-                                        .split("/")
-                                        .filter((n) => n !== "")[i - 1]
-                                }.${item}`
-                            )}
-                        {:else}
-                            {$_(`navbar.${item}`)}
-                        {/if}
+                        {$_(`breadcrumb.${breadcrumbItem}`)}
                     </a>
                 </li>
+            {:else}
+                {#each $location.pathname
+                    .split("/")
+                    .filter((n) => n !== "") as item, i}
+                    <li>
+                        <!-- svelte-ignore a11y-click-events-have-key-events -->
+                        <!-- svelte-ignore a11y-missing-attribute -->
+                        <a
+                            on:click={() =>
+                                handleClick(item.replace(/%20/g, " "))}
+                            class="capitalize"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                class="mr-2 h-4 w-4 stroke-current"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+                                /></svg
+                            >
+                            {#if $location.pathname
+                                .split("/")
+                                .filter((n) => n !== "")[$location.pathname
+                                    .split("/")
+                                    .filter((n) => n !== "").length - 1] == item}
+                                {$_(
+                                    `sidebar.${
+                                        $location.pathname
+                                            .split("/")
+                                            .filter((n) => n !== "")[i - 1]
+                                    }.${item}`
+                                )}
+                            {:else}
+                                {$_(`navbar.${item}`)}
+                            {/if}
+                        </a>
+                    </li>
+                {/each}
             {/each}
         </ul>
     </div>

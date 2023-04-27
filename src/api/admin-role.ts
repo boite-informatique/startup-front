@@ -59,3 +59,12 @@ export const deleteOneRole = async (roleId: number) => {
         console.error(error);
     }
 };
+
+export const getAllPermissions = async () => {
+    try {
+        const response = await api.get(`/permissions`);
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
+};

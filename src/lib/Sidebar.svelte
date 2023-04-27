@@ -8,6 +8,11 @@
 
     const location = useLocation();
 
+    let showSidebar = true;
+    $: {
+        showSidebar = $location.pathname !== "/login";
+    }
+
     let userIsAdmin = $userPermissions.some(
         (obj) => obj.name === "canManageAll"
     );
@@ -30,37 +35,40 @@
     }
 </script>
 
-<div
-    class="m-4 mt-6 rounded-lg bg-light bg-opacity-10 text-gray-900 shadow-lg dark:bg-gray-800 dark:bg-opacity-50 dark:text-gray-50 lg:m-0 lg:w-[22%] lg:rounded-none lg:px-2 lg:py-3 lg:shadow-left"
->
+{#if showSidebar}
     <div
-        class="menu h-full w-full font-medium lg:rounded-md lg:outline lg:outline-1 lg:outline-gray-400 dark:lg:outline-gray-700"
+        class="m-4 mt-6 rounded-lg bg-light bg-opacity-10 text-gray-900 shadow-lg dark:bg-gray-800 dark:bg-opacity-50 dark:text-gray-50 lg:m-0 lg:w-[22%] lg:rounded-none lg:px-2 lg:py-3 lg:shadow-left"
     >
-        {#each sidebarList as item}
-            <div class="group">
-                <li
-                    in:fly={{
-                        x: -40,
-                        duration: 500,
-                        delay: 380 + item.index * 40,
-                        opacity: 0,
-                        easing: quintInOut,
-                    }}
-                    class="relative cursor-pointer hover:opacity-100 {$location.pathname.includes(
-                        `/${item.path}`
-                    )
-                        ? 'border-l-4 border-darkest opacity-100 dark:border-gray-200'
-                        : 'opacity-75'} transition-all"
-                >
-                    <Link to="/{$location.pathname.split('/')[1]}/{item.path}"
-                        >{$_(
-                            `sidebar.${$location.pathname
-                                .split("/")[1]
-                                .replace(/%20/g, " ")}.${item.path}`
-                        )}</Link
+        <div
+            class="menu h-full w-full font-medium lg:rounded-md lg:outline lg:outline-1 lg:outline-gray-400 dark:lg:outline-gray-700"
+        >
+            {#each sidebarList as item}
+                <div class="group">
+                    <li
+                        in:fly={{
+                            x: -40,
+                            duration: 500,
+                            delay: 380 + item.index * 40,
+                            opacity: 0,
+                            easing: quintInOut,
+                        }}
+                        class="relative cursor-pointer hover:opacity-100 {$location.pathname.includes(
+                            `/${item.path}`
+                        )
+                            ? 'border-l-4 border-darkest opacity-100 dark:border-gray-200'
+                            : 'opacity-75'} transition-all"
                     >
-                </li>
-            </div>
-        {/each}
+                        <Link
+                            to="/{$location.pathname.split('/')[1]}/{item.path}"
+                            >{$_(
+                                `sidebar.${$location.pathname
+                                    .split("/")[1]
+                                    .replace(/%20/g, " ")}.${item.path}`
+                            )}</Link
+                        >
+                    </li>
+                </div>
+            {/each}
+        </div>
     </div>
-</div>
+{/if}

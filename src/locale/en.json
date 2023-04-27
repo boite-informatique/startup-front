@@ -6,6 +6,10 @@
         "profile": "profile",
         "my project": "my project"
     },
+    "breadcrumb": {
+        "projects": "projects",
+        "my project": "my project"
+    },
     "sidebar": {
         "admin": {
             "users": "users",
@@ -89,7 +93,16 @@
             "click to modify the role's informations": "click to modify the role's informations",
             "no roles available": "no roles available",
             "the permissions associated to the role": "the permissions associated to the role",
-            "no permissions associated to the role": "no permissions associated to the role"
+            "no permissions associated to the role": "no permissions associated to the role",
+            "modify the role's informations": "modify the role's informations",
+            "modify users": "modify users",
+            "modify permissions": "modify permissions",
+            "modify the role's users": "modify the role's users",
+            "modify the role's permissions": "modify the role's permissions",
+            "Please select the users that you want to assign to the selected role": "Please select the users that you want to assign to the selected role",
+            "Please select the permissions that you want to assign to the selected role": "Please select the permissions that you want to assign to the selected role",
+            "no permissions available": "no permissions available",
+            "no users available": "no users available"
         }
     },
     "Recover Your Account": "Recover Your Account",
