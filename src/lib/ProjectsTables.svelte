@@ -4,6 +4,7 @@
     import { _ } from "svelte-i18n";
     import ProjectResumeModal from "./ProjectResumeModal.svelte";
     import ProjectValidationModal from "./ProjectValidationModal.svelte";
+    import ProjectMembersModal from "./ProjectMembersModal.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -11,6 +12,8 @@
     let projectResumeModalData = "";
     let projectValidationModalState = false;
     let projectValidationModalData = {};
+    let projectMembersModalState = false;
+    let projectMembersModalData = [];
 
     $: projects = getProjects();
 </script>
@@ -39,6 +42,10 @@
                 <th
                     class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
                     >{$_("projects.owner")}</th
+                >
+                <th
+                    class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
+                    >{$_("projects.members")}</th
                 >
                 <th
                     class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
@@ -110,6 +117,16 @@
                                     {project.owner.email}
                                 </div>
                             </td>
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
+                            <td
+                                on:click={() => {
+                                    projectMembersModalState = true;
+                                    projectMembersModalData = project.members;
+                                }}
+                                class="cursor-pointer bg-gray-200 text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800 select-none font-semibold"
+                                >{project.members.length}
+                                {$_("projects.members")}</td
+                            >
                             <td
                                 class="text-base font-semibold capitalize flex-col justify-start items-start bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
                             >
@@ -180,6 +197,7 @@
 </div>
 
 <ProjectResumeModal {projectResumeModalData} bind:projectResumeModalState />
+<ProjectMembersModal {projectMembersModalData} bind:projectMembersModalState />
 <ProjectValidationModal
     {projectValidationModalData}
     bind:projectValidationModalState
