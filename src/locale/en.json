@@ -87,13 +87,13 @@
         "roles": {
             "filter roles by...": "filter roles by...",
             "add a role": "add a role",
-            "role name": "role name",
-            "users": "users",
-            "permissions": "permissions",
             "click to modify the role's informations": "click to modify the role's informations",
             "no roles available": "no roles available",
             "the permissions associated to the role": "the permissions associated to the role",
             "no permissions associated to the role": "no permissions associated to the role",
+            "permissions": "permissions",
+            "role name": "role name",
+            "users": "users",
             "modify the role's informations": "modify the role's informations",
             "modify users": "modify users",
             "modify permissions": "modify permissions",
@@ -105,13 +105,12 @@
             "no users available": "no users available"
         }
     },
-    "Recover Your Account": "Recover Your Account",
     "forgotpw": {
-        "header": "Recover Your Password",
         "submit": "Submit",
         "indicator": {
             "success": "Check your email for recovery link."
         },
+        "header": "Recover Your Password",
         "loginlink": "Go back to login page.",
         "emailerror": "Invalid email"
     },
@@ -119,9 +118,9 @@
         "password": "Password",
         "header": "Enter new password",
         "password2": "Confirm password",
+        "success": "Password changed successfully",
         "inequalpw": "The two passwords are not equal",
         "invalidpw": "Password invalid, try again",
-        "success": "Password changed successfully",
         "tokenexpiration": "Changing password token has expired"
     },
     "accactivation": {
