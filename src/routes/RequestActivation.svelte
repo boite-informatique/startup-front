@@ -2,7 +2,7 @@
     // importing Modules
     import { _ } from "svelte-i18n";
     import { createEventDispatcher } from "svelte";
-    import { ChangePassword } from "../api/forgot-password";
+    import { requestActivation } from "../api/activate-account";
 
     // importing components
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
@@ -13,65 +13,36 @@
 
     const dispatch = createEventDispatcher();
 
-    export let token;
-    let password = "";
-    let password2 = "";
-
-    const query = new URLSearchParams(window.location.search);
-    const email = query.get("email");
+    let email = "";
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        if (password !== password2) {
-            indicatePasswordInequality();
-        } else {
-            try {
-                let response = await ChangePassword(email, password, token);
-                console.log("hello", response);
-                if (response.status == 200) {
-                    indicateSuccess();
-                } else if (response.status == 403) {
-                    indicateTokenExpiration();
-                } else if (response.status >= 500 && response.status < 600) {
-                    indicateInternalServerError();
-                } else {
-                    indicateErrorOccurred();
-                }
-            } catch (error) {
-                console.log(error);
+        try {
+            let response = await requestActivation(email);
+            if (response.status == 201) {
+                indicateSuccess();
+            } else if (response.status == 400 || response.status == 404) {
+                indicateInvalidEmail();
+            } else {
+                indicateErrorOccurred();
             }
+        } catch (error) {
+            console.log(error);
         }
     };
 
     let indicateSuccess = () => {
         dispatch("showIndicator", {
             indicatorType: "btn-success",
-            indicatorContent: $_("changepw.success"),
+            indicatorContent: $_("accactivation.indicator.success"),
             indicatorVisible: true,
         });
     };
 
-    let indicateInternalServerError = () => {
+    let indicateInvalidEmail = () => {
         dispatch("showIndicator", {
             indicatorType: "btn-error",
-            indicatorContent: $_(
-                "login.indicator.an internal server error occurred, please try again"
-            ),
-            indicatorVisible: true,
-        });
-    };
-    let indicatePasswordInequality = () => {
-        dispatch("showIndicator", {
-            indicatorType: "btn-error",
-            indicatorContent: $_("changepw.inequalpw"),
-            indicatorVisible: true,
-        });
-    };
-
-    let indicateTokenExpiration = () => {
-        dispatch("showIndicator", {
-            indicatorType: "btn-error",
-            indicatorContent: $_("changepw.tokenexpiration"),
+            indicatorContent: $_("forgotpw.emailerror"),
             indicatorVisible: true,
         });
     };
@@ -104,7 +75,7 @@
             <div
                 class="-mx-1 mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100"
             >
-                {$_("changepw.header")}
+                {$_("Activate your account")}
             </div>
         </div>
 
@@ -114,34 +85,21 @@
             method="POST"
             on:submit|preventDefault={handleFormSubmit}
         >
+            <input type="hidden" name="remember" value="true" />
             <div class="-space-y-px rounded-md shadow-sm">
                 <div>
                     <label for="email-address" class="sr-only"
-                        >{$_("changepw.password")}</label
+                        >{$_("login.Email address")}</label
                     >
                     <input
-                        bind:value={password}
+                        bind:value={email}
                         id="email-address"
-                        name="password"
-                        type="password"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
                         required
                         class="relative mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                        placeholder={$_("changepw.password")}
-                    />
-                </div>
-
-                <div>
-                    <label for="email-address" class="sr-only"
-                        >{$_("changepw.password2")}</label
-                    >
-                    <input
-                        bind:value={password2}
-                        id="email-address"
-                        name="password"
-                        type="password"
-                        required
-                        class="relative mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                        placeholder={$_("changepw.password2")}
+                        placeholder={$_("login.Email address")}
                     />
                 </div>
 

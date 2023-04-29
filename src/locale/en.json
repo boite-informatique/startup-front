@@ -112,7 +112,8 @@
         "indicator": {
             "success": "Check your email for recovery link."
         },
-        "loginlink": "Go back to login page."
+        "loginlink": "Go back to login page.",
+        "emailerror": "Invalid email"
     },
     "changepw": {
         "password": "Password",
@@ -120,11 +121,12 @@
         "password2": "Confirm password",
         "inequalpw": "The two passwords are not equal",
         "invalidpw": "Password invalid, try again",
-        "success": "Password changed successfully"
+        "success": "Password changed successfully",
+        "tokenexpiration": "Changing password token has expired"
     },
-    "activateacc": {
+    "accactivation": {
         "indicator": {
-            "success": "Your account has been activated"
+            "success": "Check your email for activation link"
         },
         "header": "Activate your account",
         "submit": "Activate",

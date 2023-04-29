@@ -92,18 +92,9 @@
             "no roles available": "aucun rôle disponible",
             "the permissions associated to the role": "Les permissions associées au rôle",
             "no permissions associated to the role": "pas de permissions associées au rôle",
-            "permissions": "permissions",
-            "role name": "nom du rôle",
-            "users": "utilisateurs",
-            "modify the role's informations": "modifier les informations du rôle",
-            "modify users": "modifier les utilisateurs",
-            "modify permissions": "modifier les permissions",
-            "modify the role's users": "modifier les utilisateurs du rôle",
-            "modify the role's permissions": "modifier les permissions du rôle",
-            "Please select the users that you want to assign to the selected role": "Veuillez sélectionner les utilisateurs que vous souhaitez assigner au rôle",
-            "Please select the permissions that you want to assign to the selected role": "Veuillez sélectionner les permissions que vous souhaitez assigner au rôle",
-            "no permissions available": "aucune permission disponible",
-            "no users available": "aucun utilisateur disponible"
+            "permissions": "autorisations",
+            "role name": "nom de rôle",
+            "users": "utilisateurs"
         }
     },
     "changepw": {
@@ -112,7 +103,8 @@
         "invalidpw": "Mot de passe invalide, réessayez",
         "header": "Entrez un nouveau mot de passe",
         "password": "Mot de passe",
-        "password2": "Confirmer mot de passe"
+        "password2": "Confirmer mot de passe",
+        "tokenexpiration": "Le jeton de changement de mot de passe a expiré"
     },
     "forgotpw": {
         "submit": "Soumettre",
@@ -120,18 +112,19 @@
             "success": "Vérifiez votre e-mail pour le lien de récupération."
         },
         "header": "Récupérer votre mot de passe",
-        "loginlink": "Retournez à la page de login."
+        "loginlink": "Retournez à la page de login.",
+        "emailerror": "Email invalid"
     },
     "Recover Your Account": "Récupérer votre compte",
-    "activateacc": {
+    "accactivation": {
         "indicator": {
-            "success": "Votre compte a été activé"
+            "success": "Vérifiez votre e-mail pour le lien d'activation"
         },
         "header": "Activez votre compte",
         "submit": "Activez",
         "loginlink": "Aller à la page de login"
     },
-    "projects": {
+        "projects": {
         "indicator": {
             "You are not authorized to access '/projects' route": "Vous n'êtes pas autorisé à accéder à la section '/projects'",
             "You are not authorized to access '/my projects' route": "Vous n'êtes pas autorisé à accéder à la section '/my projects'"
