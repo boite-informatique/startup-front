@@ -33,7 +33,8 @@
             "an error occured, please try again": "an error occured, please try again",
             "this account is deactivated": "this account is deactivated"
         },
-        "fogetpwlink": "Forgot password?"
+        "fogetpwlink": "Forgot password?",
+        "dont have an account, go to register": "dont have an account, go to register"
     },
     "admin": {
         "indicator": {

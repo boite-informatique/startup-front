@@ -33,7 +33,8 @@
             "an error occured, please try again": "Une erreur est survenue, veuillez réessayer",
             "this account is deactivated": "Ce compte est désactivé"
         },
-        "fogetpwlink": "Mot de passe oublié?"
+        "fogetpwlink": "Mot de passe oublié?",
+        "dont have an account, go to register": "N'ayant pas de compte, allez a 'register'"
     },
     "admin": {
         "indicator": {

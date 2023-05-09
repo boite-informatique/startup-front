@@ -130,7 +130,9 @@
             </div>
         </form>
         <Link to="/login"
-            ><div class="link-hover link relative mt-4">
+            ><div
+                class="link-hover link relative mt-4 text-gray-900 opacity-70 hover:opacity-100 dark:text-gray-200"
+            >
                 {$_("forgotpw.loginlink")}
             </div></Link
         >

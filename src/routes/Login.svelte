@@ -182,8 +182,17 @@
             </div>
         </form>
         <Link to="/forgot_password"
-            ><div class="link-hover link relative mt-4">
+            ><div
+                class="link-hover link relative mt-4 text-gray-900 opacity-70 hover:opacity-100 dark:text-gray-200"
+            >
                 {$_("login.fogetpwlink")}
+            </div></Link
+        >
+        <Link to="/register"
+            ><div
+                class="link-hover link relative mt-1 text-gray-900 opacity-70 hover:opacity-100 dark:text-gray-200"
+            >
+                {$_("login.dont have an account, go to register")}.
             </div></Link
         >
     </div>
