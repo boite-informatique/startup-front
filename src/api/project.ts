@@ -1,4 +1,5 @@
 import api from "../services/api";
+import type { ProjectCreationInput } from "./types/project-types";
 
 export const getProjects = async () => {
     // this returns an array of the projects that the user has access to, if he is supervisor he will get all projects he supervises, if he is project holder he will get an array of only on project, admin will get all projects
@@ -113,6 +114,15 @@ export const getProjects = async () => {
             ],
         };
         // stop deletion here
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export const register = async (input: ProjectCreationInput) => {
+    try {
+        const response = await api.post("/projects/", input);
+        return response;
     } catch (error) {
         console.error(error);
     }
