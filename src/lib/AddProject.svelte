@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { register } from "../api/project";
     import { createEventDispatcher } from "svelte";
     import { _ } from "svelte-i18n";
 
@@ -10,8 +11,9 @@
     let resume: string = "";
     let ownerEmail: string = "";
     let memberEmail: string = "";
+    let membersEmails: string[] = [];
     let supervisorEmail: string = "";
-    let cosupervisorEmail: string = "";
+    let supervisorsEmails: string[] = [];
 </script>
 
 <label
@@ -118,12 +120,27 @@
                 placeholder={$_("login.Email address")}
                 class="input-bordered input w-full max-w-xs"
             />
+            <button class="btn-square btn">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 rotate-45 font-extrabold"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"
+                    /></svg
+                >
+            </button>
         </div>
         <div
             class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
         >
             <div class="text-lg font-semibold capitalize md:w-40">
-                {$_("projects.supervisor")} :
+                {$_("projects.supervisors")} :
             </div>
             <input
                 bind:value={supervisorEmail}
@@ -134,22 +151,21 @@
                 placeholder={$_("login.Email address")}
                 class="input-bordered input w-full max-w-xs"
             />
-        </div>
-        <div
-            class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
-        >
-            <div class="text-lg font-semibold capitalize md:w-40">
-                {$_("projects.co_supervisor")} :
-            </div>
-            <input
-                bind:value={cosupervisorEmail}
-                id="email-address"
-                name="email"
-                type="email"
-                autocomplete="email"
-                placeholder={$_("login.Email address")}
-                class="input-bordered input w-full max-w-xs"
-            />
+            <button class="btn-square btn">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 rotate-45 font-extrabold"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"
+                    /></svg
+                >
+            </button>
         </div>
         <div
             class="mt-3 flex flex-col items-start justify-start gap-2 md:flex-row md:items-center md:justify-between"
@@ -163,8 +179,9 @@
                     resume = "";
                     ownerEmail = "";
                     memberEmail = "";
+                    membersEmails = [];
                     supervisorEmail = "";
-                    cosupervisorEmail = "";
+                    supervisorsEmails = [];
                 }}>{$_("projects.clear the form")}</button
             >
             <div
@@ -181,8 +198,9 @@
                         resume = "";
                         ownerEmail = "";
                         memberEmail = "";
+                        membersEmails = [];
                         supervisorEmail = "";
-                        cosupervisorEmail = "";
+                        supervisorsEmails = [];
                     }}>{$_("admin.users.filter.cancel")}</label
                 >
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
