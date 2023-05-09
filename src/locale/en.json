@@ -151,6 +151,8 @@
         "the project validation state": "the project validation state",
         "informations about the project validation state": "informations about the project validation state",
         "no informations about the project validation state": "no informations about the project validation state",
-        "members": "members"
+        "members": "members",
+        "startup": "startup",
+        "patent": "patent"
     }
 }
