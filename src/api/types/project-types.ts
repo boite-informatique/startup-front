@@ -1,3 +1,5 @@
+import type { User } from "./user-types";
+
 export type ProjectCreationInput = {
     resume: string;
     brand_name: string;
@@ -7,4 +9,31 @@ export type ProjectCreationInput = {
 
     members: string[];
     supervisors: string[];
+};
+
+export type GetProjectOutput = {
+    id: number;
+    type: "startup" | "patent";
+    resume: string;
+    brand_name: string;
+    product_name: string;
+    logo?: string;
+    created_at: Date;
+
+    owner_id: number;
+    owner: User;
+    members: User[];
+    supervisors: User[];
+
+    validation: ProjectValidation;
+};
+
+export type ProjectValidation = {
+    id: number;
+    project_id: number;
+    decision: "favorable" | "unfavorable" | "accepted_with_reservation";
+    reservation?: "major" | "minor";
+    note: string;
+    created_at: Date;
+    validator_id: number;
 };
