@@ -4,31 +4,14 @@
 
     const dispatch = createEventDispatcher();
 
-    type FetchUsersQuery = {
-        skip?: number;
-        take?: number;
-        first_name?: string;
-        sex?: "Male" | "Female";
-        type?: "Teacher" | "Student" | "Staff";
-    };
-
-    let firstName: string = "";
-    let sex: "Male" | "Female";
-    let type: "Teacher" | "Student" | "Staff";
-
-    let applyFilters = () => {
-        filter = {
-            skip: 0,
-            take: 10,
-            first_name: firstName,
-            sex: sex,
-            type: type,
-        };
-
-        dispatch("applyFilters", filter);
-    };
-
-    let filter: FetchUsersQuery = {};
+    let product: string = "";
+    let brand: string = "";
+    let type: "startup" | "patent";
+    let resume: string = "";
+    let ownerEmail: string = "";
+    let memberEmail: string = "";
+    let supervisorEmail: string = "";
+    let cosupervisorEmail: string = "";
 </script>
 
 <label
@@ -54,7 +37,7 @@
                 {$_("projects.product")} :
             </div>
             <input
-                bind:value={firstName}
+                bind:value={product}
                 type="text"
                 placeholder={$_("admin.users.filter.Type here")}
                 class="input-bordered input w-full max-w-xs"
@@ -67,7 +50,7 @@
                 {$_("projects.brand")} :
             </div>
             <input
-                bind:value={firstName}
+                bind:value={brand}
                 type="text"
                 placeholder={$_("admin.users.filter.Type here")}
                 class="input-bordered input w-full max-w-xs"
@@ -81,15 +64,15 @@
             </div>
             <div class="flex flex-row gap-1 md:gap-2">
                 <button
-                    class="btn {sex == 'Male' ? 'btn-primary' : ''}"
+                    class="btn {type == 'startup' ? 'btn-primary' : ''}"
                     on:click={() => {
-                        sex = "Male";
+                        type = "startup";
                     }}>{$_("projects.startup")}</button
                 >
                 <button
-                    class="btn {sex == 'Female' ? 'btn-primary' : ''}"
+                    class="btn {type == 'patent' ? 'btn-primary' : ''}"
                     on:click={() => {
-                        sex = "Female";
+                        type = "patent";
                     }}>{$_("projects.patent")}</button
                 >
             </div>
@@ -99,6 +82,7 @@
                 {$_("projects.resume")} :
             </div>
             <textarea
+                bind:value={resume}
                 class="textarea-bordered textarea w-full max-w-lg"
                 placeholder="Résumé"
             />
@@ -110,9 +94,12 @@
                 {$_("projects.owner")} :
             </div>
             <input
-                bind:value={firstName}
-                type="text"
-                placeholder={$_("admin.users.filter.Type here")}
+                bind:value={ownerEmail}
+                id="email-address"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder={$_("login.Email address")}
                 class="input-bordered input w-full max-w-xs"
             />
         </div>
@@ -123,9 +110,12 @@
                 {$_("projects.members")} :
             </div>
             <input
-                bind:value={firstName}
-                type="text"
-                placeholder={$_("admin.users.filter.Type here")}
+                bind:value={memberEmail}
+                id="email-address"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder={$_("login.Email address")}
                 class="input-bordered input w-full max-w-xs"
             />
         </div>
@@ -136,9 +126,12 @@
                 {$_("projects.supervisor")} :
             </div>
             <input
-                bind:value={firstName}
-                type="text"
-                placeholder={$_("admin.users.filter.Type here")}
+                bind:value={supervisorEmail}
+                id="email-address"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder={$_("login.Email address")}
                 class="input-bordered input w-full max-w-xs"
             />
         </div>
@@ -149,9 +142,12 @@
                 {$_("projects.co_supervisor")} :
             </div>
             <input
-                bind:value={firstName}
-                type="text"
-                placeholder={$_("admin.users.filter.Type here")}
+                bind:value={cosupervisorEmail}
+                id="email-address"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder={$_("login.Email address")}
                 class="input-bordered input w-full max-w-xs"
             />
         </div>
@@ -161,10 +157,15 @@
             <button
                 class="btn -mb-6"
                 on:click={() => {
-                    firstName = "";
-                    sex = undefined;
+                    product = "";
+                    brand = "";
                     type = undefined;
-                }}>{$_("admin.users.filter.remove all filters")}</button
+                    resume = "";
+                    ownerEmail = "";
+                    memberEmail = "";
+                    supervisorEmail = "";
+                    cosupervisorEmail = "";
+                }}>{$_("projects.clear the form")}</button
             >
             <div
                 class="flex flex-row items-center justify-start gap-1 md:gap-2"
@@ -174,17 +175,21 @@
                     for="my-modal-97"
                     class="modal-action btn"
                     on:click={() => {
-                        firstName = "";
-                        sex = undefined;
+                        product = "";
+                        brand = "";
                         type = undefined;
+                        resume = "";
+                        ownerEmail = "";
+                        memberEmail = "";
+                        supervisorEmail = "";
+                        cosupervisorEmail = "";
                     }}>{$_("admin.users.filter.cancel")}</label
                 >
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <label
                     for="my-modal-97"
                     class="modal-action btn"
-                    on:click={applyFilters}
-                    >{$_("admin.users.save & close")}</label
+                    on:click={() => {}}>{$_("admin.users.save & close")}</label
                 >
             </div>
         </div>

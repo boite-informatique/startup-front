@@ -154,6 +154,7 @@
         "no informations about the project validation state": "aucune information sur l'état de validation du projet",
         "members": "membres",
         "startup": "startup",
-        "patent": "brevet"
+        "patent": "brevet",
+        "clear the form": "vider le formulaire"
     }
 }
