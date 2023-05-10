@@ -10,6 +10,7 @@
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
     import logo from "../assets/innovium_logos/innovium_light.png";
     import MesrsLogo from "../lib/MesrsLogo.svelte";
+    import SelectSearch from "../lib/SelectSearch.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -21,7 +22,7 @@
     let phone = "";
     let type = "student";
     let registration_num = "";
-    let establishement = "";
+    let establishement = 0;
     let specialty = "";
     let filiere = "";
     let grade = "";
@@ -206,13 +207,7 @@
                         class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
                         placeholder={$_("register.registrationnum")}
                     />
-                    <input
-                        bind:value={establishement}
-                        type="text"
-                        required
-                        class="relative block w-full border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                        placeholder={$_("register.establishment")}
-                    />
+                    <SelectSearch bind:selectedEstablishment={establishement} />
                     <input
                         bind:value={filiere}
                         type="text"
@@ -235,13 +230,7 @@
                         class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
                         placeholder={$_("register.registrationnum")}
                     />
-                    <input
-                        bind:value={establishement}
-                        type="text"
-                        required
-                        class="relative block w-full border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                        placeholder={$_("register.establishment")}
-                    />
+                    <SelectSearch bind:selectedEstablishment={establishement} />
                     <input
                         bind:value={grade}
                         type="text"

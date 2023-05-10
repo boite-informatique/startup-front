@@ -14,14 +14,14 @@ interface RegistrationInput {
 
 interface StudentInfo {
     registration_num: string;
-    establishement: string;
+    establishement: number;
     filiere: string;
     specialty: string;
 }
 
 interface TeacherInfo {
     registration_num: string;
-    establishement: string;
+    establishement: number;
     grade: string;
     specialty: string;
 }
