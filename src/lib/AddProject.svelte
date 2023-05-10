@@ -120,21 +120,33 @@
                 placeholder={$_("login.Email address")}
                 class="input-bordered input w-full max-w-xs"
             />
-            <button class="btn-square btn">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6 rotate-45 font-extrabold"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    ><path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M6 18L18 6M6 6l12 12"
-                    /></svg
+            <div class={membersEmails.length >= 6 ? "cursor-not-allowed" : ""}>
+                <button
+                    class="btn-square btn {membersEmails.length >= 6
+                        ? 'btn-disabled'
+                        : ' cursor-pointer'}"
+                    on:click={() => {
+                        if (memberEmail.length != 0) {
+                            membersEmails = [...membersEmails, memberEmail];
+                            memberEmail = "";
+                        }
+                    }}
                 >
-            </button>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 rotate-45 font-extrabold"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"
+                        /></svg
+                    >
+                </button>
+            </div>
         </div>
         <div
             class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
@@ -151,21 +163,40 @@
                 placeholder={$_("login.Email address")}
                 class="input-bordered input w-full max-w-xs"
             />
-            <button class="btn-square btn">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6 rotate-45 font-extrabold"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    ><path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M6 18L18 6M6 6l12 12"
-                    /></svg
+            <div
+                class={supervisorsEmails.length >= 3
+                    ? "cursor-not-allowed"
+                    : ""}
+            >
+                <button
+                    class="btn-square btn {supervisorsEmails.length >= 3
+                        ? 'btn-disabled'
+                        : ' cursor-pointer'}"
+                    on:click={() => {
+                        if (supervisorEmail.length != 0) {
+                            supervisorsEmails = [
+                                ...supervisorsEmails,
+                                supervisorEmail,
+                            ];
+                            supervisorEmail = "";
+                        }
+                    }}
                 >
-            </button>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 rotate-45 font-extrabold"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"
+                        /></svg
+                    >
+                </button>
+            </div>
         </div>
         <div
             class="mt-3 flex flex-col items-start justify-start gap-2 md:flex-row md:items-center md:justify-between"
