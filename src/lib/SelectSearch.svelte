@@ -2,20 +2,20 @@
     import { onMount } from "svelte";
     import debounce from "lodash.debounce";
     import { _ } from "svelte-i18n";
+    import {
+        getEstablishments,
+        type GetEstablishmentsOutput,
+    } from "../api/establishment-api";
 
     let query = "";
-    let results = [];
+    let results: GetEstablishmentsOutput[] = [];
     export let selectedEstablishment = 0;
     async function search(query: string) {
-        return [
-            { id: 1, name: "esisba" },
-            { id: 2, name: "djilali sba" },
-            { id: 3, name: "esi mascara" },
-            { id: 4, name: "medecine sba" },
-        ].filter((obj) => obj.name.indexOf(query) != -1);
+        const response = await getEstablishments(query);
+        if (response.status == 200) return response.data;
+        return [];
     }
     async function handleInput(event) {
-        console.log(query, results, selectedEstablishment);
         query = event.target.value;
         results = await search(query);
         results.length > 0

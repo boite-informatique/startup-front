@@ -24,14 +24,14 @@ type Teacher = {
     user_id: number;
     domain: string;
     academic_rank: string;
-    establishement: string[];
+    establishement: number;
 };
 
 type Student = {
     id: number;
     user_id: number;
     domain: string;
-    establishement: string;
+    establishement: number;
     faculty: string | null;
     departement: string;
     filiere: string;
