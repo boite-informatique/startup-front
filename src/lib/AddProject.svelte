@@ -14,6 +14,76 @@
     let membersEmails: string[] = [];
     let supervisorEmail: string = "";
     let supervisorsEmails: string[] = [];
+
+    let handleAddingProject = async (e) => {
+        let indicateDataIsMissing = () => {
+            dispatch("showIndicator", {
+                indicatorType: "btn-warning",
+                indicatorContent: $_("projects.indicator.data is missing"),
+                indicatorVisible: true,
+            });
+        };
+        let indicateSuccess = () => {
+            dispatch("showIndicator", {
+                indicatorType: "btn-success",
+                indicatorContent: $_(
+                    "projects.indicator.project added successfully"
+                ),
+                indicatorVisible: true,
+            });
+        };
+        let indicateErrorOccurred = () => {
+            dispatch("showIndicator", {
+                indicatorType: "btn-error",
+                indicatorContent: $_(
+                    "projects.indicator.an error occured, please try again"
+                ),
+                indicatorVisible: true,
+            });
+        };
+
+        let dataIsMissing = !(
+            product &&
+            brand &&
+            type &&
+            resume &&
+            ownerEmail &&
+            membersEmails.length > 0 &&
+            supervisorsEmails.length > 0
+        );
+
+        if (dataIsMissing) {
+            e.preventDefault();
+            indicateDataIsMissing();
+            return;
+        }
+
+        let response = await register({
+            resume,
+            brand_name: brand,
+            product_name: product,
+            logo: undefined,
+            type,
+            members: membersEmails,
+            supervisors: supervisorsEmails,
+        });
+
+        if (response.status >= 200 && response.status < 300) {
+            indicateSuccess();
+        } else {
+            indicateErrorOccurred();
+        }
+
+        product = "";
+        brand = "";
+        type = undefined;
+        resume = "";
+        ownerEmail = "";
+        memberEmail = "";
+        membersEmails = [];
+        supervisorEmail = "";
+        supervisorsEmails = [];
+    };
 </script>
 
 <label
@@ -147,6 +217,11 @@
                     >
                 </button>
             </div>
+            {#if membersEmails.length != 0}
+                <button class="no-animation btn-square btn cursor-default">
+                    ({membersEmails.length})
+                </button>
+            {/if}
         </div>
         <div
             class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
@@ -197,6 +272,11 @@
                     >
                 </button>
             </div>
+            {#if supervisorsEmails.length != 0}
+                <button class="no-animation btn-square btn cursor-default">
+                    ({supervisorsEmails.length})
+                </button>
+            {/if}
         </div>
         <div
             class="mt-3 flex flex-col items-start justify-start gap-2 md:flex-row md:items-center md:justify-between"
@@ -238,7 +318,9 @@
                 <label
                     for="my-modal-97"
                     class="modal-action btn"
-                    on:click={() => {}}>{$_("admin.users.save & close")}</label
+                    on:click={(e) => {
+                        handleAddingProject(e);
+                    }}>{$_("admin.users.save & close")}</label
                 >
             </div>
         </div>

@@ -47,7 +47,7 @@
     <div
         class="-mb-2 flex flex-col items-start justify-start gap-2 md:flex-row"
     >
-        <AddProject />
+        <AddProject on:showIndicator />
     </div>
     <ProjectsTables on:showIndicator />
 </div>
