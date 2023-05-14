@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     // importing Modules
     import { _ } from "svelte-i18n";
     import { register } from "../api/user-register";
@@ -11,8 +11,10 @@
     import logo from "../assets/innovium_logos/innovium_light.png";
     import MesrsLogo from "../lib/MesrsLogo.svelte";
     import SelectSearch from "../lib/SelectSearch.svelte";
+    import type { InvitationType } from "src/api/types/registration-types";
 
     const dispatch = createEventDispatcher();
+    let qs = new URLSearchParams(window.location.search);
 
     let email = "";
     let password = "";
@@ -26,6 +28,7 @@
     let specialty = "";
     let filiere = "";
     let grade = "";
+    let invitation: InvitationType = null;
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -49,16 +52,20 @@
                 return;
         }
         try {
-            let response = await register({
-                email,
-                password,
-                first_name,
-                last_name,
-                date_of_birth,
-                phone,
-                type,
-                info,
-            });
+            let response = await register(
+                {
+                    email,
+                    password,
+                    first_name,
+                    last_name,
+                    date_of_birth,
+                    phone,
+                    type,
+                    info,
+                    invitation,
+                },
+                Boolean(invitation)
+            );
             switch (response.status) {
                 case 201:
                     indicateSuccess();
@@ -100,12 +107,46 @@
             indicatorVisible: true,
         });
     };
+
+    let indicateProjectInvitation = () => {
+        dispatch("showIndicator", {
+            indicatorType: "btn-info",
+            indicatorContent: $_(
+                "You have been invited to a project! Please register to accept the invitation."
+            ),
+            indicatorVisible: true,
+        });
+    };
+
+    // in case of project invitation
+    let emailDisabled = false;
+    let typeDisabled = false;
+    let projectId;
+    let invitationToken;
+
+    let invitationSearch = qs.get("invitation");
+    if (invitationSearch) {
+        email = qs.get("email");
+        const invitationType = qs.get("type");
+        projectId = +qs.get("projectId");
+        invitationToken = qs.get("token");
+        invitationType == "member" ? (type = "student") : (type = "teacher");
+        emailDisabled = true;
+        typeDisabled = true;
+        invitation = {
+            projectId,
+            token: invitationToken,
+        };
+        setTimeout(() => {
+            indicateProjectInvitation();
+        }, 50);
+    }
 </script>
 
 <div
     class="relative flex min-h-screen w-full items-center justify-center justify-self-center overflow-hidden px-4 py-12 sm:px-6 lg:px-8"
 >
-    <MesrsLogo />
+    <!-- <MesrsLogo /> -->
     <div class="absolute top-5 right-5 flex gap-4">
         <DarkModeTogglerLogin />
         <LanguageMenuLogin />
@@ -136,6 +177,7 @@
                     type="email"
                     autocomplete="email"
                     required
+                    disabled={emailDisabled}
                     class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
                     placeholder={$_("register.email")}
                 />
@@ -191,6 +233,7 @@
                         bind:value={type}
                         name="type"
                         required
+                        disabled={typeDisabled}
                         class="relative mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
                     >
                         <option value="student"

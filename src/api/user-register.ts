@@ -1,38 +1,15 @@
 import api from "../services/api";
+import type { RegistrationInput } from "./types/registration-types";
 
-interface RegistrationInput {
-    email: string;
-    password: string;
-    first_name: string;
-    last_name: string;
-    date_of_birth: Date;
-    type: "student" | "teacher" | "staff";
-    phone: string;
-    avatar?: string;
-    info: StudentInfo | TeacherInfo | StaffInfo;
-}
-
-interface StudentInfo {
-    registration_num: string;
-    establishment_id: number;
-    filiere: string;
-    specialty: string;
-}
-
-interface TeacherInfo {
-    registration_num: string;
-    establishment_id: number;
-    grade: string;
-    specialty: string;
-}
-
-interface StaffInfo {
-    grade: string;
-}
-
-export const register = async (input: RegistrationInput) => {
+export const register = async (
+    input: RegistrationInput,
+    invitation: boolean = false
+) => {
     try {
-        const response = await api.post("/users/", input);
+        const response = await api.post(
+            `/users/?invitation=${invitation}`,
+            input
+        );
         return response;
     } catch (error) {
         console.error(error);
