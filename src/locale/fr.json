@@ -135,7 +135,10 @@
     "projects": {
         "indicator": {
             "You are not authorized to access '/projects' route": "Vous n'êtes pas autorisé à accéder à la section '/projects'",
-            "You are not authorized to access '/my projects' route": "Vous n'êtes pas autorisé à accéder à la section '/my projects'"
+            "You are not authorized to access '/my projects' route": "Vous n'êtes pas autorisé à accéder à la section '/my projects'",
+            "data is missing": "données manquantes",
+            "project added successfully": "projet ajouté avec succès",
+            "an error occured, please try again": "une erreur s'est produite, veuillez réessayer"
         },
         "product": "produit",
         "brand": "marque",

@@ -9,7 +9,6 @@
     let brand: string = "";
     let type: "startup" | "patent";
     let resume: string = "";
-    let ownerEmail: string = "";
     let memberEmail: string = "";
     let membersEmails: string[] = [];
     let supervisorEmail: string = "";
@@ -47,7 +46,6 @@
             brand &&
             type &&
             resume &&
-            ownerEmail &&
             membersEmails.length > 0 &&
             supervisorsEmails.length > 0
         );
@@ -62,7 +60,6 @@
             resume,
             brand_name: brand,
             product_name: product,
-            logo: undefined,
             type,
             members: membersEmails,
             supervisors: supervisorsEmails,
@@ -78,7 +75,6 @@
         brand = "";
         type = undefined;
         resume = "";
-        ownerEmail = "";
         memberEmail = "";
         membersEmails = [];
         supervisorEmail = "";
@@ -157,22 +153,6 @@
                 bind:value={resume}
                 class="textarea-bordered textarea w-full max-w-lg"
                 placeholder="Résumé"
-            />
-        </div>
-        <div
-            class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
-        >
-            <div class="text-lg font-semibold capitalize md:w-40">
-                {$_("projects.owner")} :
-            </div>
-            <input
-                bind:value={ownerEmail}
-                id="email-address"
-                name="email"
-                type="email"
-                autocomplete="email"
-                placeholder={$_("login.Email address")}
-                class="input-bordered input w-full max-w-xs"
             />
         </div>
         <div
@@ -288,7 +268,6 @@
                     brand = "";
                     type = undefined;
                     resume = "";
-                    ownerEmail = "";
                     memberEmail = "";
                     membersEmails = [];
                     supervisorEmail = "";
@@ -307,7 +286,6 @@
                         brand = "";
                         type = undefined;
                         resume = "";
-                        ownerEmail = "";
                         memberEmail = "";
                         membersEmails = [];
                         supervisorEmail = "";

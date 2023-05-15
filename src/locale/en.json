@@ -135,7 +135,10 @@
     "projects": {
         "indicator": {
             "You are not authorized to access '/projects' route": "You are not authorized to access '/projects' route",
-            "You are not authorized to access '/my projects' route": "You are not authorized to access '/my projects' route"
+            "You are not authorized to access '/my projects' route": "You are not authorized to access '/my projects' route",
+            "data is missing": "data is missing",
+            "project added successfully": "project added successfully",
+            "an error occured, please try again": "an error occured, please try again"
         },
         "product": "product",
         "brand": "brand",
