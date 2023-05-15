@@ -20,6 +20,32 @@
         "profile": {},
         "my project": {}
     },
+    "register": {
+        "indicator": {
+            "emailconflict": "l'email existe déjà, veuillez réessayer",
+            "success": "vous avez été inscrit avec succès"
+        },
+        "header": "enregistrez votre compte",
+        "email": "email",
+        "password": "mot de passe",
+        "firstname": "prénom",
+        "lastname": "nom de famille",
+        "phone": "numéro de téléphone",
+        "dateLabel": "date de naissance",
+        "date": "date",
+        "select": {
+            "label": "type du compte",
+            "student": "étudiant",
+            "teacher": "enseignant",
+            "staff": "staff"
+        },
+        "registrationnum": "numéro d'inscription",
+        "filiere": "filière",
+        "specialty": "spécialité",
+        "grade": "niveau",
+        "submit": "envoyer",
+        "loginlink": "aller à la page de connexion"
+    },
     "login": {
         "Sign in to your account": "Connectez-vous à votre compte",
         "Email address": "Adresse email",

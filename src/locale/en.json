@@ -20,6 +20,32 @@
         "profile": {},
         "my project": {}
     },
+    "register": {
+        "indicator": {
+            "emailconflict": "email already exists, please try again",
+            "success": "you have been suucessfuly registered"
+        },
+        "header": "register your account",
+        "email": "email",
+        "password": "Password",
+        "firstname": "first name",
+        "lastname": "last name",
+        "phone": "phone number",
+        "dateLabel": "date of birth",
+        "date": "date",
+        "select": {
+            "label": "account type",
+            "student": "student",
+            "teacher": "teacher",
+            "staff": "staff"
+        },
+        "registrationnum": "registration number",
+        "filiere": "filiere",
+        "specialty": "specialty",
+        "grade": "grade",
+        "submit": "submit",
+        "loginlink": "go to login page"
+    },
     "login": {
         "Sign in to your account": "Sign in to your account",
         "Email address": "Email address",
