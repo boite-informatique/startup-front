@@ -3,6 +3,7 @@
     import { _ } from "svelte-i18n";
     import authenticateUser from "../api/authentication";
     import fetchUserPermissions from "../api/userPermissions";
+    import fetchPeriods from "src/api/periods";
     import { Link } from "svelte-navigator";
     import { createEventDispatcher } from "svelte";
 
@@ -27,6 +28,7 @@
                 const storageType = rememberMe ? localStorage : sessionStorage;
                 storageType.setItem("token", response.data.token);
                 await fetchUserPermissions();
+                await fetchPeriods();
                 window.location.href = "/";
             } else if (response.status == 403) {
                 indicateDeactivatedAccount();

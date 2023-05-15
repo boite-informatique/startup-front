@@ -3,6 +3,7 @@
     import { Router, Route } from "svelte-navigator";
     import { onMount } from "svelte";
     import fetchUserPermissions from "./api/userPermissions";
+    import fetchPeriods from "./api/periods";
 
     // importing routes
     import Login from "./routes/Login.svelte";
@@ -34,6 +35,7 @@
     let loadPage = false;
     onMount(async () => {
         await fetchUserPermissions();
+        await fetchPeriods();
         loadPage = true;
     });
 
