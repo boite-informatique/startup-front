@@ -44,7 +44,9 @@
         "specialty": "specialty",
         "grade": "grade",
         "submit": "submit",
-        "loginlink": "go to login page"
+        "loginlink": "go to login page",
+        "establishment name": "establishment name",
+        "establishment": "establishment"
     },
     "login": {
         "Sign in to your account": "Sign in to your account",

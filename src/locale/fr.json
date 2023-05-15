@@ -44,7 +44,9 @@
         "specialty": "spécialité",
         "grade": "niveau",
         "submit": "envoyer",
-        "loginlink": "aller à la page de connexion"
+        "loginlink": "aller à la page de connexion",
+        "establishment name": "nom d'établissement",
+        "establishment": "établissement"
     },
     "login": {
         "Sign in to your account": "Connectez-vous à votre compte",
