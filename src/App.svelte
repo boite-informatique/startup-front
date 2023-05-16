@@ -101,7 +101,7 @@
                     <MyProject on:showIndicator={showIndicator} />
                 </Layout>
             </Route>
-            <Route path="/projects">
+            <Route path="/projects/*">
                 <Layout showSidebar={false}>
                     <Projects on:showIndicator={showIndicator} />
                 </Layout>

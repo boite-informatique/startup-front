@@ -4,6 +4,7 @@
     import { onMount } from "svelte";
     import { useNavigate } from "svelte-navigator";
     import { createEventDispatcher } from "svelte";
+    import { useLocation } from "svelte-navigator";
 
     // importing modules
     import Breadcrumb from "../lib/Breadcrumb.svelte";
@@ -12,7 +13,9 @@
 
     // importing stores
     import { userPermissions } from "../stores/userPermissions";
+    import Project from "src/lib/Project.svelte";
 
+    const location = useLocation();
     const dispatch = createEventDispatcher();
 
     const navigate = useNavigate();
@@ -43,11 +46,15 @@
 </script>
 
 <div class="flex w-full flex-col gap-4 p-4 md:gap-5 md:px-12 md:pt-7">
-    <Breadcrumb breadcrumbItems={["projects"]} />
-    <div
-        class="-mb-2 flex flex-col items-start justify-start gap-2 md:flex-row"
-    >
-        <AddProject on:showIndicator />
-    </div>
-    <ProjectsTables on:showIndicator />
+    {#if $location.pathname == "/projects"}
+        <Breadcrumb breadcrumbItems={["projects"]} />
+        <div
+            class="-mb-2 flex flex-col items-start justify-start gap-2 md:flex-row"
+        >
+            <AddProject on:showIndicator />
+        </div>
+        <ProjectsTables on:showIndicator />
+    {:else}
+        <Project />
+    {/if}
 </div>
