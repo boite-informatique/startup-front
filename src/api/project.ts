@@ -1,14 +1,17 @@
+import type { AxiosResponse } from "axios";
 import api from "../services/api";
 import type {
     GetProjectOutput,
     ProjectCreationInput,
 } from "./types/project-types";
 
-export const getProjects = async (): Promise<GetProjectOutput> => {
+export const getProjects = async (): Promise<
+    AxiosResponse<GetProjectOutput[]>
+> => {
     try {
-        const response: GetProjectOutput = (await api.get(
+        const response: AxiosResponse<GetProjectOutput[]> = (await api.get(
             "/projects/"
-        )) as unknown as GetProjectOutput;
+        )) as unknown as AxiosResponse<GetProjectOutput[]>;
         return response;
     } catch (error) {
         console.error(error);
