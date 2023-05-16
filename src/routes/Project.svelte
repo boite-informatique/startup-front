@@ -117,6 +117,163 @@
                     </div>
                 </div>
             </div>
+            <div class="flex flex-row">
+                <div class="w-44">
+                    {$_("projects.created at")} :
+                </div>
+                <div>
+                    {new Date(res.data.created_at).toLocaleString("en-UK", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                        hour: "numeric",
+                        minute: "numeric",
+                        timeZone: "UTC",
+                    })}
+                </div>
+            </div>
+            <div class="flex flex-row">
+                <div class="w-44">
+                    {$_("projects.validation")} :
+                </div>
+                <div>haja</div>
+            </div>
+            <div class="flex flex-row">
+                <div class="w-44">
+                    {$_("projects.project progess")} :
+                </div>
+                <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+                <div tabindex="0" class="collapse">
+                    <div class="collapse-title text-xl font-medium">
+                        Focus me to see content
+                    </div>
+                    <div class="collapse-content">
+                        <p>
+                            tabindex="0" attribute is necessary to make the div
+                            focusable
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-row">
+                <div class="w-44">
+                    {$_("projects.invited users")} :
+                </div>
+                <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+                <div tabindex="0" class="collapse">
+                    <div class="collapse-title text-xl font-medium">
+                        Focus me to see content
+                    </div>
+                    <div class="collapse-content">
+                        <p>
+                            tabindex="0" attribute is necessary to make the div
+                            focusable
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-row">
+                <div class="w-44">
+                    {$_("projects.invited users")} :
+                </div>
+                <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+                <div tabindex="0" class="collapse">
+                    <div class="collapse-title text-xl font-medium">
+                        Focus me to see content
+                    </div>
+                    <div class="collapse-content">
+                        <p>
+                            tabindex="0" attribute is necessary to make the div
+                            focusable
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-row">
+                <div class="w-44">
+                    {$_("projects.project history")} :
+                </div>
+                <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+                <div tabindex="0" class="collapse">
+                    <div class="collapse-title text-xl font-medium">
+                        Focus me to see content
+                    </div>
+                    <div class="collapse-content">
+                        <p>
+                            tabindex="0" attribute is necessary to make the div
+                            focusable
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-row">
+                <div class="w-44">
+                    {$_("projects.project history")} :
+                </div>
+                <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+                <div tabindex="0" class="collapse">
+                    <div class="collapse-title text-xl font-medium">
+                        Focus me to see content
+                    </div>
+                    <div class="collapse-content">
+                        <p>
+                            tabindex="0" attribute is necessary to make the div
+                            focusable
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-row">
+                <div class="w-44">
+                    {$_("projects.defense authorization")} :
+                </div>
+                <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+                <div tabindex="0" class="collapse">
+                    <div class="collapse-title text-xl font-medium">
+                        Focus me to see content
+                    </div>
+                    <div class="collapse-content">
+                        <p>
+                            tabindex="0" attribute is necessary to make the div
+                            focusable
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-row">
+                <div class="w-44">
+                    {$_("projects.defense documents")} :
+                </div>
+                <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+                <div tabindex="0" class="collapse">
+                    <div class="collapse-title text-xl font-medium">
+                        Focus me to see content
+                    </div>
+                    <div class="collapse-content">
+                        <p>
+                            tabindex="0" attribute is necessary to make the div
+                            focusable
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-row">
+                <div class="w-44">
+                    {$_("projects.defense planification")} :
+                </div>
+                <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+                <div tabindex="0" class="collapse">
+                    <div class="collapse-title text-xl font-medium">
+                        Focus me to see content
+                    </div>
+                    <div class="collapse-content">
+                        <p>
+                            tabindex="0" attribute is necessary to make the div
+                            focusable
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     {:else}
         <p class="text-gray-200 text-center text-lg capitalize font-semibold">
