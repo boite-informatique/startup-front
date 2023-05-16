@@ -22,10 +22,9 @@ export const getProjectByID = async (
     ID: string
 ): Promise<AxiosResponse<GetProjectOutput>> => {
     try {
-        const response: AxiosResponse<GetProjectOutput> =
-            (await api.getWithQuery("/projects", {
-                ID,
-            })) as unknown as AxiosResponse<GetProjectOutput>;
+        const response: AxiosResponse<GetProjectOutput> = (await api.get(
+            `/projects/${ID}`
+        )) as unknown as AxiosResponse<GetProjectOutput>;
         return response;
     } catch (error) {
         console.error(error);
