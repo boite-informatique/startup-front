@@ -137,22 +137,6 @@
                                 >{project.supervisors.length}
                                 {$_("projects.supervisors")}</td
                             >
-
-                            <!-- <td
-                                class="text-base font-semibold capitalize flex-col justify-start items-start bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                            >
-                                <div class="-mb-1">
-                                    {project.supervisors[0].first_name}
-                                    {project.supervisors[0].last_name}
-                                    {console.log(project)}
-                                </div>
-                                <div
-                                    class="font-normal opacity-90 -mt-1"
-                                    style="text-transform: none;"
-                                >
-                                    {project.supervisors[0].email}
-                                </div>
-                            </td> -->
                             <td
                                 class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200 font-bold"
                             >
