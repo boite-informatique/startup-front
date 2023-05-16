@@ -5,6 +5,7 @@
     import ProjectResumeModal from "./ProjectResumeModal.svelte";
     import ProjectValidationModal from "./ProjectValidationModal.svelte";
     import ProjectMembersModal from "./ProjectMembersModal.svelte";
+    import ProjectSupervisorsModal from "./ProjectSupervisorsModal.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -13,7 +14,9 @@
     let projectValidationModalState = false;
     let projectValidationModalData = {};
     let projectMembersModalState = false;
+    let projectSupervisorsModalState = false;
     let projectMembersModalData = [];
+    let projectSupervisorsModalData = [];
 
     $: projects = getProjects();
 </script>
@@ -49,11 +52,7 @@
                 >
                 <th
                     class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
-                    >{$_("projects.supervisor")}</th
-                >
-                <th
-                    class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
-                    >{$_("projects.co_supervisor")}</th
+                    >{$_("projects.supervisors")}</th
                 >
                 <th
                     class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
@@ -127,34 +126,33 @@
                                 >{project.members.length}
                                 {$_("projects.members")}</td
                             >
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
+                                on:click={() => {
+                                    projectSupervisorsModalState = true;
+                                    projectSupervisorsModalData =
+                                        project.supervisors;
+                                }}
+                                class="cursor-pointer bg-gray-200 text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800 select-none font-semibold"
+                                >{project.supervisors.length}
+                                {$_("projects.supervisors")}</td
+                            >
+
+                            <!-- <td
                                 class="text-base font-semibold capitalize flex-col justify-start items-start bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
                             >
                                 <div class="-mb-1">
-                                    {project.supervisor.user.first_name}
-                                    {project.supervisor.user.last_name}
+                                    {project.supervisors[0].first_name}
+                                    {project.supervisors[0].last_name}
+                                    {console.log(project)}
                                 </div>
                                 <div
                                     class="font-normal opacity-90 -mt-1"
                                     style="text-transform: none;"
                                 >
-                                    {project.supervisor.user.email}
+                                    {project.supervisors[0].email}
                                 </div>
-                            </td>
-                            <td
-                                class="text-base font-semibold capitalize flex-col justify-start items-start bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                            >
-                                <div class="-mb-1">
-                                    {project.co_supervisor.user.first_name}
-                                    {project.co_supervisor.user.last_name}
-                                </div>
-                                <div
-                                    class="font-normal opacity-90 -mt-1"
-                                    style="text-transform: none;"
-                                >
-                                    {project.co_supervisor.user.email}
-                                </div>
-                            </td>
+                            </td> -->
                             <td
                                 class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200 font-bold"
                             >
@@ -198,6 +196,10 @@
 
 <ProjectResumeModal {projectResumeModalData} bind:projectResumeModalState />
 <ProjectMembersModal {projectMembersModalData} bind:projectMembersModalState />
+<ProjectSupervisorsModal
+    {projectSupervisorsModalData}
+    bind:projectSupervisorsModalState
+/>
 <ProjectValidationModal
     {projectValidationModalData}
     bind:projectValidationModalState
