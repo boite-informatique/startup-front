@@ -1,19 +1,32 @@
 <script lang="ts">
     import api from "src/services/api";
+    import type { UploadTypes } from "./uploadTypes";
 
-    let file = null;
+    export let type: UploadTypes = "image";
+    let files = null;
 
     function handleFileInput(event) {
-        file = event.target.files[0];
+        files = event.target.files;
     }
 
     export async function handleFormSubmit() {
-        if (!file) throw Error("You must select A file");
+        if (!files) throw Error("You must select A file");
 
         const formData = new FormData();
-        formData.append("file", file);
+        if (type == "multipleDocuments") {
+            formData.append("files", files);
+        } else {
+            formData.append("file", files);
+        }
         try {
-            const response = await api.post("upload/image", formData);
+            let endpoint = "upload/image";
+            if (type == "pdf") {
+                endpoint = "upload/pdf";
+            } else {
+                endpoint = "upload/documents";
+            }
+
+            const response = await api.post(endpoint, formData);
             if (response.status >= 400) {
                 throw new Error();
             }
@@ -30,6 +43,8 @@
     on:change={handleFileInput}
     type="file"
     required
+    multiple={type == "multipleDocuments"}
+    accept="image"
     class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
 />
 <button on:click={handleFormSubmit}>submit</button>
