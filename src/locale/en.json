@@ -189,6 +189,7 @@
         "informations about the project supervisors": "informations about the project supervisors",
         "informations about the project members": "informations about the project members",
         "no members for this project": "no members for this project",
-        "no Supervisors for this project": "no Supervisors for this project"
+        "no Supervisors for this project": "no Supervisors for this project",
+        "project unavailable": "project unavailable"
     }
 }

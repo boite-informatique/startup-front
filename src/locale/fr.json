@@ -189,6 +189,7 @@
         "informations about the project supervisors": "informations sur les encadrants du projet",
         "informations about the project members": "informations sur les membres du projet",
         "no members for this project": "aucun membre pour ce projet",
-        "no Supervisors for this project": "aucun encadrant pour ce projet"
+        "no Supervisors for this project": "aucun encadrant pour ce projet",
+        "project unavailable": "projet indisponible"
     }
 }

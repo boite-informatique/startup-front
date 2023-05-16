@@ -13,7 +13,7 @@
 
     // importing stores
     import { userPermissions } from "../stores/userPermissions";
-    import Project from "src/lib/Project.svelte";
+    import Project from "src/routes/Project.svelte";
 
     const location = useLocation();
     const dispatch = createEventDispatcher();
@@ -55,6 +55,6 @@
         </div>
         <ProjectsTables on:showIndicator />
     {:else}
-        <Project />
+        <Project projectID={$location.pathname.split("/")[2]} />
     {/if}
 </div>
