@@ -190,6 +190,12 @@
         "informations about the project members": "informations sur les membres du projet",
         "no members for this project": "aucun membre pour ce projet",
         "no Supervisors for this project": "aucun encadrant pour ce projet",
-        "project unavailable": "projet indisponible"
+        "project unavailable": "projet indisponible",
+        "project progess": "avancement du projet",
+        "invited users": "utilisateurs invités",
+        "project history": "historique du projet",
+        "defense authorization": "autorisation de soutenance",
+        "defense documents": "documents de soutenance",
+        "defense planification": "planification de la soutenance"
     }
 }
