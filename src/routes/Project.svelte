@@ -185,7 +185,7 @@
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
                     >
-                        <div class="flex flex-col gap-3">
+                        <div class="flex flex-col gap-5">
                             <p>
                                 - {$_("projects.decision")} : {$_(
                                     `projects.${res.data.validation[0].decision}`
@@ -214,8 +214,12 @@
                                 - {$_("projects.note")} : {res.data
                                     .validation[0].note}
                             </p>
-                            <div class="flex flex-col md:flex-row gap-3">
-                                - {$_("projects.validator")} :
+                            <div
+                                class="flex flex-col md:flex-row gap-5 items-center"
+                            >
+                                <div>
+                                    - {$_("projects.validator")} :
+                                </div>
                                 <div class="flex items-center space-x-3">
                                     <div class="avatar">
                                         <div
@@ -263,11 +267,19 @@
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
                     >
-                        <div class="flex flex-col gap-3">
-                            <p>
-                                - {$_("projects.percentage")} :
-                                {res.data.ProjectProgress[0].percentage}
-                            </p>
+                        <div class="flex flex-col gap-5">
+                            <div class="flex flex-row gap-5 items-center">
+                                <div>
+                                    - {$_("projects.percentage")} :
+                                </div>
+                                <div
+                                    class="radial-progress text-primary"
+                                    style="--value:{res.data.ProjectProgress[0]
+                                        .percentage};"
+                                >
+                                    {res.data.ProjectProgress[0].percentage}%
+                                </div>
+                            </div>
                             <p>
                                 - {$_("projects.note")} : {res.data
                                     .ProjectProgress[0].note}
@@ -284,8 +296,12 @@
                                     timeZone: "UTC",
                                 })}
                             </p>
-                            <div class="flex flex-col md:flex-row gap-3">
-                                - {$_("projects.updated by")} :
+                            <div
+                                class="flex flex-col md:flex-row gap-5 items-center"
+                            >
+                                <div>
+                                    - {$_("projects.updated by")} :
+                                </div>
                                 <div class="flex items-center space-x-3">
                                     <div class="avatar">
                                         <div
@@ -331,10 +347,14 @@
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
                     >
-                        <p class="-mb-1 mt-1">
-                            tabindex="0" attribute is necessary to make the div
-                            focusable
-                        </p>
+                        <div
+                            class="flex flex-col gap-2"
+                            style="text-transform: none;"
+                        >
+                            {#each res.data.ProjectInvitees as invitee}
+                                <div>- {invitee.email} ( {invitee.type} )</div>
+                            {/each}
+                        </div>
                     </div>
                 </div>
             </div>

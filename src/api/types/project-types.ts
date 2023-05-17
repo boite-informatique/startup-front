@@ -27,6 +27,7 @@ export type GetProjectOutput = {
 
     validation: ProjectValidation;
     ProjectProgress: any;
+    ProjectInvitees: any;
 };
 
 export type ProjectValidation = {
