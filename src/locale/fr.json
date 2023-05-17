@@ -219,6 +219,12 @@
         "show more": "voire plus",
         "percentage": "pourcentage",
         "progress update date": "date de mise à jour de l'avancement",
-        "updated by": "mis à jour par"
+        "updated by": "mis à jour par",
+        "modified field": "champ modifié",
+        "changed at": "modifié le",
+        "old value": "ancienne valeur",
+        "new value": "nouvelle valeur",
+        "modified by": "modifié par",
+        "no history for this project": "aucun historique pour ce projet"
     }
 }

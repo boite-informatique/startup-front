@@ -219,6 +219,12 @@
         "show more": "show more",
         "percentage": "percentage",
         "progress update date": "progress update date",
-        "updated by": "updated by"
+        "updated by": "updated by",
+        "modified field": "modified field",
+        "changed at": "changed at",
+        "old value": "old value",
+        "new value": "new value",
+        "modified by": "modified by",
+        "no history for this project": "no history for this project"
     }
 }
