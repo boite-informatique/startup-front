@@ -1,3 +1,4 @@
+import type { Establishment } from "./establishment-types";
 import type { Role } from "./role-types";
 
 export type User = {
@@ -6,36 +7,43 @@ export type User = {
     password: string;
     first_name: string;
     last_name: string;
-    middle_name: string;
     date_of_birth: Date;
-    location_of_birth: string;
-    sex: "Male" | "Female";
-    type: "Student" | "Teacher" | "Staff";
+    type: UserType;
+    activated: boolean;
+    phone: string;
+    avatar: string | null;
 };
 
-export type UserWithRelations = User & {
-    roles: Role[];
-    teacher?: Teacher;
-    student?: Student;
-};
+export type UserType = "student" | "teacher" | "staff";
 
-type Teacher = {
+export type Student = {
     id: number;
-    user_id: number;
-    domain: string;
-    academic_rank: string;
-    establishement: number;
-};
-
-type Student = {
-    id: number;
-    user_id: number;
-    domain: string;
-    establishement: number;
-    faculty: string | null;
-    departement: string;
+    registration_num: string;
+    establishment_id: number;
     filiere: string;
-    level: number;
-    section: string;
-    group: number;
+    specialty: string;
+};
+
+export type Teacher = {
+    id: number;
+    registration_num: string;
+    establishment_id: number;
+    grade: string;
+    specialty: string;
+};
+
+export type Staff = {
+    id: number;
+    grade: string;
+};
+
+export type UserWithRelationsAndEstablishment = User & {
+    student: Student & {
+        establishement: Establishment;
+    };
+    teacher: Teacher & {
+        establishement: Establishment;
+    };
+    staff: Staff;
+    roles: Role[];
 };

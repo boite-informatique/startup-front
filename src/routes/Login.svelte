@@ -12,6 +12,7 @@
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
     import logo from "../assets/innovium_logos/innovium_light.png";
     import MesrsLogo from "../lib/MesrsLogo.svelte";
+    import { getCurrentUserInfoAndStore } from "src/api/user";
 
     const dispatch = createEventDispatcher();
 
@@ -29,6 +30,7 @@
                 storageType.setItem("token", response.data.token);
                 await fetchUserPermissions();
                 await fetchPeriods();
+                await getCurrentUserInfoAndStore();
                 window.location.href = "/";
             } else if (response.status == 403) {
                 indicateDeactivatedAccount();

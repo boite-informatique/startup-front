@@ -21,6 +21,7 @@
 
     // importing components
     import Indicator from "./lib/Indicator.svelte";
+    import { getCurrentUserInfoAndStore } from "./api/user";
 
     let indicatorVisible = false;
     let indicatorContent;
@@ -36,6 +37,7 @@
     onMount(async () => {
         await fetchUserPermissions();
         await fetchPeriods();
+        await getCurrentUserInfoAndStore();
         loadPage = true;
     });
 
