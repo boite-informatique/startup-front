@@ -3,7 +3,7 @@
     import {
         indicateError,
         indicateSuccess,
-    } from "src/lib/ts/indicatorDispatchers";
+    } from "src/lib/utils/indicatorDispatchers";
     import UploadDefenseDocuments from "src/lib/upload/UploadDefenseDocuments.svelte";
     import { createEventDispatcher } from "svelte";
 

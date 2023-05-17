@@ -3,7 +3,7 @@
     import {
         indicateError,
         indicateSuccess,
-    } from "src/lib/ts/indicatorDispatchers";
+    } from "src/lib/utils/indicatorDispatchers";
     import { createEventDispatcher } from "svelte";
 
     export let projectId: number = 0;
