@@ -205,6 +205,16 @@
         "click here to see the project history": "cliquez ici pour voir l'historique du projet",
         "click here to see the defense authorization": "cliquez ici pour voir l'autorisation de soutenance",
         "click here to see the defense documents": "cliquez ici pour voir les documents de soutenance",
-        "click here to see the defense planification": "cliquez ici pour voir la planification de la soutenance"
+        "click here to see the defense planification": "cliquez ici pour voir la planification de la soutenance",
+        "decision": "décision",
+        "reservation": "réservation",
+        "decision date": "date de décision",
+        "note": "remarque",
+        "validator": "validateur",
+        "minor": "mineur",
+        "major": "majeur",
+        "accepted_with_reservation": "accepté avec réservation",
+        "favorable": "favorable",
+        "unfavorable": "défavorable"
     }
 }

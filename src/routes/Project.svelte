@@ -171,16 +171,19 @@
                     >
                         <div class="flex flex-col gap-3">
                             <p>
-                                - decision : {res.data.validation[0].decision}
+                                - {$_("projects.decision")} : {$_(
+                                    `projects.${res.data.validation[0].decision}`
+                                )}
                             </p>
                             {#if res.data.validation[0].reservation}
                                 <p>
-                                    - reservation : {res.data.validation[0]
-                                        .reservation}
+                                    - {$_("projects.reservation")} : {$_(
+                                        `projects.${res.data.validation[0].reservation}`
+                                    )}
                                 </p>
                             {/if}
                             <p>
-                                - decision date : {new Date(
+                                - {$_("projects.decision date")} : {new Date(
                                     res.data.validation[0].created_at
                                 ).toLocaleString("en-UK", {
                                     year: "numeric",
@@ -192,12 +195,12 @@
                                 })}
                             </p>
                             <p>
-                                - note : {res.data.validation[0].note}
+                                - {$_("projects.note")} : {res.data
+                                    .validation[0].note}
                             </p>
                             <div class="flex flex-col md:flex-row gap-3">
-                                - validator : <div
-                                    class="flex items-center space-x-3"
-                                >
+                                - {$_("projects.validator")} :
+                                <div class="flex items-center space-x-3">
                                     <div class="avatar">
                                         <div
                                             class="mask mask-squircle h-12 w-12"

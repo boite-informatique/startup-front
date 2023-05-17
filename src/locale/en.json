@@ -205,6 +205,16 @@
         "click here to see the project history": "click here to see the project history",
         "click here to see the defense authorization": "click here to see the defense authorization",
         "click here to see the defense documents": "click here to see the defense documents",
-        "click here to see the defense planification": "click here to see the defense planification"
+        "click here to see the defense planification": "click here to see the defense planification",
+        "decision": "decision",
+        "reservation": "reservation",
+        "decision date": "decision date",
+        "note": "note",
+        "validator": "validator",
+        "minor": "minor",
+        "major": "major",
+        "accepted_with_reservation": "accepted with reservation",
+        "favorable": "favorable",
+        "unfavorable": "unfavorable"
     }
 }
