@@ -216,6 +216,9 @@
         "accepted_with_reservation": "accepté avec réservation",
         "favorable": "favorable",
         "unfavorable": "défavorable",
-        "show more": "voire plus"
+        "show more": "voire plus",
+        "percentage": "pourcentage",
+        "progress update date": "date de mise à jour de l'avancement",
+        "updated by": "mis à jour par"
     }
 }
