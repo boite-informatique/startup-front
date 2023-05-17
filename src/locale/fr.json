@@ -196,6 +196,7 @@
         "project history": "historique du projet",
         "defense authorization": "autorisation de soutenance",
         "defense documents": "documents de soutenance",
-        "defense planification": "planification de la soutenance"
+        "defense planification": "planification de la soutenance",
+        "click here to see the project validation state": "cliquez ici pour voir l'état de validation du projet"
     }
 }
