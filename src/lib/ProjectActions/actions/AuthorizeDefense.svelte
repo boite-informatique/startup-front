@@ -1,4 +1,44 @@
 <script lang="ts">
+    import { AuthorizeProjectDefense } from "src/api/project/defense";
+    import {
+        indicateError,
+        indicateSuccess,
+    } from "src/lib/ts/indicatorDispatchers";
+    import UploadComponent from "src/lib/upload/UploadComponent.svelte";
+    import { createEventDispatcher } from "svelte";
+
+    export let projectId = 0;
+    let fileUpload; // file upload function
+    const dispatch = createEventDispatcher();
+
+    const handleFormSubmit = async () => {
+        let document: string;
+        try {
+            const file = await fileUpload();
+            document = file;
+        } catch (error) {
+            indicateError(dispatch, error.message);
+            return;
+        }
+
+        try {
+            let response = await AuthorizeProjectDefense(projectId, document);
+            console.log(response);
+            switch (response.status) {
+                case 201:
+                    indicateSuccess(
+                        dispatch,
+                        "Project defense authorization successfully created"
+                    );
+                    break;
+                default:
+                    indicateError(dispatch);
+                    break;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 </script>
 
 <div class="flex items-center justify-center">
@@ -7,7 +47,18 @@
             Authorize Project Defense
         </h2>
         <form class="flex flex-col justify-start space-y-4">
-            <button disabled class="btn-disabled btn">TODO : FILE UPLOAD</button
+            <div class="form-control w-full max-w-xs">
+                <label class="label" for="file">
+                    <span class="label-text">Pick documents to upload</span>
+                </label>
+                <UploadComponent
+                    bind:handleFormSubmit={fileUpload}
+                    type="pdf"
+                    required={true}
+                />
+            </div>
+            <button class="btn" on:click|preventDefault={handleFormSubmit}
+                >Submit</button
             >
         </form>
     </div>

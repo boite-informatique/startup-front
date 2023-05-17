@@ -1,5 +1,4 @@
 export type CreateProjectTask = {
-    projectId: number;
     title: string;
     description: string;
     deadline: Date;

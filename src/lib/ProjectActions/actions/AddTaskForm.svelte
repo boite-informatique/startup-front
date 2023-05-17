@@ -1,10 +1,54 @@
 <script lang="ts">
+    import { CreateProjectTask } from "src/api/project/tasks";
+    import {
+        indicateError,
+        indicateSuccess,
+    } from "src/lib/ts/indicatorDispatchers";
+    import UploadComponent from "src/lib/upload/UploadComponent.svelte";
+    import { createEventDispatcher } from "svelte";
+
+    export let projectId: number = 0;
     let title: string = "";
     let description: string = "";
     let deadline: Date;
 
-    console.log(new Date("2023-05-16T16:30"));
-    $: console.log(deadline);
+    let fileUpload;
+    const dispatch = createEventDispatcher();
+
+    const handleFormSubmit = async () => {
+        let documents: string[] = [];
+        try {
+            const files = await fileUpload();
+            documents = files || [];
+            console.log(files);
+        } catch (error) {
+            indicateError(dispatch, error.message);
+            return;
+        }
+
+        try {
+            let response = await CreateProjectTask(projectId, {
+                title,
+                description,
+                deadline,
+                resources: documents,
+            });
+            console.log(response);
+            switch (response.status) {
+                case 201:
+                    indicateSuccess(dispatch, "Task added successfully");
+                    break;
+                case 400:
+                    indicateError(dispatch, (response.data as any).message);
+                    break;
+                default:
+                    indicateError(dispatch);
+                    break;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 </script>
 
 <div class="flex items-center justify-center">
@@ -46,8 +90,18 @@
                     name="deadline"
                 />
             </div>
-            <button disabled class="btn-disabled btn mt-4"
-                >TODO : FILE UPLOAD</button
+            <div class="form-control w-full max-w-xs">
+                <label class="label" for="file">
+                    <span class="label-text">Pick documents to upload</span>
+                </label>
+                <UploadComponent
+                    bind:handleFormSubmit={fileUpload}
+                    type="multipleDocuments"
+                    required={false}
+                />
+            </div>
+            <button class="btn" on:click|preventDefault={handleFormSubmit}
+                >Submit</button
             >
         </form>
     </div>

@@ -12,7 +12,7 @@
 <label for="my-modal-4" class="modal cursor-pointer">
     <label class="modal-box relative" for="">
         {#if component}
-            <svelte:component this={component} />
+            <svelte:component this={component} on:showIndicator />
         {/if}
     </label>
 </label>
