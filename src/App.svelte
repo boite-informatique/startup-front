@@ -22,6 +22,7 @@
     // importing components
     import Indicator from "./lib/Indicator.svelte";
     import { getCurrentUserInfoAndStore } from "./api/user";
+    import Profile from "./routes/Profile.svelte";
 
     let indicatorVisible = false;
     let indicatorContent;
@@ -91,6 +92,11 @@
             <Route path="/">
                 <Layout>
                     <Home />
+                </Layout>
+            </Route>
+            <Route path="/profile/">
+                <Layout showSidebar={false}>
+                    <Profile on:showIndicator={showIndicator} />
                 </Layout>
             </Route>
             <Route path="/admin/*">
