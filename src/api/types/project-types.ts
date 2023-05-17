@@ -26,6 +26,7 @@ export type GetProjectOutput = {
     supervisors: User[];
 
     validation: ProjectValidation;
+    ProjectProgress: any;
 };
 
 export type ProjectValidation = {

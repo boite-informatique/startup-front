@@ -55,8 +55,8 @@
                     }}
                     class="cursor-pointer select-none"
                 >
-                    {res.data.resume.split(" ").slice(0, 2).join(" ")}
-                    {res.data.resume.split(" ").slice(2, 3).join(" ")} ...<span
+                    {res.data.resume.split(" ").slice(0, 8).join(" ")}
+                    {res.data.resume.split(" ").slice(8, 9).join(" ")} ...<span
                         class="opacity-60 underline"
                         >{$_("projects.show more")}</span
                     >
@@ -264,8 +264,7 @@
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
                     >
                         <p class="-mb-1 mt-1">
-                            tabindex="0" attribute is necessary to make the div
-                            focusable
+                            {console.log(res.data.ProjectProgress)}
                         </p>
                     </div>
                 </div>
