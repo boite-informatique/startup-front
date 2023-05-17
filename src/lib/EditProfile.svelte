@@ -33,7 +33,6 @@
             return;
         }
 
-        console.log(phone, phone || undefined);
         try {
             let response = await modifyProfile($currentUserInfo.id, {
                 password: password || undefined,

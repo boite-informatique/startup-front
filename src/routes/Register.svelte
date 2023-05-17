@@ -9,9 +9,10 @@
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
     import logo from "../assets/innovium_logos/innovium_light.png";
-    import MesrsLogo from "../lib/MesrsLogo.svelte";
     import SelectSearch from "../lib/SelectSearch.svelte";
     import type { InvitationType } from "src/api/types/registration-types";
+    import UploadComponent from "src/lib/upload/UploadComponent.svelte";
+    import { indicateError } from "src/lib/utils/indicatorDispatchers";
 
     const dispatch = createEventDispatcher();
     let qs = new URLSearchParams(window.location.search);
@@ -29,9 +30,20 @@
     let filiere = "";
     let grade = "";
     let invitation: InvitationType = null;
-
+    let fileUpload; // file upload function binded from UploadComponent
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+
+        let avatar: string = null;
+        try {
+            const files = await fileUpload();
+            avatar = files || null;
+            console.log(files);
+        } catch (error) {
+            indicateError(dispatch, error.message);
+            return;
+        }
+
         let info;
         switch (type) {
             case "student":
@@ -63,13 +75,14 @@
                     type,
                     info,
                     invitation,
+                    avatar,
                 },
                 Boolean(invitation)
             );
             switch (response.status) {
                 case 201:
                     indicateSuccess();
-                    navigate("/login");
+                    navigate("/request_activation");
                     break;
                 case 409:
                     indicateEmailAlreadyExists();
@@ -146,7 +159,7 @@
 <div
     class="relative flex min-h-screen w-full items-center justify-center justify-self-center overflow-hidden px-4 py-12 sm:px-6 lg:px-8"
 >
-    <MesrsLogo />
+    <!-- <MesrsLogo />  -->
     <div class="absolute top-5 right-5 flex gap-4">
         <DarkModeTogglerLogin />
         <LanguageMenuLogin />
@@ -306,6 +319,17 @@
                         placeholder={$_("register.grade")}
                     />
                 {/if}
+            </div>
+
+            <div class="form-control w-full max-w-xs">
+                <label class="label" for="file">
+                    <span class="label-text">Select Avatar</span>
+                </label>
+                <UploadComponent
+                    bind:handleFormSubmit={fileUpload}
+                    type="image"
+                    required={false}
+                />
             </div>
 
             <div>

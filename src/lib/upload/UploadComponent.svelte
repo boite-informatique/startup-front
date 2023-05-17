@@ -47,7 +47,7 @@
     on:change={handleFileInput}
     type="file"
     accept={uploadConfig[type].accept}
-    required
+    required={false}
     multiple={uploadConfig[type].multiple}
     class="file-input-bordered file-input w-full max-w-xs"
 />

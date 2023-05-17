@@ -13,6 +13,7 @@
     import logo from "../assets/innovium_logos/innovium_light.png";
     import MesrsLogo from "../lib/MesrsLogo.svelte";
     import { getCurrentUserInfoAndStore } from "src/api/user";
+    import { indicateError } from "src/lib/utils/indicatorDispatchers";
 
     const dispatch = createEventDispatcher();
 
@@ -33,13 +34,24 @@
                 await getCurrentUserInfoAndStore();
                 window.location.href = "/";
             } else if (response.status == 403) {
-                indicateDeactivatedAccount();
+                indicateError(
+                    dispatch,
+                    $_("login.indicator.this account is deactivated")
+                );
             } else if (response.status >= 400 && response.status < 500) {
-                indicateUnauthorized();
-            } else if (response.status >= 500 && response.status < 600) {
-                indicateInternalServerError();
+                indicateError(
+                    dispatch,
+                    $_(
+                        "login.indicator.an internal server error occurred, please try again"
+                    )
+                );
             } else {
-                indicateErrorOccurred();
+                indicateError(
+                    dispatch,
+                    $_(
+                        "login.indicator.an internal server error occurred, please try again"
+                    )
+                );
             }
         } catch (error) {
             console.log(error);
@@ -52,13 +64,6 @@
             indicatorContent: $_(
                 "login.indicator.an internal server error occurred, please try again"
             ),
-            indicatorVisible: true,
-        });
-    };
-    let indicateDeactivatedAccount = () => {
-        dispatch("showIndicator", {
-            indicatorType: "btn-error",
-            indicatorContent: $_("login.indicator.this account is deactivated"),
             indicatorVisible: true,
         });
     };
@@ -197,6 +202,14 @@
                 class="link-hover link relative mt-1 text-gray-900 opacity-70 hover:opacity-100 dark:text-gray-200"
             >
                 {$_("login.dont have an account, go to register")}.
+            </div></Link
+        >
+
+        <Link to="/request_activation"
+            ><div
+                class="link-hover link relative mt-1 text-gray-900 opacity-70 hover:opacity-100 dark:text-gray-200"
+            >
+                Activate Your Account
             </div></Link
         >
     </div>
