@@ -9,7 +9,6 @@
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
     import { Link } from "svelte-navigator";
     import logo from "../assets/innovium_logos/innovium_light.png";
-    import MesrsLogo from "../lib/MesrsLogo.svelte";
 
     const dispatch = createEventDispatcher();
 
