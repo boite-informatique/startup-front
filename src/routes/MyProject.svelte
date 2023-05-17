@@ -13,6 +13,7 @@
 
     // importing stores
     import { userPermissions } from "../stores/userPermissions";
+    import { currentUserInfo } from "src/stores/currentUserInfo";
 
     const dispatch = createEventDispatcher();
 
@@ -29,9 +30,7 @@
     };
 
     onMount(() => {
-        let userIsStudent = $userPermissions.some(
-            (obj) => obj.name === "isStudent"
-        );
+        let userIsStudent = $currentUserInfo.type == "student";
 
         if (!userIsStudent) {
             indicateUnauthorizedToAccessMyProjects();

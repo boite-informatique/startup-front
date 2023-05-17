@@ -9,6 +9,7 @@
 
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
+    import { currentUserInfo } from "src/stores/currentUserInfo";
 
     const dispatch = createEventDispatcher();
 
@@ -16,13 +17,9 @@
         (obj) => obj.name === "canManageAll"
     );
 
-    let userIsStudent = $userPermissions.some(
-        (obj) => obj.name === "isStudent" // later change this permission name 'isStudent' to the name of permission in the store that only students have
-    );
+    let userIsStudent = $currentUserInfo.type == "student";
 
-    let userIsTeacher = $userPermissions.some(
-        (obj) => obj.name === "isTeacher" // later change this permission name 'isTeacher' to the name of permission in the store that only teachers have
-    );
+    let userIsTeacher = $currentUserInfo.type == "teacher";
 
     let routesList = [];
     if (userIsAdmin) {

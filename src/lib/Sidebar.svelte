@@ -5,6 +5,7 @@
     import { fly } from "svelte/transition";
     import { quintInOut } from "svelte/easing";
     import { _ } from "svelte-i18n";
+    import { currentUserInfo } from "src/stores/currentUserInfo";
 
     const location = useLocation();
 
@@ -17,13 +18,9 @@
         (obj) => obj.name === "canManageAll"
     );
 
-    let userIsStudent = $userPermissions.some(
-        (obj) => obj.name === "isStudent" // later change this permission name 'isStudent' to the name of permission in the store that only students have
-    );
+    let userIsStudent = $currentUserInfo.type == "student";
 
-    let userIsTeacher = $userPermissions.some(
-        (obj) => obj.name === "isTeacher" // later change this permission name 'isTeacher' to the name of permission in the store that only teachers have
-    );
+    let userIsTeacher = $currentUserInfo.type == "teacher";
 
     let sidebarList = [];
     if (userIsAdmin) {

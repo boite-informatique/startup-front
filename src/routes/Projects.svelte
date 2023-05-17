@@ -14,6 +14,7 @@
     // importing stores
     import { userPermissions } from "../stores/userPermissions";
     import Project from "src/routes/Project.svelte";
+    import { currentUserInfo } from "src/stores/currentUserInfo";
 
     const location = useLocation();
     const dispatch = createEventDispatcher();
@@ -34,9 +35,7 @@
         let userIsAdmin = $userPermissions.some(
             (obj) => obj.name === "canManageAll"
         );
-        let userIsTeacher = $userPermissions.some(
-            (obj) => obj.name === "isTeacher"
-        );
+        let userIsTeacher = $currentUserInfo.type == "teacher";
 
         if (!(userIsAdmin || userIsTeacher)) {
             indicateUnauthorizedToAccessProjects();
