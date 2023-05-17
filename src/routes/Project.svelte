@@ -263,9 +263,57 @@
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
                     >
-                        <p class="-mb-1 mt-1">
-                            {console.log(res.data.ProjectProgress)}
-                        </p>
+                        <div class="flex flex-col gap-3">
+                            <p>
+                                - {$_("projects.percentage")} :
+                                {res.data.ProjectProgress[0].percentage}
+                            </p>
+                            <p>
+                                - {$_("projects.note")} : {res.data
+                                    .ProjectProgress[0].note}
+                            </p>
+                            <p>
+                                - {$_("projects.progress update date")} : {new Date(
+                                    res.data.ProjectProgress[0].created_at
+                                ).toLocaleString("en-UK", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                    hour: "numeric",
+                                    minute: "numeric",
+                                    timeZone: "UTC",
+                                })}
+                            </p>
+                            <div class="flex flex-col md:flex-row gap-3">
+                                - {$_("projects.updated by")} :
+                                <div class="flex items-center space-x-3">
+                                    <div class="avatar">
+                                        <div
+                                            class="mask mask-squircle h-12 w-12"
+                                        >
+                                            <img
+                                                src="https://avatars.githubusercontent.com/u/100171494?v=4"
+                                                alt="Avatar of a user"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold">
+                                            {res.data.ProjectProgress[0].user
+                                                .first_name}
+                                            {res.data.ProjectProgress[0].user
+                                                .last_name}
+                                        </div>
+                                        <div
+                                            class="text-sm font-medium opacity-90"
+                                        >
+                                            {res.data.ProjectProgress[0].user
+                                                .email}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
