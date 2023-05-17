@@ -4,7 +4,6 @@ import type { Role } from "./role-types";
 export type User = {
     id: number;
     email: string;
-    password: string;
     first_name: string;
     last_name: string;
     date_of_birth: Date;
