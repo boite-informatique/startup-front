@@ -1,32 +1,36 @@
 <script lang="ts">
     import api from "src/services/api";
-    import type { UploadTypes } from "./uploadTypes";
-
+    import { uploadConfig, type UploadTypes } from "./uploadTypes";
     export let type: UploadTypes = "image";
+    export let required: boolean = true;
     let files = null;
 
     function handleFileInput(event) {
         files = event.target.files;
+        console.log("fileinput", files);
     }
 
     export async function handleFormSubmit() {
-        if (!files) throw Error("You must select A file");
+        if (!required && !files) {
+            return uploadConfig[type].multiple ? [] : null;
+        }
+
+        if (required && !files) {
+            throw new Error("You must select a file");
+        }
 
         const formData = new FormData();
-        if (type == "multipleDocuments") {
-            formData.append("files", files);
+        if (uploadConfig[type].multiple == true) {
+            for (const file of files) formData.append("files", file);
         } else {
-            formData.append("file", files);
+            formData.append("file", files[0]);
         }
         try {
-            let endpoint = "upload/image";
-            if (type == "pdf") {
-                endpoint = "upload/pdf";
-            } else {
-                endpoint = "upload/documents";
-            }
-
-            const response = await api.post(endpoint, formData);
+            const response = await api.post(
+                uploadConfig[type].endpoint,
+                formData
+            );
+            console.log("file upload", response);
             if (response.status >= 400) {
                 throw new Error();
             }
@@ -42,9 +46,8 @@
 <input
     on:change={handleFileInput}
     type="file"
+    accept={uploadConfig[type].accept}
     required
-    multiple={type == "multipleDocuments"}
-    accept="image"
-    class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
+    multiple={uploadConfig[type].multiple}
+    class="file-input-bordered file-input w-full max-w-xs"
 />
-<button on:click={handleFormSubmit}>submit</button>

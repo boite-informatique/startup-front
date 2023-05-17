@@ -1,10 +1,47 @@
 <script lang="ts">
+    import { createValidation } from "src/api/project/validation";
+    import {
+        indicateError,
+        indicateSuccess,
+    } from "src/lib/ts/indicatorDispatchers";
+    import { createEventDispatcher } from "svelte";
+
+    export let projectId: number = 0;
+    const dispatch = createEventDispatcher();
+
     let decision: "favorable" | "unfavorable" | "accepted_with_reservation";
     let reservation: "minor" | "major";
     let note: string = "";
     $: if (decision !== "accepted_with_reservation") {
         reservation = undefined;
     }
+
+    const handleFormSubmit = async () => {
+        try {
+            let response = await createValidation(projectId, {
+                decision,
+                reservation,
+                note,
+            });
+
+            switch (response.status) {
+                case 201:
+                    indicateSuccess(
+                        dispatch,
+                        "Project validation created successfully"
+                    );
+                    break;
+                case 400:
+                    indicateError(dispatch, (response.data as any).message);
+                    break;
+                default:
+                    indicateError(dispatch);
+                    break;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 </script>
 
 <div class="flex items-center justify-center">
@@ -59,6 +96,9 @@
                     name="note"
                 />
             </div>
+            <button class="btn" on:click|preventDefault={handleFormSubmit}
+                >Submit</button
+            >
         </form>
     </div>
 </div>

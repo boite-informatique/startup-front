@@ -1,7 +1,41 @@
 <script lang="ts">
+    import { CreateProjectProgress } from "src/api/project/ReportProgress";
+    import {
+        indicateError,
+        indicateSuccess,
+    } from "src/lib/ts/indicatorDispatchers";
+    import { createEventDispatcher } from "svelte";
+
     export let initialPercentage = 50;
+    export let projectId = 0;
+
+    const dispatch = createEventDispatcher();
     let percentage: number = initialPercentage; // TODO : initialize with latest project progress's percentage
     let note: string = "";
+
+    const handleFormSubmit = async () => {
+        try {
+            let response = await CreateProjectProgress(projectId, {
+                percentage,
+                note,
+            });
+            console.log(response);
+
+            switch (response.status) {
+                case 201:
+                    indicateSuccess(dispatch, "Progress Reported successfully");
+                    break;
+                case 400:
+                    indicateError(dispatch, (response.data as any).message);
+                    break;
+                default:
+                    indicateError(dispatch);
+                    break;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 </script>
 
 <div class="flex items-center justify-center">
@@ -37,6 +71,9 @@
                     name="note"
                 />
             </div>
+            <button class="btn" on:click|preventDefault={handleFormSubmit}
+                >Submit</button
+            >
         </form>
     </div>
 </div>
