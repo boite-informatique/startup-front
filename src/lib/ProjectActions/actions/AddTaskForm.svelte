@@ -10,12 +10,18 @@
     export let projectId: number = 0;
     let title: string = "";
     let description: string = "";
-    let deadline: Date;
+    let deadline: string;
 
     let fileUpload;
     const dispatch = createEventDispatcher();
 
     const handleFormSubmit = async () => {
+        const now = new Date();
+        const deadlineDate = new Date(deadline);
+        if (now.getTime() > deadlineDate.getTime()) {
+            indicateError(dispatch, "Deadline must be in the future");
+            return;
+        }
         let documents: string[] = [];
         try {
             const files = await fileUpload();
@@ -30,7 +36,7 @@
             let response = await CreateProjectTask(projectId, {
                 title,
                 description,
-                deadline,
+                deadline: deadlineDate,
                 resources: documents,
             });
             console.log(response);
@@ -85,6 +91,7 @@
                 <input
                     bind:value={deadline}
                     type="datetime-local"
+                    min="2023"
                     placeholder="Deadline"
                     class="input-bordered input w-full max-w-xs"
                     name="deadline"
