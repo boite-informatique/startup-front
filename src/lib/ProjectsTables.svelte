@@ -99,7 +99,8 @@
                                     .split(" ")
                                     .slice(2, 3)
                                     .join(" ")} ...<span
-                                    class="opacity-60 underline">show more</span
+                                    class="opacity-60 underline"
+                                    >{$_("projects.show more")}</span
                                 ></td
                             >
                             <td

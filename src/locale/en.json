@@ -215,6 +215,7 @@
         "major": "major",
         "accepted_with_reservation": "accepted with reservation",
         "favorable": "favorable",
-        "unfavorable": "unfavorable"
+        "unfavorable": "unfavorable",
+        "show more": "show more"
     }
 }

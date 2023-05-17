@@ -1,8 +1,13 @@
 <script>
     import { getProjectByID } from "src/api/project";
+    import ProjectResumeModal from "src/lib/ProjectResumeModal.svelte";
     import { _ } from "svelte-i18n";
 
     export let projectID;
+
+    let projectResumeModalState = false;
+    let projectResumeModalData = "";
+
     let project = getProjectByID(projectID);
 </script>
 
@@ -42,8 +47,19 @@
                 <div class="w-[330px] font-bold">
                     {$_("projects.resume")} :
                 </div>
-                <div>
-                    {res.data.resume}
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <div
+                    on:click={() => {
+                        projectResumeModalState = true;
+                        projectResumeModalData = res.data.resume;
+                    }}
+                    class="cursor-pointer select-none"
+                >
+                    {res.data.resume.split(" ").slice(0, 2).join(" ")}
+                    {res.data.resume.split(" ").slice(2, 3).join(" ")} ...<span
+                        class="opacity-60 underline"
+                        >{$_("projects.show more")}</span
+                    >
                 </div>
             </div>
             <div class="flex flex-col md:flex-row gap-2">
@@ -158,7 +174,7 @@
                     {$_("projects.validation")} :
                 </div>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-                <div tabindex="0" class="collapse">
+                <div tabindex="0" class="collapse w-7/12">
                     <div
                         class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
                     >
@@ -236,7 +252,7 @@
                     {$_("projects.project progess")} :
                 </div>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-                <div tabindex="0" class="collapse">
+                <div tabindex="0" class="collapse w-7/12">
                     <div
                         class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
                     >
@@ -259,7 +275,7 @@
                     {$_("projects.invited users")} :
                 </div>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-                <div tabindex="0" class="collapse">
+                <div tabindex="0" class="collapse w-7/12">
                     <div
                         class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
                     >
@@ -280,7 +296,7 @@
                     {$_("projects.project history")} :
                 </div>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-                <div tabindex="0" class="collapse">
+                <div tabindex="0" class="collapse w-7/12">
                     <div
                         class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
                     >
@@ -301,7 +317,7 @@
                     {$_("projects.defense authorization")} :
                 </div>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-                <div tabindex="0" class="collapse">
+                <div tabindex="0" class="collapse w-7/12">
                     <div
                         class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
                     >
@@ -324,7 +340,7 @@
                     {$_("projects.defense documents")} :
                 </div>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-                <div tabindex="0" class="collapse">
+                <div tabindex="0" class="collapse w-7/12">
                     <div
                         class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
                     >
@@ -345,7 +361,7 @@
                     {$_("projects.defense planification")} :
                 </div>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-                <div tabindex="0" class="collapse">
+                <div tabindex="0" class="collapse w-7/12">
                     <div
                         class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
                     >
@@ -376,3 +392,5 @@
         {error.message}
     </p>
 {/await}
+
+<ProjectResumeModal {projectResumeModalData} bind:projectResumeModalState />

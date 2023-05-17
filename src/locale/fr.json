@@ -215,6 +215,7 @@
         "major": "majeur",
         "accepted_with_reservation": "accepté avec réservation",
         "favorable": "favorable",
-        "unfavorable": "défavorable"
+        "unfavorable": "défavorable",
+        "show more": "voire plus"
     }
 }
