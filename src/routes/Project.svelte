@@ -169,10 +169,62 @@
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
                     >
-                        <p class="-mb-1 mt-1">
-                            tabindex="0" attribute is necessary to make the div
-                            focusable
-                        </p>
+                        <div class="flex flex-col gap-3">
+                            <p>
+                                - decision : {res.data.validation[0].decision}
+                            </p>
+                            {#if res.data.validation[0].reservation}
+                                <p>
+                                    - reservation : {res.data.validation[0]
+                                        .reservation}
+                                </p>
+                            {/if}
+                            <p>
+                                - decision date : {new Date(
+                                    res.data.validation[0].created_at
+                                ).toLocaleString("en-UK", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                    hour: "numeric",
+                                    minute: "numeric",
+                                    timeZone: "UTC",
+                                })}
+                            </p>
+                            <p>
+                                - note : {res.data.validation[0].note}
+                            </p>
+                            <div class="flex flex-col md:flex-row gap-3">
+                                - validator : <div
+                                    class="flex items-center space-x-3"
+                                >
+                                    <div class="avatar">
+                                        <div
+                                            class="mask mask-squircle h-12 w-12"
+                                        >
+                                            <img
+                                                src="https://avatars.githubusercontent.com/u/100171494?v=4"
+                                                alt="Avatar of a user"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold">
+                                            {res.data.validation[0].validator
+                                                .first_name}
+                                            {res.data.validation[0].validator
+                                                .last_name}
+                                        </div>
+                                        <div
+                                            class="text-sm font-medium opacity-90"
+                                        >
+                                            {res.data.validation[0].validator
+                                                .email}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
