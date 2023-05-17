@@ -197,6 +197,14 @@
         "defense authorization": "autorisation de soutenance",
         "defense documents": "documents de soutenance",
         "defense planification": "planification de la soutenance",
-        "click here to see the project validation state": "cliquez ici pour voir l'état de validation du projet"
+        "click here to see the project validation state": "cliquez ici pour voir l'état de validation du projet",
+        "there are no supervisors for this project currently": "Il n'y a actuellement aucun encadrant pour ce projet",
+        "there are no members for this project currently": "Il n'y a actuellement aucun membre pour ce projet",
+        "click here to see the project progress state": "cliquez ici pour voir l'état d'avancement du projet",
+        "click here to see the invited users": "cliquez ici pour voir les utilisateurs invités",
+        "click here to see the project history": "cliquez ici pour voir l'historique du projet",
+        "click here to see the defense authorization": "cliquez ici pour voir l'autorisation de soutenance",
+        "click here to see the defense documents": "cliquez ici pour voir les documents de soutenance",
+        "click here to see the defense planification": "cliquez ici pour voir la planification de la soutenance"
     }
 }

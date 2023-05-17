@@ -14,40 +14,40 @@
         <div
             class="flex flex-col gap-5 capitalize text-xl text-gray-800 dark:text-gray-200"
         >
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.product")} :
                 </div>
                 <div>
                     {res.data.product_name}
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.brand")} :
                 </div>
                 <div>
                     {res.data.brand_name}
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.type")} :
                 </div>
                 <div>
                     {res.data.type}
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.resume")} :
                 </div>
                 <div>
                     {res.data.resume}
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.owner")} :
                 </div>
                 <div class="flex items-center space-x-3">
@@ -70,8 +70,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.members")} :
                 </div>
                 <div class="flex flex-col md:flex-row gap-7">
@@ -95,11 +95,17 @@
                                 </div>
                             </div>
                         </div>
+                    {:else}
+                        <div class="opacity-75">
+                            {$_(
+                                "projects.there are no members for this project currently"
+                            )}.
+                        </div>
                     {/each}
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.supervisors")} :
                 </div>
                 <div class="flex flex-col md:flex-row gap-7">
@@ -123,11 +129,17 @@
                                 </div>
                             </div>
                         </div>
+                    {:else}
+                        <div class="opacity-75">
+                            {$_(
+                                "projects.there are no supervisors for this project currently"
+                            )}.
+                        </div>
                     {/each}
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.created at")} :
                 </div>
                 <div>
@@ -141,18 +153,31 @@
                     })}
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.validation")} :
                 </div>
-                <div>
-                    {$_(
-                        "projects.click here to see the project validation state"
-                    )}
+                <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+                <div tabindex="0" class="collapse">
+                    <div
+                        class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
+                    >
+                        {$_(
+                            "projects.click here to see the project validation state"
+                        )}
+                    </div>
+                    <div
+                        class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
+                    >
+                        <p class="-mb-1 mt-1">
+                            tabindex="0" attribute is necessary to make the div
+                            focusable
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.project progess")} :
                 </div>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -160,7 +185,9 @@
                     <div
                         class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
                     >
-                        Focus me to see content
+                        {$_(
+                            "projects.click here to see the project progress state"
+                        )}
                     </div>
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
@@ -172,8 +199,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.invited users")} :
                 </div>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -181,7 +208,7 @@
                     <div
                         class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
                     >
-                        Focus me to see content
+                        {$_("projects.click here to see the invited users")}
                     </div>
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
@@ -193,8 +220,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.project history")} :
                 </div>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -202,7 +229,7 @@
                     <div
                         class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
                     >
-                        Focus me to see content
+                        {$_("projects.click here to see the project history")}
                     </div>
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
@@ -214,8 +241,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.defense authorization")} :
                 </div>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -223,7 +250,9 @@
                     <div
                         class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
                     >
-                        Focus me to see content
+                        {$_(
+                            "projects.click here to see the defense authorization"
+                        )}
                     </div>
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
@@ -235,8 +264,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.defense documents")} :
                 </div>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -244,7 +273,7 @@
                     <div
                         class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
                     >
-                        Focus me to see content
+                        {$_("projects.click here to see the defense documents")}
                     </div>
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
@@ -256,8 +285,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-72 font-bold">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="w-[330px] font-bold">
                     {$_("projects.defense planification")} :
                 </div>
                 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -265,7 +294,9 @@
                     <div
                         class="collapse-title text-xl font-medium bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 rounded-t-xl"
                     >
-                        Focus me to see content
+                        {$_(
+                            "projects.click here to see the defense planification"
+                        )}
                     </div>
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
