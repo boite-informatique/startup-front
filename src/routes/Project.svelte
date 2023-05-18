@@ -1,6 +1,7 @@
 <script>
     import { getProjectByID } from "src/api/project";
     import ProjectResumeModal from "src/lib/ProjectResumeModal.svelte";
+    import ProjectTasks from "src/lib/ProjectTasks.svelte";
     import { _ } from "svelte-i18n";
 
     export let projectID;
@@ -561,6 +562,9 @@
                         {/if}
                     </div>
                 </div>
+            </div>
+            <div class="mt-10">
+                <ProjectTasks tasksData={res.data.ProjectTask} />
             </div>
         </div>
     {:else}

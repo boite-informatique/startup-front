@@ -236,6 +236,9 @@
         "no defense authorization for this project": "no defense authorization for this project",
         "supervisor": "supervisor",
         "defense authorization file": "defense authorization file",
-        "click here": "click here"
+        "click here": "click here",
+        "tasks": {
+            "project's tasks": "project's tasks"
+        }
     }
 }

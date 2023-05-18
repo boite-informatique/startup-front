@@ -235,6 +235,9 @@
         "no defense authorization for this project": "aucune autorisation de soutenance pour ce projet",
         "supervisor": "encadrant",
         "defense authorization file": "fichier d'autorisation de soutenance",
-        "click here": "cliquez ici"
+        "click here": "cliquez ici",
+        "tasks": {
+            "project's tasks": "tâches du projet"
+        }
     }
 }

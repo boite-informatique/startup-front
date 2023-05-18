@@ -31,6 +31,7 @@ export type GetProjectOutput = {
     history: any;
     DefensePlanification: any;
     DefenseAuthorization: any;
+    ProjectTask: any[];
 };
 
 export type ProjectValidation = {
