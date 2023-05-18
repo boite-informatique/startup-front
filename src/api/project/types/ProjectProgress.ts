@@ -1,3 +1,5 @@
+import type { User } from "src/api/types/user-types";
+
 export type ProjectProgress = {
     id: number;
     project_id: number;
@@ -10,4 +12,8 @@ export type ProjectProgress = {
 export type CreateProjectProgress = {
     percentage: number;
     note: string;
+};
+
+export type ProjectProgressWithUser = ProjectProgress & {
+    user: User;
 };

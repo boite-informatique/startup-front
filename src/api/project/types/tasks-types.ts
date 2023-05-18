@@ -1,3 +1,5 @@
+import type { User } from "src/api/types/user-types";
+
 export type CreateProjectTask = {
     title: string;
     description: string;
@@ -13,4 +15,8 @@ export type ProjectTask = {
     description: string;
     deadline: Date;
     resources: string[];
+};
+
+export type ProjectTaskWithUser = ProjectTask & {
+    user: User;
 };
