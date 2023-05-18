@@ -31,8 +31,10 @@
         });
     };
 
+    let userIsAdmin;
+
     onMount(() => {
-        let userIsAdmin = $userPermissions.some(
+        userIsAdmin = $userPermissions.some(
             (obj) => obj.name === "canManageAll"
         );
         let userIsTeacher = $currentUserInfo.type == "teacher";
@@ -50,7 +52,9 @@
         <div
             class="-mb-2 flex flex-col items-start justify-start gap-2 md:flex-row"
         >
-            <AddProject on:showIndicator />
+            {#if !userIsAdmin}
+                <AddProject on:showIndicator />
+            {/if}
         </div>
         <ProjectsTables on:showIndicator />
     {:else}
