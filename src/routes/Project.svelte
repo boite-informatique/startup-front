@@ -454,10 +454,34 @@
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
                     >
-                        <p class="-mb-1 mt-1">
-                            tabindex="0" attribute is necessary to make the div
-                            focusable
-                        </p>
+                        {#if res.data.DefenseAuthorization}
+                            <div class="flex flex-col gap-2">
+                                <div>
+                                    - {$_("projects.supervisor")} : {res.data
+                                        .DefenseAuthorization.supervisor_id}
+                                </div>
+                                <div class="flex flex-row gap-1">
+                                    <div>
+                                        - {$_(
+                                            "projects.defense authorization file"
+                                        )} :
+                                    </div>
+                                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                                    <div
+                                        on:click={() => {
+                                            window.location.href = `${res.data.DefenseAuthorization.uploadedFile}`;
+                                        }}
+                                        class="underline cursor-pointer opacity-75 hover:opacity-100"
+                                    >
+                                        {$_("projects.click here")}
+                                    </div>
+                                </div>
+                            </div>
+                        {:else}
+                            {$_(
+                                "projects.no defense authorization for this project"
+                            )}
+                        {/if}
                     </div>
                 </div>
             </div>
@@ -498,7 +522,6 @@
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
                     >
-                        {console.log(res.data.DefensePlanification)}
                         {#if res.data.DefensePlanification}
                             <div class="flex flex-col gap-2">
                                 <div>

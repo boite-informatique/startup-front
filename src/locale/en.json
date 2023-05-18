@@ -232,6 +232,10 @@
         "date": "date",
         "establishment": "establishment",
         "mode": "mode",
-        "nature": "nature"
+        "nature": "nature",
+        "no defense authorization for this project": "no defense authorization for this project",
+        "supervisor": "supervisor",
+        "defense authorization file": "defense authorization file",
+        "click here": "click here"
     }
 }
