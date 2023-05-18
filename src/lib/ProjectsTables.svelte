@@ -141,7 +141,17 @@
                             <td
                                 class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200 font-bold"
                             >
-                                {project.created_at.split("T")[0]}
+                                {new Date(project.created_at).toLocaleString(
+                                    "en-UK",
+                                    {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                        hour: "numeric",
+                                        minute: "numeric",
+                                        timeZone: "UTC",
+                                    }
+                                )}
                             </td>
                             <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
