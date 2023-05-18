@@ -11,6 +11,7 @@
 
     // importing stores
     import { userPermissions } from "../stores/userPermissions";
+    import AdminPeriods from "./AdminPeriods.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -52,4 +53,7 @@
 </Route>
 <Route path="/roles">
     <AdminRoles on:showIndicator />
+</Route>
+<Route path="/periods">
+    <AdminPeriods on:showIndicator />
 </Route>

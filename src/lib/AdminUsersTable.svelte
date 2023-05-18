@@ -51,7 +51,7 @@
                 >
                 <th
                     class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
-                    >{$_("admin.users.sex")}</th
+                    >Phone</th
                 >
                 <th
                     class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
@@ -212,18 +212,12 @@
                             {/await}
                             <td
                                 class="bg-gray-200 capitalize text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                                >{$_(
-                                    `admin.users.${`${user.sex}`.toLowerCase()}`
-                                )}</td
+                                >{user.phone}</td
                             >
                             <td
                                 class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
                             >
                                 {user.date_of_birth.split("T")[0]}
-                                <br />
-                                <span class="text-sm font-medium opacity-90"
-                                    >{user.location_of_birth}</span
-                                >
                             </td>
                         </tr>
                     {:else}

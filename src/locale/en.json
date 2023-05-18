@@ -13,7 +13,8 @@
     "sidebar": {
         "admin": {
             "users": "users",
-            "roles": "roles"
+            "roles": "roles",
+            "periods": "periods"
         },
         "projects": {},
         "announcements": {},

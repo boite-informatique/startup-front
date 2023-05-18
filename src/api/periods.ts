@@ -3,6 +3,13 @@
 import api from "../services/api";
 import { periods } from "../stores/periodsStore";
 
+export type ModifyPeriodsInput = {
+    submission: string;
+    validation: string;
+    appeal: string;
+    appealValidation: string;
+    end: string;
+};
 const fetchPeriods = async () => {
     try {
         const response = await api.get("/projects/settings");
@@ -14,4 +21,15 @@ const fetchPeriods = async () => {
     }
 };
 
+export const ModifyPeriods = async (input: ModifyPeriodsInput) => {
+    try {
+        const response = await api.put("/projects/settings", input);
+        if (response.status >= 200 && response.status < 300) {
+            periods.set(response.data);
+        }
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
+};
 export default fetchPeriods;
