@@ -238,7 +238,15 @@
         "defense authorization file": "defense authorization file",
         "click here": "click here",
         "tasks": {
-            "project's tasks": "project's tasks"
+            "project's tasks": "project's tasks",
+            "title": "title",
+            "description": "description",
+            "user": "user",
+            "deadline": "deadline",
+            "resources": "resources",
+            "finished": "finished",
+            "comments": "comments",
+            "no tasks available": "no tasks available"
         }
     }
 }

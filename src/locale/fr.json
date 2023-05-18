@@ -13,7 +13,8 @@
     "sidebar": {
         "admin": {
             "users": "utilisateurs",
-            "roles": "rôles"
+            "roles": "rôles",
+            "periods": "périodes"
         },
         "projects": {},
         "announcements": {},
@@ -237,7 +238,15 @@
         "defense authorization file": "fichier d'autorisation de soutenance",
         "click here": "cliquez ici",
         "tasks": {
-            "project's tasks": "tâches du projet"
+            "project's tasks": "tâches du projet",
+            "title": "titre",
+            "description": "description",
+            "user": "utilisateur",
+            "deadline": "délai",
+            "resources": "ressources",
+            "finished": "terminé",
+            "comments": "commentaires",
+            "no tasks available": "aucune tâche disponible"
         }
     }
 }
