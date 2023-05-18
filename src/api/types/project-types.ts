@@ -29,6 +29,7 @@ export type GetProjectOutput = {
     ProjectProgress: any;
     ProjectInvitees: any;
     history: any;
+    DefensePlanification: any;
 };
 
 export type ProjectValidation = {

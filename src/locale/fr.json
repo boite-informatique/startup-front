@@ -225,6 +225,12 @@
         "old value": "ancienne valeur",
         "new value": "nouvelle valeur",
         "modified by": "modifié par",
-        "no history for this project": "aucun historique pour ce projet"
+        "no history for this project": "aucun historique pour ce projet",
+        "no defense planification for this project": "pas de planification de soutenance pour ce projet",
+        "jury president": "président du jury",
+        "date": "date",
+        "establishment": "établissement",
+        "mode": "mode",
+        "nature": "nature"
     }
 }

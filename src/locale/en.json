@@ -226,6 +226,12 @@
         "old value": "old value",
         "new value": "new value",
         "modified by": "modified by",
-        "no history for this project": "no history for this project"
+        "no history for this project": "no history for this project",
+        "no defense planification for this project": "no defense planification for this project",
+        "jury president": "jury president",
+        "date": "date",
+        "establishment": "establishment",
+        "mode": "mode",
+        "nature": "nature"
     }
 }

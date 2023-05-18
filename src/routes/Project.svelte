@@ -498,10 +498,44 @@
                     <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
                     >
-                        <p class="-mb-1 mt-1">
-                            tabindex="0" attribute is necessary to make the div
-                            focusable
-                        </p>
+                        {console.log(res.data.DefensePlanification)}
+                        {#if res.data.DefensePlanification}
+                            <div class="flex flex-col gap-2">
+                                <div>
+                                    - {$_("projects.jury president")} : {res
+                                        .data.DefensePlanification
+                                        .jury_president}
+                                </div>
+                                <div>
+                                    - {$_("projects.date")} : {new Date(
+                                        res.data.DefensePlanification.date
+                                    ).toLocaleString("en-UK", {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                        hour: "numeric",
+                                        minute: "numeric",
+                                        timeZone: "UTC",
+                                    })}
+                                </div>
+                                <div>
+                                    - {$_("projects.establishment")} : {res.data
+                                        .DefensePlanification.establishement_id}
+                                </div>
+                                <div>
+                                    - {$_("projects.mode")} : {res.data
+                                        .DefensePlanification.mode}
+                                </div>
+                                <div>
+                                    - {$_("projects.nature")} : {res.data
+                                        .DefensePlanification.nature}
+                                </div>
+                            </div>
+                        {:else}
+                            {$_(
+                                "projects.no defense planification for this project"
+                            )}
+                        {/if}
                     </div>
                 </div>
             </div>
