@@ -4,6 +4,7 @@ import type {
     GetProjectOutput,
     ProjectCreationInput,
 } from "./types/project-types";
+import type { PopulatedProject } from "./project/types/project-types";
 
 export const getProjects = async (): Promise<
     AxiosResponse<GetProjectOutput[]>
@@ -20,11 +21,11 @@ export const getProjects = async (): Promise<
 
 export const getProjectByID = async (
     ID: string
-): Promise<AxiosResponse<GetProjectOutput>> => {
+): Promise<AxiosResponse<PopulatedProject>> => {
     try {
-        const response: AxiosResponse<GetProjectOutput> = (await api.get(
+        const response: AxiosResponse<PopulatedProject> = await api.get(
             `/projects/${ID}`
-        )) as unknown as AxiosResponse<GetProjectOutput>;
+        );
         return response;
     } catch (error) {
         console.error(error);

@@ -7,7 +7,7 @@ const fetchPeriods = async () => {
     try {
         const response = await api.get("/projects/settings");
         if (response.status >= 200 && response.status < 300) {
-            periods.set(response.data.value);
+            periods.set(response.data);
         }
     } catch (error) {
         console.error(error);

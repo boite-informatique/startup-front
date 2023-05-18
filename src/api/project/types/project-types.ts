@@ -2,12 +2,8 @@ import type { User } from "src/api/types/user-types";
 import type { ProjectValidationWithUser } from "./validation-types";
 import type { ProjectProgressWithUser } from "./ProjectProgress";
 import type { ProjectTaskWithUser } from "./tasks-types";
-import type { ProjectHistory } from "./history";
-import type {
-    DefenseAuthorization,
-    DefenseAuthorizationWithUser,
-    DefenseDocuments,
-} from "./defense";
+import type { ProjectHistoryWithUser } from "./history";
+import type { DefenseAuthorizationWithUser, DefenseDocuments } from "./defense";
 import type { DefensePlanification } from "./defense-planification-types";
 import type { ProjectInvitees } from "./project-invites";
 
@@ -31,7 +27,7 @@ export type PopulatedProject = Project & {
     validation: ProjectValidationWithUser[];
     ProjectProgress: ProjectProgressWithUser[];
     ProjectTask: ProjectTaskWithUser[];
-    history: ProjectHistory[];
+    history: ProjectHistoryWithUser[];
     DefenseAuthorization: DefenseAuthorizationWithUser;
     DefenseDocument: DefenseDocuments;
     DefensePlanification: DefensePlanification;
