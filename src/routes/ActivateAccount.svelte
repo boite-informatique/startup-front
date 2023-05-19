@@ -34,7 +34,7 @@
     let indicateSuccess = () => {
         dispatch("showIndicator", {
             indicatorType: "btn-success",
-            indicatorContent: $_("Account has been activated"),
+            indicatorContent: $_("activate.Account has been activated"),
             indicatorVisible: true,
         });
     };
@@ -65,9 +65,9 @@
                 alt="Innovium logo with text"
             />
             <div
-                class="-mx-1 mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100"
+                class="-mx-1 mt-6 text-center text-3xl font-bold tracking-tight"
             >
-                {$_("Activate your account")}
+                {$_("activate.Activate your account")}
             </div>
         </div>
 
@@ -99,7 +99,7 @@
                                 />
                             </svg>
                         </span>
-                        {$_("Activate")}
+                        {$_("activate.Activate")}
                     </button>
                 </div>
             </div>

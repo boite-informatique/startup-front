@@ -65,6 +65,11 @@
         "fogetpwlink": "Mot de passe oublié?",
         "dont have an account, go to register": "N'ayant pas de compte, allez a 'register'"
     },
+    "activate": {
+        "Account has been activated": "Votre compte a été activé",
+        "Activate your account": "Activez votre compte",
+        "Activate": "Activer"
+    },
     "admin": {
         "indicator": {
             "You are not authorized to access '/admin' route": "Vous n'êtes pas autorisé à accéder à la section '/admin'",

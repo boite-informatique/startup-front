@@ -68,6 +68,11 @@
         "fogetpwlink": "Forgot password?",
         "dont have an account, go to register": "dont have an account, go to register"
     },
+    "activate": {
+        "Account has been activated": "Your account has been activated",
+        "Activate your account": "Activate your account",
+        "Activate": "Activate"
+    },
     "admin": {
         "indicator": {
             "You are not authorized to access '/admin' route": "You are not authorized to access '/admin' route",
