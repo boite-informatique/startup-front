@@ -3,14 +3,11 @@
     import { createEventDispatcher } from "svelte";
     import { useLocation } from "svelte-navigator";
     import { _ } from "svelte-i18n";
-    import { userPermissions } from "../stores/userPermissions";
     import innoviumLogo from "../assets/innovium_logos/innovium_light.png";
-    import routes from "../config/routesList";
 
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
-    import { currentUserInfo } from "src/stores/currentUserInfo";
-    import { routesStore } from "src/stores/routesStore";
+    import { routesStore } from "../stores/routesStore";
 
     const dispatch = createEventDispatcher();
 

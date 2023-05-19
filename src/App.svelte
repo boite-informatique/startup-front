@@ -22,7 +22,6 @@
     import Profile from "./routes/Profile.svelte";
     import Navbar from "./lib/Navbar.svelte";
     import ProjectsRoutes from "./routes/ProjectsRoutes.svelte";
-    import { routesStore } from "./stores/routesStore";
 
     let indicatorVisible = false;
     let indicatorContent;
