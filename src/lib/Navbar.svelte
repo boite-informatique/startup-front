@@ -73,15 +73,19 @@
         {#each routesList as route}
             <div class="group">
                 <li
-                    class="relative cursor-pointer px-2 hover:opacity-100 {$location.pathname
+                    class="relative cursor-pointer px-2 hover:opacity-100 {(
+                        $location.pathname + $location.search
+                    )
                         .replace(/%20/g, ' ')
-                        .startsWith(`/${route.name}`)
+                        .startsWith(`/${route.path}`)
                         ? 'opacity-100'
                         : 'opacity-60'} transition-all"
                 >
                     <Link to="/{route.path}">{$_(`navbar.${route.name}`)}</Link>
                     <span
-                        class="absolute -bottom-1 left-0 h-1 {$location.pathname
+                        class="absolute -bottom-1 left-0 h-1 {(
+                            $location.pathname + $location.search
+                        )
                             .replace(/%20/g, ' ')
                             .startsWith(`/${route.path}`)
                             ? 'w-full'

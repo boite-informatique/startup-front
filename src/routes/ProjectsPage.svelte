@@ -5,16 +5,23 @@
 
     import ProjectsTables from "src/lib/ProjectsTables.svelte";
     import { canAddProject } from "src/lib/utils/canAddProject";
+    import { useLocation } from "svelte-navigator";
 
-    let qs = new URLSearchParams(window.location.search);
-    const queryType = qs.get("type");
-
-    $: projects = getProjects(queryType);
+    const location = useLocation();
+    export let queryString = "";
+    let queryType = "";
+    let projects;
+    $: {
+        const qs = new URLSearchParams(queryString);
+        queryType = qs.get("type");
+        projects = getProjects(queryType);
+    }
 </script>
 
 <Breadcrumb breadcrumbItems={["projects"]} />
 {#await projects then res}
     {#if res.status == 200}
+        {console.log(res)}
         <div
             class="-mb-2 flex flex-col items-start justify-start gap-2 md:flex-row"
         >
