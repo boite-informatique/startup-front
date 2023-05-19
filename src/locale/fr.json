@@ -4,7 +4,10 @@
         "projects": "projets",
         "announcements": "annonces",
         "profile": "profil",
-        "my project": "mon projet"
+        "my project": "mon projet",
+        "my projects": "mes projets",
+        "supervised projects": "projets encadrés",
+        "validate projects": "valider les projets"
     },
     "breadcrumb": {
         "projects": "projets",
