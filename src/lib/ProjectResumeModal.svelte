@@ -12,11 +12,10 @@
     bind:checked={projectResumeModalState}
 />
 <div class="modal">
-    <div class="modal-box relative border border-gray-500 text-gray-200">
+    <div class="modal-box relative">
         <label
             for="my-modal-4"
-            class="btn-sm btn-circle btn absolute right-2 top-2 border border-gray-500 text-gray-200"
-            >✕</label
+            class="btn-sm btn-circle btn absolute right-2 top-2">✕</label
         >
         <h3 class="mb-3 text-lg font-bold capitalize">
             {$_("projects.a summary of the project idea")}

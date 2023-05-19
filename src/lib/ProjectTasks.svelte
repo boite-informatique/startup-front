@@ -58,7 +58,7 @@
                             >{task.description}</td
                         >
                         <td
-                            class="flex items-center space-x-3 bg-gray-200 dark:bg-gray-800"
+                            class="flex items-center space-x-3 bg-gray-200 transition-all dark:bg-gray-800"
                         >
                             <div class="avatar">
                                 <div class="mask mask-squircle h-12 w-12">

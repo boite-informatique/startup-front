@@ -15,7 +15,7 @@
     bind:checked={modifyPermissionsModalState}
 />
 <div class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box flex flex-col gap-8 text-gray-200">
+    <div class="modal-box flex flex-col gap-8">
         <div>
             <h3 class="text-xl font-bold capitalize">
                 {$_("admin.roles.modify the role's permissions")}
@@ -33,7 +33,7 @@
                 {#if res.status >= 200 && res.status < 300}
                     {#each res.data as permission}
                         <div
-                            class="flex flex-row items-start justify-start gap-2 text-gray-100 md:items-center {selectedPermissions.find(
+                            class="flex flex-row items-start justify-start gap-2 md:items-center {selectedPermissions.find(
                                 (obj) => {
                                     return obj.id == permission.id;
                                 }
@@ -70,15 +70,13 @@
                         </div>
                     {:else}
                         <p
-                            class="text-gray-200 text-center text-lg capitalize font-semibold"
+                            class=" text-center text-lg capitalize font-semibold"
                         >
                             {$_("admin.roles.no permissions available")}
                         </p>
                     {/each}
                 {:else}
-                    <p
-                        class="text-gray-200 text-center text-lg capitalize font-semibold"
-                    >
+                    <p class=" text-center text-lg capitalize font-semibold">
                         {$_("admin.roles.no permissions available")}
                     </p>
                 {/if}

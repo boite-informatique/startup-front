@@ -72,6 +72,7 @@
                 {#if res.status >= 200 && res.status < 300}
                     {#each res.data as project}
                         <tr>
+                            <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
                                 class="bg-gray-200 hover:cursor-pointer text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200 font-bold"
                                 on:click={() =>

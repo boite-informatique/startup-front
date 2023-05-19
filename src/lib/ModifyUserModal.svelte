@@ -145,9 +145,7 @@
     bind:checked={ModifyUserModalState}
 />
 <div class="modal">
-    <div
-        class="modal-box flex w-11/12 max-w-5xl flex-col gap-5 border border-gray-400 text-gray-200"
-    >
+    <div class="modal-box flex w-11/12 max-w-5xl flex-col gap-5">
         <h3 class="mb-2 text-xl font-bold capitalize">
             {$_("admin.users.modify the user's informations")}!
         </h3>
@@ -245,17 +243,17 @@
             <div class="flex flex-row gap-1 md:gap-2">
                 {#each roles as role}
                     <button
-                        class="btn-active no-animation btn cursor-auto capitalize text-gray-300"
+                        class="btn-active no-animation btn cursor-auto capitalize"
                         >{role.name}</button
                     >
                 {:else}
                     <button
-                        class="btn-active no-animation btn cursor-auto capitalize text-gray-300"
+                        class="btn-active no-animation btn cursor-auto capitalize"
                         >{$_("admin.users.this user has no roles")}</button
                     >
                 {/each}
                 <button
-                    class="btn-ghost btn-active btn flex flex-row items-center justify-between gap-3 text-white opacity-80 hover:opacity-100"
+                    class="btn-ghost btn-active btn flex flex-row items-center justify-between gap-3 opacity-80 hover:opacity-100"
                     on:click={() => {
                         modifyRolesModalState = true;
                     }}
@@ -299,7 +297,7 @@
         >
             {#if (ModifyUserModalData.email ? ModifyUserModalData.email != email : false) || (ModifyUserModalData.activated ? ModifyUserModalData.activated != activated : false) || (ModifyUserModalData.roles ? ModifyUserModalData.roles != roles : false) || password.length > 0}
                 <button
-                    class="no-animation btn -mb-10 -ml-3 cursor-default border-0 bg-transparent text-base capitalize text-gray-200 hover:border-0 hover:bg-transparent"
+                    class="no-animation btn -mb-10 -ml-3 cursor-default border-0 bg-transparent text-base capitalize text-gray-900 hover:border-0 hover:bg-transparent dark:text-gray-200"
                     >{$_("admin.users.modified informations")}: {ModifyUserModalData.email
                         ? ModifyUserModalData.email != email
                             ? "email"
@@ -326,7 +324,7 @@
                 </button>
             {:else}
                 <button
-                    class="no-animation btn -mb-10 -ml-3 cursor-default border-0 bg-transparent text-base capitalize text-gray-200 opacity-75 hover:border-0 hover:bg-transparent"
+                    class="no-animation btn -mb-10 -ml-3 cursor-default border-0 bg-transparent text-base capitalize text-gray-900 opacity-75 hover:border-0 hover:bg-transparent dark:text-gray-200"
                     >{$_("admin.users.no modified informations")}.
                 </button>
             {/if}

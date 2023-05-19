@@ -17,9 +17,9 @@
     export let breadcrumbItems = [];
 </script>
 
-<div class="flex items-center justify-start text-gray-800 dark:text-blue-200">
+<div class="flex items-center justify-start">
     <div
-        class="breadcrumbs rounded-full border border-gray-800 bg-blue-200 px-4 text-sm dark:border-blue-200 dark:bg-gray-800"
+        class="breadcrumbs rounded-full bg-black bg-opacity-5 px-4 text-sm outline outline-1 outline-accent"
     >
         <ul>
             <li>

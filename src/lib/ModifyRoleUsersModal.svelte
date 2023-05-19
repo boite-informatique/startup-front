@@ -15,7 +15,7 @@
     bind:checked={modifyUsersModalState}
 />
 <div class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box flex flex-col gap-8 text-gray-200">
+    <div class="modal-box flex flex-col gap-8">
         <div>
             <h3 class="text-xl font-bold capitalize">
                 {$_("admin.roles.modify the role's users")}
@@ -33,7 +33,7 @@
                 {#if res.status >= 200 && res.status < 300}
                     {#each res.data as user}
                         <div
-                            class="flex flex-row items-start justify-start gap-4 text-gray-100 md:items-center {selectedUsers.find(
+                            class="flex flex-row items-start justify-start gap-4 md:items-center {selectedUsers.find(
                                 (obj) => {
                                     return obj.id == user.id;
                                 }
@@ -78,16 +78,12 @@
                             </div>
                         </div>
                     {:else}
-                        <p
-                            class="text-gray-200 text-center text-lg capitalize font-semibold"
-                        >
+                        <p class="text-center text-lg capitalize font-semibold">
                             {$_("admin.roles.no users available")}
                         </p>
                     {/each}
                 {:else}
-                    <p
-                        class="text-gray-200 text-center text-lg capitalize font-semibold"
-                    >
+                    <p class="text-center text-lg capitalize font-semibold">
                         {$_("admin.roles.no users available")}
                     </p>
                 {/if}

@@ -135,9 +135,7 @@
     bind:checked={ModifyRoleModalState}
 />
 <div class="modal">
-    <div
-        class="modal-box flex w-11/12 max-w-5xl flex-col gap-5 border border-gray-400 text-gray-200"
-    >
+    <div class="modal-box flex w-11/12 max-w-5xl flex-col gap-5">
         <h3 class="mb-2 text-xl font-bold capitalize">
             {$_("admin.roles.modify the role's informations")}!
         </h3>
@@ -163,12 +161,12 @@
 
             <div class="flex flex-row gap-1 md:gap-2">
                 <button
-                    class="btn-active no-animation btn cursor-auto capitalize text-gray-300"
+                    class="btn-active no-animation btn cursor-auto capitalize "
                     >{ModifyRoleModalData._count?.users}
                     {$_("admin.roles.users")}</button
                 >
                 <button
-                    class="btn-ghost btn-active btn flex flex-row items-center justify-between gap-3 text-white opacity-80 hover:opacity-100"
+                    class="btn-ghost btn-active btn flex flex-row items-center justify-between gap-3 opacity-80 hover:opacity-100"
                     on:click={() => {
                         modifyUsersModalState = true;
                     }}
@@ -204,12 +202,12 @@
 
             <div class="flex flex-row gap-1 md:gap-2">
                 <button
-                    class="btn-active no-animation btn cursor-auto capitalize text-gray-300"
+                    class="btn-active no-animation btn cursor-auto capitalize "
                     >{ModifyRoleModalData._count?.permissions}
                     {$_("admin.roles.permissions")}</button
                 >
                 <button
-                    class="btn-ghost btn-active btn flex flex-row items-center justify-between gap-3 text-white opacity-80 hover:opacity-100"
+                    class="btn-ghost btn-active btn flex flex-row items-center justify-between gap-3 opacity-80 hover:opacity-100"
                     on:click={() => {
                         modifyPermissionsModalState = true;
                     }}
@@ -241,7 +239,7 @@
         >
             {#if (ModifyRoleModalData.name ? ModifyRoleModalData.name != name : false) || (ModifyRoleModalData.users ? ModifyRoleModalData.users != users : false) || (ModifyRoleModalData.permissions ? ModifyRoleModalData.permissions != permissions : false)}
                 <button
-                    class="no-animation btn -mb-10 -ml-3 cursor-default border-0 bg-transparent text-base capitalize text-gray-200 hover:border-0 hover:bg-transparent"
+                    class="no-animation btn -mb-10 -ml-3 cursor-default border-0 bg-transparent text-base capitalize text-gray-900 hover:border-0 hover:bg-transparent dark:text-gray-200"
                     >{$_("admin.users.modified informations")}: {ModifyRoleModalData.name
                         ? ModifyRoleModalData.name != name
                             ? `${$_("admin.roles.role name")}`
@@ -265,7 +263,7 @@
                 </button>
             {:else}
                 <button
-                    class="no-animation btn -mb-10 -ml-3 cursor-default border-0 bg-transparent text-base capitalize text-gray-200 opacity-75 hover:border-0 hover:bg-transparent"
+                    class="no-animation btn -mb-10 -ml-3 cursor-default border-0 bg-transparent text-base capitalize text-gray-900 opacity-75 hover:border-0 hover:bg-transparent dark:text-gray-200"
                     >{$_("admin.users.no modified informations")}.
                 </button>
             {/if}

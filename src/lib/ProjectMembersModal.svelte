@@ -12,11 +12,10 @@
     bind:checked={projectMembersModalState}
 />
 <div class="modal">
-    <div class="modal-box relative border border-gray-500 text-gray-200">
+    <div class="modal-box relative">
         <label
             for="my-modal-5"
-            class="btn-sm btn-circle btn absolute right-2 top-2 border border-gray-500 text-gray-200"
-            >✕</label
+            class="btn-sm btn-circle btn absolute right-2 top-2">✕</label
         >
 
         {#if projectMembersModalData.length > 0}

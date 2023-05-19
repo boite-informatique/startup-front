@@ -12,11 +12,10 @@
     bind:checked={modalState}
 />
 <div class="modal">
-    <div class="modal-box relative border border-gray-500 text-gray-200">
+    <div class="modal-box relative">
         <label
             for="my-modal-3"
-            class="btn-sm btn-circle btn absolute right-2 top-2 border border-gray-500 text-gray-200"
-            >✕</label
+            class="btn-sm btn-circle btn absolute right-2 top-2">✕</label
         >
         {#if rolesData.length > 0}
             <h3 class="text-lg font-bold capitalize">

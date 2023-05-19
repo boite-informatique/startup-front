@@ -33,7 +33,7 @@
 
 <label
     for="my-modal-5"
-    class="flex w-full max-w-xs cursor-pointer select-none flex-row items-center justify-between rounded-lg bg-gray-200 py-3 pl-4 text-sm font-semibold capitalize text-gray-800 outline outline-1 outline-accent active:outline-4 dark:bg-gray-800 dark:text-gray-200"
+    class="flex w-full max-w-xs cursor-pointer select-none flex-row items-center justify-between rounded-lg bg-black bg-opacity-5 py-3 pl-4 text-sm font-semibold capitalize outline outline-1 outline-accent active:outline-4"
 >
     <div>{$_("admin.users.filter users by...")}</div>
     <svg
@@ -55,9 +55,7 @@
 
 <input type="checkbox" id="my-modal-5" class="modal-toggle" />
 <div class="modal">
-    <div
-        class="modal-box flex w-11/12 max-w-5xl flex-col gap-5 border border-gray-400 text-gray-200"
-    >
+    <div class="modal-box flex w-11/12 max-w-5xl flex-col gap-5">
         <h3 class="mb-2 text-xl font-bold capitalize">
             {$_("admin.users.filter.filter users as you like")}!
         </h3>
