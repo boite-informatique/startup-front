@@ -103,7 +103,7 @@
                 alt="Innovium logo with text"
             />
             <div
-                class="-mx-1 mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100"
+                class="-mx-1 mt-6 text-center text-3xl font-bold tracking-tight"
             >
                 {$_("login.Sign in to your account")}
             </div>
@@ -157,9 +157,7 @@
                         type="checkbox"
                         class="z-20 h-4 w-4 rounded border-gray-300 text-light focus:ring-light"
                     />
-                    <label
-                        for="remember-me"
-                        class="ml-2 block text-sm text-gray-900 dark:text-gray-100"
+                    <label for="remember-me" class="ml-2 block text-sm"
                         >{$_("login.Remember me")}</label
                     >
                 </div>
@@ -192,14 +190,14 @@
         </form>
         <Link to="/forgot_password"
             ><div
-                class="link-hover link relative mt-4 text-gray-900 opacity-70 hover:opacity-100 dark:text-gray-200"
+                class="link-hover link relative mt-4 opacity-70 hover:opacity-100"
             >
                 {$_("login.fogetpwlink")}
             </div></Link
         >
         <Link to="/register"
             ><div
-                class="link-hover link relative mt-1 capitalize text-gray-900 opacity-70 hover:opacity-100 dark:text-gray-200"
+                class="link-hover link relative mt-1 capitalize opacity-70 hover:opacity-100"
             >
                 {$_("login.dont have an account, go to register")}.
             </div></Link
@@ -207,7 +205,7 @@
 
         <Link to="/request_activation"
             ><div
-                class="link-hover link relative mt-1 text-gray-900 opacity-70 hover:opacity-100 dark:text-gray-200"
+                class="link-hover link relative mt-1 opacity-70 hover:opacity-100"
             >
                 Activate Your Account
             </div></Link

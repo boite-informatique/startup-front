@@ -73,7 +73,7 @@
                 alt="Innovium logo with text"
             />
             <div
-                class="-mx-1 mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100"
+                class="-mx-1 mt-6 text-center text-3xl font-bold tracking-tight"
             >
                 {$_("forgotpw.header")}
             </div>
@@ -131,7 +131,7 @@
         </form>
         <Link to="/login"
             ><div
-                class="link-hover link relative mt-4 text-gray-900 opacity-70 hover:opacity-100 dark:text-gray-200"
+                class="link-hover link relative mt-4 opacity-70 hover:opacity-100"
             >
                 {$_("forgotpw.loginlink")}
             </div></Link
