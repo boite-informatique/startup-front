@@ -3,34 +3,15 @@
     import { createEventDispatcher } from "svelte";
     import { useLocation } from "svelte-navigator";
     import { _ } from "svelte-i18n";
-    import { userPermissions } from "../stores/userPermissions";
     import innoviumLogo from "../assets/innovium_logos/innovium_light.png";
-    import routes from "../config/routesList";
 
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
-    import { currentUserInfo } from "src/stores/currentUserInfo";
+    import { routesStore } from "../stores/routesStore";
 
     const dispatch = createEventDispatcher();
 
-    let userIsAdmin = $userPermissions.some(
-        (obj) => obj.name === "canManageAll"
-    );
-
-    let userIsStudent = $currentUserInfo.type == "student";
-
-    let userIsTeacher = $currentUserInfo.type == "teacher";
-
-    let routesList = [];
-    if (userIsAdmin) {
-        routesList = routes.admin;
-    } else if (userIsTeacher) {
-        routesList = routes.teacher;
-    } else if (userIsStudent) {
-        routesList = routes.student;
-    } else {
-        routesList = routes.guest;
-    }
+    let routesList = $routesStore;
 
     let toggleMenu = () => {
         dispatch("toggleMenu");
@@ -89,15 +70,19 @@
         {#each routesList as route}
             <div class="group">
                 <li
-                    class="relative cursor-pointer px-2 hover:opacity-100 {$location.pathname
+                    class="relative cursor-pointer px-2 hover:opacity-100 {(
+                        $location.pathname + $location.search
+                    )
                         .replace(/%20/g, ' ')
                         .startsWith(`/${route.path}`)
                         ? 'opacity-100'
                         : 'opacity-60'} transition-all"
                 >
-                    <Link to="/{route.path}">{$_(`navbar.${route.path}`)}</Link>
+                    <Link to="/{route.path}">{$_(`navbar.${route.name}`)}</Link>
                     <span
-                        class="absolute -bottom-1 left-0 h-1 {$location.pathname
+                        class="absolute -bottom-1 left-0 h-1 {(
+                            $location.pathname + $location.search
+                        )
                             .replace(/%20/g, ' ')
                             .startsWith(`/${route.path}`)
                             ? 'w-full'

@@ -1,20 +1,24 @@
 // this file stores the routes that will appear in the navbar for each user, if you want to add a route just change the array.
 let routesByUsers = {
     admin: [
-        { path: "admin", index: 0 },
-        { path: "projects", index: 1 },
-        { path: "announcements", index: 2 },
-        { path: "profile", index: 3 },
+        { path: "admin", name: "admin" },
+        { path: "announcements", name: "announcements" },
+        { path: "profile", index: "profile" },
     ],
     student: [
-        { path: "my project", index: 0 },
-        { path: "announcements", index: 1 },
-        { path: "profile", index: 2 },
+        { path: "projects?type=my", name: "my project" },
+        // { path: "announcements", name: 1 },
+        { path: "profile", name: "profile" },
     ],
     teacher: [
-        { path: "projects", index: 0 },
-        { path: "announcements", index: 1 },
-        { path: "profile", index: 2 },
+        { path: "projects?type=my", name: "my projects" },
+        { path: "projects?type=supervisor", name: "supervised projects" },
+        { path: "announcements", name: "announcements" },
+        { path: "profile", name: "profile" },
+    ],
+    sc: [
+        { path: "profile", name: "profile" },
+        { path: "projects?type=sc", name: "submitted projects" }, // to validate
     ],
     guest: [],
 };

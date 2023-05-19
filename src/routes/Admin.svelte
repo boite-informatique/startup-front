@@ -12,6 +12,8 @@
     // importing stores
     import { userPermissions } from "../stores/userPermissions";
     import AdminPeriods from "./AdminPeriods.svelte";
+    import Sidebar from "src/lib/Sidebar.svelte";
+    import { sidebarLists } from "src/config/sidebarList";
 
     const dispatch = createEventDispatcher();
 
@@ -35,7 +37,7 @@
 
         if (!userIsAdmin) {
             indicateUnauthorizedToAccessAdmin();
-            navigate("/");
+            // navigate("/");
         } else {
             if ($location.pathname == "/admin") {
                 navigate("/admin/users");
@@ -48,12 +50,15 @@
     }
 </script>
 
-<Route path="/users">
-    <AdminUsers on:showIndicator />
-</Route>
-<Route path="/roles">
-    <AdminRoles on:showIndicator />
-</Route>
-<Route path="/periods">
-    <AdminPeriods on:showIndicator />
-</Route>
+<div class="flex h-full w-full flex-1 flex-col lg:flex-row">
+    <Sidebar sidebarList={sidebarLists.admin} />
+    <Route path="/users">
+        <AdminUsers on:showIndicator />
+    </Route>
+    <Route path="/roles">
+        <AdminRoles on:showIndicator />
+    </Route>
+    <Route path="/periods">
+        <AdminPeriods on:showIndicator />
+    </Route>
+</div>

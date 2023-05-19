@@ -12,6 +12,7 @@
     let appeal = $periods.appeal;
     let appealValidation = $periods.appealValidation;
     let end = $periods.end;
+
     const today = new Date().toISOString().split("T")[0];
     const dispatch = createEventDispatcher();
 
@@ -138,4 +139,4 @@
     </label>
 </label>
 
-<label for="my-modal-4" class="btn-primary btn">Edit Profile</label>
+<label for="my-modal-4" class="btn-primary btn">Edit Periods</label>

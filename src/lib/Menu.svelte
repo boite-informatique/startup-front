@@ -1,30 +1,10 @@
 <script>
     import { Link } from "svelte-navigator";
-    import { userPermissions } from "../stores/userPermissions";
-    import routes from "../config/routesList";
     import { _ } from "svelte-i18n";
-    import { currentUserInfo } from "src/stores/currentUserInfo";
+    import { routesStore } from "../stores/routesStore";
 
     export let menu;
-
-    let userIsAdmin = $userPermissions.some(
-        (obj) => obj.name === "canManageAll"
-    );
-
-    let userIsStudent = $currentUserInfo.type == "student";
-
-    let userIsTeacher = $currentUserInfo.type == "teacher";
-
-    let routesList;
-    if (userIsAdmin) {
-        routesList = routes.admin;
-    } else if (userIsTeacher) {
-        routesList = routes.teacher;
-    } else if (userIsStudent) {
-        routesList = routes.student;
-    } else {
-        routesList = routes.guest;
-    }
+    let routesList = $routesStore;
 </script>
 
 <div
@@ -47,7 +27,7 @@
                     d="M9 5l7 7-7 7"
                 /></svg
             >
-            <Link to="/{route.path}">{$_(`navbar.${route.path}`)}</Link>
+            <Link to="/{route.path}">{$_(`navbar.${route.name}`)}</Link>
         </div>
     {:else}
         <div class="flex justify-start gap-4 px-2">

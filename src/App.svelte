@@ -1,6 +1,6 @@
 <script>
     // importing Modules
-    import { Router, Route } from "svelte-navigator";
+    import { Router, Route, navigate } from "svelte-navigator";
     import { onMount } from "svelte";
     import fetchUserPermissions from "./api/userPermissions";
     import fetchPeriods from "./api/periods";
@@ -10,10 +10,7 @@
     import Login from "./routes/Login.svelte";
     import Home from "./routes/Home.svelte";
     import Admin from "./routes/Admin.svelte";
-    import MyProject from "./routes/MyProject.svelte";
-    import Projects from "./routes/Projects.svelte";
     import ForgotPassword from "./routes/ForgotPassword.svelte";
-    import Layout from "./routes/Layout.svelte";
     import ChangePassword from "./routes/ChangePassword.svelte";
     import Register from "./routes/Register.svelte";
     import RequestActivation from "./routes/RequestActivation.svelte";
@@ -24,6 +21,8 @@
     import Indicator from "./lib/Indicator.svelte";
     import { getCurrentUserInfoAndStore } from "./api/user";
     import Profile from "./routes/Profile.svelte";
+    import Navbar from "./lib/Navbar.svelte";
+    import ProjectsRoutes from "./routes/ProjectsRoutes.svelte";
 
     let indicatorVisible = false;
     let indicatorContent;
@@ -37,13 +36,17 @@
 
     let loadPage = false;
     onMount(async () => {
-        await fetchUserPermissions();
-        await fetchPeriods();
-        await getCurrentUserInfoAndStore();
         document.getElementsByTagName("html")[0].className =
             localStorage.getItem("theme") == "dark" ? "dark" : "";
         $mode = localStorage.getItem("theme") == "dark" ? "dark" : "";
 
+        // performance enhancement
+        await Promise.allSettled([
+            fetchUserPermissions(),
+            fetchPeriods(),
+            getCurrentUserInfoAndStore(),
+        ]);
+      
         loadPage = true;
     });
 
@@ -54,6 +57,7 @@
         // now gotta verify if his token is still valid by sending GET /auth , if 200 status he is logged in, else he is not, I will do this later (mor l ftour)
     } else {
         userIsLoggedIn = false;
+        navigate("/login");
     }
 </script>
 
@@ -94,34 +98,22 @@
             </Route>
 
             <!-- Components that need navbar and sidebar -->
-            <Route path="/">
-                <Layout>
+            <Route>
+                <Navbar />
+
+                <Route path="/">
                     <Home />
-                </Layout>
-            </Route>
-            <Route path="/profile/">
-                <Layout showSidebar={false}>
+                </Route>
+                <Route path="/profile/">
                     <Profile on:showIndicator={showIndicator} />
-                </Layout>
-            </Route>
-            <Route path="/admin/*">
-                <Layout>
+                </Route>
+                <Route path="/admin/*">
                     <Admin on:showIndicator={showIndicator} />
-                </Layout>
-            </Route>
-            <Route path="/my%20project">
-                <Layout showSidebar={false}>
-                    <MyProject on:showIndicator={showIndicator} />
-                </Layout>
-            </Route>
-            <Route path="/projects/*">
-                <Layout showSidebar={false}>
-                    <Projects on:showIndicator={showIndicator} />
-                </Layout>
+                </Route>
+                <Route path="/projects/*">
+                    <ProjectsRoutes on:showIndicator={showIndicator} />
+                </Route>
             </Route>
         </main>
     </Router>
 {/if}
-
-<style>
-</style>

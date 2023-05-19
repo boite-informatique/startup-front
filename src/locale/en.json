@@ -4,7 +4,10 @@
         "projects": "projects",
         "announcements": "announcements",
         "profile": "profile",
-        "my project": "my project"
+        "my project": "my project",
+        "my projects": "my projects",
+        "supervised projects": "supervised projects",
+        "validate projects": "validate projects"
     },
     "breadcrumb": {
         "projects": "projects",
