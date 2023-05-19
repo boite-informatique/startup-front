@@ -1,5 +1,6 @@
 <script>
     import { getProjectByID } from "src/api/project";
+    import ProjectActions from "src/lib/ProjectActions/ProjectActions.svelte";
     import ProjectResumeModal from "src/lib/ProjectResumeModal.svelte";
     import ProjectTasks from "src/lib/ProjectTasks.svelte";
     import { _ } from "svelte-i18n";
@@ -20,6 +21,11 @@
         <div
             class="flex flex-col gap-5 capitalize text-xl text-gray-800 dark:text-gray-200"
         >
+            <ProjectActions
+                project={res.data}
+                on:showIndicator
+                userType="owner"
+            />
             <div class="flex flex-col md:flex-row gap-2">
                 <div class="w-[330px] font-bold">
                     {$_("projects.product")} :
@@ -189,19 +195,19 @@
                         <div class="flex flex-col gap-5">
                             <p>
                                 - {$_("projects.decision")} : {$_(
-                                    `projects.${res.data.validation[0].decision}`
+                                    `projects.${res.data?.validation[0]?.decision}`
                                 )}
                             </p>
-                            {#if res.data.validation[0].reservation}
+                            {#if res.data.validation[0]?.reservation}
                                 <p>
                                     - {$_("projects.reservation")} : {$_(
-                                        `projects.${res.data.validation[0].reservation}`
+                                        `projects.${res.data.validation[0]?.reservation}`
                                     )}
                                 </p>
                             {/if}
                             <p>
                                 - {$_("projects.decision date")} : {new Date(
-                                    res.data.validation[0].created_at
+                                    res.data.validation[0]?.created_at
                                 ).toLocaleString("en-UK", {
                                     year: "numeric",
                                     month: "long",
@@ -213,7 +219,7 @@
                             </p>
                             <p>
                                 - {$_("projects.note")} : {res.data
-                                    .validation[0].note}
+                                    .validation[0]?.note}
                             </p>
                             <div
                                 class="flex flex-col md:flex-row gap-5 items-center"
@@ -234,15 +240,15 @@
                                     </div>
                                     <div>
                                         <div class="font-bold">
-                                            {res.data.validation[0].validator
+                                            {res.data.validation[0]?.validator
                                                 .first_name}
-                                            {res.data.validation[0].validator
+                                            {res.data.validation[0]?.validator
                                                 .last_name}
                                         </div>
                                         <div
                                             class="text-sm font-medium opacity-90"
                                         >
-                                            {res.data.validation[0].validator
+                                            {res.data.validation[0]?.validator
                                                 .email}
                                         </div>
                                     </div>
@@ -265,7 +271,7 @@
                             "projects.click here to see the project progress state"
                         )}
                     </div>
-                    <div
+                    <!-- <div
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
                     >
                         <div class="flex flex-col gap-5">
@@ -275,15 +281,14 @@
                                 </div>
                                 <div
                                     class="radial-progress text-primary"
-                                    style="--value:{res.data.ProjectProgress[0]
+                                    style="--value:{res.data.projectprogress[0]?
                                         .percentage};"
                                 >
-                                    {res.data.ProjectProgress[0].percentage}%
+                                    {res.data.ProjectProgress[0]?.percentage}%
                                 </div>
                             </div>
                             <p>
-                                - {$_("projects.note")} : {res.data
-                                    .ProjectProgress[0].note}
+                                - {$_("projects.note")} : {res.data.ProjectProgress[0].note}
                             </p>
                             <p>
                                 - {$_("projects.progress update date")} : {new Date(
@@ -331,7 +336,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="flex flex-col md:flex-row gap-2">
@@ -501,8 +506,22 @@
                         class="collapse-content bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 rounded-b-xl pt-2"
                     >
                         <p class="-mb-1 mt-1">
-                            tabindex="0" attribute is necessary to make the div
-                            focusable
+                            {#if res.data.DefenseDocument}
+                                <a
+                                    href={`http://localhost:3001/upload/${res.data.DefenseDocument.bmc}`}
+                                    >BMC</a
+                                >
+                                <a
+                                    href={`http://localhost:3001/upload/${res.data.DefenseDocument.memoire}`}
+                                    >Memoire</a
+                                >
+                                <a
+                                    href={`http://localhost:3001/upload/${res.data.DefenseDocument.label}`}
+                                    >Label</a
+                                >
+                            {:else}
+                                There is no defense document
+                            {/if}
                         </p>
                     </div>
                 </div>

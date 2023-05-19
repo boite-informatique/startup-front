@@ -1,7 +1,5 @@
 <script>
     import Breadcrumb from "../lib/Breadcrumb.svelte";
-    import AddRole from "../lib/AddRole.svelte";
-    import AdminRolesTable from "../lib/AdminRolesTable.svelte";
     import { periods } from "src/stores/periodsStore";
     import EditPeriods from "src/lib/EditPeriods.svelte";
 </script>

@@ -14,6 +14,7 @@
     // importing stores
     import { userPermissions } from "../stores/userPermissions";
     import { currentUserInfo } from "src/stores/currentUserInfo";
+    import ProjectsTablesSupervisor from "src/lib/ProjectsTables-supervisor.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -45,11 +46,6 @@
     <Breadcrumb breadcrumbItems={["my project"]} />
     <div
         class="-mb-2 flex flex-col items-start justify-start gap-2 md:flex-row"
-    >
-        <AddProject />
-
-        <!-- added the previous #await and #if blocks to check if user has an existing project, if he does then the "add project" button should not appear -->
-        <!-- this is still inefficient because it requests a lot of data from the api just to verify whether the array is empty or not, this will be refactored later -->
-    </div>
-    <ProjectsTables on:showIndicator />
+    />
+    <ProjectsTables on:showIndicator typeQuery="sc" />
 </div>

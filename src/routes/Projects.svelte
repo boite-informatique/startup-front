@@ -38,12 +38,12 @@
             (obj) => obj.name === "canManageAll"
         );
         let userIsTeacher = $currentUserInfo.type == "teacher";
-
-        if (!(userIsAdmin || userIsTeacher)) {
-            indicateUnauthorizedToAccessProjects();
-            navigate("/");
-        }
-    });
+    })
+    //     if (!(userIsAdmin || userIsTeacher)) {
+    //         indicateUnauthorizedToAccessProjects();
+    //         navigate("/");
+    //     }
+    // });
 </script>
 
 <div class="flex w-full flex-col gap-4 p-4 md:gap-5 md:px-12 md:pt-7">
@@ -58,6 +58,9 @@
         </div>
         <ProjectsTables on:showIndicator />
     {:else}
-        <Project projectID={$location.pathname.split("/")[2]} />
+        <Project
+            projectID={$location.pathname.split("/")[2]}
+            on:showIndicator
+        />
     {/if}
 </div>

@@ -10,8 +10,6 @@
 
     const dispatch = createEventDispatcher();
 
-    export let typeQuery = "";
-
     let projectResumeModalState = false;
     let projectResumeModalData = "";
     let projectValidationModalState = false;
@@ -21,7 +19,7 @@
     let projectMembersModalData = [];
     let projectSupervisorsModalData = [];
 
-    $: projects = getProjects(typeQuery);
+    $: projects = getProjects("supervisor");
 </script>
 
 <div class="h-[400px] w-full overflow-x-auto rounded-lg scrollbar-hide">

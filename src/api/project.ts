@@ -6,12 +6,13 @@ import type {
 } from "./types/project-types";
 import type { PopulatedProject } from "./project/types/project-types";
 
-export const getProjects = async (): Promise<
-    AxiosResponse<GetProjectOutput[]>
-> => {
+export const getProjects = async (
+    query
+): Promise<AxiosResponse<GetProjectOutput[]>> => {
     try {
+        console.log(query);
         const response: AxiosResponse<GetProjectOutput[]> = (await api.get(
-            "/projects/"
+            `/projects?type=${query}`
         )) as unknown as AxiosResponse<GetProjectOutput[]>;
         return response;
     } catch (error) {

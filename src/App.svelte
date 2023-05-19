@@ -23,6 +23,8 @@
     import Indicator from "./lib/Indicator.svelte";
     import { getCurrentUserInfoAndStore } from "./api/user";
     import Profile from "./routes/Profile.svelte";
+    import SupervisedProjects from "./routes/SupervisedProjects.svelte";
+    import ValidateProjects from "./routes/ValidateProjects.svelte";
 
     let indicatorVisible = false;
     let indicatorContent;
@@ -107,6 +109,16 @@
             <Route path="/my%20project">
                 <Layout showSidebar={false}>
                     <MyProject on:showIndicator={showIndicator} />
+                </Layout>
+            </Route>
+            <Route path="/supervised%20projects">
+                <Layout showSidebar={false}>
+                    <SupervisedProjects on:showIndicator={showIndicator} />
+                </Layout>
+            </Route>
+            <Route path="/validate%20projects">
+                <Layout showSidebar={false}>
+                    <ValidateProjects on:showIndicator={showIndicator} />
                 </Layout>
             </Route>
             <Route path="/projects/*">

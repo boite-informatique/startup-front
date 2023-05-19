@@ -3,6 +3,7 @@ let elementsByUsers = {
     admin: [
         { path: "users", index: 0 },
         { path: "roles", index: 1 },
+        { path: "periods", index: 2 },
     ],
     student: [
         { path: "student1", index: 0 },

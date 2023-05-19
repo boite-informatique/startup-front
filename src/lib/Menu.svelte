@@ -16,7 +16,10 @@
     let userIsTeacher = $currentUserInfo.type == "teacher";
 
     let routesList;
-    if (userIsAdmin) {
+    let userIsSc = $userPermissions.some((obj) => obj.name === "sc");
+    if (userIsSc) {
+        routesList = routes.sc;
+    } else if (userIsAdmin) {
         routesList = routes.admin;
     } else if (userIsTeacher) {
         routesList = routes.teacher;
@@ -25,6 +28,8 @@
     } else {
         routesList = routes.guest;
     }
+
+    console.log(routesList);
 </script>
 
 <div
@@ -47,7 +52,7 @@
                     d="M9 5l7 7-7 7"
                 /></svg
             >
-            <Link to="/{route.path}">{$_(`navbar.${route.path}`)}</Link>
+            <Link to="/{route.path}">{$_(`navbar.${route.path}`)} + hello</Link>
         </div>
     {:else}
         <div class="flex justify-start gap-4 px-2">

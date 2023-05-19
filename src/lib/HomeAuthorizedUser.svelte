@@ -17,7 +17,10 @@
     let userIsTeacher = $currentUserInfo.type == "teacher";
 
     let routesList = [];
-    if (userIsAdmin) {
+    let userIsSc = $userPermissions.some((obj) => obj.name === "sc");
+    if (userIsSc) {
+        routesList = routes.sc;
+    } else if (userIsAdmin) {
         routesList = routes.admin;
     } else if (userIsTeacher) {
         routesList = routes.teacher;
