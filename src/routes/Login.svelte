@@ -207,7 +207,7 @@
             ><div
                 class="link-hover link relative mt-1 opacity-70 hover:opacity-100"
             >
-                Activate Your Account
+                {$_("activate.Activate your account")}.
             </div></Link
         >
     </div>

@@ -256,5 +256,15 @@
             "comments": "comments",
             "no tasks available": "no tasks available"
         }
+    },
+    "profile": {
+        "Account Activation": "Account Activation",
+        "Student Information": "Student Information",
+        "Registration Number": "Registration Number",
+        "Filiere": "Filiere",
+        "Speciality": "Speciality",
+        "Establishment": "Establishment",
+        "Teacher Information": "Teacher Information",
+        "Grade": "Grade"
     }
 }

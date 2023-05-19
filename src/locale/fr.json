@@ -253,5 +253,15 @@
             "comments": "commentaires",
             "no tasks available": "aucune tâche disponible"
         }
+    },
+    "profile": {
+        "Account Activation": "Activation du compte",
+        "Student Information": "Informations de l'étudiant",
+        "Registration Number": "Numéro d'inscription",
+        "Filiere": "Filière",
+        "Speciality": "Spécialité",
+        "Establishment": "Établissement",
+        "Teacher Information": "Informations de l'enseignant",
+        "Grade": "niveau"
     }
 }
