@@ -10,8 +10,6 @@
 
     const dispatch = createEventDispatcher();
 
-    export let typeQuery = "";
-
     let projectResumeModalState = false;
     let projectResumeModalData = "";
     let projectValidationModalState = false;
@@ -20,8 +18,7 @@
     let projectSupervisorsModalState = false;
     let projectMembersModalData = [];
     let projectSupervisorsModalData = [];
-
-    $: projects = getProjects(typeQuery);
+    export let projects = [];
 </script>
 
 <div class="h-[400px] w-full overflow-x-auto rounded-lg scrollbar-hide">
@@ -68,128 +65,104 @@
             </tr>
         </thead>
         <tbody>
-            {#await projects}
-                <button class="btn loading">{$_("admin.users.loading")}</button>
-            {:then res}
-                {#if res.status >= 200 && res.status < 300}
-                    {#each res.data as project}
-                        <tr>
-                            <td
-                                class="bg-gray-200 hover:cursor-pointer text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200 font-bold"
-                                on:click={() =>
-                                    navigate(`/projects/${project.id}`)}
-                                >{project.product_name}</td
-                            >
-                            <td
-                                class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200 font-bold"
-                                >{project.brand_name}</td
-                            >
-                            <td
-                                class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200 font-bold"
-                                >{project.type}</td
-                            >
-                            <!-- svelte-ignore a11y-click-events-have-key-events -->
-                            <td
-                                on:click={() => {
-                                    projectResumeModalState = true;
-                                    projectResumeModalData = project.resume;
-                                }}
-                                class="cursor-pointer bg-gray-200 text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800 select-none font-semibold"
-                                >{project.resume
-                                    .split(" ")
-                                    .slice(0, 2)
-                                    .join(" ")}
-                                <br />
-                                {project.resume
-                                    .split(" ")
-                                    .slice(2, 3)
-                                    .join(" ")} ...<span
-                                    class="opacity-60 underline"
-                                    >{$_("projects.show more")}</span
-                                ></td
-                            >
-                            <td
-                                class="text-base font-semibold capitalize flex-col justify-start items-start bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                            >
-                                <div class="-mb-1">
-                                    {project.owner.first_name}
-                                    {project.owner.last_name}
-                                </div>
-                                <div
-                                    class="font-normal opacity-90 -mt-1"
-                                    style="text-transform: none;"
-                                >
-                                    {project.owner.email}
-                                </div>
-                            </td>
-                            <!-- svelte-ignore a11y-click-events-have-key-events -->
-                            <td
-                                on:click={() => {
-                                    projectMembersModalState = true;
-                                    projectMembersModalData = project.members;
-                                }}
-                                class="cursor-pointer bg-gray-200 text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800 select-none font-semibold"
-                                >{project.members.length}
-                                {$_("projects.members")}</td
-                            >
-                            <!-- svelte-ignore a11y-click-events-have-key-events -->
-                            <td
-                                on:click={() => {
-                                    projectSupervisorsModalState = true;
-                                    projectSupervisorsModalData =
-                                        project.supervisors;
-                                }}
-                                class="cursor-pointer bg-gray-200 text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800 select-none font-semibold"
-                                >{project.supervisors.length}
-                                {$_("projects.supervisors")}</td
-                            >
-                            <td
-                                class="bg-gray-200 text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200 font-bold"
-                            >
-                                {new Date(project.created_at).toLocaleString(
-                                    "en-UK",
-                                    {
-                                        year: "numeric",
-                                        month: "long",
-                                        day: "numeric",
-                                        hour: "numeric",
-                                        minute: "numeric",
-                                        timeZone: "UTC",
-                                    }
-                                )}
-                            </td>
-                            <!-- svelte-ignore a11y-click-events-have-key-events -->
-                            <td
-                                on:click={() => {
-                                    projectValidationModalState = true;
-                                    projectValidationModalData =
-                                        project.validation;
-                                }}
-                                class="cursor-pointer bg-gray-200 text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800 select-none font-semibold"
-                                >{project.validation.decision}</td
-                            >
-                        </tr>
-                    {:else}
-                        <p
-                            class="text-gray-800 dark:text-gray-200 text-center text-lg capitalize font-semibold"
+            {#if projects.length > 0}
+                {#each projects as project}
+                    <tr>
+                        <td
+                            class="bg-gray-200 font-bold text-gray-800 transition-all hover:cursor-pointer dark:bg-gray-800 dark:text-gray-200"
+                            on:click={() => navigate(`/projects/${project.id}`)}
+                            >{project.product_name}</td
                         >
-                            {$_("projects.no projects available")}
-                        </p>
-                    {/each}
-                {:else}
-                    <p
-                        class="text-gray-800 dark:text-gray-200 text-center text-lg capitalize font-semibold"
-                    >
-                        {$_("projects.no projects available")}
-                    </p>
-                {/if}
-            {:catch error}
+                        <td
+                            class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                            >{project.brand_name}</td
+                        >
+                        <td
+                            class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                            >{project.type}</td
+                        >
+                        <!-- svelte-ignore a11y-click-events-have-key-events -->
+                        <td
+                            on:click={() => {
+                                projectResumeModalState = true;
+                                projectResumeModalData = project.resume;
+                            }}
+                            class="cursor-pointer select-none bg-gray-200 font-semibold text-gray-800 transition-all hover:bg-gray-800 hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                            >{project.resume.split(" ").slice(0, 2).join(" ")}
+                            <br />
+                            {project.resume.split(" ").slice(2, 3).join(" ")} ...<span
+                                class="underline opacity-60"
+                                >{$_("projects.show more")}</span
+                            ></td
+                        >
+                        <td
+                            class="flex-col items-start justify-start bg-gray-200 text-base font-semibold capitalize text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                        >
+                            <div class="-mb-1">
+                                {project.owner.first_name}
+                                {project.owner.last_name}
+                            </div>
+                            <div
+                                class="-mt-1 font-normal opacity-90"
+                                style="text-transform: none;"
+                            >
+                                {project.owner.email}
+                            </div>
+                        </td>
+                        <!-- svelte-ignore a11y-click-events-have-key-events -->
+                        <td
+                            on:click={() => {
+                                projectMembersModalState = true;
+                                projectMembersModalData = project.members;
+                            }}
+                            class="cursor-pointer select-none bg-gray-200 font-semibold text-gray-800 transition-all hover:bg-gray-800 hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                            >{project.members.length}
+                            {$_("projects.members")}</td
+                        >
+                        <!-- svelte-ignore a11y-click-events-have-key-events -->
+                        <td
+                            on:click={() => {
+                                projectSupervisorsModalState = true;
+                                projectSupervisorsModalData =
+                                    project.supervisors;
+                            }}
+                            class="cursor-pointer select-none bg-gray-200 font-semibold text-gray-800 transition-all hover:bg-gray-800 hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                            >{project.supervisors.length}
+                            {$_("projects.supervisors")}</td
+                        >
+                        <td
+                            class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                        >
+                            {new Date(project.created_at).toLocaleString(
+                                "en-UK",
+                                {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                    hour: "numeric",
+                                    minute: "numeric",
+                                    timeZone: "UTC",
+                                }
+                            )}
+                        </td>
+                        <!-- svelte-ignore a11y-click-events-have-key-events -->
+                        <td
+                            on:click={() => {
+                                projectValidationModalState = true;
+                                projectValidationModalData = project.validation;
+                            }}
+                            class="cursor-pointer select-none bg-gray-200 font-semibold text-gray-800 transition-all hover:bg-gray-800 hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                            >{project.validation.decision}</td
+                        >
+                    </tr>
+                {/each}
+            {:else}
                 <p
-                    class="text-red-800 dark:text-red-200 text-center text-lg capitalize font-semibold"
+                    class="text-center text-lg font-semibold capitalize text-gray-800 dark:text-gray-200"
                 >
-                    {error.message}
+                    {$_("projects.no projects available")}
                 </p>
-            {/await}
+            {/if}
         </tbody>
     </table>
 </div>

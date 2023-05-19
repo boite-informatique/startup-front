@@ -2,33 +2,10 @@
 <script>
     import { onMount } from "svelte";
     import { useNavigate } from "svelte-navigator";
-    import { userPermissions } from "../stores/userPermissions";
-    import routes from "../config/routesList";
-    import { currentUserInfo } from "src/stores/currentUserInfo";
+    import { routesStore } from "src/stores/routesStore";
 
     const navigate = useNavigate();
-
-    let userIsAdmin = $userPermissions.some(
-        (obj) => obj.name === "canManageAll"
-    );
-
-    let userIsStudent = $currentUserInfo.type == "student";
-
-    let userIsTeacher = $currentUserInfo.type == "teacher";
-
-    let routesList = [];
-    let userIsSc = $userPermissions.some((obj) => obj.name === "sc");
-    if (userIsSc) {
-        routesList = routes.sc;
-    } else if (userIsAdmin) {
-        routesList = routes.admin;
-    } else if (userIsTeacher) {
-        routesList = routes.teacher;
-    } else if (userIsStudent) {
-        routesList = routes.student;
-    }
-
     onMount(() => {
-        navigate(routesList[0].path);
+        navigate($routesStore[0].path);
     });
 </script>

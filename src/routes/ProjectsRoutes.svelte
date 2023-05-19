@@ -2,7 +2,7 @@
     // importing modules
     import { _ } from "svelte-i18n";
     import { onMount } from "svelte";
-    import { useNavigate } from "svelte-navigator";
+    import { Route, useNavigate } from "svelte-navigator";
     import { createEventDispatcher } from "svelte";
     import { useLocation } from "svelte-navigator";
 
@@ -15,6 +15,7 @@
     import { userPermissions } from "../stores/userPermissions";
     import Project from "src/routes/Project.svelte";
     import { currentUserInfo } from "src/stores/currentUserInfo";
+    import ProjectsPage from "./ProjectsPage.svelte";
 
     const location = useLocation();
     const dispatch = createEventDispatcher();
@@ -30,37 +31,14 @@
             indicatorVisible: true,
         });
     };
-
-    let userIsAdmin;
-
-    onMount(() => {
-        userIsAdmin = $userPermissions.some(
-            (obj) => obj.name === "canManageAll"
-        );
-        let userIsTeacher = $currentUserInfo.type == "teacher";
-    })
-    //     if (!(userIsAdmin || userIsTeacher)) {
-    //         indicateUnauthorizedToAccessProjects();
-    //         navigate("/");
-    //     }
-    // });
 </script>
 
 <div class="flex w-full flex-col gap-4 p-4 md:gap-5 md:px-12 md:pt-7">
-    {#if $location.pathname == "/projects"}
-        <Breadcrumb breadcrumbItems={["projects"]} />
-        <div
-            class="-mb-2 flex flex-col items-start justify-start gap-2 md:flex-row"
-        >
-            {#if !userIsAdmin}
-                <AddProject on:showIndicator />
-            {/if}
-        </div>
-        <ProjectsTables on:showIndicator />
-    {:else}
-        <Project
-            projectID={$location.pathname.split("/")[2]}
-            on:showIndicator
-        />
-    {/if}
+    <Route path="/">
+        <ProjectsPage />
+    </Route>
+
+    <Route path="/:id" let:params>
+        <Project projectID={params.id} on:showIndicator />
+    </Route>
 </div>

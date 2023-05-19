@@ -1,19 +1,13 @@
 // this file stores the elements that will appear in the sidebar for each user, if you want to add an element just change the array.
-let elementsByUsers = {
+export const sidebarLists = {
     admin: [
-        { path: "users", index: 0 },
-        { path: "roles", index: 1 },
-        { path: "periods", index: 2 },
+        { path: "users", name: "users" },
+        { path: "roles", name: "roles" },
+        { path: "periods", name: "periods" },
     ],
-    student: [
-        { path: "student1", index: 0 },
-        { path: "student2", index: 1 },
-        { path: "student3", index: 2 },
-    ],
-    teacher: [
-        { path: "teacher1", index: 0 },
-        { path: "teacher2", index: 1 },
-        { path: "teacher3", index: 2 },
+    project: [
+        { path: "", name: "general information" },
+        { path: "tasks", name: "tasks" },
+        { path: "soutenance", name: "defense" },
     ],
 };
-export default elementsByUsers;

@@ -10,30 +10,11 @@
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
     import { currentUserInfo } from "src/stores/currentUserInfo";
+    import { routesStore } from "src/stores/routesStore";
 
     const dispatch = createEventDispatcher();
 
-    let userIsAdmin = $userPermissions.some(
-        (obj) => obj.name === "canManageAll"
-    );
-
-    let userIsStudent = $currentUserInfo.type == "student";
-
-    let userIsTeacher = $currentUserInfo.type == "teacher";
-
-    let routesList = [];
-    let userIsSc = $userPermissions.some((obj) => obj.name === "sc");
-    if (userIsSc) {
-        routesList = routes.sc;
-    } else if (userIsAdmin) {
-        routesList = routes.admin;
-    } else if (userIsTeacher) {
-        routesList = routes.teacher;
-    } else if (userIsStudent) {
-        routesList = routes.student;
-    } else {
-        routesList = routes.guest;
-    }
+    let routesList = $routesStore;
 
     let toggleMenu = () => {
         dispatch("toggleMenu");
@@ -94,11 +75,11 @@
                 <li
                     class="relative cursor-pointer px-2 hover:opacity-100 {$location.pathname
                         .replace(/%20/g, ' ')
-                        .startsWith(`/${route.path}`)
+                        .startsWith(`/${route.name}`)
                         ? 'opacity-100'
                         : 'opacity-60'} transition-all"
                 >
-                    <Link to="/{route.path}">{$_(`navbar.${route.path}`)}</Link>
+                    <Link to="/{route.path}">{$_(`navbar.${route.name}`)}</Link>
                     <span
                         class="absolute -bottom-1 left-0 h-1 {$location.pathname
                             .replace(/%20/g, ' ')
