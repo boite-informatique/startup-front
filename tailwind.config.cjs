@@ -1,7 +1,9 @@
 const config = {
     content: ["./src/**/*.{html,js,svelte,ts}", "index.html"],
     darkMode: "class",
-
+    daisyui: {
+        themes: ["light", "dark"],
+    },
     theme: {
         extend: {
             boxShadow: {
