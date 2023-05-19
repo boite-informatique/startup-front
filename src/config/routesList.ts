@@ -3,7 +3,7 @@ let routesByUsers = {
     admin: [
         { path: "admin", name: "admin" },
         { path: "announcements", name: "announcements" },
-        { path: "profile", index: "profile" },
+        { path: "profile", name: "profile" },
     ],
     student: [
         { path: "projects?type=my", name: "my project" },
