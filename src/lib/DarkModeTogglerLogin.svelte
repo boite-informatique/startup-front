@@ -11,22 +11,40 @@
     const myPage = document.getElementsByTagName("html");
     const toggleDarkMode = () => {
         myPage[0].className = $mode == "dark" ? "" : "dark";
-        $mode = myPage[0].className;
+        $mode = $mode == "dark" ? "" : "dark";
+        localStorage.setItem("theme", $mode == "dark" ? "dark" : "light");
     };
 
-    $: checked = $mode == "dark" ? true : false;
+    $: checked = localStorage.getItem("theme") == "dark" ? true : false;
+    let element;
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
-    data-toggle-theme="dark,light"
-    on:click={toggleDarkMode}
+    data-set-theme={$mode == "dark" ? "dark" : "light"}
+    data-toggle-theme="light,dark"
+    data-act-class="ACTIVECLASS"
+    on:click={() => {
+        toggleDarkMode();
+    }}
     class="flex cursor-pointer select-none flex-row items-center gap-3 rounded-md bg-black bg-opacity-20 py-2 px-2 font-semibold text-gray-800 transition-all duration-300 hover:scale-[1.02] hover:bg-opacity-25 dark:bg-white dark:bg-opacity-20 dark:text-slate-300 dark:hover:bg-opacity-25 md:px-3"
 >
-    <div class="hidden md:block">Mode</div>
+    <div
+        class="hidden md:block"
+        on:click={() => {
+            element.checked = !element.checked;
+        }}
+    >
+        Mode
+    </div>
     <label class="swap-rotate swap -mt-1">
         <!-- this hidden checkbox controls the state -->
-        <input type="checkbox" class="hidden" bind:checked />
+        <input
+            type="checkbox"
+            class="hidden"
+            bind:checked
+            bind:this={element}
+        />
 
         <!-- sun icon -->
         <!-- svelte-ignore a11y-click-events-have-key-events -->
