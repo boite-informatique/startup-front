@@ -4,6 +4,7 @@
     import { onMount } from "svelte";
     import fetchUserPermissions from "./api/userPermissions";
     import fetchPeriods from "./api/periods";
+    import { mode } from "src/stores/darkModeStore";
 
     // importing routes
     import Login from "./routes/Login.svelte";
@@ -35,12 +36,17 @@
 
     let loadPage = false;
     onMount(async () => {
+        document.getElementsByTagName("html")[0].className =
+            localStorage.getItem("theme") == "dark" ? "dark" : "";
+        $mode = localStorage.getItem("theme") == "dark" ? "dark" : "";
+
         // performance enhancement
         await Promise.allSettled([
             fetchUserPermissions(),
             fetchPeriods(),
             getCurrentUserInfoAndStore(),
         ]);
+      
         loadPage = true;
     });
 
