@@ -9,6 +9,7 @@ export type ProjectCreationInput = {
 
     members: string[];
     supervisors: string[];
+    co_supervisor?: string;
 };
 
 export type GetProjectOutput = {

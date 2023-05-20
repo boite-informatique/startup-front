@@ -35,7 +35,7 @@
 
 <div class="flex w-full flex-col gap-4 p-4 md:gap-5 md:px-12 md:pt-7">
     <Route path="/" let:location>
-        <ProjectsPage queryString={location.search} />
+        <ProjectsPage queryString={location.search} on:showIndicator />
     </Route>
 
     <Route path="/:id" let:params>
