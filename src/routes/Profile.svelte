@@ -29,7 +29,9 @@
             </div>
         </div>
     {/if}
-    <EditProfile on:showIndicator />
+    <div class="self-center">
+        <EditProfile on:showIndicator />
+    </div>
     <div class="flex flex-col gap-2 md:flex-row">
         <div class="w-[330px] font-bold">{$_("register.firstname")}</div>
         <div>{$currentUserInfo.first_name}</div>

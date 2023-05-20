@@ -46,7 +46,7 @@
             fetchPeriods(),
             getCurrentUserInfoAndStore(),
         ]);
-      
+
         loadPage = true;
     });
 
@@ -100,7 +100,6 @@
             <!-- Components that need navbar and sidebar -->
             <Route>
                 <Navbar />
-
                 <Route path="/">
                     <Home />
                 </Route>
