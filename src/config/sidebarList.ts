@@ -1,3 +1,11 @@
+import ProjectDefensePage from "src/lib/ProjectPage/ProjectDefensePage.svelte";
+import ProjectGeneralInfo from "src/lib/ProjectPage/ProjectGeneralInfo.svelte";
+import ProjectHistoryPage from "src/lib/ProjectPage/ProjectHistoryPage.svelte";
+import ProjectMembersPage from "src/lib/ProjectPage/ProjectMembersPage.svelte";
+import ProjectProgressPage from "src/lib/ProjectPage/ProjectProgressPage.svelte";
+import ProjectSupervisorsPage from "src/lib/ProjectPage/ProjectSupervisorsPage.svelte";
+import ProjectTasks from "src/lib/ProjectTasks.svelte";
+
 // this file stores the elements that will appear in the sidebar for each user, if you want to add an element just change the array.
 export const sidebarLists = {
     admin: [
@@ -6,8 +14,24 @@ export const sidebarLists = {
         { path: "periods", name: "periods" },
     ],
     project: [
-        { path: "", name: "general information" },
-        { path: "tasks", name: "tasks" },
-        { path: "soutenance", name: "defense" },
+        {
+            path: "general",
+            name: "general information",
+            component: ProjectGeneralInfo,
+        },
+        { path: "members", name: "members", component: ProjectMembersPage },
+        {
+            path: "supervisors",
+            name: "supervisors",
+            component: ProjectSupervisorsPage,
+        },
+        {
+            path: "history",
+            name: "edit history",
+            component: ProjectHistoryPage,
+        },
+        { path: "tasks", name: "tasks", component: ProjectTasks },
+        { path: "progress", name: "progress", component: ProjectProgressPage },
+        { path: "soutenance", name: "defense", component: ProjectDefensePage },
     ],
 };

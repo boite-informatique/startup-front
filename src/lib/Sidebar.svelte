@@ -31,13 +31,7 @@
                         ? 'border-l-4 border-darkest opacity-100 dark:border-gray-200'
                         : 'opacity-75'} transition-all"
                 >
-                    <Link to="/{$location.pathname.split('/')[1]}/{item.path}"
-                        >{$_(
-                            `sidebar.${$location.pathname
-                                .split("/")[1]
-                                .replace(/%20/g, " ")}.${item.path}`
-                        )}</Link
-                    >
+                    <Link to={item.path}>{$_(`sidebar.${item.name}`)}</Link>
                 </li>
             </div>
         {/each}

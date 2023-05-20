@@ -23,15 +23,15 @@
         </label>
     </label>
 
-    <div class="dropdown">
+    <div class="dropdown dropdown-end absolute right-6">
         <!-- svelte-ignore a11y-label-has-associated-control -->
         <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
         <!-- svelte-ignore a11y-positive-tabindex -->
-        <label tabindex="1" class="btn m-1">Actions</label>
+        <label tabindex="1" class="btn-primary btn m-1">Actions</label>
         <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
         <ul
             tabindex="0"
-            class="dropdown-content menu rounded-box w-56  bg-base-100 p-2 shadow"
+            class="dropdown-content menu rounded-box w-56  bg-base-100 p-2"
         >
             {#each actions[userType] as action}
                 {#if !action.disabled(project)}
@@ -48,7 +48,7 @@
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <!-- svelte-ignore a11y-label-has-associated-control -->
                         <label
-                            class="cursor-default text-neutral-900"
+                            class="cursor-default text-neutral-400"
                             on:click={() => setModalComponent(action.component)}
                             >{action.name}
                         </label>

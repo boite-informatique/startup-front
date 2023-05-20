@@ -14,15 +14,20 @@
         "my project": "my project"
     },
     "sidebar": {
-        "admin": {
-            "users": "users",
-            "roles": "roles",
-            "periods": "periods"
-        },
+        "users": "users",
+        "roles": "roles",
+        "periods": "periods",
         "projects": {},
         "announcements": {},
         "profile": {},
-        "my project": {}
+        "my project": {},
+        "general information": "general information",
+        "members": "members",
+        "supervisors": "supervisors",
+        "edit history": "edit history",
+        "progress": "project progress",
+        "tasks": "tasks",
+        "defense": "defense information"
     },
     "register": {
         "indicator": {

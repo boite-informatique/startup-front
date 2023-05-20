@@ -42,7 +42,7 @@ export const actions = {
             disabled: (project: PopulatedProject): boolean => {
                 if (
                     (project.validation.length == 0 && periods.validation) ||
-                    (project.validation[0].decision ==
+                    (project.validation[0]?.decision ==
                         "accepted_with_reservation" &&
                         periods.appeal)
                 ) {
@@ -82,7 +82,7 @@ export const actions = {
             disabled: (project: PopulatedProject): boolean => {
                 return !(
                     (project.validation.length == 0 && periods.submission) ||
-                    (project.validation[0].decision ==
+                    (project.validation[0]?.decision ==
                         "accepted_with_reservation" &&
                         periods.appeal)
                 );

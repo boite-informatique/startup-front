@@ -33,12 +33,11 @@
     };
 </script>
 
-<div class="flex w-full flex-col gap-4 p-4 md:gap-5 md:px-12 md:pt-7">
-    <Route path="/" let:location>
+<Route path="/" let:location>
+    <div class="flex w-full flex-col gap-4 p-4 md:gap-5 md:px-12 md:pt-7">
         <ProjectsPage queryString={location.search} on:showIndicator />
-    </Route>
-
-    <Route path="/:id" let:params>
-        <Project projectID={params.id} on:showIndicator />
-    </Route>
-</div>
+    </div>
+</Route>
+<Route path="/:id/*" let:params>
+    <Project projectID={params.id} on:showIndicator />
+</Route>
