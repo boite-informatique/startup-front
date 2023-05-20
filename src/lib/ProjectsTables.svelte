@@ -68,6 +68,7 @@
             {#if projects.length > 0}
                 {#each projects as project}
                     <tr>
+                        <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <td
                             class="bg-gray-200 font-bold text-gray-800 transition-all hover:cursor-pointer dark:bg-gray-800 dark:text-gray-200"
                             on:click={() => navigate(`/projects/${project.id}`)}

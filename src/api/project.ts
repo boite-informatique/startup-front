@@ -10,7 +10,6 @@ export const getProjects = async (
     query
 ): Promise<AxiosResponse<GetProjectOutput[]>> => {
     try {
-        console.log(query);
         const response: AxiosResponse<GetProjectOutput[]> = (await api.get(
             `/projects?type=${query}`
         )) as unknown as AxiosResponse<GetProjectOutput[]>;
