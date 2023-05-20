@@ -7,6 +7,7 @@
 
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
+    import Logout from "./Logout.svelte";
     import { routesStore } from "../stores/routesStore";
 
     const dispatch = createEventDispatcher();
@@ -98,4 +99,5 @@
 <div class="fixed right-5 top-5 z-50 flex gap-3 md:gap-4">
     <DarkModeTogglerLogin />
     <LanguageMenuLogin />
+    <Logout />
 </div>

@@ -7,7 +7,11 @@
         "my project": "mon projet",
         "my projects": "mes projets",
         "supervised projects": "projets encadrés",
-        "validate projects": "valider les projets"
+        "validate projects": "valider les projets",
+        "log out": "Se déconnecter",
+        "are you sure you want to log out?": "Êtes-vous sûr de vouloir vous déconnecter ?",
+        "yes": "oui",
+        "no": "non"
     },
     "breadcrumb": {
         "projects": "projets",

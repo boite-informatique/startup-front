@@ -7,7 +7,11 @@
         "my project": "my project",
         "my projects": "my projects",
         "supervised projects": "supervised projects",
-        "validate projects": "validate projects"
+        "validate projects": "validate projects",
+        "log out": "Log out",
+        "are you sure you want to log out?": "Are you sure you want to log out?",
+        "yes": "yes",
+        "no": "no"
     },
     "breadcrumb": {
         "projects": "projects",
