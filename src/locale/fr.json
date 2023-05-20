@@ -175,7 +175,10 @@
             "You are not authorized to access '/my projects' route": "Vous n'êtes pas autorisé à accéder à la section '/my projects'",
             "data is missing": "données manquantes",
             "project added successfully": "projet ajouté avec succès",
-            "an error occured, please try again": "une erreur s'est produite, veuillez réessayer"
+            "an error occured, please try again": "une erreur s'est produite, veuillez réessayer",
+            "supervisor already added": "encadrant déjà ajouté",
+            "user already added": "utilisateur déjà ajouté",
+            "co-supervisor already added": "co-encadrant déjà ajouté"
         },
         "product": "produit",
         "brand": "marque",

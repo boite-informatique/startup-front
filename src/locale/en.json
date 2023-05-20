@@ -175,7 +175,10 @@
             "You are not authorized to access '/my projects' route": "You are not authorized to access '/my projects' route",
             "data is missing": "data is missing",
             "project added successfully": "project added successfully",
-            "an error occured, please try again": "an error occured, please try again"
+            "an error occured, please try again": "an error occured, please try again",
+            "supervisor already added": "supervisor already added",
+            "user already added": "user already added",
+            "co-supervisor already added": "co-supervisor already added"
         },
         "product": "product",
         "brand": "brand",
