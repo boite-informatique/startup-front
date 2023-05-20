@@ -123,7 +123,7 @@
                 bind:value={brand}
                 type="text"
                 placeholder={$_("admin.users.filter.Type here")}
-                class="input-bordered input w-full max-w-xs"
+                class="input-bordered input w-full max-w-xs md:w-[320px]"
             />
         </div>
         <div
@@ -148,7 +148,9 @@
             </div>
         </div>
         <div class="flex flex-col items-start justify-start gap-2 md:flex-row">
-            <div class="text-lg font-semibold capitalize md:w-40">
+            <div
+                class="translate-y-[10px] text-lg font-semibold capitalize md:w-40"
+            >
                 {$_("projects.resume")} :
             </div>
             <textarea
@@ -157,57 +159,78 @@
                 placeholder="Résumé"
             />
         </div>
-        <div
-            class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
-        >
-            <div class="text-lg font-semibold capitalize md:w-40">
+        <div class="flex flex-col items-start justify-start gap-2 md:flex-row">
+            <div
+                class="translate-y-[10px] text-lg font-semibold capitalize md:w-40"
+            >
                 {$_("projects.members")} :
             </div>
-            <input
-                bind:value={memberEmail}
-                id="email-address"
-                name="email"
-                type="email"
-                autocomplete="email"
-                placeholder={$_("login.Email address")}
-                class="input-bordered input w-full max-w-xs"
-            />
-            <div
-                class={membersEmails.length >= membersLimit
-                    ? "cursor-not-allowed"
-                    : ""}
-            >
-                <button
-                    class="btn-square btn {membersEmails.length >= membersLimit
-                        ? 'btn-disabled'
-                        : ' cursor-pointer'}"
-                    on:click={() => {
-                        if (memberEmail.length != 0) {
-                            membersEmails = [...membersEmails, memberEmail];
-                            memberEmail = "";
-                        }
-                    }}
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6 rotate-45 font-extrabold"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        ><path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12"
-                        /></svg
+            <div class="flex flex-col gap-[6px]">
+                {#each membersEmails as member}
+                    <input
+                        bind:value={member}
+                        id="email-address"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        placeholder={$_("login.Email address")}
+                        class="input-bordered input w-full max-w-xs md:w-[320px]"
+                    />
+                {/each}
+                <div class="flex flex-row gap-2">
+                    <input
+                        bind:value={memberEmail}
+                        id="email-address"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        placeholder={$_("login.Email address")}
+                        class="input-bordered input w-full max-w-xs md:w-[320px]"
+                    />
+                    <div
+                        class={membersEmails.length >= membersLimit
+                            ? "cursor-not-allowed"
+                            : ""}
                     >
-                </button>
+                        <button
+                            class="btn-square btn {membersEmails.length >=
+                            membersLimit
+                                ? 'btn-disabled'
+                                : ' cursor-pointer'}"
+                            on:click={() => {
+                                if (memberEmail.length != 0) {
+                                    membersEmails = [
+                                        ...membersEmails,
+                                        memberEmail,
+                                    ];
+                                    memberEmail = "";
+                                }
+                            }}
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6 rotate-45 font-extrabold"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"
+                                /></svg
+                            >
+                        </button>
+                    </div>
+                    {#if membersEmails.length != 0}
+                        <button
+                            class="no-animation btn-square btn cursor-default"
+                        >
+                            ({membersEmails.length})
+                        </button>
+                    {/if}
+                </div>
             </div>
-            {#if membersEmails.length != 0}
-                <button class="no-animation btn-square btn cursor-default">
-                    ({membersEmails.length})
-                </button>
-            {/if}
         </div>
         <div
             class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
@@ -222,7 +245,7 @@
                 type="email"
                 autocomplete="email"
                 placeholder={$_("login.Email address")}
-                class="input-bordered input w-full max-w-xs"
+                class="input-bordered input w-full max-w-xs md:w-[320px]"
             />
             <div
                 class={supervisorsEmails.length >= 3
