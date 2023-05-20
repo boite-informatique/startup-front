@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { currentUserInfo } from "src/stores/currentUserInfo";
     import { register } from "../api/project";
     import { createEventDispatcher } from "svelte";
     import { _ } from "svelte-i18n";
@@ -80,6 +81,9 @@
         supervisorEmail = "";
         supervisorsEmails = [];
     };
+
+    let userIsStudent = $currentUserInfo?.type == "student";
+    const membersLimit = userIsStudent ? 5 : 6;
 </script>
 
 <label
@@ -168,9 +172,13 @@
                 placeholder={$_("login.Email address")}
                 class="input-bordered input w-full max-w-xs"
             />
-            <div class={membersEmails.length >= 6 ? "cursor-not-allowed" : ""}>
+            <div
+                class={membersEmails.length >= membersLimit
+                    ? "cursor-not-allowed"
+                    : ""}
+            >
                 <button
-                    class="btn-square btn {membersEmails.length >= 6
+                    class="btn-square btn {membersEmails.length >= membersLimit
                         ? 'btn-disabled'
                         : ' cursor-pointer'}"
                     on:click={() => {
