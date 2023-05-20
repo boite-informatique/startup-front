@@ -177,8 +177,7 @@
             "project added successfully": "project added successfully",
             "an error occured, please try again": "an error occured, please try again",
             "supervisor already added": "supervisor already added",
-            "user already added": "user already added",
-            "co-supervisor already added": "co-supervisor already added"
+            "user already added": "user already added"
         },
         "product": "product",
         "brand": "brand",
@@ -258,7 +257,9 @@
             "finished": "finished",
             "comments": "comments",
             "no tasks available": "no tasks available"
-        }
+        },
+        "co-supervisor": "co-supervisor",
+        "optional": "optional"
     },
     "profile": {
         "Account Activation": "Account Activation",

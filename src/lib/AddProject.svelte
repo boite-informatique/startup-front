@@ -13,6 +13,7 @@
     let memberEmail: string = "";
     let membersEmails: string[] = [];
     let supervisorEmail: string = "";
+    let coSupervisorEmail: string = "";
     let supervisorsEmails: string[] = [];
 
     let indicateSupervisorAlreadyAdded = () => {
@@ -80,12 +81,14 @@
             type,
             members: membersEmails,
             supervisors: supervisorsEmails,
+            ...(coSupervisorEmail ? { co_supervisor: coSupervisorEmail } : {}),
         });
 
         if (response.status >= 200 && response.status < 300) {
             indicateSuccess();
         } else {
             indicateErrorOccurred();
+            console.log(response);
         }
 
         product = "";
@@ -96,6 +99,7 @@
         membersEmails = [];
         supervisorEmail = "";
         supervisorsEmails = [];
+        coSupervisorEmail = "";
     };
 
     let userIsStudent = $currentUserInfo?.type == "student";
@@ -113,7 +117,7 @@
 
 <input type="checkbox" id="my-modal-97" class="modal-toggle" />
 <div class="modal">
-    <div class="modal-box flex w-11/12 max-w-5xl flex-col gap-5">
+    <div class="modal-box flex w-11/12 max-w-5xl flex-col gap-6">
         <h3 class="mb-2 text-xl font-bold capitalize">
             {$_("projects.add a project")} !
         </h3>
@@ -395,6 +399,21 @@
             </div>
         </div>
         <div
+            class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
+        >
+            <div class="text-lg font-semibold capitalize md:w-40">
+                {$_("projects.co-supervisor")} :
+            </div>
+            <input
+                bind:value={coSupervisorEmail}
+                type="email"
+                placeholder="{$_('login.Email address')} ({$_(
+                    'projects.optional'
+                )})"
+                class="input-bordered input w-full max-w-xs md:w-[320px]"
+            />
+        </div>
+        <div
             class="mt-3 flex flex-col items-start justify-start gap-2 md:flex-row md:items-center md:justify-between"
         >
             <button
@@ -408,6 +427,7 @@
                     membersEmails = [];
                     supervisorEmail = "";
                     supervisorsEmails = [];
+                    coSupervisorEmail = "";
                 }}>{$_("projects.clear the form")}</button
             >
             <div
@@ -426,6 +446,7 @@
                         membersEmails = [];
                         supervisorEmail = "";
                         supervisorsEmails = [];
+                        coSupervisorEmail = "";
                     }}>{$_("admin.users.filter.cancel")}</label
                 >
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
