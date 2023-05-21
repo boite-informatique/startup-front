@@ -23,10 +23,10 @@
 </script>
 
 <nav
-    class="navbar sticky top-0 z-50 flex flex-row items-center justify-between bg-light bg-opacity-10 py-3 pl-0 pr-1 shadow-lg backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-50 lg:px-5"
+    class="navbar sticky top-0 z-50 flex flex-row items-center justify-between bg-light bg-opacity-10 py-3 pl-0 pr-3 shadow-lg backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-50 lg:px-5"
 >
     <button
-        class="rounded-r-2xl bg-black bg-opacity-20 py-1 pl-1 pr-2 text-gray-800 dark:bg-white dark:bg-opacity-20 dark:text-slate-300 lg:hidden"
+        class="h-11 rounded-r-2xl bg-black bg-opacity-20 pl-[6px] pr-[10px] text-gray-800 dark:bg-white dark:bg-opacity-20 dark:text-slate-300 lg:hidden"
     >
         <label class="swap-rotate swap">
             <!-- this hidden checkbox controls the state -->
@@ -36,9 +36,8 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <svg
                 on:click={toggleMenu}
-                class="swap-off h-7 w-7 translate-y-1 fill-gray-800 dark:fill-slate-300"
-                style="--tw-translate-y: 3px;
-                    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));"
+                class="swap-off h-7 w-7 fill-gray-800 dark:fill-slate-300"
+                style="transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));"
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
                 height="32"
@@ -52,9 +51,8 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <svg
                 on:click={toggleMenu}
-                style="--tw-translate-y: 3px;
-                    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));"
-                class="swap-on h-7 w-7 translate-y-1 fill-gray-800 dark:fill-slate-300"
+                style="transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));"
+                class="swap-on h-7 w-7 fill-gray-800 dark:fill-slate-300"
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
                 height="32"
