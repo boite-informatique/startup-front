@@ -4,6 +4,7 @@
     import { useLocation } from "svelte-navigator";
     import { _ } from "svelte-i18n";
     import innoviumLogo from "../assets/innovium_logos/innovium_light.png";
+    import innoviumLogoNoText from "../assets/innovium_logos/light.png";
 
     import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
     import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
@@ -64,7 +65,12 @@
             >
         </label>
     </button>
-    <img src={innoviumLogo} alt="Innovium logo" class="h-14" />
+    <img src={innoviumLogo} alt="Innovium logo" class="hidden h-14 sm:block" />
+    <img
+        src={innoviumLogoNoText}
+        alt="Innovium logo"
+        class="block h-14 sm:hidden"
+    />
     <ul
         class="hidden flex-1 items-center justify-center gap-10 text-lg font-semibold capitalize text-gray-900 dark:text-white lg:flex"
     >
