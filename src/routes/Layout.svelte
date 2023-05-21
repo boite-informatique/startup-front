@@ -1,16 +1,9 @@
 <script>
-    import Menu from "../lib/Menu.svelte";
-
     import Navbar from "../lib/Navbar.svelte";
     import Sidebar from "../lib/Sidebar.svelte";
 
     export let showNavbar = true;
     export let showSidebar = true;
-
-    let menu = false;
-    const toggleMenu = () => {
-        menu = !menu;
-    };
 
     let userIsLoggedIn;
 
@@ -23,8 +16,7 @@
 </script>
 
 {#if showNavbar}
-    <Navbar on:toggleMenu={toggleMenu} />
-    <Menu {menu} />
+    <Navbar />
 {/if}
 
 <div class="flex h-full w-full flex-1 flex-col lg:flex-row">

@@ -12,7 +12,7 @@
     };
 </script>
 
-<div class="dropdown-end dropdown">
+<div class="dropdown dropdown-end">
     <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <!-- svelte-ignore a11y-label-has-associated-control -->
     <label tabindex="0" class="btn-ghost btn-circle avatar btn">
@@ -42,7 +42,7 @@
     <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <ul
         tabindex="0"
-        class="dropdown-content menu mt-1 w-52 rounded-md bg-base-100 bg-opacity-75 p-2 font-medium capitalize shadow backdrop-blur-lg"
+        class="dropdown-content menu mt-1 w-52 rounded-md bg-base-100 p-2 font-medium capitalize shadow"
     >
         <!-- svelte-ignore a11y-missing-attribute -->
         <li><Link to="/profile"><a>{$_("navbar.profile")}</a></Link></li>

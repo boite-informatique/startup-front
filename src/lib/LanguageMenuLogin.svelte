@@ -6,7 +6,7 @@
     };
 </script>
 
-<div class="dropdown-end dropdown dropdown-bottom">
+<div class="dropdown dropdown-bottom dropdown-end">
     <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div
         tabindex="0"
@@ -29,7 +29,7 @@
     <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <ul
         tabindex="0"
-        class="dropdown-content menu mt-2 w-52 rounded-md bg-base-100 bg-opacity-75 p-2 font-medium capitalize shadow backdrop-blur-lg"
+        class="dropdown-content menu mt-2 w-52 rounded-md bg-base-100 p-2 font-medium capitalize shadow"
     >
         <!-- svelte-ignore a11y-missing-attribute -->
         <!-- svelte-ignore a11y-click-events-have-key-events -->
