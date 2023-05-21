@@ -27,7 +27,7 @@
     on:click={() => {
         toggleDarkMode();
     }}
-    class="flex cursor-pointer select-none flex-row items-center gap-3 rounded-md bg-black bg-opacity-20 py-2 px-2 font-semibold text-gray-800 transition-all duration-300 hover:scale-[1.02] hover:bg-opacity-25 dark:bg-white dark:bg-opacity-20 dark:text-slate-300 dark:hover:bg-opacity-25 md:px-3"
+    class="flex h-11 cursor-pointer select-none flex-row items-center gap-3 rounded-md bg-black bg-opacity-20 py-2 px-2 font-semibold text-gray-800 transition-all duration-300 hover:bg-opacity-25 dark:bg-white dark:bg-opacity-20 dark:text-slate-300 dark:hover:bg-opacity-25 md:px-3"
 >
     <div
         class="hidden lg:block"

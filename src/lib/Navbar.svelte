@@ -22,7 +22,7 @@
 </script>
 
 <nav
-    class="navbar sticky top-0 z-50 bg-base-100 bg-light bg-opacity-10 py-3 pr-1 shadow-lg backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-50 lg:px-5"
+    class="navbar sticky top-0 z-50 flex flex-row items-center justify-between bg-light bg-opacity-10 py-3 pl-0 pr-1 shadow-lg backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-50 lg:px-5"
 >
     <button
         class="rounded-r-2xl bg-black bg-opacity-20 py-1 pl-1 pr-2 text-gray-800 dark:bg-white dark:bg-opacity-20 dark:text-slate-300 lg:hidden"
