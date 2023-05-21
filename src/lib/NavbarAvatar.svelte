@@ -42,7 +42,7 @@
     <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <ul
         tabindex="0"
-        class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 capitalize shadow"
+        class="dropdown-content menu mt-1 w-52 rounded-md bg-base-100 bg-opacity-75 p-2 font-medium capitalize shadow backdrop-blur-lg"
     >
         <!-- svelte-ignore a11y-missing-attribute -->
         <li><Link to="/profile"><a>{$_("navbar.profile")}</a></Link></li>
