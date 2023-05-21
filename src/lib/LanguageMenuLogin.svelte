@@ -6,7 +6,7 @@
     };
 </script>
 
-<div class="dropdown-end dropdown">
+<div class="dropdown-bottom dropdown-end dropdown">
     <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div
         tabindex="0"
@@ -14,7 +14,7 @@
     >
         <div class="hidden lg:block">Language</div>
         <svg
-            class="inline-block h-6 w-[22px] fill-current md:h-5 md:w-5"
+            class="inline-block h-6 w-[22px] fill-current md:h-7 md:w-6"
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"

@@ -50,7 +50,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <svg
             on:click={toggleDarkMode}
-            class="swap-on h-5 w-5 translate-y-1 fill-gray-800 dark:fill-slate-300 md:h-5 md:w-5"
+            class="swap-on h-6 w-6 translate-y-1 fill-gray-800 dark:fill-slate-300 md:h-7 md:w-7"
             style="--tw-translate-y: 3px;
             transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));"
             xmlns="http://www.w3.org/2000/svg"
