@@ -25,11 +25,11 @@
                         opacity: 0,
                         easing: quintInOut,
                     }}
-                    class="relative cursor-pointer hover:opacity-100 {$location.pathname.includes(
+                    class="relative cursor-pointer border-l-4 border-darkest hover:opacity-100 dark:border-gray-200 {$location.pathname.includes(
                         `/${item.path}`
                     )
-                        ? 'border-l-4 border-darkest opacity-100 dark:border-gray-200'
-                        : 'opacity-75'} transition-all"
+                        ? 'border-opacity-100 opacity-100'
+                        : 'border-opacity-40 opacity-75 dark:border-opacity-40'} transition-all"
                 >
                     <Link to={item.path}>{$_(`sidebar.${item.name}`)}</Link>
                 </li>
