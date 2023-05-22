@@ -6,7 +6,7 @@
     };
 </script>
 
-<div class="dropdown-bottom dropdown-end dropdown">
+<div class="dropdown dropdown-bottom dropdown-end">
     <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div
         tabindex="0"

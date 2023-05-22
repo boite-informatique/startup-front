@@ -3,10 +3,10 @@
     import { sidebarLists } from "src/config/sidebarList";
     import ProjectActions from "src/lib/ProjectActions/ProjectActions.svelte";
     import ProjectGeneralInfo from "src/lib/ProjectPage/ProjectGeneralInfo.svelte";
-    import ProjectTasks from "src/lib/ProjectTasks.svelte";
-    import Redirect from "src/lib/Redirect.svelte";
-    import Sidebar from "src/lib/Sidebar.svelte";
-    import { _, t } from "svelte-i18n";
+    import ProjectTasks from "src/lib/components/project/ProjectTasks.svelte";
+    import Redirect from "src/lib/components/Redirect.svelte";
+    import Sidebar from "src/lib/components/layout/Sidebar.svelte";
+    import { _ } from "svelte-i18n";
     import { Route, navigate } from "svelte-navigator";
 
     export let projectID;

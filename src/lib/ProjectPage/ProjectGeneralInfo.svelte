@@ -1,7 +1,7 @@
 <script lang="ts">
     import { _ } from "svelte-i18n";
     import type { PopulatedProject } from "src/api/project/types/project-types";
-    import ProjectResumeModal from "src/lib/ProjectResumeModal.svelte";
+    import ProjectResumeModal from "../components/project/ProjectResumeModal.svelte";
 
     export let data: PopulatedProject;
 

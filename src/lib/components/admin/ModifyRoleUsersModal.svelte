@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { fetchUsers } from "../api/admin-user";
+    import { fetchUsers } from "src/api/admin-user";
     import { _ } from "svelte-i18n";
 
     export let modifyUsersModalState = false;

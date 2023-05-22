@@ -7,9 +7,9 @@
     import { useLocation } from "svelte-navigator";
 
     // importing modules
-    import Breadcrumb from "../lib/Breadcrumb.svelte";
-    import AddProject from "../lib/AddProject.svelte";
-    import ProjectsTables from "../lib/ProjectsTables.svelte";
+    import Breadcrumb from "src/lib/components/Breadcrumb.svelte";
+    import AddProject from "../lib/components/project/AddProject.svelte";
+    import ProjectsTables from "src/lib/components/project/ProjectsTables.svelte";
 
     // importing stores
     import { userPermissions } from "../stores/userPermissions";

@@ -1,6 +1,6 @@
 <script>
-    import Navbar from "../lib/Navbar.svelte";
-    import Sidebar from "../lib/Sidebar.svelte";
+    import Sidebar from "src/lib/components/layout/Sidebar.svelte";
+    import Navbar from "src/lib/components/layout/navbar/Navbar.svelte";
 
     export let showNavbar = true;
     export let showSidebar = true;

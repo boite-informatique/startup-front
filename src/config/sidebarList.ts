@@ -4,7 +4,7 @@ import ProjectHistoryPage from "src/lib/ProjectPage/ProjectHistoryPage.svelte";
 import ProjectMembersPage from "src/lib/ProjectPage/ProjectMembersPage.svelte";
 import ProjectProgressPage from "src/lib/ProjectPage/ProjectProgressPage.svelte";
 import ProjectSupervisorsPage from "src/lib/ProjectPage/ProjectSupervisorsPage.svelte";
-import ProjectTasks from "src/lib/ProjectTasks.svelte";
+import ProjectTasks from "src/lib/components/project/ProjectTasks.svelte";
 
 // this file stores the elements that will appear in the sidebar for each user, if you want to add an element just change the array.
 export const sidebarLists = {

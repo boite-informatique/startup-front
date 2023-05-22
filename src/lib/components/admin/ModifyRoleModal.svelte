@@ -1,6 +1,6 @@
 <script lang="ts">
     import { _ } from "svelte-i18n";
-    import { modifyOneRole } from "../api/admin-role";
+    import { modifyOneRole } from "src/api/admin-role";
     import { createEventDispatcher } from "svelte";
     import ModifyRoleUsersModal from "./ModifyRoleUsersModal.svelte";
     import ModifyRolePermissionsModal from "./ModifyRolePermissionsModal.svelte";

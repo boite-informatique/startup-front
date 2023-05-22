@@ -5,8 +5,8 @@
     import { activateAccount } from "../api/activate-account";
 
     // importing components
-    import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
-    import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
+    import DarkModeToggler from "src/lib/components/layout/navbar/DarkModeToggler.svelte";
+    import LanguageMenu from "src/lib/components/layout/navbar/LanguageMenu.svelte";
     import { Link } from "svelte-navigator";
     import logo from "../assets/innovium_logos/innovium_light.png";
 
@@ -54,8 +54,8 @@
     class="relative flex h-screen w-full items-center justify-center justify-self-center overflow-hidden px-4 py-12 sm:px-6 lg:px-8"
 >
     <div class="absolute top-5 right-5 flex gap-4">
-        <DarkModeTogglerLogin />
-        <LanguageMenuLogin />
+        <DarkModeToggler />
+        <LanguageMenu />
     </div>
     <div class="w-full max-w-md space-y-8">
         <div>

@@ -1,7 +1,7 @@
 <script>
     import { Link } from "svelte-navigator";
     import { _ } from "svelte-i18n";
-    import { routesStore } from "../stores/routesStore";
+    import { routesStore } from "src/stores/routesStore";
 
     let routesList = $routesStore;
 </script>

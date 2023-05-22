@@ -1,9 +1,9 @@
 <script lang="ts">
     import { getProjects } from "src/api/project";
-    import AddProject from "src/lib/AddProject.svelte";
-    import Breadcrumb from "src/lib/Breadcrumb.svelte";
+    import AddProject from "src/lib/components/project/AddProject.svelte";
+    import Breadcrumb from "src/lib/components/Breadcrumb.svelte";
 
-    import ProjectsTables from "src/lib/ProjectsTables.svelte";
+    import ProjectsTables from "src/lib/components/project/ProjectsTables.svelte";
     import { canAddProject } from "src/lib/utils/canAddProject";
 
     export let queryString = "";

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { _ } from "svelte-i18n";
-    import EditProfile from "src/lib/EditProfile.svelte";
+    import EditProfile from "src/lib/components/EditProfile.svelte";
     import { currentUserInfo } from "../stores/currentUserInfo";
     const baseURL = import.meta.env.VITE_baseURL;
 </script>

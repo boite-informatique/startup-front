@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import { mode } from "../stores/darkModeStore";
+    import { mode } from "src/stores/darkModeStore";
     import { themeChange } from "theme-change";
 
     onMount(() => {
@@ -37,7 +37,7 @@
     >
         Mode
     </div>
-    <label class="swap-rotate swap -mt-1">
+    <label class="swap swap-rotate -mt-1">
         <!-- this hidden checkbox controls the state -->
         <input
             type="checkbox"

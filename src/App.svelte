@@ -7,22 +7,22 @@
     import { mode } from "src/stores/darkModeStore";
 
     // importing routes
-    import Login from "./routes/Login.svelte";
-    import Home from "./routes/Home.svelte";
-    import Admin from "./routes/Admin.svelte";
-    import ForgotPassword from "./routes/ForgotPassword.svelte";
-    import ChangePassword from "./routes/ChangePassword.svelte";
-    import Register from "./routes/Register.svelte";
-    import RequestActivation from "./routes/RequestActivation.svelte";
+    import Login from "src/routes/Login.svelte";
+    import Home from "src/routes/Home.svelte";
+    import Admin from "src/routes/Admin.svelte";
+    import ForgotPassword from "src/routes/ForgotPassword.svelte";
+    import ChangePassword from "src/routes/ChangePassword.svelte";
+    import Register from "src/routes/Register.svelte";
+    import RequestActivation from "src/routes/RequestActivation.svelte";
 
-    import ActivateAccount from "./routes/ActivateAccount.svelte";
+    import ActivateAccount from "src/routes/ActivateAccount.svelte";
 
     // importing components
-    import Indicator from "./lib/Indicator.svelte";
+    import Indicator from "src/lib/components/Indicator.svelte";
     import { getCurrentUserInfoAndStore } from "./api/user";
-    import Profile from "./routes/Profile.svelte";
-    import Navbar from "./lib/Navbar.svelte";
-    import ProjectsRoutes from "./routes/ProjectsRoutes.svelte";
+    import Profile from "src/routes/Profile.svelte";
+    import Navbar from "src/lib/components/layout/navbar/Navbar.svelte";
+    import ProjectsRoutes from "src/routes/ProjectsRoutes.svelte";
 
     let indicatorVisible = false;
     let indicatorContent;

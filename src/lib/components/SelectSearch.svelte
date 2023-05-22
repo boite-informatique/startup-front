@@ -5,7 +5,7 @@
     import {
         getEstablishments,
         type GetEstablishmentsOutput,
-    } from "../api/establishment-api";
+    } from "src/api/establishment-api";
 
     let query = "";
     let results: GetEstablishmentsOutput[] = [];

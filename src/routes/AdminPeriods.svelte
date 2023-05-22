@@ -1,7 +1,7 @@
 <script>
-    import Breadcrumb from "../lib/Breadcrumb.svelte";
+    import Breadcrumb from "src/lib/components/Breadcrumb.svelte";
     import { periods } from "src/stores/periodsStore";
-    import EditPeriods from "src/lib/EditPeriods.svelte";
+    import EditPeriods from "src/lib/components/EditPeriods.svelte";
 </script>
 
 <div class="flex w-full flex-col gap-4 p-4 md:gap-5 md:px-12 md:pt-7">

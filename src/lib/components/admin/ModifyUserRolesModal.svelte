@@ -1,41 +1,44 @@
 <script lang="ts">
-    import { getAllPermissions } from "../api/admin-role";
+    import { fetchRoles } from "src/api/admin-role";
     import { _ } from "svelte-i18n";
 
-    export let modifyPermissionsModalState = false;
-    export let selectedPermissions: any[] = [];
+    export let modifyRolesModalState = false;
+    export let selectedRoles: {
+        name: string;
+        id: number;
+    }[] = [];
 
-    let allPermissions = getAllPermissions();
+    let allRoles = fetchRoles();
 </script>
 
 <input
     type="checkbox"
-    id="my-modal-13"
+    id="my-modal-12"
     class="modal-toggle"
-    bind:checked={modifyPermissionsModalState}
+    bind:checked={modifyRolesModalState}
 />
 <div class="modal modal-bottom sm:modal-middle">
     <div class="modal-box flex flex-col gap-8">
         <div>
             <h3 class="text-xl font-bold capitalize">
-                {$_("admin.roles.modify the role's permissions")}
+                {$_("admin.users.modify the user's roles")}
             </h3>
             <p class="capitalize opacity-75">
                 {$_(
-                    "admin.roles.Please select the permissions that you want to assign to the selected role"
+                    "admin.users.check the roles that you want this user to have"
                 )}
             </p>
         </div>
         <div class="flex flex-col gap-1">
-            {#await allPermissions}
+            {#await allRoles}
                 <button class="btn loading">{$_("admin.users.loading")}</button>
             {:then res}
                 {#if res.status >= 200 && res.status < 300}
-                    {#each res.data as permission}
+                    {#each res.data as role}
                         <div
-                            class="flex flex-row items-start justify-start gap-2 md:items-center {selectedPermissions.find(
+                            class="flex flex-row items-start justify-start gap-2 md:items-center {selectedRoles.find(
                                 (obj) => {
-                                    return obj.id == permission.id;
+                                    return obj.id == role.id;
                                 }
                             )
                                 ? 'opacity-100'
@@ -43,21 +46,19 @@
                         >
                             <input
                                 on:click={() => {
-                                    selectedPermissions.find((obj) => {
-                                        return obj.id == permission.id;
+                                    selectedRoles.find((obj) => {
+                                        return obj.id == role.id;
                                     })
-                                        ? (selectedPermissions =
-                                              selectedPermissions.filter(
-                                                  (obj) =>
-                                                      obj.id !== permission.id
-                                              ))
-                                        : (selectedPermissions = [
-                                              ...selectedPermissions,
-                                              permission,
+                                        ? (selectedRoles = selectedRoles.filter(
+                                              (obj) => obj.id !== role.id
+                                          ))
+                                        : (selectedRoles = [
+                                              ...selectedRoles,
+                                              role,
                                           ]);
                                 }}
-                                checked={selectedPermissions.find((obj) => {
-                                    return obj.id == permission.id;
+                                checked={selectedRoles.find((obj) => {
+                                    return obj.id == role.id;
                                 })
                                     ? true
                                     : false}
@@ -65,19 +66,19 @@
                                 class="checkbox ml-[3px] border-0 outline-none focus:border-0 focus:outline-none active:border-0 active:outline-none"
                             />
                             <div class="text-lg font-semibold capitalize">
-                                {permission.name}
+                                {role.name}
                             </div>
                         </div>
                     {:else}
                         <p
                             class=" text-center text-lg capitalize font-semibold"
                         >
-                            {$_("admin.roles.no permissions available")}
+                            {$_("admin.users.no roles available")}
                         </p>
                     {/each}
                 {:else}
                     <p class=" text-center text-lg capitalize font-semibold">
-                        {$_("admin.roles.no permissions available")}
+                        {$_("admin.users.no roles available")}
                     </p>
                 {/if}
             {:catch error}
@@ -90,7 +91,7 @@
         </div>
         <div class="flex flex-row items-center justify-end">
             <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <label for="my-modal-13" class="modal-action btn"
+            <label for="my-modal-12" class="modal-action btn"
                 >{$_("admin.users.close")}</label
             >
         </div>

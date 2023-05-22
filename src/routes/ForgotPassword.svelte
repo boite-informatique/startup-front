@@ -5,11 +5,11 @@
     import { forgotPasswordFirstStep } from "../api/forgot-password";
 
     // importing components
-    import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
-    import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
+    import DarkModeToggler from "src/lib/components/layout/navbar/DarkModeToggler.svelte";
+    import LanguageMenu from "src/lib/components/layout/navbar/LanguageMenu.svelte";
     import { Link } from "svelte-navigator";
-    import logo from "../assets/innovium_logos/innovium_light.png";
-    import MesrsLogo from "../lib/MesrsLogo.svelte";
+    import logo from "src/assets/innovium_logos/innovium_light.png";
+    import MesrsLogo from "src/lib/components/MesrsLogo.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -62,8 +62,8 @@
 >
     <MesrsLogo />
     <div class="absolute top-5 right-5 flex gap-4">
-        <DarkModeTogglerLogin />
-        <LanguageMenuLogin />
+        <DarkModeToggler />
+        <LanguageMenu />
     </div>
     <div class="w-full max-w-md space-y-8">
         <div>

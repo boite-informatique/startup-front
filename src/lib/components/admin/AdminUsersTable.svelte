@@ -1,6 +1,6 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    import { fetchUserRoles, fetchUsers } from "../api/admin-user";
+    import { fetchUserRoles, fetchUsers } from "src/api/admin-user";
     import { _ } from "svelte-i18n";
     import RolesModal from "./RolesModal.svelte";
     import UserTypeModal from "./UserTypeModal.svelte";

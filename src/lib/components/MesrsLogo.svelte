@@ -1,5 +1,5 @@
 <script>
-    import image from "../assets/Ministry logo.png";
+    import image from "src/assets/Ministry logo.png";
 </script>
 
 <div

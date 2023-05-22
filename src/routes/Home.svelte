@@ -1,7 +1,7 @@
 <script>
     // importing components
-    import HomeAuthorizedUser from "../lib/HomeAuthorizedUser.svelte";
-    import HomeUnauthorizedUser from "../lib/HomeUnauthorizedUser.svelte";
+    import HomeAuthorizedUser from "src/lib/components/HomeAuthorizedUser.svelte";
+    import HomeUnauthorizedUser from "src/lib/components/HomeUnauthorizedUser.svelte";
 
     let userIsLoggedIn;
 

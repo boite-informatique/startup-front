@@ -6,10 +6,10 @@
     import { createEventDispatcher } from "svelte";
 
     // importing components
-    import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
-    import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
+    import DarkModeToggler from "src/lib/components/layout/navbar/DarkModeToggler.svelte";
+    import LanguageMenu from "src/lib/components/layout/navbar/LanguageMenu.svelte";
     import logo from "../assets/innovium_logos/innovium_light.png";
-    import SelectSearch from "../lib/SelectSearch.svelte";
+    import SelectSearch from "src/lib/components/SelectSearch.svelte";
     import type { InvitationType } from "src/api/types/registration-types";
     import UploadComponent from "src/lib/upload/UploadComponent.svelte";
     import { indicateError } from "src/lib/utils/indicatorDispatchers";
@@ -161,8 +161,8 @@
 >
     <!-- <MesrsLogo />  -->
     <div class="absolute top-5 right-5 flex gap-4">
-        <DarkModeTogglerLogin />
-        <LanguageMenuLogin />
+        <DarkModeToggler />
+        <LanguageMenu />
     </div>
     <div class="w-full max-w-md space-y-8">
         <div>

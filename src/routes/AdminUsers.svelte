@@ -1,9 +1,9 @@
 <script>
-    import Breadcrumb from "../lib/Breadcrumb.svelte";
-    import UserFilter from "../lib/UserFilter.svelte";
-    import AddUser from "../lib/AddUser.svelte";
-    import AdminUsersTable from "../lib/AdminUsersTable.svelte";
-    import PaginationButtons from "../lib/PaginationButtons.svelte";
+    import Breadcrumb from "src/lib/components/Breadcrumb.svelte";
+    import AddUser from "src/lib/components/admin/AddUser.svelte";
+    import AdminUsersTable from "src/lib/components/admin/AdminUsersTable.svelte";
+    import PaginationButtons from "src/lib/components/admin/PaginationButtons.svelte";
+    import UserFilter from "src/lib/components/admin/UserFilter.svelte";
 
     let stopPagination = false; // this variable tells if the pagination should stop or not (in case user reached the end)
 

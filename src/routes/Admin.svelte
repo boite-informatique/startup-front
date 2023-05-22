@@ -12,7 +12,7 @@
     // importing stores
     import { userPermissions } from "../stores/userPermissions";
     import AdminPeriods from "./AdminPeriods.svelte";
-    import Sidebar from "src/lib/Sidebar.svelte";
+    import Sidebar from "src/lib/components/layout/Sidebar.svelte";
     import { sidebarLists } from "src/config/sidebarList";
 
     const dispatch = createEventDispatcher();

@@ -2,13 +2,13 @@
     import { Link } from "svelte-navigator";
     import { useLocation } from "svelte-navigator";
     import { _ } from "svelte-i18n";
-    import innoviumLogo from "../assets/innovium_logos/innovium_light.png";
-    import innoviumLogoNoText from "../assets/innovium_logos/light.png";
+    import innoviumLogo from "src/assets/innovium_logos/innovium_light.png";
+    import innoviumLogoNoText from "src/assets/innovium_logos/light.png";
 
-    import DarkModeTogglerLogin from "../lib/DarkModeTogglerLogin.svelte";
-    import LanguageMenuLogin from "../lib/LanguageMenuLogin.svelte";
-    import { routesStore } from "../stores/routesStore";
-    import NavbarAvatar from "./NavbarAvatar.svelte";
+    import DarkModeToggler from "src/lib/components/layout/navbar/DarkModeToggler.svelte";
+    import LanguageMenu from "src/lib/components/layout/navbar/LanguageMenu.svelte";
+    import { routesStore } from "src/stores/routesStore";
+    import NavbarAvatar from "src/lib/components/layout/navbar/NavbarAvatar.svelte";
     import MenuButton from "./MenuButton.svelte";
 
     let routesList = $routesStore;
@@ -55,8 +55,8 @@
         {/each}
     </ul>
     <div class="flex flex-row gap-2">
-        <DarkModeTogglerLogin />
-        <LanguageMenuLogin />
+        <DarkModeToggler />
+        <LanguageMenu />
         <NavbarAvatar />
     </div>
 </nav>
