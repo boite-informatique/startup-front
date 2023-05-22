@@ -15,6 +15,11 @@
         "my project": "my project"
     },
     "sidebar": {
+        "admin": {
+            "users": "users",
+            "roles": "roles",
+            "periods": "periods"
+        },
         "users": "users",
         "roles": "roles",
         "periods": "periods",

@@ -7,7 +7,8 @@
         "my project": "mon projet",
         "my projects": "mes projets",
         "supervised projects": "projets encadrés",
-        "validate projects": "valider les projets"
+        "validate projects": "valider les projets",
+        "logout": "déconnexion"
     },
     "breadcrumb": {
         "projects": "projets",
@@ -19,10 +20,20 @@
             "roles": "rôles",
             "periods": "périodes"
         },
+        "users": "utilisateurs",
+        "roles": "rôles",
+        "periods": "périodes",
         "projects": {},
         "announcements": {},
         "profile": {},
-        "my project": {}
+        "my project": {},
+        "general information": "informations générales",
+        "members": "membres",
+        "supervisors": "encadrants",
+        "edit history": "historique des modifications",
+        "progress": "avancement du projet",
+        "tasks": "tâches",
+        "defense": "informations de soutenance"
     },
     "register": {
         "indicator": {
