@@ -54,8 +54,6 @@
             </div>
         {/each}
     </ul>
-    <!-- <div class="w-28 lg:w-[270px]" /> -->
-    <!-- added this to take the place of the darkMode btn and language button since they are absolute -->
     <div class="flex flex-row gap-2">
         <DarkModeTogglerLogin />
         <LanguageMenuLogin />
