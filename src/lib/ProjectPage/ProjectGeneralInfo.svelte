@@ -9,8 +9,12 @@
     let projectResumeModalData = "";
 </script>
 
+<div class="text-3xl font-bold">
+    {$_("sidebar.general information")}
+</div>
+
 <div class="flex flex-col gap-2 md:flex-row">
-    <div class="w-[330px] font-bold">
+    <div class="font-bold sm:w-[330px]">
         {$_("projects.product")} :
     </div>
     <div>
@@ -18,7 +22,7 @@
     </div>
 </div>
 <div class="flex flex-col gap-2 md:flex-row">
-    <div class="w-[330px] font-bold">
+    <div class="font-bold sm:w-[330px]">
         {$_("projects.brand")} :
     </div>
     <div>
@@ -26,7 +30,7 @@
     </div>
 </div>
 <div class="flex flex-col gap-2 md:flex-row">
-    <div class="w-[330px] font-bold">
+    <div class="font-bold sm:w-[330px]">
         {$_("projects.type")} :
     </div>
     <div>
@@ -34,7 +38,7 @@
     </div>
 </div>
 <div class="flex flex-col gap-2 md:flex-row">
-    <div class="w-[330px] font-bold">
+    <div class="font-bold sm:w-[330px]">
         {$_("projects.resume")} :
     </div>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -52,7 +56,7 @@
     </div>
 </div>
 <div class="flex flex-col gap-2 md:flex-row">
-    <div class="w-[330px] font-bold">
+    <div class="font-bold sm:w-[330px]">
         {$_("projects.owner")} :
     </div>
     <div class="flex items-center space-x-3">
@@ -77,7 +81,7 @@
 </div>
 
 <div class="flex flex-col gap-2 md:flex-row">
-    <div class="w-[330px] font-bold">
+    <div class="font-bold sm:w-[330px]">
         {$_("projects.created at")} :
     </div>
     <div>

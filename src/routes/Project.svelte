@@ -21,7 +21,7 @@
     {:then res}
         {#if res.status >= 200 && res.status < 300}
             <!-- main content goes here -->
-            <div class="flex flex-col gap-5 capitalize text-xl mt-8">
+            <div class="flex flex-col gap-5 capitalize text-xl mt-8 w-full p-2">
                 <ProjectActions
                     project={res.data}
                     on:showIndicator

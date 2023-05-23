@@ -6,7 +6,7 @@
 </script>
 
 <div class="flex flex-col gap-2 md:flex-row">
-    <div class="w-[330px] font-bold">
+    <div class="font-bold sm:w-[330px]">
         {$_("projects.members")} :
     </div>
     <div class="flex flex-col gap-7 md:flex-row">

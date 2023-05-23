@@ -17,7 +17,7 @@
 </script>
 
 <nav
-    class="navbar sticky top-0 z-50 flex flex-row items-center justify-between bg-light bg-opacity-10 py-3 pl-0 pr-3 shadow-lg backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-50 lg:px-5"
+    class="navbar sticky top-0 z-[9998] flex flex-row items-center justify-between bg-light bg-opacity-10 py-3 pl-0 pr-3 shadow-lg backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-50 lg:px-5"
 >
     <MenuButton />
     <img src={innoviumLogo} alt="Innovium logo" class="hidden h-14 sm:block" />
