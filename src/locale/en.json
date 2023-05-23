@@ -265,7 +265,8 @@
             "no tasks available": "no tasks available"
         },
         "co-supervisor": "co-supervisor",
-        "optional": "optional"
+        "optional": "optional",
+        "logo": "Logo"
     },
     "profile": {
         "Account Activation": "Account Activation",

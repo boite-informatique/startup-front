@@ -3,6 +3,8 @@
     import { register } from "src/api/project";
     import { createEventDispatcher } from "svelte";
     import { _ } from "svelte-i18n";
+    import UploadComponent from "src/lib/upload/UploadComponent.svelte";
+    import { indicateError } from "src/lib/utils/indicatorDispatchers";
 
     const dispatch = createEventDispatcher();
 
@@ -15,6 +17,8 @@
     let supervisorEmail: string = "";
     let coSupervisorEmail: string = "";
     let supervisorsEmails: string[] = [];
+
+    let fileUpload; // upload function binded from UploadComponent
 
     let indicateSupervisorAlreadyAdded = () => {
         dispatch("showIndicator", {
@@ -73,13 +77,22 @@
             indicateDataIsMissing();
             return;
         }
-
+        let logo: string = null;
+        try {
+            const files = await fileUpload();
+            logo = files;
+        } catch (error) {
+            e.preventDefault();
+            indicateError(dispatch, error.message);
+            return;
+        }
         let response = await register({
             resume,
             brand_name: brand,
             product_name: product,
             type,
             members: membersEmails,
+            logo,
             supervisors: supervisorsEmails,
             ...(coSupervisorEmail ? { co_supervisor: coSupervisorEmail } : {}),
         });
@@ -411,6 +424,18 @@
                     'projects.optional'
                 )})"
                 class="input-bordered input w-full max-w-xs md:w-[320px]"
+            />
+        </div>
+        <div
+            class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
+        >
+            <div class="text-lg font-semibold capitalize md:w-40">
+                {$_("projects.logo")} :
+            </div>
+            <UploadComponent
+                required={true}
+                type="image"
+                bind:handleFormSubmit={fileUpload}
             />
         </div>
         <div
