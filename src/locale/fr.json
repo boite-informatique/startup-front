@@ -270,7 +270,8 @@
             "no tasks available": "aucune tâche disponible"
         },
         "co-supervisor": "co-encadrant",
-        "optional": "optionnel"
+        "optional": "optionnel",
+        "logo": "Logo"
     },
     "profile": {
         "Account Activation": "Activation du compte",
@@ -281,5 +282,14 @@
         "Establishment": "Établissement",
         "Teacher Information": "Informations de l'enseignant",
         "Grade": "niveau"
+    },
+    "banner": {
+        "Platform is not open yet": "La plateforme n'est pas encore ouverte",
+        "Within submission phase": "Dans la phase de soumission",
+        "Within validation phase": "Dans la phase de validation",
+        "Within appeal phase": "Dans la phase de recours",
+        "Within appeal validation phase": "Dans la phase de validation des recours",
+        "Platform is closed": "La plateforme est fermée",
+        "current period": "la période actuelle"
     }
 }

@@ -23,6 +23,7 @@
     import Profile from "src/routes/Profile.svelte";
     import Navbar from "src/lib/components/layout/navbar/Navbar.svelte";
     import ProjectsRoutes from "src/routes/ProjectsRoutes.svelte";
+    import PeriodBanner from "src/lib/PeriodBanner.svelte";
 
     let indicatorVisible = false;
     let indicatorContent;
@@ -99,6 +100,7 @@
 
             <!-- Components that need navbar and sidebar -->
             <Route>
+                <PeriodBanner />
                 <Navbar />
                 <Route path="/">
                     <Home />
