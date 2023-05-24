@@ -302,5 +302,14 @@
     "project": {
         "updated successfully": "Project updated successfully",
         "invalid data": "Invalid data, please change your input."
+    },
+    "banner": {
+        "Platform is not open yet": "Platform is not open yet",
+        "Within submission phase": "Within submission phase",
+        "Within validation phase": "Within validation phase",
+        "Within appeal phase": "Within appeal phase",
+        "Within appeal validation phase": "Within appeal validation phase",
+        "Platform is closed": "Platform is closed",
+        "current period": "current period"
     }
 }
