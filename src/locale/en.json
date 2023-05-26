@@ -266,7 +266,8 @@
         },
         "co-supervisor": "co-supervisor",
         "optional": "optional",
-        "logo": "Logo"
+        "logo": "Logo",
+        "modify project": "Modify Project"
     },
     "profile": {
         "Account Activation": "Account Activation",
@@ -277,5 +278,9 @@
         "Establishment": "Establishment",
         "Teacher Information": "Teacher Information",
         "Grade": "Grade"
+    },
+    "project": {
+        "updated successfully": "Project updated successfully",
+        "invalid data": "Invalid data, please change your input."
     }
 }

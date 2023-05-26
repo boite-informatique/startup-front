@@ -1,5 +1,5 @@
 <script>
-    import { getProjectByID } from "src/api/project";
+    import { getProjectByID } from "src/api//project/project";
     import { sidebarLists } from "src/config/sidebarList";
     import ProjectActions from "src/lib/ProjectActions/ProjectActions.svelte";
     import ProjectGeneralInfo from "src/lib/ProjectPage/ProjectGeneralInfo.svelte";

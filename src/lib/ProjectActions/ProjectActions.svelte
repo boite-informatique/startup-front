@@ -18,12 +18,16 @@
     <label for="my-modal-4" class="modal cursor-pointer">
         <label class="modal-box relative" for="">
             {#if component}
-                <svelte:component this={component} on:showIndicator />
+                <svelte:component
+                    this={component}
+                    on:showIndicator
+                    bind:project
+                />
             {/if}
         </label>
     </label>
 
-    <div class="dropdown dropdown-end absolute right-6">
+    <div class="dropdown-end dropdown absolute right-6">
         <!-- svelte-ignore a11y-label-has-associated-control -->
         <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
         <!-- svelte-ignore a11y-positive-tabindex -->
