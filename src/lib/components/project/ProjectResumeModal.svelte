@@ -7,14 +7,14 @@
 
 <input
     type="checkbox"
-    id="my-modal-4"
+    id="my-modal-432"
     class="modal-toggle"
     bind:checked={projectResumeModalState}
 />
 <div class="modal">
     <div class="modal-box relative">
         <label
-            for="my-modal-4"
+            for="my-modal-432"
             class="btn-sm btn-circle btn absolute right-2 top-2">✕</label
         >
         <h3 class="mb-3 text-lg font-bold capitalize">
