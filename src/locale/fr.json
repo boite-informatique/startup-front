@@ -33,7 +33,10 @@
         "edit history": "historique des modifications",
         "progress": "avancement du projet",
         "tasks": "tâches",
-        "defense": "informations de soutenance"
+        "defense": "informations de soutenance",
+        "project's edit history": "historique des modifications du projet",
+        "project members": "membres du projet",
+        "project supervisors": "encadrants du projet"
     },
     "register": {
         "indicator": {
@@ -272,7 +275,9 @@
         },
         "co-supervisor": "co-encadrant",
         "optional": "optionnel",
-        "logo": "Logo"
+        "logo": "Logo",
+        "no defense documents for this project": "aucun document de soutenance pour ce projet",
+        "no progress for this project": "aucun avancement pour ce projet"
     },
     "profile": {
         "Account Activation": "Activation du compte",

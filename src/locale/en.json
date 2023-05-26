@@ -33,7 +33,10 @@
         "edit history": "edit history",
         "progress": "project progress",
         "tasks": "tasks",
-        "defense": "defense information"
+        "defense": "defense informations",
+        "project's edit history": "project's edit history",
+        "project members": "project members",
+        "project supervisors": "project supervisors"
     },
     "register": {
         "indicator": {
@@ -272,7 +275,9 @@
         },
         "co-supervisor": "co-supervisor",
         "optional": "optional",
-        "logo": "Logo"
+        "logo": "Logo",
+        "no defense documents for this project": "no defense documents for this project",
+        "no progress for this project": "no progress for this project"
     },
     "profile": {
         "Account Activation": "Account Activation",
