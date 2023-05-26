@@ -9,7 +9,7 @@
     <div class="font-bold sm:w-[330px]">
         {$_("projects.members")} :
     </div>
-    <div class="flex flex-col gap-7 md:flex-row">
+    <div class="flex flex-col gap-7">
         {#each data.members as member}
             <div class="flex items-center space-x-3">
                 <div class="avatar">

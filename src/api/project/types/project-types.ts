@@ -24,6 +24,7 @@ export type PopulatedProject = Project & {
     owner: User;
     members: User[];
     supervisors: User[];
+    co_supervisor: User;
     validation: ProjectValidationWithUser[];
     ProjectProgress: ProjectProgressWithUser[];
     ProjectTask: ProjectTaskWithUser[];
