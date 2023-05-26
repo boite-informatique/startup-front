@@ -1,10 +1,10 @@
 <script lang="ts">
     import { currentUserInfo } from "src/stores/currentUserInfo";
-    import { register } from "src/api/project";
     import { createEventDispatcher } from "svelte";
     import { _ } from "svelte-i18n";
     import UploadComponent from "src/lib/upload/UploadComponent.svelte";
     import { indicateError } from "src/lib/utils/indicatorDispatchers";
+    import { register } from "src/api/project/project";
 
     const dispatch = createEventDispatcher();
 

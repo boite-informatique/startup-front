@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { getProjects } from "src/api/project";
+    import { getProjects } from "src/api/project/project";
     import AddProject from "src/lib/components/project/AddProject.svelte";
     import Breadcrumb from "src/lib/components/Breadcrumb.svelte";
 

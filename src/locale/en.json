@@ -277,7 +277,8 @@
         "optional": "optional",
         "logo": "Logo",
         "no defense documents for this project": "no defense documents for this project",
-        "no progress for this project": "no progress for this project"
+        "no progress for this project": "no progress for this project",
+        "modify project": "Modify Project"
     },
     "profile": {
         "Account Activation": "Account Activation",
@@ -297,5 +298,9 @@
         "Within appeal validation phase": "Within appeal validation phase",
         "Platform is closed": "Platform is closed",
         "current period": "current period"
+    },
+    "project": {
+        "updated successfully": "Project updated successfully",
+        "invalid data": "Invalid data, please change your input."
     }
 }

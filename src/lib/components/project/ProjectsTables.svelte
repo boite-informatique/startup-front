@@ -1,6 +1,6 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    import { getProjects } from "src/api/project";
+    import { getProjects } from "src/api/project/project";
     import { _ } from "svelte-i18n";
     import ProjectResumeModal from "./ProjectResumeModal.svelte";
     import ProjectValidationModal from "./ProjectValidationModal.svelte";
