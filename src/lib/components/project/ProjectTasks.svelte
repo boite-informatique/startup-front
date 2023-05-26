@@ -5,7 +5,7 @@
 </script>
 
 <div class="flex flex-col gap-3">
-    <div class="text-3xl font-bold">
+    <div class="mb-3 text-3xl font-bold">
         {$_("projects.tasks.project's tasks")}
     </div>
 

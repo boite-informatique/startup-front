@@ -9,7 +9,7 @@
     let projectResumeModalData = "";
 </script>
 
-<div class="text-3xl font-bold">
+<div class="mb-3 text-3xl font-bold">
     {$_("sidebar.general information")}
 </div>
 

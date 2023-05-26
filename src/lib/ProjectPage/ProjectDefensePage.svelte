@@ -5,6 +5,10 @@
     export let data: PopulatedProject;
 </script>
 
+<div class="mb-3 text-3xl font-bold">
+    {$_("sidebar.defense")}
+</div>
+
 <div class="flex flex-col gap-2 md:flex-row">
     <div class="font-bold sm:w-[330px]">
         {$_("projects.defense authorization")} :
@@ -75,7 +79,7 @@
                         >Label</a
                     >
                 {:else}
-                    There is no defense document
+                    {$_("projects.no defense documents for this project")}
                 {/if}
             </p>
         </div>
