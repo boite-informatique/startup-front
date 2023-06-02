@@ -2,6 +2,7 @@
     import { _ } from "svelte-i18n";
     import type { PopulatedProject } from "src/api/project/types/project-types";
     import ProjectResumeModal from "../components/project/ProjectResumeModal.svelte";
+    import Avatar from "../components/Avatar.svelte";
 
     export let data: PopulatedProject;
 
@@ -62,9 +63,9 @@
     <div class="flex items-center space-x-3">
         <div class="avatar">
             <div class="mask mask-squircle h-12 w-12">
-                <img
-                    src="https://avatars.githubusercontent.com/u/100171494?v=4"
-                    alt="Avatar of a user"
+                <Avatar
+                    src={data.owner.avatar}
+                    altText={data.owner.first_name}
                 />
             </div>
         </div>
