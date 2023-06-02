@@ -13,10 +13,10 @@
 
     const dispatch = createEventDispatcher();
 
-    let product: string = "";
-    let brand: string = "";
-    let type: "startup" | "patent";
-    let resume: string = "";
+    let product: string = project.product_name;
+    let brand: string = project.brand_name;
+    let type: "startup" | "patent" = project.type;
+    let resume: string = project.resume;
 
     let fileUpload; // upload function binded from UploadComponent
 

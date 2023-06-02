@@ -1,10 +1,17 @@
 <script lang="ts">
     import type { PopulatedProject } from "src/api/project/types/project-types";
     import { actions } from "./actionsList";
+    import { getUserType, type UserType } from "./usertype";
+    import { currentUserInfo } from "src/stores/currentUserInfo";
+    import { userPermissions } from "src/stores/userPermissions";
 
     export let project: PopulatedProject;
     console.log(project);
-    export let userType: "owner" | "supervisor" | "sc" | "member" = "member";
+    export let userType: UserType = getUserType(
+        project,
+        $currentUserInfo,
+        $userPermissions
+    );
 
     let component;
     const setModalComponent = (newComponent) => {

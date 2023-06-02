@@ -80,7 +80,6 @@ export const actions = {
             name: "Edit Project",
             component: ProjectModify,
             disabled: (project: PopulatedProject): boolean => {
-                return false;
                 return !(
                     (project.validation.length == 0 && periods.submission) ||
                     (project.validation[0]?.decision ==
