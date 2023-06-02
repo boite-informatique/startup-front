@@ -10,4 +10,14 @@ export type DefensePlanification = {
 
 export type DefenseMode = "onsite" | "online";
 
-type DefenseNature = "public" | "private";
+export type DefenseNature = "public" | "private";
+
+export type DefensePlanificationInput = {
+    jury_president: string;
+    jury_members: string[];
+    jury_invities: string[];
+    location?: string;
+    date: Date;
+    mode: DefenseMode;
+    nature: DefenseNature;
+};

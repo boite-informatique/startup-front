@@ -7,6 +7,7 @@ import ReportProgress from "./actions/ReportProgress.svelte";
 import ValidationForm from "./actions/ValidationForm.svelte";
 import { get } from "svelte/store";
 import { periods as periodsStore } from "../../stores/periodsStore";
+import PlanSoutenance from "./actions/PlanSoutenance.svelte";
 
 function strToDatetime(str: string): number {
     return new Date(str).getTime();
@@ -94,6 +95,18 @@ export const actions = {
             component: ProjectDefenseDocumentsUpload,
             disabled: (project: PopulatedProject): boolean => {
                 return project.DefenseAuthorization == null;
+            },
+        },
+    ],
+    rs: [
+        {
+            name: "Plan Defense",
+            component: PlanSoutenance,
+            disabled: (project: PopulatedProject): boolean => {
+                return (
+                    project.DefenseAuthorization == null ||
+                    project.DefensePlanification != null
+                );
             },
         },
     ],

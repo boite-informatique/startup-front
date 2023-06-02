@@ -34,7 +34,7 @@
             delay: 0,
             opacity: 0,
         }}
-        class="absolute top-0 left-0 z-[9999] flex h-24 w-screen select-none items-center justify-center overflow-hidden overflow-y-visible sm:h-20"
+        class="absolute top-0 left-0 z-[19999] flex h-24 w-screen select-none items-center justify-center overflow-hidden overflow-y-visible sm:h-20"
     >
         {#if indicatorType == "btn-info"}
             <div
