@@ -144,8 +144,8 @@
     class="modal-toggle"
     bind:checked={ModifyUserModalState}
 />
-<div class="modal">
-    <div class="modal-box flex w-11/12 max-w-5xl flex-col gap-5">
+<div class="modal z-[9999]">
+    <div class="modal-box  flex w-11/12 max-w-5xl flex-col gap-5">
         <h3 class="mb-2 text-xl font-bold capitalize">
             {$_("admin.users.modify the user's informations")}!
         </h3>

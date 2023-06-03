@@ -15,7 +15,8 @@
     <div class="modal-box relative">
         <label
             for="my-modal-3"
-            class="btn-sm btn-circle btn absolute right-2 top-2">✕</label
+            class="btn-sm btn-circle btn absolute right-2 top-2 z-[9999]"
+            >✕</label
         >
         {#if rolesData.length > 0}
             <h3 class="text-lg font-bold capitalize">

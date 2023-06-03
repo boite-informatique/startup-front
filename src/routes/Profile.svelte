@@ -2,33 +2,20 @@
     import { _ } from "svelte-i18n";
     import EditProfile from "src/lib/components/EditProfile.svelte";
     import { currentUserInfo } from "../stores/currentUserInfo";
+    import Avatar from "src/lib/components/Avatar.svelte";
     const baseURL = import.meta.env.VITE_baseURL;
 </script>
 
 <div
     class="container mt-8 flex flex-col flex-wrap content-center items-start justify-center gap-3 text-left text-xl capitalize"
 >
-    {#if $currentUserInfo.avatar}
-        <div class="avatar mx-auto">
-            <div class="w-24 rounded-full">
-                <img
-                    src={`${baseURL}upload/${$currentUserInfo.avatar}`}
-                    alt="avatar"
-                />
-            </div>
-        </div>
-    {:else}
-        <div class="placeholder avatar">
-            <div
-                class="w-24 rounded-full bg-neutral-focus text-neutral-content"
-            >
-                <span class="text-3xl"
-                    >{$currentUserInfo.first_name[0] +
-                        $currentUserInfo.last_name[0]}</span
-                >
-            </div>
-        </div>
-    {/if}
+    <div class="mask mask-circle avatar mx-auto h-24 w-24">
+        <Avatar
+            src={$currentUserInfo.avatar}
+            altText={$currentUserInfo.first_name}
+        />
+    </div>
+
     <div class="self-center">
         <EditProfile on:showIndicator />
     </div>

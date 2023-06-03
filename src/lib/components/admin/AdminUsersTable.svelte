@@ -119,9 +119,8 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="font-bold">
+                                        <div class="font-bold capitalize">
                                             {user.first_name}
-                                            {user.middle_name}
                                             {user.last_name}
                                         </div>
                                         <div
@@ -134,17 +133,21 @@
                             </td>
                             <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
-                                class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800"
+                                class="cursor-pointer bg-gray-200 capitalize font-bold text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40 hover:bg-gray-800"
                                 on:click={() => {
                                     UserTypeModalState = true;
                                     UserType = user.type;
-                                    if (user.type === "Student") {
+                                    if (user.type === "student") {
                                         UserTypeModalData = user.student
                                             ? user.student
                                             : {};
-                                    } else if (user.type === "Teacher") {
+                                    } else if (user.type === "teacher") {
                                         UserTypeModalData = user.teacher
                                             ? user.teacher
+                                            : {};
+                                    } else if (user.type === "staff") {
+                                        UserTypeModalData = user.staff
+                                            ? user.staff
                                             : {};
                                     }
                                 }}

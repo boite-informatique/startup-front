@@ -21,7 +21,6 @@
             skip: 0,
             take: 10,
             first_name: firstName,
-            sex: sex,
             type: type,
         };
 
@@ -54,7 +53,7 @@
 </label>
 
 <input type="checkbox" id="my-modal-5" class="modal-toggle" />
-<div class="modal">
+<div class="modal z-[9999]">
     <div class="modal-box flex w-11/12 max-w-5xl flex-col gap-5">
         <h3 class="mb-2 text-xl font-bold capitalize">
             {$_("admin.users.filter.filter users as you like")}!
@@ -72,7 +71,7 @@
                 class="input-bordered input w-full max-w-xs"
             />
         </div>
-        <div
+        <!-- <div
             class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
         >
             <div class="text-lg font-semibold capitalize md:w-40">
@@ -92,7 +91,7 @@
                     }}>{$_("admin.users.female")}</button
                 >
             </div>
-        </div>
+        </div> -->
         <div
             class="flex flex-col items-start justify-start gap-2 md:flex-row md:items-center"
         >

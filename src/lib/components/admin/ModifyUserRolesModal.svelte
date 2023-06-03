@@ -17,7 +17,7 @@
     class="modal-toggle"
     bind:checked={modifyRolesModalState}
 />
-<div class="modal modal-bottom sm:modal-middle">
+<div class="modal modal-bottom z-[9999] sm:modal-middle">
     <div class="modal-box flex flex-col gap-8">
         <div>
             <h3 class="text-xl font-bold capitalize">
