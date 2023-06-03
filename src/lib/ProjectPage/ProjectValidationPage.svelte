@@ -1,77 +1,63 @@
 <script lang="ts">
     import type { PopulatedProject } from "src/api/project/types/project-types";
     import { _ } from "svelte-i18n";
+    import UserInfoAvatarName from "../components/UserInfoAvatarName.svelte";
 
     export let data: PopulatedProject;
 </script>
 
+<div class="mb-3 text-3xl font-bold">
+    {$_("sidebar.project's validations")}
+</div>
+
 <div class="flex flex-col gap-2 md:flex-row">
     <div class="font-bold sm:w-[330px]">
-        {$_("projects.validation")} :
+        {$_("projects.project history")} :
     </div>
-    <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-    <div tabindex="0" class="collapse w-7/12">
-        <div
-            class="collapse-title rounded-t-xl bg-black bg-opacity-5 text-xl font-medium dark:bg-white dark:bg-opacity-5"
-        >
-            {$_("projects.click here to see the project validation state")}
-        </div>
-        <div
-            class="collapse-content rounded-b-xl bg-black bg-opacity-10 pt-2 dark:bg-white dark:bg-opacity-10"
-        >
-            <div class="flex flex-col gap-5">
+    {#if data.validation.length > 0}
+        <div class="flex flex-col gap-5">
+            {#each data.validation as validation}
+                <div class="flex flex-col items-center gap-5 md:flex-row">
+                    <div>
+                        <span class="font-bold"
+                            >{$_("projects.validator")} :
+                        </span>
+                    </div>
+                    <UserInfoAvatarName user={validation.validator} />
+                </div>
                 <p>
-                    - {$_("projects.decision")} : {$_(
-                        `projects.${data?.validation[0]?.decision}`
-                    )}
+                    <span class="font-bold"
+                        >{$_("projects.decision")} :
+                    </span>{$_(`projects.${data?.validation[0]?.decision}`)}
                 </p>
-                {#if data.validation[0]?.reservation}
+                {#if validation?.reservation}
                     <p>
-                        - {$_("projects.reservation")} : {$_(
-                            `projects.${data.validation[0]?.reservation}`
-                        )}
+                        <span class="font-bold"
+                            >{$_("projects.reservation")} :
+                        </span>{$_(`projects.${validation?.reservation}`)}
                     </p>
                 {/if}
                 <p>
-                    - {$_("projects.decision date")} : {new Date(
-                        data.validation[0]?.created_at
-                    ).toLocaleString("en-UK", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                        hour: "numeric",
-                        minute: "numeric",
-                        timeZone: "UTC",
-                    })}
+                    <span class="font-bold">{$_("projects.note")} : </span>{data
+                        .validation[0]?.note}
                 </p>
                 <p>
-                    - {$_("projects.note")} : {data.validation[0]?.note}
+                    <span class="font-bold"
+                        >{$_("projects.decision date")} :
+                    </span>{new Date(validation?.created_at).toLocaleString(
+                        "en-UK",
+                        {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                            hour: "numeric",
+                            minute: "numeric",
+                            timeZone: "UTC",
+                        }
+                    )}
                 </p>
-                <div class="flex flex-col items-center gap-5 md:flex-row">
-                    <div>
-                        - {$_("projects.validator")} :
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <div class="avatar">
-                            <div class="mask mask-squircle h-12 w-12">
-                                <img
-                                    src="https://avatars.githubusercontent.com/u/100171494?v=4"
-                                    alt="Avatar of a user"
-                                />
-                            </div>
-                        </div>
-                        <div>
-                            <div class="font-bold">
-                                {data.validation[0]?.validator.first_name}
-                                {data.validation[0]?.validator.last_name}
-                            </div>
-                            <div class="text-sm font-medium opacity-90">
-                                {data.validation[0]?.validator.email}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <div class="divider" />
+            {/each}
         </div>
-    </div>
+    {/if}
 </div>

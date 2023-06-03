@@ -15,7 +15,7 @@
         {$_("projects.project history")} :
     </div>
     <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-    {#if data.history}
+    {#if data.history.length > 0}
         <div class="flex flex-col gap-5">
             {#each data.history as ProjectState}
                 <div class="flex flex-col gap-2">
