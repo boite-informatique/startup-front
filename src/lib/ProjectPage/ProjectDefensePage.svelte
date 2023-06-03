@@ -2,6 +2,7 @@
     import type { PopulatedProject } from "src/api/project/types/project-types";
     import { _ } from "svelte-i18n";
     import Avatar from "../components/Avatar.svelte";
+    import UserInfoAvatarName from "../components/UserInfoAvatarName.svelte";
 
     export let data: PopulatedProject;
 </script>
@@ -20,27 +21,9 @@
         <div class="flex flex-col gap-2">
             <div class="flex flex-row items-center gap-5">
                 <span class="font-bold">{$_("projects.supervisor")} : </span>
-                <div class="flex items-center space-x-3">
-                    <div class="avatar">
-                        <div class="mask mask-squircle h-12 w-12">
-                            <Avatar
-                                src={data.DefenseAuthorization.supervisor
-                                    .avatar}
-                                altText={data.DefenseAuthorization.supervisor
-                                    .first_name}
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="font-bold">
-                            {data.DefenseAuthorization.supervisor.first_name}
-                            {data.DefenseAuthorization.supervisor.last_name}
-                        </div>
-                        <div class="text-sm font-medium opacity-90">
-                            {data.DefenseAuthorization.supervisor.email}
-                        </div>
-                    </div>
-                </div>
+                <UserInfoAvatarName
+                    user={data.DefenseAuthorization.supervisor}
+                />
             </div>
             <div class="flex flex-row gap-1">
                 <div>

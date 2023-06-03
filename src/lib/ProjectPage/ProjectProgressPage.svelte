@@ -2,6 +2,7 @@
     import type { PopulatedProject } from "src/api/project/types/project-types";
     import { _ } from "svelte-i18n";
     import Avatar from "../components/Avatar.svelte";
+    import UserInfoAvatarName from "../components/UserInfoAvatarName.svelte";
 
     export let data: PopulatedProject;
 </script>
@@ -53,26 +54,7 @@
                         >{$_("projects.updated by")} :
                     </span>
                 </div>
-                <div class="flex items-center space-x-3">
-                    <div class="avatar">
-                        <div class="mask mask-squircle h-12 w-12">
-                            <Avatar
-                                src={data.ProjectProgress[0].user.avatar}
-                                altText={data.ProjectProgress[0].user
-                                    .first_name}
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="font-bold">
-                            {data.ProjectProgress[0].user.first_name}
-                            {data.ProjectProgress[0].user.last_name}
-                        </div>
-                        <div class="text-sm font-medium opacity-90">
-                            {data.ProjectProgress[0].user.email}
-                        </div>
-                    </div>
-                </div>
+                <UserInfoAvatarName user={data.ProjectProgress[0].user} />
             </div>
         </div>
     {:else}
