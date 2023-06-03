@@ -4,6 +4,7 @@
     import ProjectResumeModal from "../components/project/ProjectResumeModal.svelte";
     import Avatar from "../components/Avatar.svelte";
     import UserInfoAvatarName from "../components/UserInfoAvatarName.svelte";
+    import ImageModal from "../components/ImageModal.svelte";
 
     export let data: PopulatedProject;
 
@@ -55,6 +56,14 @@
         {data.resume.split(" ").slice(8, 9).join(" ")} ...<span
             class="underline opacity-60">{$_("projects.show more")}</span
         >
+    </div>
+</div>
+<div class="flex flex-col gap-2 md:flex-row">
+    <div class="font-bold sm:w-[330px]">
+        {$_("projects.logo")} :
+    </div>
+    <div>
+        <ImageModal src={data.logo} />
     </div>
 </div>
 <div class="flex flex-col gap-2 md:flex-row">
