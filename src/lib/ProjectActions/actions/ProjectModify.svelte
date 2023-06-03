@@ -24,7 +24,7 @@
         let logo: string = null;
         try {
             const files = await fileUpload();
-            logo = files || null;
+            logo = files || undefined;
         } catch (error) {
             e.preventDefault();
             indicateError(dispatch, error.message);
