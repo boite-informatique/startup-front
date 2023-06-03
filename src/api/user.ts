@@ -20,6 +20,17 @@ export async function getCurrentUserInfoAndStore(): Promise<
     }
 }
 
+export async function getUserById(
+    userId: number
+): Promise<AxiosResponse<UserWithRelationsAndEstablishment>> {
+    try {
+        const response = await api.get(`/users/${userId}`);
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export async function modifyProfile(
     userId: number,
     input: {

@@ -24,6 +24,7 @@
     import Navbar from "src/lib/components/layout/navbar/Navbar.svelte";
     import ProjectsRoutes from "src/routes/ProjectsRoutes.svelte";
     import PeriodBanner from "src/lib/PeriodBanner.svelte";
+    import ProfileRoutes from "./routes/ProfileRoutes.svelte";
 
     let indicatorVisible = false;
     let indicatorContent;
@@ -105,8 +106,8 @@
                 <Route path="/">
                     <Home />
                 </Route>
-                <Route path="/profile/">
-                    <Profile on:showIndicator={showIndicator} />
+                <Route path="/profile/*">
+                    <ProfileRoutes on:showIndicator={showIndicator} />
                 </Route>
                 <Route path="/admin/*">
                     <Admin on:showIndicator={showIndicator} />

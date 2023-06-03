@@ -1,13 +1,19 @@
 <script lang="ts">
     import type { User } from "src/api/types/user-types";
     import Avatar from "./Avatar.svelte";
+    import { useNavigate } from "svelte-navigator";
 
+    const navigate = useNavigate();
     export let user: User;
 </script>
 
 <div class="flex items-center gap-4">
     <div>
-        <div class="mask mask-squircle avatar h-12 w-12">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <div
+            class="mask mask-squircle avatar h-12 w-12 cursor-pointer"
+            on:click={() => navigate(`/profile/${user.id}`)}
+        >
             <Avatar src={user.avatar} altText={user.first_name} />
         </div>
     </div>
