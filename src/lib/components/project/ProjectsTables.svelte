@@ -48,14 +48,6 @@
                 >
                 <th
                     class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
-                    >{$_("projects.members")}</th
-                >
-                <th
-                    class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
-                    >{$_("projects.supervisors")}</th
-                >
-                <th
-                    class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
                     >{$_("projects.created at")}</th
                 >
                 <th
@@ -110,27 +102,6 @@
                                 {project.owner.email}
                             </div>
                         </td>
-                        <!-- svelte-ignore a11y-click-events-have-key-events -->
-                        <td
-                            on:click={() => {
-                                projectMembersModalState = true;
-                                projectMembersModalData = project.members;
-                            }}
-                            class="cursor-pointer select-none bg-gray-200 font-semibold text-gray-800 transition-all hover:bg-gray-800 hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
-                            >{project.members.length}
-                            {$_("projects.members")}</td
-                        >
-                        <!-- svelte-ignore a11y-click-events-have-key-events -->
-                        <td
-                            on:click={() => {
-                                projectSupervisorsModalState = true;
-                                projectSupervisorsModalData =
-                                    project.supervisors;
-                            }}
-                            class="cursor-pointer select-none bg-gray-200 font-semibold text-gray-800 transition-all hover:bg-gray-800 hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
-                            >{project.supervisors.length}
-                            {$_("projects.supervisors")}</td
-                        >
                         <td
                             class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
                         >
@@ -148,13 +119,14 @@
                         </td>
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <td
-                            on:click={() => {
-                                projectValidationModalState = true;
-                                projectValidationModalData = project.validation;
-                            }}
-                            class="cursor-pointer select-none bg-gray-200 font-semibold text-gray-800 transition-all hover:bg-gray-800 hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
-                            >{project.validation.decision}</td
+                            class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
                         >
+                    {#if project.validation.length > 0}
+                    {$_("project." + project.validation[0].decision)}
+                    {:else}
+                    {$_("project.none")}
+                    {/if}
+                    </td>
                     </tr>
                 {/each}
             {:else}
