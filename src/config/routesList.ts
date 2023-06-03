@@ -20,6 +20,10 @@ let routesByUsers = {
         { path: "profile", name: "profile" },
         { path: "projects?type=sc", name: "submitted projects" }, // to validate
     ],
+    rs: [
+        { path: "projects?type=rs", name: "submitted projects" }, // to plan soutenance
+        { path: "profile", name: "profile" },
+    ],
     guest: [],
 };
 export default routesByUsers;
