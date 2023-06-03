@@ -5,6 +5,10 @@
     import UserInfoAvatarName from "../components/UserInfoAvatarName.svelte";
 
     export let data: PopulatedProject;
+
+    const invitedMembers = data.ProjectInvitees.filter(
+        (invitee) => invitee.type == "member"
+    );
 </script>
 
 <div class="mb-3 text-3xl font-bold">
@@ -12,22 +16,44 @@
 </div>
 
 <div class="flex flex-col gap-2 md:flex-row">
-    <div class="font-bold sm:w-[330px]">
-        {$_("projects.members")} :
-    </div>
-    <div class="flex flex-col gap-7">
-        {#if data.members}
-            {#each data.members as member}
-                <UserInfoAvatarName user={member} />
+    <div class="flex flex-col gap-2 md:flex-row">
+        <div class="font-bold sm:w-[330px]">
+            {$_("projects.members")} :
+        </div>
+        <div class="flex flex-col gap-7">
+            {#if data.members.length > 0}
+                {#each data.members as member}
+                    <UserInfoAvatarName user={member} />
+                {/each}
             {:else}
-                <div class="opacity-75">
-                    {$_(
-                        "projects.there are no members for this project currently"
-                    )}.
-                </div>
-            {/each}
-        {:else}
-            {$_("projects.there are no members for this project currently")}.
-        {/if}
+                {$_(
+                    "projects.there are no members for this project currently"
+                )}.
+            {/if}
+        </div>
+    </div>
+</div>
+
+<div class="divider my-0 mx-auto w-11/12" />
+
+<!-- invited members but not registered -->
+<div class="flex flex-col gap-2 md:flex-row">
+    <div class="flex flex-col gap-2 md:flex-row">
+        <div class="font-bold sm:w-[330px]">
+            {$_("projects.invited members")} :
+        </div>
+        <div class="flex flex-col gap-7">
+            {#if invitedMembers.length > 0}
+                {#each invitedMembers as invitedMember}
+                    <div class="lowercase">
+                        {invitedMember.email}
+                    </div>
+                {/each}
+            {:else}
+                {$_(
+                    "projects.there are no invited members for this project currently"
+                )}.
+            {/if}
+        </div>
     </div>
 </div>
