@@ -39,7 +39,11 @@ export const sidebarLists = {
         },
         { path: "tasks", name: "tasks", component: ProjectTasks },
         { path: "progress", name: "progress", component: ProjectProgressPage },
-        { path: "soutenance", name: "defense", component: ProjectDefensePage },
+        {
+            path: "soutenance-docs",
+            name: "defense",
+            component: ProjectDefensePage,
+        },
         {
             path: "soutenance-plan",
             name: "defense plan",
