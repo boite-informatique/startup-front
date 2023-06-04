@@ -8,6 +8,8 @@ export type CreateProjectTask = {
 };
 
 export type ProjectTask = {
+    created_at: string | number | Date;
+    user: User;
     id: number;
     project_id: number;
     user_id: number;
