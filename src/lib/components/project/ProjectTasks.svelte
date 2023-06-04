@@ -130,5 +130,5 @@
 </Route>
 
 <Route path="/:id" let:params>
-    <ProjectTaskPage {taskData} taskID={params.id} on:showIndicator />
+    <ProjectTaskPage taskID={params.id} on:showIndicator />
 </Route>
