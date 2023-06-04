@@ -90,7 +90,7 @@
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="w-[330px] font-bold">{$_("profile.Speciality")}</div>
             <div>
-                {user.student.speciality}
+                {user.student.specialty}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
@@ -120,7 +120,7 @@
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="w-[330px] font-bold">{$_("profile.Speciality")}</div>
             <div>
-                {user.teacher.speciality}
+                {user.teacher.specialty}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">

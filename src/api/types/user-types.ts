@@ -20,7 +20,7 @@ export type Student = {
     registration_num: string;
     establishment_id: number;
     filiere: string;
-    speciality: string;
+    specialty: string;
 };
 
 export type Teacher = {
@@ -28,7 +28,7 @@ export type Teacher = {
     registration_num: string;
     establishment_id: number;
     grade: string;
-    speciality: string;
+    specialty: string;
 };
 
 export type Staff = {
