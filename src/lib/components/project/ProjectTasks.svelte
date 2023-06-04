@@ -3,6 +3,7 @@
     import { Route } from "svelte-navigator";
     import ProjectTaskPage from "./ProjectTaskPage.svelte";
     import { navigate } from "svelte-navigator";
+    let taskData;
 
     export let tasksData = [];
 </script>
@@ -58,9 +59,10 @@
                             <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
                                 class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                                on:click={() =>
-                                    navigate(`/projects/${task.id}`)}
-                                >{task.title}</td
+                                on:click={() => {
+                                    navigate(`/projects/${task.id}`);
+                                    taskData = task;
+                                }}>{task.title}</td
                             >
                             <td
                                 class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
@@ -128,6 +130,5 @@
 </Route>
 
 <Route path="/:id" let:params>
-    <!-- <Project projectID={params.id} on:showIndicator /> -->
-    <ProjectTaskPage />
+    <ProjectTaskPage {taskData} taskID={params.id} on:showIndicator />
 </Route>

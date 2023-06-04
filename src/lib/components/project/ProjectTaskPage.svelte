@@ -1,5 +1,8 @@
 <script lang="ts">
     import { _ } from "svelte-i18n";
+    import UserInfoAvatarName from "../UserInfoAvatarName.svelte";
+    export let taskData;
+    export let taskID;
 </script>
 
 <div class="mb-3 text-3xl font-bold">
@@ -11,7 +14,7 @@
         {$_("projects.tasks.title")} :
     </div>
     <div>
-        <!-- {data.product_name} -->
+        {taskData.title}
     </div>
 </div>
 <div class="flex flex-col gap-2 md:flex-row">
@@ -19,27 +22,28 @@
         {$_("projects.tasks.description")} :
     </div>
     <div>
-        <!-- {data.brand_name} -->
+        {taskData.description}
     </div>
 </div>
 <div class="flex flex-col gap-2 md:flex-row">
     <div class="font-bold sm:w-[330px]">
         {$_("projects.tasks.user")} :
     </div>
-    <div>
-        <!-- {data.type} -->
-    </div>
+    <UserInfoAvatarName user={taskData.user} />
 </div>
 <div class="flex flex-col gap-2 md:flex-row">
     <div class="font-bold sm:w-[330px]">
         {$_("projects.tasks.deadline")} :
     </div>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div class="cursor-pointer select-none">
-        <!-- {data.resume.split(" ").slice(0, 8).join(" ")}
-        {data.resume.split(" ").slice(8, 9).join(" ")} ...<span
-            class="underline opacity-60">{$_("projects.show more")}</span
-        > -->
+    <div>
+        {new Date(taskData.created_at).toLocaleString("en-UK", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+            timeZone: "UTC",
+        })}
     </div>
 </div>
 <div class="flex flex-col gap-2 md:flex-row">
@@ -48,6 +52,7 @@
     </div>
     <div>
         <!-- <ImageModal src={data.logo} /> -->
+        here put ressources
     </div>
 </div>
 <div class="flex flex-col gap-2 md:flex-row">
