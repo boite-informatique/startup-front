@@ -59,5 +59,7 @@
                 <div class="divider" />
             {/each}
         </div>
+    {:else}
+        {$_("projects.no validations")}
     {/if}
 </div>

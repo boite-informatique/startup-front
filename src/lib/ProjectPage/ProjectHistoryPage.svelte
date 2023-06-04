@@ -42,7 +42,7 @@
                         )}
                     </div>
                     <div class="flex items-center">
-                        <span class="font-bold"
+                        <span class="overflow-hidden font-bold"
                             >{$_("projects.old value")} :
                         </span>
                         {#if ProjectState.field === "logo"}
