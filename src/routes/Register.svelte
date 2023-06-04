@@ -59,6 +59,7 @@
                 break;
             case "staff":
                 info = { grade };
+                break;
             default:
                 indicateErrorOccurred();
                 return;
