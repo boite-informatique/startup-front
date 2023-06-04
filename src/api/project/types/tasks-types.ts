@@ -8,6 +8,8 @@ export type CreateProjectTask = {
 };
 
 export type ProjectTask = {
+    comments: any;
+    TaskFinished: any;
     created_at: string | number | Date;
     user: User;
     id: number;

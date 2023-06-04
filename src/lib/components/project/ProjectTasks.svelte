@@ -128,7 +128,3 @@
         </div>
     </div>
 </Route>
-
-<Route path="/:id" let:params>
-    <ProjectTaskPage taskID={params.id} on:showIndicator />
-</Route>

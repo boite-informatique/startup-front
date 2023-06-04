@@ -26,7 +26,7 @@
             class="text-sm font-medium opacity-90"
             style="text-transform: none;"
         >
-            {user.email}
+            {user?.email}
         </div>
     </div>
 </div>

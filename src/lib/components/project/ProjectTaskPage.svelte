@@ -2,9 +2,9 @@
     import { _ } from "svelte-i18n";
     import UserInfoAvatarName from "../UserInfoAvatarName.svelte";
     import { GetTask } from "src/api/project/tasks";
-    export let taskID = 1;
+    export let taskID: string | number = 1;
 
-    let task = GetTask(taskID);
+    let task = GetTask(+taskID);
 </script>
 
 {#await task}
@@ -20,7 +20,9 @@
                 {$_("projects.tasks.title")} :
             </div>
             <div>
-                {taskData.data.title}
+                {taskData.data.title
+                    ? taskData.data.title
+                    : $_("projects.tasks.title not available")}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
@@ -28,7 +30,9 @@
                 {$_("projects.tasks.description")} :
             </div>
             <div>
-                {taskData.data.description}
+                {taskData.data.description
+                    ? taskData.data.description
+                    : $_("projects.tasks.description not available")}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
@@ -56,9 +60,14 @@
             <div class="font-bold sm:w-[330px]">
                 {$_("projects.tasks.resources")} :
             </div>
-            <div>
-                <!-- <ImageModal src={data.logo} /> -->
-                here put ressources
+            <div class="flex flex-col justify-start items-start gap-1">
+                {#each taskData.data.resources as ressource}
+                    <div>
+                        {ressource}
+                    </div>
+                {:else}
+                    {$_("projects.tasks.no resources available")}
+                {/each}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
@@ -66,13 +75,45 @@
                 {$_("projects.tasks.finished")}? :
             </div>
             <!-- <UserInfoAvatarName user={data.owner} /> -->
+            <div class="flex flex-col gap-1">
+                <div>
+                    {$_("projects.tasks.description")} : {taskData.data
+                        .TaskFinished?.description}
+                </div>
+            </div>
         </div>
 
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="font-bold sm:w-[330px]">
                 {$_("projects.tasks.comments")} :
             </div>
-            <div>
+            <div class="flex flex-col gap-11">
+                {#each taskData.data.comments as comment}
+                    <div class="flex flex-col gap-2">
+                        <div class="flex flex-row gap-2">
+                            {$_("projects.tasks.by")} : <UserInfoAvatarName
+                                user={comment.author}
+                            />
+                        </div>
+                        <div class="flex flex-row gap-2">
+                            {$_("projects.tasks.at")} : {new Date(
+                                comment.created_at
+                            ).toLocaleString("en-UK", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                                hour: "numeric",
+                                minute: "numeric",
+                                timeZone: "UTC",
+                            })}
+                        </div>
+                        <div class="flex flex-row gap-2">
+                            {$_("projects.tasks.comment")} : {comment.body}
+                        </div>
+                    </div>
+                {:else}
+                    {$_("projects.tasks.no comments available")}
+                {/each}
                 <!-- {new Date(data.created_at).toLocaleString("en-UK", {
             year: "numeric",
             month: "long",

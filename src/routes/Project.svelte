@@ -6,6 +6,7 @@
     import ProjectTasks from "src/lib/components/project/ProjectTasks.svelte";
     import Redirect from "src/lib/components/Redirect.svelte";
     import Sidebar from "src/lib/components/layout/Sidebar.svelte";
+    import ProjectTaskPage from "src/lib/components/project/ProjectTaskPage.svelte";
     import { _ } from "svelte-i18n";
     import { Route, navigate } from "svelte-navigator";
 
@@ -35,6 +36,9 @@
                         />
                     </Route>
                 {/each}
+                <Route path="tasks/:id" let:params>
+                    <ProjectTaskPage taskID={params.id} on:showIndicator />
+                </Route>
             </div>
         {:else}
             <p
