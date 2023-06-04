@@ -72,7 +72,7 @@
     />
 
     <Router>
-        <main class="flex min-h-screen flex-col items-center justify-between">
+        <main class="flex min-h-screen flex-col items-center justify-start">
             <!-- Components that don't need navbar and sidebar -->
             <Route path="login">
                 <Login on:showIndicator={showIndicator} />
