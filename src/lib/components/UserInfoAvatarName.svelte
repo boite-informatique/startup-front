@@ -22,8 +22,11 @@
             {user?.first_name}
             {user?.last_name}
         </div>
-        <div class="text-sm font-medium opacity-90">
-            {user?.email}
+        <div
+            class="text-sm font-medium opacity-90"
+            style="text-transform: none;"
+        >
+            {user.email}
         </div>
     </div>
 </div>

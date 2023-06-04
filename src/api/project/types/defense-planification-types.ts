@@ -1,12 +1,27 @@
+import type { User } from "src/api/types/user-types";
+
 export type DefensePlanification = {
     id: number;
     project_id: number;
-    jury_president: number;
+    jury_president_id: number | null;
+    president: User;
+    jury_members: User[];
+    jury_invities: User[];
     date: Date;
-    establishement_id: number;
+    location: string | null;
     mode: DefenseMode;
     nature: DefenseNature;
+    DefenseInvitees: DefenseInvitees[];
 };
+
+export type DefenseInvitees = {
+    id: number;
+    defensePlan_id: number;
+    type: DefenseInvitationType;
+    email: string;
+};
+
+export type DefenseInvitationType = "member" | "president" | "invite";
 
 export type DefenseMode = "onsite" | "online";
 
