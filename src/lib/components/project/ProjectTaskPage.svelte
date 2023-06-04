@@ -46,14 +46,19 @@
                 {$_("projects.tasks.deadline")} :
             </div>
             <div>
-                {new Date(taskData.data.created_at).toLocaleString("en-UK", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                    hour: "numeric",
-                    minute: "numeric",
-                    timeZone: "UTC",
-                })}
+                {taskData.data.created_at
+                    ? new Date(taskData.data.created_at).toLocaleString(
+                          "en-UK",
+                          {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                              hour: "numeric",
+                              minute: "numeric",
+                              timeZone: "UTC",
+                          }
+                      )
+                    : $_("projects.tasks.no deadline available")}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
@@ -78,7 +83,9 @@
             <div class="flex flex-col gap-1">
                 <div>
                     {$_("projects.tasks.description")} : {taskData.data
-                        .TaskFinished?.description}
+                        .TaskFinished?.description
+                        ? taskData.data.TaskFinished?.description
+                        : $_("projects.tasks.no description available")}
                 </div>
             </div>
         </div>
