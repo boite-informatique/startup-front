@@ -1,4 +1,5 @@
 import ProjectDefensePage from "src/lib/ProjectPage/ProjectDefensePage.svelte";
+import ProjectDefensePlanification from "src/lib/ProjectPage/ProjectDefensePlanification.svelte";
 import ProjectGeneralInfo from "src/lib/ProjectPage/ProjectGeneralInfo.svelte";
 import ProjectHistoryPage from "src/lib/ProjectPage/ProjectHistoryPage.svelte";
 import ProjectMembersPage from "src/lib/ProjectPage/ProjectMembersPage.svelte";
@@ -39,5 +40,10 @@ export const sidebarLists = {
         { path: "tasks", name: "tasks", component: ProjectTasks },
         { path: "progress", name: "progress", component: ProjectProgressPage },
         { path: "soutenance", name: "defense", component: ProjectDefensePage },
+        {
+            path: "soutenance-plan",
+            name: "defense plan",
+            component: ProjectDefensePlanification,
+        },
     ],
 };

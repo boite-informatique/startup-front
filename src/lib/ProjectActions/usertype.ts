@@ -1,7 +1,7 @@
 import type { PopulatedProject } from "src/api/project/types/project-types";
 import type { UserWithRelationsAndEstablishment } from "src/api/types/user-types";
 
-export type UserType = "owner" | "supervisor" | "sc" | "member";
+export type UserType = "owner" | "supervisor" | "sc" | "rs" | "member";
 
 // returns user type relative to this project
 export const getUserType = (
@@ -22,6 +22,10 @@ export const getUserType = (
 
     if (userPermissions.some((obj) => obj.name === "sc")) {
         return "sc";
+    }
+
+    if (userPermissions.some((obj) => obj.name === "rs")) {
+        return "rs";
     }
 
     return "member";

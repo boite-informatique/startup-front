@@ -7,7 +7,7 @@
 
     export let project: PopulatedProject;
     console.log(project);
-    export let userType: UserType = getUserType(
+    let userType: UserType = getUserType(
         project,
         $currentUserInfo,
         $userPermissions
