@@ -25,34 +25,14 @@
                 {#each data.members as member}
                     <UserInfoAvatarName user={member} />
                 {/each}
-            {:else}
-                {$_(
-                    "projects.there are no members for this project currently"
-                )}.
             {/if}
-        </div>
-    </div>
-</div>
 
-<div class="divider my-0 mx-auto w-11/12" />
-
-<!-- invited members but not registered -->
-<div class="flex flex-col gap-2 md:flex-row">
-    <div class="flex flex-col gap-2 md:flex-row">
-        <div class="font-bold sm:w-[330px]">
-            {$_("projects.invited members")} :
-        </div>
-        <div class="flex flex-col gap-7">
             {#if invitedMembers.length > 0}
-                {#each invitedMembers as invitedMember}
+                {#each invitedMembers as memberInvite}
                     <div class="lowercase">
-                        {invitedMember.email}
+                        {memberInvite.email}
                     </div>
                 {/each}
-            {:else}
-                {$_(
-                    "projects.there are no invited members for this project currently"
-                )}.
             {/if}
         </div>
     </div>

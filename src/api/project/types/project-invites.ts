@@ -6,4 +6,4 @@ export type ProjectInvitees = {
     token: string;
 };
 
-type ProjectInvitationType = "supervisor" | "member";
+type ProjectInvitationType = "supervisor" | "member" | "co_supervisor";
