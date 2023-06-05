@@ -64,9 +64,11 @@
             </div>
             <div class="flex flex-col justify-start items-start gap-1">
                 {#each taskData.data.resources as ressource}
-                    <div>
-                        {ressource}
-                    </div>
+                    <a
+                        href={`http://localhost:3001/upload/${ressource}`}
+                        target="_blank"
+                        class="btn">ressource</a
+                    >
                 {:else}
                     {$_("projects.tasks.no resources available")}
                 {/each}
@@ -83,6 +85,26 @@
                         .TaskFinished?.description
                         ? taskData.data.TaskFinished?.description
                         : $_("projects.tasks.no description available")}
+                </div>
+                <div class="flex flex-row gap-2">
+                    <div>
+                        {$_("projects.tasks.description")} :
+                    </div>
+                    <div class="flex flex-col justify-start items-start gap-1">
+                        {#if taskData.data.TaskFinished?.resources}
+                            {#each taskData.data.TaskFinished?.resources as ressource}
+                                <a
+                                    href={`http://localhost:3001/upload/${ressource}`}
+                                    target="_blank"
+                                    class="btn">ressource</a
+                                >
+                            {:else}
+                                {$_("projects.tasks.no resources available")}
+                            {/each}
+                        {:else}
+                            {$_("projects.tasks.no resources available")}
+                        {/if}
+                    </div>
                 </div>
             </div>
         </div>
