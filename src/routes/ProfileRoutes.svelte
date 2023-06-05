@@ -13,13 +13,13 @@
 
 <Route path="/">
     <div class="flex w-full flex-col gap-4 p-4 md:gap-5 md:px-12 md:pt-7">
-        <Profile user={$currentUserInfo} on:showIndicator />
+        <Profile user={$currentUserInfo} ownProfile={true} on:showIndicator />
     </div>
 </Route>
 <Route path="/:id/*" let:params>
     {#await getUserById(+params.id) then res}
         {#if res.status === 200}
-            <Profile user={res.data} on:showIndicator />
+            <Profile user={res.data} ownProfile={false} on:showIndicator />
         {:else}
             <Redirect path="/" />
         {/if}

@@ -9,6 +9,7 @@
     } from "src/api/types/user-types";
 
     export let user: UserWithRelationsAndEstablishment;
+    export let ownProfile: boolean = true;
 </script>
 
 <div
@@ -17,10 +18,11 @@
     <div class="mask mask-circle avatar mx-auto h-24 w-24">
         <Avatar src={user.avatar} altText={user.first_name} />
     </div>
-
-    <div class="self-center">
-        <EditProfile on:showIndicator />
-    </div>
+    {#if ownProfile}
+        <div class="self-center">
+            <EditProfile on:showIndicator />
+        </div>
+    {/if}
     <div class="flex flex-col gap-2 md:flex-row">
         <div class="w-[330px] font-bold">{$_("register.firstname")}</div>
         <div>{user.first_name}</div>
