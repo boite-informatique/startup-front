@@ -1,11 +1,11 @@
-<script>
+<script type="ts">
     import { _ } from "svelte-i18n";
     import { Route } from "svelte-navigator";
-    import ProjectTaskPage from "./ProjectTaskPage.svelte";
-    import { navigate } from "svelte-navigator";
+    import { navigate, useLocation } from "svelte-navigator";
+    const location = useLocation();
     let taskData;
 
-    export let tasksData = [];
+    export let data: any = [];
 </script>
 
 <Route path="/">
@@ -41,32 +41,35 @@
                         >
                         <th
                             class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
-                            >{$_("projects.tasks.resources")}</th
-                        >
-                        <th
-                            class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
                             >{$_("projects.tasks.finished")}?</th
-                        >
-                        <th
-                            class="bg-slate-300 text-gray-800 transition-all dark:bg-slate-700 dark:text-gray-200"
-                            >{$_("projects.tasks.comments")}</th
                         >
                     </tr>
                 </thead>
                 <tbody>
-                    {#each tasksData as task}
+                    {#each data.ProjectTask as task}
                         <tr>
                             <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
-                                class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                                class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
                                 on:click={() => {
-                                    navigate(`/projects/${task.id}`);
+                                    let url = $location.pathname;
+                                    let parts = url.split("/");
+                                    let index = parts.indexOf("projects");
+                                    let projectID = parts[index + 1];
+                                    navigate(
+                                        `/projects/${projectID}/tasks/${task.id}`
+                                    );
                                     taskData = task;
-                                }}>{task.title}</td
+                                }}
+                                >{task.title
+                                    ? task.title
+                                    : "no title available"}</td
                             >
                             <td
                                 class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                                >{task.description}</td
+                                >{task.description
+                                    ? task.description
+                                    : "no description available"}</td
                             >
                             <td
                                 class="flex items-center space-x-3 bg-gray-200 transition-all dark:bg-gray-800"
@@ -81,11 +84,11 @@
                                 </div>
                                 <div>
                                     <div class="font-bold">
-                                        {task.user.first_name}
-                                        {task.user.last_name}
+                                        {task.user?.first_name}
+                                        {task.user?.last_name}
                                     </div>
                                     <div class="text-sm font-medium opacity-90">
-                                        {task.user.email}
+                                        {task.user?.email}
                                     </div>
                                 </div>
                             </td>
@@ -105,15 +108,7 @@
                             >
                             <td
                                 class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                                >mazal</td
-                            >
-                            <td
-                                class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                                >mazal</td
-                            >
-                            <td
-                                class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                                >mazal</td
+                                >{console.log(task)}</td
                             >
                         </tr>
                     {:else}
