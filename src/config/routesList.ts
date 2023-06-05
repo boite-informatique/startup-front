@@ -7,7 +7,7 @@ let routesByUsers = {
     ],
     student: [
         { path: "projects?type=my", name: "my project" },
-        // { path: "announcements", name: 1 },
+        { path: "announcements", name: "announcements" },
         { path: "profile", name: "profile" },
     ],
     teacher: [

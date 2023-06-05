@@ -25,6 +25,7 @@
     import ProjectsRoutes from "src/routes/ProjectsRoutes.svelte";
     import PeriodBanner from "src/lib/PeriodBanner.svelte";
     import ProfileRoutes from "./routes/ProfileRoutes.svelte";
+    import Announcements from "./routes/Announcements.svelte";
 
     let indicatorVisible = false;
     let indicatorContent;
@@ -114,6 +115,9 @@
                 </Route>
                 <Route path="/projects/*">
                     <ProjectsRoutes on:showIndicator={showIndicator} />
+                </Route>
+                <Route path="/announcements">
+                    <Announcements on:showIndicator={showIndicator} />
                 </Route>
             </Route>
         </main>
