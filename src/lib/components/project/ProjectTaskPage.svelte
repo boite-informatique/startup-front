@@ -80,15 +80,19 @@
             </div>
             <!-- <UserInfoAvatarName user={data.owner} /> -->
             <div class="flex flex-col gap-1">
-                <div>
-                    {$_("projects.tasks.description")} : {taskData.data
-                        .TaskFinished?.description
-                        ? taskData.data.TaskFinished?.description
-                        : $_("projects.tasks.no description available")}
+                <div class="flex flex-row gap-2">
+                    <div class="font-semibold">
+                        {$_("projects.tasks.description")} :
+                    </div>
+                    <div>
+                        {taskData.data.TaskFinished?.description
+                            ? taskData.data.TaskFinished?.description
+                            : $_("projects.tasks.no description available")}
+                    </div>
                 </div>
                 <div class="flex flex-row gap-2">
-                    <div>
-                        {$_("projects.tasks.description")} :
+                    <div class="font-semibold">
+                        {$_("projects.tasks.resources")} :
                     </div>
                     <div class="flex flex-col justify-start items-start gap-1">
                         {#if taskData.data.TaskFinished?.resources}
@@ -117,24 +121,38 @@
                 {#each taskData.data.comments as comment}
                     <div class="flex flex-col gap-2">
                         <div class="flex flex-row gap-2">
-                            {$_("projects.tasks.by")} : <UserInfoAvatarName
-                                user={comment.author}
-                            />
+                            <div class="font-semibold">
+                                {$_("projects.tasks.by")} :
+                            </div>
+                            <div>
+                                <UserInfoAvatarName user={comment.author} />
+                            </div>
                         </div>
                         <div class="flex flex-row gap-2">
-                            {$_("projects.tasks.at")} : {new Date(
-                                comment.created_at
-                            ).toLocaleString("en-UK", {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric",
-                                hour: "numeric",
-                                minute: "numeric",
-                                timeZone: "UTC",
-                            })}
+                            <div class="font-semibold">
+                                {$_("projects.tasks.at")} :
+                            </div>
+                            <div>
+                                {new Date(comment.created_at).toLocaleString(
+                                    "en-UK",
+                                    {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                        hour: "numeric",
+                                        minute: "numeric",
+                                        timeZone: "UTC",
+                                    }
+                                )}
+                            </div>
                         </div>
                         <div class="flex flex-row gap-2">
-                            {$_("projects.tasks.comment")} : {comment.body}
+                            <div class="font-semibold">
+                                {$_("projects.tasks.comment")} :
+                            </div>
+                            <div>
+                                {comment.body}
+                            </div>
                         </div>
                     </div>
                 {:else}
