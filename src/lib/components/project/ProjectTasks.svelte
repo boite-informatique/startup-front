@@ -108,7 +108,11 @@
                             >
                             <td
                                 class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
-                                >{console.log(task)}</td
+                                >{task.TaskFinished?.description
+                                    ? task.TaskFinished?.description
+                                    : $_(
+                                          "projects.tasks.no informations available"
+                                      )}</td
                             >
                         </tr>
                     {:else}

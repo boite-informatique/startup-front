@@ -46,18 +46,15 @@
                 {$_("projects.tasks.deadline")} :
             </div>
             <div>
-                {taskData.data.created_at
-                    ? new Date(taskData.data.created_at).toLocaleString(
-                          "en-UK",
-                          {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                              hour: "numeric",
-                              minute: "numeric",
-                              timeZone: "UTC",
-                          }
-                      )
+                {taskData.data.deadline
+                    ? new Date(taskData.data.deadline).toLocaleString("en-UK", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                          hour: "numeric",
+                          minute: "numeric",
+                          timeZone: "UTC",
+                      })
                     : $_("projects.tasks.no deadline available")}
             </div>
         </div>
