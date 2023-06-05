@@ -4,7 +4,7 @@
 
     const baseURL = import.meta.env.VITE_baseURL;
 
-    let announcements = getAnnouncements();
+    let announcements = getAnnouncements("admin");
 </script>
 
 <div
