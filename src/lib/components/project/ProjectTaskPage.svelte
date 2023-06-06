@@ -190,4 +190,8 @@
     </p>
 {/await}
 
-<MarkTaskFinished {taskFinishedModalData} bind:taskFinishedModalState />
+<MarkTaskFinished
+    {taskFinishedModalData}
+    bind:taskFinishedModalState
+    on:showIndicator
+/>
