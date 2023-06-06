@@ -2,7 +2,12 @@
     import { _ } from "svelte-i18n";
     import UserInfoAvatarName from "../UserInfoAvatarName.svelte";
     import { GetTask } from "src/api/project/tasks";
+    import MarkTaskFinished from "./MarkTaskFinished.svelte";
+    import { userPermissions } from "src/stores/userPermissions";
     export let taskID: string | number = 1;
+
+    let taskFinishedModalData;
+    let taskFinishedModalState;
 
     let task = GetTask(+taskID);
 </script>
@@ -78,7 +83,6 @@
             <div class="font-bold sm:w-[330px]">
                 {$_("projects.tasks.finished")}? :
             </div>
-            <!-- <UserInfoAvatarName user={data.owner} /> -->
             <div class="flex flex-col gap-1">
                 <div class="flex flex-row gap-2">
                     <div class="font-semibold">
@@ -110,6 +114,19 @@
                         {/if}
                     </div>
                 </div>
+                {#if !$userPermissions.some((obj) => obj.name === "sc")}
+                    <!-- show this only if he is not sc -->
+                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                    <div
+                        class="font-semibold underline cursor-pointer"
+                        on:click={() => {
+                            taskFinishedModalState = true;
+                            taskFinishedModalData = taskData.data;
+                        }}
+                    >
+                        {$_("projects.tasks.click to mark task as finished")}
+                    </div>
+                {/if}
             </div>
         </div>
 
@@ -158,20 +175,11 @@
                 {:else}
                     {$_("projects.tasks.no comments available")}
                 {/each}
-                <!-- {new Date(data.created_at).toLocaleString("en-UK", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "numeric",
-            minute: "numeric",
-            timeZone: "UTC",
-        })} -->
             </div>
         </div>
-        <!-- <ProjectResumeModal {projectResumeModalData} bind:projectResumeModalState /> -->
     {:else}
         <p class="text-gray-200 text-center text-lg capitalize font-semibold">
-            {$_("projects.task unavailable")}
+            {$_("projects.tasks.task unavailable")}
         </p>
     {/if}
 {:catch error}
@@ -181,3 +189,5 @@
         {error.message}
     </p>
 {/await}
+
+<MarkTaskFinished {taskFinishedModalData} bind:taskFinishedModalState />

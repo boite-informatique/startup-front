@@ -7,7 +7,6 @@
     import { _ } from "svelte-i18n";
 
     export let project: PopulatedProject;
-    console.log(project);
     let userType: UserType = getUserType(
         project,
         $currentUserInfo,
