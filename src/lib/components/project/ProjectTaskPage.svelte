@@ -4,6 +4,7 @@
     import { GetTask } from "src/api/project/tasks";
     import MarkTaskFinished from "./MarkTaskFinished.svelte";
     import { userPermissions } from "src/stores/userPermissions";
+    import { currentUserInfo } from "src/stores/currentUserInfo";
     export let taskID: string | number = 1;
 
     let taskFinishedModalData;
@@ -114,8 +115,8 @@
                         {/if}
                     </div>
                 </div>
-                {#if !$userPermissions.some((obj) => obj.name === "sc")}
-                    <!-- show this only if he is not sc -->
+                {#if taskData.data.user_id == $currentUserInfo.id}
+                    <!-- show this only if he is owner -->
                     <!-- svelte-ignore a11y-click-events-have-key-events -->
                     <div
                         class="font-semibold underline cursor-pointer"
