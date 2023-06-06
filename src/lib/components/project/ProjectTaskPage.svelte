@@ -5,16 +5,47 @@
     import MarkTaskFinished from "./MarkTaskFinished.svelte";
     import { userPermissions } from "src/stores/userPermissions";
     import { currentUserInfo } from "src/stores/currentUserInfo";
+    import { CreateTaskComment } from "src/api/project/taskComments";
+    import {
+        indicateError,
+        indicateSuccess,
+    } from "src/lib/utils/indicatorDispatchers";
+    import { createEventDispatcher } from "svelte";
+    const dispatch = createEventDispatcher();
+
     export let taskID: string | number = 1;
-    let newComment;
+    let newComment = "";
 
     let taskFinishedModalData;
     let taskFinishedModalState;
 
     let task = GetTask(+taskID);
 
-    let handleAddComment = () => {
-        newComment = "";
+    let handleAddComment = async (taskId) => {
+        let response = await CreateTaskComment(taskId, {
+            body: newComment,
+        });
+
+        switch (response.status) {
+            case 200:
+                indicateSuccess(
+                    dispatch,
+                    $_("projects.tasks.comment added successfully")
+                );
+                newComment = "";
+                break;
+
+            case 400:
+                indicateError(
+                    dispatch,
+                    $_("projects.tasks.comment could not be added")
+                );
+                break;
+            default:
+                indicateError(dispatch);
+                break;
+        }
+        task = GetTask(+taskID); // to update what's show curretly to the user, without a need to refresh
     };
 </script>
 
@@ -192,7 +223,7 @@
                         />
                         <button
                             class="btn-outline btn-square btn"
-                            on:click={handleAddComment}
+                            on:click={() => handleAddComment(taskData.data.id)}
                         >
                             <svg
                                 class="h-8 w-8"
