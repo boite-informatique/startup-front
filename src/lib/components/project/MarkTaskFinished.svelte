@@ -6,11 +6,12 @@
         indicateSuccess,
     } from "src/lib/utils/indicatorDispatchers";
     import { createEventDispatcher } from "svelte";
+    import { markTaskFinished } from "src/api/project/tasks";
 
     export let taskFinishedModalState = false;
     export let taskFinishedModalData: any;
 
-    let finishedDescription;
+    let finishedDescription = "";
 
     const dispatch = createEventDispatcher();
 
@@ -26,26 +27,27 @@
             indicateError(dispatch, error.message);
             return;
         }
-        // let response = await updateProject(project.id, {
-        //     resume,
-        //     brand_name: brand,
-        //     product_name: product,
-        //     type,
-        //     ressource,
-        // });
+        let response = await markTaskFinished(
+            taskFinishedModalData.id,
+            finishedDescription,
+            [ressource]
+        );
 
-        // switch (response.status) {
-        //     case 200:
-        //         indicateSuccess(dispatch, $_("project.updated successfully"));
-        //         break;
+        switch (response.status) {
+            case 200:
+                indicateSuccess(
+                    dispatch,
+                    $_("projects.tasks.task marked as finished")
+                );
+                break;
 
-        //     case 400:
-        //         indicateError(dispatch, $_("project.invalid data"));
-        //         break;
-        //     default:
-        //         indicateError(dispatch);
-        //         break;
-        // }
+            case 400:
+                indicateError(dispatch, $_("project.invalid data"));
+                break;
+            default:
+                indicateError(dispatch);
+                break;
+        }
     };
 </script>
 
@@ -63,7 +65,7 @@
         >
         <h3 class="mb-3 text-lg font-bold capitalize">
             {$_("projects.tasks.mark the task")}
-            "{taskFinishedModalData.title}"
+            "{taskFinishedModalData?.title}"
             {$_("projects.tasks.as finished")}
         </h3>
         <form class="flex flex-col justify-start space-y-4">

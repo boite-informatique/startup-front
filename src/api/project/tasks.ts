@@ -35,3 +35,20 @@ export async function GetTask(
         console.error(error);
     }
 }
+
+export async function markTaskFinished(
+    taskID: number | string,
+    description?: string,
+    resources?: string[]
+): Promise<AxiosResponse<any>> {
+    try {
+        const response = await api.post(`/tasks/${taskID}/finished`, {
+            taskID,
+            description,
+            resources,
+        });
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
+}
