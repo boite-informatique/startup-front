@@ -5,7 +5,6 @@ import ProjectDefenseDocumentsUpload from "./actions/ProjectDefenseDocumentsUplo
 import ProjectModify from "./actions/ProjectModify.svelte";
 import ReportProgress from "./actions/ReportProgress.svelte";
 import ValidationForm from "./actions/ValidationForm.svelte";
-import { get } from "svelte/store";
 import { periods as periodsStore } from "../../stores/periodsStore";
 import PlanSoutenance from "./actions/PlanSoutenance.svelte";
 
@@ -40,16 +39,22 @@ export const actions = {
         {
             name: "Validate",
             component: ValidationForm,
-            disabled: (project: PopulatedProject): boolean => {
+            disabled: (project: PopulatedProject): string => {
+                if (project.validation.length == 0 && !periods.validation)
+                    return "projectActions.validate.disabled not in validation period";
                 if (
-                    (project.validation.length == 0 && periods.validation) ||
-                    (project.validation[0]?.decision ==
+                    project.validation[0]?.decision !=
                         "accepted_with_reservation" &&
-                        periods.appeal)
-                ) {
-                    return true;
-                }
-                return false;
+                    !periods.appealValidation
+                )
+                    return "projectActions.validate.disabled not in appeal validation period";
+                if (
+                    project.validation[0]?.decision !==
+                    "accepted_with_reservation"
+                )
+                    return "projectActions.validate.disabled already validated";
+
+                return null;
             },
         },
     ],
@@ -57,22 +62,25 @@ export const actions = {
         {
             name: "Add Task",
             component: AddTaskForm,
-            disabled: (project: PopulatedProject): boolean => {
-                return Boolean(project.validation[0]?.decision != "favorable");
+            disabled: (project: PopulatedProject): string => {
+                if (project.validation[0]?.decision != "favorable")
+                    return "projectActions.addTask.disabled not accepted";
             },
         },
         {
             name: "Report Progress",
             component: ReportProgress,
-            disabled: (project: PopulatedProject): boolean => {
-                return Boolean(project.validation[0]?.decision != "favorable");
+            disabled: (project: PopulatedProject): string => {
+                if (project.validation[0]?.decision != "favorable")
+                    return "projectActions.addTask.disabled not accepted";
             },
         },
         {
             name: "Authorize Defense",
             component: AuthorizeDefense,
-            disabled: (project: PopulatedProject): boolean => {
-                return Boolean(project.validation[0]?.decision != "favorable");
+            disabled: (project: PopulatedProject): string => {
+                if (project.validation[0]?.decision != "favorable")
+                    return "projectActions.addTask.disabled not accepted";
             },
         },
     ],
@@ -80,21 +88,34 @@ export const actions = {
         {
             name: "Edit Project",
             component: ProjectModify,
-            disabled: (project: PopulatedProject): boolean => {
-                return false;
-                return !(
-                    (project.validation.length == 0 && periods.submission) ||
+            disabled: (project: PopulatedProject): string => {
+                // return null;
+
+                if (project.validation[0]?.decision == "unfavorable")
+                    return "projectActions.editProject.disabled rejeceted";
+
+                if (
+                    !periods.submission ||
                     (project.validation[0]?.decision ==
                         "accepted_with_reservation" &&
-                        periods.appeal)
-                );
+                        !periods.appeal)
+                )
+                    return;
+                ("projectActions.editProject.disabled only submission or validation recours");
+
+                return null;
             },
         },
         {
             name: "Upload Defense Documents",
             component: ProjectDefenseDocumentsUpload,
-            disabled: (project: PopulatedProject): boolean => {
-                return project.DefenseAuthorization == null;
+            disabled: (project: PopulatedProject): string => {
+                if (project.DefenseAuthorization == null)
+                    return "projectActions.uploadDefenseDocuments.disabled no defense authorization";
+                if (project.DefenseDocument != null)
+                    return "projectActions.uploadDefenseDocuments.disabled already uploaded";
+
+                return null;
             },
         },
     ],
@@ -102,11 +123,11 @@ export const actions = {
         {
             name: "Plan Defense",
             component: PlanSoutenance,
-            disabled: (project: PopulatedProject): boolean => {
-                return (
-                    project.DefenseAuthorization == null ||
-                    project.DefensePlanification != null
-                );
+            disabled: (project: PopulatedProject): string => {
+                if (project.DefenseAuthorization == null)
+                    return "projectActions.planDefense.disabled no defense authorization";
+                if (project.DefensePlanification != null)
+                    return "projectActions.planDefense.disabled already planned";
             },
         },
     ],

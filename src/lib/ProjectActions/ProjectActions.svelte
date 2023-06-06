@@ -4,6 +4,7 @@
     import { getUserType, type UserType } from "./usertype";
     import { currentUserInfo } from "src/stores/currentUserInfo";
     import { userPermissions } from "src/stores/userPermissions";
+    import { _ } from "svelte-i18n";
 
     export let project: PopulatedProject;
     console.log(project);
@@ -41,26 +42,26 @@
             class="dropdown-content menu rounded-box w-56 bg-base-100 p-2"
         >
             {#each actions[userType] as action}
-                {#if !action.disabled(project)}
-                    <li>
+                <li>
+                    {#if !action.disabled(project)}
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <label
                             for="my-modal-4"
+                            class="tooltip active:bg-base-content"
                             on:click={() => setModalComponent(action.component)}
                             >{action.name}
                         </label>
-                    </li>
-                {:else}
-                    <li>
+                    {:else}
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <!-- svelte-ignore a11y-label-has-associated-control -->
                         <label
-                            class="cursor-default text-neutral-400"
+                            class="tooltip tooltip-left tooltip-warning cursor-default text-neutral-400 active:bg-base-content"
+                            data-tip={action.disabled(project)}
                             on:click={() => setModalComponent(action.component)}
                             >{action.name}
                         </label>
-                    </li>
-                {/if}
+                    {/if}
+                </li>
             {/each}
         </ul>
     </div>
