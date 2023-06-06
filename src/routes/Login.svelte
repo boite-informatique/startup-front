@@ -38,6 +38,11 @@
                     dispatch,
                     $_("login.indicator.this account is deactivated")
                 );
+            } else if (response.status == 401) {
+                indicateError(
+                    dispatch,
+                    $_("login.indicator.invalid credentials")
+                );
             } else if (response.status >= 400 && response.status < 500) {
                 indicateError(
                     dispatch,
