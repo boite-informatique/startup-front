@@ -26,6 +26,7 @@
     import PeriodBanner from "src/lib/PeriodBanner.svelte";
     import ProfileRoutes from "./routes/ProfileRoutes.svelte";
     import Announcements from "./routes/Announcements.svelte";
+  import LandingPage from "./routes/LandingPage.svelte";
 
     let indicatorVisible = false;
     let indicatorContent;
@@ -60,7 +61,7 @@
         // now gotta verify if his token is still valid by sending GET /auth , if 200 status he is logged in, else he is not, I will do this later (mor l ftour)
     } else {
         userIsLoggedIn = false;
-        navigate("/login");
+        navigate("/");
     }
 </script>
 
@@ -75,6 +76,9 @@
     <Router>
         <main class="flex min-h-screen flex-col items-center justify-start">
             <!-- Components that don't need navbar and sidebar -->
+            <Route path="/">
+                <LandingPage on:showIndicator={showIndicator} />
+            </Route>
             <Route path="login">
                 <Login on:showIndicator={showIndicator} />
             </Route>
