@@ -1,3 +1,4 @@
+import ProjectDefenseDelibration from "src/lib/ProjectPage/ProjectDefenseDelibration.svelte";
 import ProjectDefensePage from "src/lib/ProjectPage/ProjectDefensePage.svelte";
 import ProjectDefensePlanification from "src/lib/ProjectPage/ProjectDefensePlanification.svelte";
 import ProjectGeneralInfo from "src/lib/ProjectPage/ProjectGeneralInfo.svelte";
@@ -49,6 +50,11 @@ export const sidebarLists = {
             path: "soutenance-plan",
             name: "defense plan",
             component: ProjectDefensePlanification,
+        },
+        {
+            path: "soutenance-delibration",
+            name: "soutenance-delibration",
+            component: ProjectDefenseDelibration,
         },
     ],
 };
