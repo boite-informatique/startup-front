@@ -37,13 +37,13 @@ export async function GetTask(
 }
 
 export async function markTaskFinished(
-    taskID: number | string,
+    taskId: number | string,
     description?: string,
     resources?: string[]
 ): Promise<AxiosResponse<any>> {
     try {
-        const response = await api.post(`/tasks/${taskID}/finished`, {
-            taskID,
+        const response = await api.post(`/tasks/${taskId}/finished`, {
+            taskId,
             description,
             resources,
         });
