@@ -26,33 +26,41 @@
 {#if data.DefensePlanification}
     <!-- defense authorization -->
     <div class="flex flex-col gap-2 md:flex-row">
-        <div class="font-bold sm:w-[330px]">
-            {$_("projects.defense planification")} :
-        </div>
         {#if data.DefensePlanification}
             <div class="flex flex-col gap-2">
                 <div>
-                    - {$_("projects.date")} : {new Date(
-                        data.DefensePlanification.date
-                    ).toLocaleString("en-UK", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                        hour: "numeric",
-                        minute: "numeric",
-                        timeZone: "UTC",
-                    })}
+                    <div class="inline-block w-[100px] font-bold">
+                        {$_("projects.date")} :
+                    </div>
+                    {new Date(data.DefensePlanification.date).toLocaleString(
+                        "en-UK",
+                        {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                            hour: "numeric",
+                            minute: "numeric",
+                            timeZone: "UTC",
+                        }
+                    )}
                 </div>
                 <div>
-                    - {$_("projects.location")} : {data.DefensePlanification
-                        .location}
+                    <div class="inline-block w-[100px] font-bold">
+                        {$_("projects.location")} :
+                    </div>
+                    {data.DefensePlanification.location}
                 </div>
                 <div>
-                    - {$_("projects.mode")} : {data.DefensePlanification.mode}
+                    <div class="inline-block w-[100px] font-bold">
+                        {$_("projects.mode")} :
+                    </div>
+                    {data.DefensePlanification.mode}
                 </div>
                 <div>
-                    - {$_("projects.nature")} : {data.DefensePlanification
-                        .nature}
+                    <div class="inline-block w-[100px] font-bold">
+                        {$_("projects.nature")} :
+                    </div>
+                    {data.DefensePlanification.nature}
                 </div>
             </div>
         {:else}
@@ -68,7 +76,7 @@
     <!-- Jury president -->
     <div class="flex flex-col gap-2 md:flex-row">
         <div class="flex flex-col gap-2 md:flex-row">
-            <div class="font-bold sm:w-[330px]">
+            <div class="font-bold sm:w-[200px]">
                 {$_("projects.jury president")} :
             </div>
 
@@ -89,7 +97,7 @@
     <!-- Jury members -->
     <div class="flex flex-col gap-2 md:flex-row">
         <div class="flex flex-col gap-2 md:flex-row">
-            <div class="font-bold sm:w-[330px]">
+            <div class="font-bold sm:w-[200px]">
                 {$_("projects.jury members")} :
             </div>
 
@@ -114,7 +122,7 @@
     <!-- Jury invitees -->
     <div class="flex flex-col gap-2 md:flex-row">
         <div class="flex flex-col gap-2 md:flex-row">
-            <div class="font-bold sm:w-[330px]">
+            <div class="font-bold sm:w-[200px]">
                 {$_("projects.jury invitees")} :
             </div>
             <div class="flex flex-col gap-7">

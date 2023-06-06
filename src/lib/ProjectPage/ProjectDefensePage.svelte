@@ -25,7 +25,7 @@
                     user={data.DefenseAuthorization.supervisor}
                 />
             </div>
-            <div class="flex flex-row gap-1">
+            <div class="flex flex-row items-center gap-3">
                 <div>
                     <span class="font-bold"
                         >{$_("projects.defense authorization file")} :
@@ -36,7 +36,7 @@
                     href="http://localhost:3001/upload/{data
                         .DefenseAuthorization.uploadedFile}"
                     target="_blank"
-                    class="cursor-pointer underline opacity-75 hover:opacity-100"
+                    class="btn"
                 >
                     {$_("projects.click here")}
                 </a>

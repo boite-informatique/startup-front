@@ -11,35 +11,33 @@
     {$_("sidebar.progress")}
 </div>
 
-<div class="flex flex-col gap-2 md:flex-row">
-    <div class="font-bold sm:w-[330px]">
-        {$_("projects.project progess")} :
-    </div>
-
-    {#if data.ProjectProgress[0]}
+{#if data.ProjectProgress.length > 0}
+    {#each data.ProjectProgress as progress, i}
         <div class="flex flex-col gap-5">
             <div class="flex flex-row items-center gap-5">
                 <div>
-                    <span class="font-bold">{$_("projects.percentage")} :</span>
+                    <div class="inline-block w-[210px] font-bold">
+                        {$_("projects.percentage")} :
+                    </div>
                 </div>
                 <div
                     class="radial-progress text-primary"
-                    style="--value:{data.ProjectProgress[0]
-                        .percentage}; --size : 3.5rem"
+                    style="--value:{progress.percentage}; --size : 3.5rem"
                 >
-                    {data.ProjectProgress[0].percentage}%
+                    {progress.percentage}
                 </div>
             </div>
-            <p>
-                <span class="font-bold">{$_("projects.note")} : </span>{data
-                    .ProjectProgress[0].note}
-            </p>
-            <p>
-                <span class="font-bold"
-                    >{$_("projects.progress update date")} :
-                </span>{new Date(
-                    data.ProjectProgress[0].created_at
-                ).toLocaleString("en-UK", {
+            <div>
+                <div class="inline-block w-[240px] font-bold">
+                    {$_("projects.note")} :
+                </div>
+                {data.ProjectProgress[0].note}
+            </div>
+            <div>
+                <div class="inline-block w-[240px] font-bold">
+                    {$_("projects.progress update date")} :
+                </div>
+                {new Date(progress.created_at).toLocaleString("en-UK", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
@@ -47,17 +45,22 @@
                     minute: "numeric",
                     timeZone: "UTC",
                 })}
-            </p>
+            </div>
             <div class="flex flex-col items-center gap-5 md:flex-row">
                 <div>
-                    <span class="font-bold"
-                        >{$_("projects.updated by")} :
-                    </span>
+                    <div class="inline-block w-[220px] font-bold">
+                        {$_("projects.updated by")} :
+                    </div>
                 </div>
-                <UserInfoAvatarName user={data.ProjectProgress[0].user} />
+                <UserInfoAvatarName user={progress.user} />
             </div>
         </div>
-    {:else}
-        {$_("projects.no progress for this project")}
-    {/if}
-</div>
+
+        {#if i !== data.ProjectProgress.length - 1}
+            <div class="divider my-2 w-11/12" />
+        {/if}
+    {/each}
+    <div class="mb-8" />
+{:else}
+    {$_("projects.no progress for this project")}
+{/if}

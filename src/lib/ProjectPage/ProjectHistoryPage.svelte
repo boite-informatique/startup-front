@@ -10,31 +10,27 @@
     {$_("sidebar.project's edit history")}
 </div>
 
-<div class="flex flex-col gap-2 md:flex-row">
-    <div class="font-bold sm:w-[330px]">
-        {$_("projects.project history")} :
-    </div>
-    <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+<div>
     {#if data.history.length > 0}
         <div class="flex flex-col gap-5">
-            {#each data.history as ProjectState}
+            {#each data.history as ProjectState, i}
                 <div class="flex flex-col gap-2">
                     <div>
-                        <span class="font-bold"
-                            >{$_("projects.modified field")} :
-                        </span>
+                        <div class="inline-block w-[160px] font-bold">
+                            {$_("projects.modified field")} :
+                        </div>
                         {ProjectState.field}
                     </div>
                     <div>
-                        <span class="font-bold"
-                            >{$_("projects.changed at")} :
-                        </span>
+                        <div class="inline-block w-[160px] font-bold">
+                            {$_("projects.changed at")} :
+                        </div>
                         {new Date(ProjectState.changed_at).toLocaleString(
                             "en-UK",
                             {
                                 year: "numeric",
                                 month: "long",
-                                day: "numeric",
+                                day: "2-digit",
                                 hour: "numeric",
                                 minute: "numeric",
                                 timeZone: "UTC",
@@ -42,11 +38,11 @@
                         )}
                     </div>
                     <div class="flex items-center">
-                        <span class="overflow-hidden font-bold"
-                            >{$_("projects.old value")} :
-                        </span>
+                        <div class="inline-block w-[160px] font-bold">
+                            {$_("projects.old value")} :
+                        </div>
                         {#if ProjectState.field === "logo"}
-                            <span class="ml-4"
+                            <span
                                 ><ImageModal
                                     src={ProjectState.old_value}
                                 /></span
@@ -56,11 +52,11 @@
                         {/if}
                     </div>
                     <div class="flex items-center">
-                        <span class="font-bold"
-                            >{$_("projects.new value")} :
-                        </span>
+                        <div class="inline-block w-[160px] font-bold">
+                            {$_("projects.new value")} :
+                        </div>
                         {#if ProjectState.field === "logo"}
-                            <span class="ml-4"
+                            <span
                                 ><ImageModal
                                     src={ProjectState.new_value}
                                 /></span
@@ -69,11 +65,12 @@
                             {ProjectState.new_value}
                         {/if}
                     </div>
-                    <div class="divider" />
                 </div>
-            {:else}
-                {$_("projects.no history for this project")}
+                {#if i !== data.history.length - 1}
+                    <div class="divider my-2 w-11/12" />
+                {/if}
             {/each}
+            <div class="mb-8" />
         </div>
     {:else}
         {$_("projects.no history for this project")}

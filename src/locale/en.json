@@ -278,7 +278,8 @@
         "logo": "Logo",
         "no defense documents for this project": "no defense documents for this project",
         "no progress for this project": "no progress for this project",
-        "modify project": "Modify Project"
+        "modify project": "Modify Project",
+        "location": "location"
     },
     "profile": {
         "Account Activation": "Account Activation",
