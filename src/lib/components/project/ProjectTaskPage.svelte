@@ -6,11 +6,16 @@
     import { userPermissions } from "src/stores/userPermissions";
     import { currentUserInfo } from "src/stores/currentUserInfo";
     export let taskID: string | number = 1;
+    let newComment;
 
     let taskFinishedModalData;
     let taskFinishedModalState;
 
     let task = GetTask(+taskID);
+
+    let handleAddComment = () => {
+        newComment = "";
+    };
 </script>
 
 {#await task}
@@ -176,6 +181,37 @@
                 {:else}
                     {$_("projects.tasks.no comments available")}
                 {/each}
+                {#if !$userPermissions.some((obj) => obj.name === "sc")}
+                    <!-- anyone can add comment except scientific committee -->
+                    <div class="flex flex-row gap-2">
+                        <input
+                            bind:value={newComment}
+                            type="text"
+                            placeholder={$_("admin.users.filter.Type here")}
+                            class="input-bordered input w-full max-w-xs"
+                        />
+                        <button
+                            class="btn-outline btn-square btn"
+                            on:click={handleAddComment}
+                        >
+                            <svg
+                                class="h-8 w-8"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 4.5v15m7.5-7.5h-15"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                {/if}
             </div>
         </div>
     {:else}
