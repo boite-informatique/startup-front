@@ -1,0 +1,122 @@
+{
+    "landing":{
+        "title":"مرحبًا بك في منصتنا",
+        "description":"هدف منصتنا هو تمكين خدمة التدريب المهني في المدرسة من تتبع وإدارة مشاريع .شهادة - شركة ناشئة / شهادة - براءة اختراع بسلاسة، من تقديمها حتى الدفاع عنها، وذلك في إطار الترتيبات المحددة في القرار 1275. تقدم منصتنا حلاً شاملاً يعزز عملية إدارة هذه المشاريع بالكامل، من تقديمها حتى الدفاع عنها، من خلال توفير مجموعة من الأدوات التي تسهل عمل خدمة التدريب المهني ومشرفي المشروع.",
+        "login":"تسجيل الدخول",
+        "register": "التسجيل"
+    },
+    "navbar":  {
+        "admin": "مشرف",
+        "projects": "المشاريع",
+        "announcements": "الإعلانات",
+        "profile": "الملف الشخصي",
+        "my project": "مشروعي",
+        "my projects": "مشاريعي",
+        "supervised projects": "المشاريع المشرف عليها",
+        "validate projects": "المشاريع قيد التحقق",
+        "logout": "تسجيل الخروج"
+     },
+    "breadcrumb": {
+        "projects": "المشاريع",
+        "my project": "مشروعي"
+        },
+        "sidebar": {
+        "admin": {
+        "users": "المستخدمين",
+        "roles": "الأدوار",
+        "periods": "الفترات"
+        },
+        "users": "المستخدمين",
+        "roles": "الأدوار",
+        "periods": "الفترات",
+        "projects": {},
+        "announcements": {},
+        "profile": {},
+        "my project": {},
+        "general information": "معلومات عامة",
+        "members": "الأعضاء",
+        "supervisors": "المشرفون",
+        "edit history": "سجل التعديلات",
+        "progress": "تقدم المشروع",
+        "tasks": "المهام",
+        "defense": "معلومات الدفاع",
+        "project's edit history": "سجل تعديلات المشروع",
+        "project members": "أعضاء المشروع",
+        "project supervisors": "مشرفو المشروع"
+        },
+        "register": {
+        "indicator": {
+        "emailconflict": "البريد الإلكتروني مستخدم بالفعل، يرجى المحاولة مرة أخرى",
+        "success": "تم التسجيل بنجاح"
+        },
+        "header": "سجل حسابك",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "firstname": "الاسم الأول",
+        "lastname": "اسم العائلة",
+        "phone": "رقم الهاتف",
+        "dateLabel": "تاريخ الميلاد",
+        "date": "التاريخ",
+        "select": {
+        "label": "نوع الحساب",
+        "student": "طالب",
+        "teacher": "معلم",
+        "staff": "موظف"
+        },
+        "registrationnum": "رقم التسجيل",
+        "filiere": "التخصص",
+        "specialty": "التخصص",
+        "grade": "الصف",
+        "submit": "إرسال",
+        "loginlink": "انتقل إلى صفحة تسجيل الدخول",
+        "establishment name": "اسم المؤسسة",
+        "establishment": "المؤسسة"
+    },
+        
+            "login": {
+                "Sign in to your account": "تسجيل الدخول إلى حسابك",
+                "Email address": "عنوان البريد الإلكتروني",
+                "Password": "كلمة المرور",
+                "Remember me": "تذكرني",
+                "Sign in": "تسجيل الدخول",
+                "indicator": {
+                    "an internal server error occurred, please try again": "حدث خطأ داخلي في الخادم، يرجى المحاولة مرة أخرى",
+                    "login success": "تم تسجيل الدخول بنجاح",
+                    "Invalid email or password. Please try again": "البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى",
+                    "an error occured, please try again": "حدث خطأ، يرجى المحاولة مرة أخرى",
+                    "this account is deactivated": "تم تعطيل هذا الحساب"
+                },
+                "fogetpwlink": "هل نسيت كلمة المرور؟",
+                "dont have an account, go to register": "ليس لديك حساب؟ قم بالتسجيل"
+            },
+            "activate": {
+                "Account has been activated": "تم تفعيل الحساب بنجاح",
+                "Activate your account": "قم بتفعيل حسابك",
+                "Activate": "تفعيل"
+            },
+            "admin": {
+                "indicator": {
+                    "You are not authorized to access '/admin' route": "لا يُسمح لك بالوصول إلى مسار '/admin'",
+                    "4xx error, please try again": "حدث خطأ 4xx، يرجى المحاولة مرة أخرى",
+                    "Your changes have been saved successfully": "تم حفظ التغييرات بنجاح",
+                    "no modifications were performed": "لم يتم إجراء أي تعديلات"
+                },
+                "users": {
+                    "add a user": "إضافة مستخدم",
+                    "filter users by...": "تصفية المستخدمين بواسطة...",
+                    "no filter": "بدون تصفية",
+                    "first name": "الاسم الأول",
+                    "sex": "الجنس",
+                    "type": "النوع",
+                    "user": "مستخدم",
+                    "roles": "الأدوار",
+                    "birthday infos": "معلومات عن تاريخ الميلاد",
+                    "no users available": "لا يوجد مستخدمين متاحين",
+                    "click to see more": "انقر للمزيد",
+                    "loading": "جار التحميل",
+                    "male": "ذكر",
+                    "female": "أنثى"
+                }       
+    }
+}
+        

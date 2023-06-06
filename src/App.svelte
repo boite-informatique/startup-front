@@ -61,7 +61,7 @@
         // now gotta verify if his token is still valid by sending GET /auth , if 200 status he is logged in, else he is not, I will do this later (mor l ftour)
     } else {
         userIsLoggedIn = false;
-        navigate("/");
+        navigate("/landing");
     }
 </script>
 
@@ -76,7 +76,7 @@
     <Router>
         <main class="flex min-h-screen flex-col items-center justify-start">
             <!-- Components that don't need navbar and sidebar -->
-            <Route path="/">
+            <Route path="/landing">
                 <LandingPage on:showIndicator={showIndicator} />
             </Route>
             <Route path="login">
