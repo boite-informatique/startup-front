@@ -62,7 +62,7 @@
                     <option value="accepted_with_reservation"
                         >Accepted Under Reservation</option
                     >
-                    <option value="refused">Refused</option>
+                    <option value="unfavorable">Refused</option>
                 </select>
             </div>
 

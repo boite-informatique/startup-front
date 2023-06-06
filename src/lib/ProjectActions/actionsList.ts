@@ -7,6 +7,7 @@ import ReportProgress from "./actions/ReportProgress.svelte";
 import ValidationForm from "./actions/ValidationForm.svelte";
 import { periods as periodsStore } from "../../stores/periodsStore";
 import PlanSoutenance from "./actions/PlanSoutenance.svelte";
+import SoutenanceDeliberationForm from "./actions/SoutenanceDelibrationForm.svelte";
 
 function strToDatetime(str: string): number {
     return new Date(str).getTime();
@@ -115,6 +116,24 @@ export const actions = {
                 if (project.DefenseDocument != null)
                     return "projectActions.uploadDefenseDocuments.disabled already uploaded";
 
+                return null;
+            },
+        },
+        {
+            name: "Soutenance Deliberation",
+            component: SoutenanceDeliberationForm,
+            disabled: (project: PopulatedProject): string => {
+                if (project.DefensePlanification == null)
+                    return "projectActions.soutenanceDeliberation.disabled no defense planification";
+
+                if (
+                    new Date(project.DefensePlanification.date).getTime() >
+                    today
+                )
+                    return "projectActions.soutenanceDeliberation.disabled not yet";
+
+                if (project.Delibration != null)
+                    return "projectActions.soutenanceDeliberation.disabled already deliberated";
                 return null;
             },
         },

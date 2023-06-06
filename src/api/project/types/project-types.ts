@@ -6,6 +6,7 @@ import type { ProjectHistoryWithUser } from "./history";
 import type { DefenseAuthorizationWithUser, DefenseDocuments } from "./defense";
 import type { DefensePlanification } from "./defense-planification-types";
 import type { ProjectInvitees } from "./project-invites";
+import type { PopulatedDelibration } from "./defense-deliberation";
 
 export type Project = {
     id: number;
@@ -33,4 +34,5 @@ export type PopulatedProject = Project & {
     DefenseDocument: DefenseDocuments;
     DefensePlanification: DefensePlanification;
     ProjectInvitees: ProjectInvitees[];
+    Delibration: PopulatedDelibration;
 };
