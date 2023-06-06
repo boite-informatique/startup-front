@@ -80,19 +80,19 @@
                 {$_("profile.Registration Number")}
             </div>
             <div>
-                {user.student.registration_num}
+                {user.student?.registration_num}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="w-[330px] font-bold">{$_("profile.Filiere")}</div>
             <div>
-                {user.student.filiere}
+                {user.student?.filiere}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="w-[330px] font-bold">{$_("profile.Speciality")}</div>
             <div>
-                {user.student.specialty}
+                {user.student?.specialty}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
@@ -100,7 +100,7 @@
                 {$_("profile.Establishment")} :
             </div>
             <div>
-                {user.student.establishement.name}
+                {user.student?.establishement.name}
             </div>
         </div>
     {:else if user.type == "teacher"}
@@ -110,19 +110,19 @@
                 {$_("profile.Registration Number")}
             </div>
             <div>
-                {user.teacher.registration_num}
+                {user.teacher?.registration_num}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="w-[330px] font-bold">{$_("profile.Grade")}</div>
             <div>
-                {user.teacher.grade}
+                {user.teacher?.grade}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="w-[330px] font-bold">{$_("profile.Speciality")}</div>
             <div>
-                {user.teacher.specialty}
+                {user.teacher?.specialty}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
@@ -130,14 +130,14 @@
                 {$_("profile.Establishment")} :
             </div>
             <div>
-                {user.teacher.establishement.name}
+                {user.teacher?.establishement.name}
             </div>
         </div>
     {:else if user.type == "staff"}
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="w-[330px] font-bold">{$_("profile.Grade")}</div>
             <div>
-                {user.staff.grade}
+                {user.staff?.grade}
             </div>
         </div>
     {/if}
