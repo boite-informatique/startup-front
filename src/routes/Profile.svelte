@@ -86,13 +86,13 @@
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="w-[330px] font-bold">{$_("profile.Filiere")}</div>
             <div>
-                {user.student?.filiere}
+                {user.student?.filiere.name}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="w-[330px] font-bold">{$_("profile.Speciality")}</div>
             <div>
-                {user.student?.specialty}
+                {user.student?.speciality.name}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
@@ -100,7 +100,7 @@
                 {$_("profile.Establishment")} :
             </div>
             <div>
-                {user.student?.establishement.name}
+                {user.student?.establishment.name}
             </div>
         </div>
     {:else if user.type == "teacher"}
@@ -116,13 +116,13 @@
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="w-[330px] font-bold">{$_("profile.Grade")}</div>
             <div>
-                {user.teacher?.grade}
+                {user.teacher?.grade.name}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="w-[330px] font-bold">{$_("profile.Speciality")}</div>
             <div>
-                {user.teacher?.specialty}
+                {user.teacher?.speciality.name}
             </div>
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
@@ -130,14 +130,14 @@
                 {$_("profile.Establishment")} :
             </div>
             <div>
-                {user.teacher?.establishement.name}
+                {user.teacher?.establishment.name}
             </div>
         </div>
     {:else if user.type == "staff"}
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="w-[330px] font-bold">{$_("profile.Grade")}</div>
             <div>
-                {user.staff?.grade}
+                {user.staff?.grade.name}
             </div>
         </div>
     {/if}

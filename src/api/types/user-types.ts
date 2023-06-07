@@ -1,4 +1,4 @@
-import type { Establishment } from "./establishment-types";
+import type { ReferentialItem } from "../referentiel/types";
 import type { Role } from "./role-types";
 
 export type User = {
@@ -38,11 +38,17 @@ export type Staff = {
 
 export type UserWithRelationsAndEstablishment = User & {
     student: Student & {
-        establishement: Establishment;
+        establishment: ReferentialItem;
+        filiere: ReferentialItem;
+        speciality: ReferentialItem;
     };
     teacher: Teacher & {
-        establishement: Establishment;
+        establishment: ReferentialItem;
+        grade: ReferentialItem;
+        speciality: ReferentialItem;
     };
-    staff: Staff;
+    staff: Staff & {
+        grade: ReferentialItem;
+    };
     roles: Role[];
 };

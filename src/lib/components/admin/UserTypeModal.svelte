@@ -27,9 +27,9 @@
             </h3>
             <div class="flex flex-col py-4">
                 {#each Object.entries(UserTypeModalData) as [key, value]}
-                    {#if value && key !== "id" && key !== "user_id"}
+                    {#if value && key !== "id" && key !== "user_id" && typeof value !== "number"}
                         <div class="text-lg font-medium capitalize">
-                            - {key} : {value}
+                            - {key} : {value?.name ? value.name : value}
                         </div>
                     {/if}
                 {/each}

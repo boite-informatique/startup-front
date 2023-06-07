@@ -2,13 +2,11 @@
     import { onMount } from "svelte";
     import debounce from "lodash.debounce";
     import { _ } from "svelte-i18n";
-    import {
-        getEstablishments,
-        type GetEstablishmentsOutput,
-    } from "src/api/establishment-api";
+    import { getEstablishments } from "src/api/referentiel/establishments.ts";
+    import type { ReferentialItem } from "src/api/referentiel/types";
 
     let query = "";
-    let results: GetEstablishmentsOutput[] = [];
+    let results: ReferentialItem[] = [];
     export let selectedEstablishment = 0;
     async function search(query: string) {
         const response = await getEstablishments(query);
