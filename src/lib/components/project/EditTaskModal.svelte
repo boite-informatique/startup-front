@@ -6,7 +6,7 @@
         indicateSuccess,
     } from "src/lib/utils/indicatorDispatchers";
     import { createEventDispatcher } from "svelte";
-    import { markTaskFinished } from "src/api/project/tasks";
+    import { UpdateProjectTask } from "src/api/project/tasks";
 
     export let editTaskModalState = false;
     export let editTaskModalData: any = {
@@ -21,36 +21,44 @@
 
     let fileUpload; // upload function binded from UploadComponent
 
-    let handleMarkAsFinished = async (e) => {
-        let ressource: string = null;
+    let handleModifyTask = async (e) => {
+        const now = new Date();
+        const deadlineDate = new Date(editTaskModalData.deadline);
+        if (now.getTime() > deadlineDate.getTime()) {
+            indicateError(dispatch, "Deadline must be in the future");
+            return;
+        }
+        let documents: string[] = [];
         try {
             const files = await fileUpload();
-            ressource = files || undefined;
+            documents = files || [];
+            console.log(files);
         } catch (error) {
-            e.preventDefault();
             indicateError(dispatch, error.message);
             return;
         }
-        let response = await markTaskFinished(
-            editTaskModalData.id,
-            finishedDescription,
-            [ressource]
-        );
 
-        switch (response.status) {
-            case 200:
-                indicateSuccess(
-                    dispatch,
-                    $_("projects.tasks.task marked as finished")
-                );
-                break;
-
-            case 400:
-                indicateError(dispatch, $_("project.invalid data"));
-                break;
-            default:
-                indicateError(dispatch);
-                break;
+        try {
+            let response = await UpdateProjectTask(editTaskModalData.id, {
+                title: editTaskModalData.title,
+                description: editTaskModalData.description,
+                deadline: deadlineDate,
+                resources: documents,
+            });
+            console.log(response);
+            switch (response.status) {
+                case 200:
+                    indicateSuccess(dispatch, "Task added successfully");
+                    break;
+                case 400:
+                    indicateError(dispatch, (response.data as any).message);
+                    break;
+                default:
+                    indicateError(dispatch);
+                    break;
+            }
+        } catch (error) {
+            console.log(error);
         }
     };
 </script>
@@ -61,7 +69,7 @@
     class="modal-toggle"
     bind:checked={editTaskModalState}
 />
-<div class="modal z-[99999]">
+<div class="modal z-[9999]">
     <div class="modal-box relative">
         <label
             for="my-modal-413"
@@ -120,7 +128,9 @@
                     required={false}
                 />
             </div>
-            <button class="btn">Submit</button>
+            <button class="btn" on:click|preventDefault={handleModifyTask}
+                >Submit</button
+            >
         </form>
     </div>
 </div>

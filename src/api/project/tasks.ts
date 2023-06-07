@@ -14,6 +14,18 @@ export async function CreateProjectTask(
     }
 }
 
+export async function UpdateProjectTask(
+    projectId: number,
+    input: Partial<CreateProjectTask>
+): Promise<AxiosResponse<ProjectTask>> {
+    try {
+        const response = await api.patch(`/tasks/${projectId}`, input);
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export async function GetProjecTasks(
     projectId: number
 ): Promise<AxiosResponse<ProjectTask[]>> {
