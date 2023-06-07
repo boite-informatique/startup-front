@@ -14,7 +14,7 @@
     import ChangePassword from "src/routes/ChangePassword.svelte";
     import Register from "src/routes/Register.svelte";
     import RequestActivation from "src/routes/RequestActivation.svelte";
-
+    import Referential from "./routes/Referential.svelte";
     import ActivateAccount from "src/routes/ActivateAccount.svelte";
 
     // importing components
@@ -112,6 +112,9 @@
                 </Route>
                 <Route path="/admin/*">
                     <Admin on:showIndicator={showIndicator} />
+                </Route>
+                <Route path="/referential">
+                    <Referential on:showIndicator={showIndicator} />
                 </Route>
                 <Route path="/projects/*">
                     <ProjectsRoutes on:showIndicator={showIndicator} />

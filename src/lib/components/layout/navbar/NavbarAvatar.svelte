@@ -19,8 +19,8 @@
     <label tabindex="0" class="cursor-pointer">
         <div class="mask mask-circle avatar h-14 w-14">
             <Avatar
-                src={$currentUserInfo.avatar}
-                altText={$currentUserInfo.first_name}
+                src={$currentUserInfo?.avatar}
+                altText={$currentUserInfo?.first_name}
             />
         </div>
     </label>
