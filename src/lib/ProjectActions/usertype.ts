@@ -15,7 +15,7 @@ export const getUserType = (
     currentUser: UserWithRelationsAndEstablishment,
     userPermissions: any
 ): UserType => {
-    if (project.owner_id == currentUser.id) {
+    if (project?.owner_id == currentUser?.id) {
         return "owner";
     }
 
@@ -23,8 +23,8 @@ export const getUserType = (
         return "jury-president";
     }
     if (
-        project.supervisors.some((s) => s.id == currentUser.id) ||
-        project?.co_supervisor?.id == currentUser.id
+        project.supervisors.some((s) => s?.id == currentUser?.id) ||
+        project?.co_supervisor?.id == currentUser?.id
     ) {
         return "supervisor";
     }
