@@ -27,9 +27,9 @@
     let type = "student";
     let registration_num = "";
     let establishment_id = 0;
-    let specialty = "";
-    let filiere = "";
-    let grade = "";
+    let speciality_id = 0;
+    let filiere_id = 0;
+    let grade_id = 0;
     let invitation: InvitationType = null;
     let fileUpload; // file upload function binded from UploadComponent
     const handleFormSubmit = async (event) => {
@@ -51,15 +51,20 @@
                 info = {
                     registration_num,
                     establishment_id,
-                    filiere,
-                    specialty,
+                    filiere_id,
+                    speciality_id,
                 };
                 break;
             case "teacher":
-                info = { registration_num, establishment_id, grade, specialty };
+                info = {
+                    registration_num,
+                    establishment_id,
+                    grade_id,
+                    speciality_id,
+                };
                 break;
             case "staff":
-                info = { grade };
+                info = { grade_id };
                 break;
             default:
                 indicateErrorOccurred();
@@ -273,20 +278,15 @@
                     />
                     <SelectSearch
                         bind:selectedEstablishment={establishment_id}
+                        type="establishment"
                     />
-                    <input
-                        bind:value={filiere}
-                        type="text"
-                        required
-                        class="relative block w-full border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                        placeholder={$_("register.filiere")}
+                    <SelectSearch
+                        bind:selectedEstablishment={filiere_id}
+                        type="filiere"
                     />
-                    <input
-                        bind:value={specialty}
-                        type="text"
-                        required
-                        class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                        placeholder={$_("register.specialty")}
+                    <SelectSearch
+                        bind:selectedEstablishment={speciality_id}
+                        type="specialities"
                     />
                 {:else if type == "teacher"}
                     <input
@@ -299,27 +299,18 @@
                     <SelectSearch
                         bind:selectedEstablishment={establishment_id}
                     />
-                    <input
-                        bind:value={grade}
-                        type="text"
-                        required
-                        class="relative block w-full border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                        placeholder={$_("register.grade")}
+                    <SelectSearch
+                        bind:selectedEstablishment={grade_id}
+                        type="grade-teacher"
                     />
-                    <input
-                        bind:value={specialty}
-                        type="text"
-                        required
-                        class="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                        placeholder={$_("register.specialty")}
+                    <SelectSearch
+                        bind:selectedEstablishment={speciality_id}
+                        type="specialities"
                     />
                 {:else if type == "staff"}
-                    <input
-                        bind:value={grade}
-                        type="text"
-                        required
-                        class="relative block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light dark:bg-gray-700 dark:text-white dark:ring-gray-400 dark:placeholder:text-gray-200 sm:text-sm sm:leading-6"
-                        placeholder={$_("register.grade")}
+                    <SelectSearch
+                        bind:selectedEstablishment={grade_id}
+                        type="grade-staff"
                     />
                 {/if}
             </div>
