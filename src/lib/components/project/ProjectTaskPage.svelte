@@ -171,7 +171,7 @@
             <div class="font-bold sm:w-[330px]">
                 {$_("projects.tasks.comments")} :
             </div>
-            <div class="flex flex-col gap-11">
+            <div class="flex flex-col gap-2">
                 {#each taskData.data.comments as comment}
                     <div class="flex flex-col gap-2">
                         <div class="flex flex-row gap-2">
@@ -209,6 +209,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="divider" />
                 {:else}
                     {$_("projects.tasks.no comments available")}
                 {/each}
