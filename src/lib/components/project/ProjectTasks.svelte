@@ -50,7 +50,7 @@
                         <tr>
                             <!-- svelte-ignore a11y-click-events-have-key-events -->
                             <td
-                                class="cursor-pointer bg-gray-200 font-bold text-gray-800 transition-all hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
+                                class="cursor-pointer select-none bg-gray-200 font-semibold text-gray-800 transition-all hover:bg-gray-800 hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
                                 on:click={() => {
                                     let url = $location.pathname;
                                     let parts = url.split("/");

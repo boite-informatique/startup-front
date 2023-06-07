@@ -62,7 +62,7 @@
                     <tr>
                         <!-- svelte-ignore a11y-click-events-have-key-events -->
                         <td
-                            class="bg-gray-200 font-bold text-gray-800 transition-all hover:cursor-pointer dark:bg-gray-800 dark:text-gray-200"
+                            class="cursor-pointer select-none bg-gray-200 font-semibold text-gray-800 transition-all hover:bg-gray-800 hover:bg-opacity-10 hover:shadow-inner dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-opacity-40"
                             on:click={() => navigate(`/projects/${project.id}`)}
                             >{project.product_name}</td
                         >
@@ -121,12 +121,14 @@
                         <td
                             class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
                         >
-                    {#if project.validation.length > 0}
-                    {$_("project." + project.validation[0].decision)}
-                    {:else}
-                    {$_("project.none")}
-                    {/if}
-                    </td>
+                            {#if project.validation.length > 0}
+                                {$_(
+                                    "project." + project.validation[0].decision
+                                )}
+                            {:else}
+                                {$_("project.none")}
+                            {/if}
+                        </td>
                     </tr>
                 {/each}
             {:else}

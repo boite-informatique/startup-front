@@ -3,6 +3,7 @@
     import UserInfoAvatarName from "../UserInfoAvatarName.svelte";
     import { GetTask } from "src/api/project/tasks";
     import MarkTaskFinished from "./MarkTaskFinished.svelte";
+    import EditTaskModal from "./EditTaskModal.svelte";
     import { userPermissions } from "src/stores/userPermissions";
     import { currentUserInfo } from "src/stores/currentUserInfo";
     import { CreateTaskComment } from "src/api/project/taskComments";
@@ -18,6 +19,8 @@
 
     let taskFinishedModalData;
     let taskFinishedModalState;
+    let editTaskModalState;
+    let editTaskModalData;
 
     let task = GetTask(+taskID);
 
@@ -171,7 +174,7 @@
             <div class="font-bold sm:w-[330px]">
                 {$_("projects.tasks.comments")} :
             </div>
-            <div class="flex flex-col gap-2 mb-5">
+            <div class="flex flex-col gap-2">
                 {#each taskData.data.comments as comment}
                     <div class="flex flex-col gap-2">
                         <div class="flex flex-row gap-2">
@@ -246,6 +249,36 @@
                 {/if}
             </div>
         </div>
+        <div class="flex flex-col gap-2 md:flex-row mb-5 mt-4">
+            <div class="font-bold sm:w-[330px] translate-y-2">
+                {$_("projects.tasks.modify task")} :
+            </div>
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <div
+                class="flex flex-row items-center justify-center btn gap-3"
+                on:click={() => {
+                    editTaskModalState = true;
+                    editTaskModalData = taskData.data;
+                }}
+            >
+                <div>{$_("projects.tasks.modify task")}</div>
+                <svg
+                    class="h-7 w-7"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                    />
+                </svg>
+            </div>
+        </div>
     {:else}
         <p class="text-gray-200 text-center text-lg capitalize font-semibold">
             {$_("projects.tasks.task unavailable")}
@@ -264,3 +297,4 @@
     bind:taskFinishedModalState
     on:showIndicator
 />
+<EditTaskModal {editTaskModalData} bind:editTaskModalState on:showIndicator />
