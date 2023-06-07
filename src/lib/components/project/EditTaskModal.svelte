@@ -15,8 +15,6 @@
         deadline: "",
     };
 
-    let finishedDescription = "";
-
     const dispatch = createEventDispatcher();
 
     let fileUpload; // upload function binded from UploadComponent
@@ -48,7 +46,7 @@
             console.log(response);
             switch (response.status) {
                 case 200:
-                    indicateSuccess(dispatch, "Task added successfully");
+                    indicateSuccess(dispatch, "Task modified successfully");
                     break;
                 case 400:
                     indicateError(dispatch, (response.data as any).message);
