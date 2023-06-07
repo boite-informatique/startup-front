@@ -103,16 +103,18 @@
                     : $_("projects.tasks.no deadline available")}
             </div>
         </div>
-        <div class="flex flex-col gap-2 md:flex-row">
+        <div class="flex flex-col gap-2 md:flex-row items-center">
             <div class="font-bold sm:w-[330px]">
                 {$_("projects.tasks.resources")} :
             </div>
-            <div class="flex flex-col justify-start items-start gap-1">
-                {#each taskData.data.resources as ressource}
+            <div
+                class="flex flex-col justify-start items-start gap-1 items-center"
+            >
+                {#each taskData.data.resources as ressource, i}
                     <a
                         href={`http://localhost:3001/upload/${ressource}`}
                         target="_blank"
-                        class="btn">ressource</a
+                        class="btn">{i + 1}</a
                     >
                 {:else}
                     {$_("projects.tasks.no resources available")}
@@ -123,37 +125,8 @@
             <div class="font-bold sm:w-[330px]">
                 {$_("projects.tasks.finished")}? :
             </div>
-            <div class="flex flex-col gap-1">
-                <div class="flex flex-row gap-2">
-                    <div class="font-semibold">
-                        {$_("projects.tasks.description")} :
-                    </div>
-                    <div>
-                        {taskData.data.TaskFinished?.description
-                            ? taskData.data.TaskFinished?.description
-                            : $_("projects.tasks.no description available")}
-                    </div>
-                </div>
-                <div class="flex flex-row gap-2">
-                    <div class="font-semibold">
-                        {$_("projects.tasks.resources")} :
-                    </div>
-                    <div class="flex flex-col justify-start items-start gap-1">
-                        {#if taskData.data.TaskFinished?.resources}
-                            {#each taskData.data.TaskFinished?.resources as ressource}
-                                <a
-                                    href={`http://localhost:3001/upload/${ressource}`}
-                                    target="_blank"
-                                    class="btn">ressource</a
-                                >
-                            {:else}
-                                {$_("projects.tasks.no resources available")}
-                            {/each}
-                        {:else}
-                            {$_("projects.tasks.no resources available")}
-                        {/if}
-                    </div>
-                </div>
+            {#if !taskData.data.TaskFinished}
+                No
                 {#if taskData.data.user_id == $currentUserInfo.id}
                     <!-- show this only if he is owner -->
                     <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -167,7 +140,44 @@
                         {$_("projects.tasks.click to mark task as finished")}
                     </div>
                 {/if}
-            </div>
+            {:else}
+                <div class="flex flex-col gap-1">
+                    <div class="flex flex-row gap-2">
+                        <div class="font-semibold">
+                            {$_("projects.tasks.description")} :
+                        </div>
+                        <div>
+                            {taskData.data.TaskFinished?.description
+                                ? taskData.data.TaskFinished?.description
+                                : $_("projects.tasks.no description available")}
+                        </div>
+                    </div>
+                    <div class="flex flex-row gap-2 items-center">
+                        <div class="font-semibold">
+                            {$_("projects.tasks.resources")} :
+                        </div>
+                        <div
+                            class="flex flex-col justify-start items-start gap-1"
+                        >
+                            {#if taskData.data.TaskFinished?.resources}
+                                {#each taskData.data.TaskFinished?.resources as ressource, i}
+                                    <a
+                                        href={`http://localhost:3001/upload/${ressource}`}
+                                        target="_blank"
+                                        class="btn">{i + 1}</a
+                                    >
+                                {:else}
+                                    {$_(
+                                        "projects.tasks.no resources available"
+                                    )}
+                                {/each}
+                            {:else}
+                                {$_("projects.tasks.no resources available")}
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+            {/if}
         </div>
 
         <div class="flex flex-col gap-2 md:flex-row">
@@ -175,50 +185,9 @@
                 {$_("projects.tasks.comments")} :
             </div>
             <div class="flex flex-col gap-2">
-                {#each taskData.data.comments as comment}
-                    <div class="flex flex-col gap-2">
-                        <div class="flex flex-row gap-2">
-                            <div class="font-semibold">
-                                {$_("projects.tasks.by")} :
-                            </div>
-                            <div>
-                                <UserInfoAvatarName user={comment.author} />
-                            </div>
-                        </div>
-                        <div class="flex flex-row gap-2">
-                            <div class="font-semibold">
-                                {$_("projects.tasks.at")} :
-                            </div>
-                            <div>
-                                {new Date(comment.created_at).toLocaleString(
-                                    "en-UK",
-                                    {
-                                        year: "numeric",
-                                        month: "long",
-                                        day: "numeric",
-                                        hour: "numeric",
-                                        minute: "numeric",
-                                        timeZone: "UTC",
-                                    }
-                                )}
-                            </div>
-                        </div>
-                        <div class="flex flex-row gap-2">
-                            <div class="font-semibold">
-                                {$_("projects.tasks.comment")} :
-                            </div>
-                            <div>
-                                {comment.body}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="divider" />
-                {:else}
-                    {$_("projects.tasks.no comments available")}
-                {/each}
                 {#if !$userPermissions.some((obj) => obj.name === "sc")}
                     <!-- anyone can add comment except scientific committee -->
-                    <div class="flex flex-row gap-2">
+                    <div class="flex flex-row gap-2 mb-2">
                         <input
                             bind:value={newComment}
                             type="text"
@@ -247,6 +216,17 @@
                         </button>
                     </div>
                 {/if}
+                {#each taskData.data.comments as comment}
+                    <div class="flex flex-row gap-4 items-center">
+                        <UserInfoAvatarName user={comment.author} />
+                        <div>
+                            : {comment.body}
+                        </div>
+                    </div>
+                    <div class="divider" />
+                {:else}
+                    {$_("projects.tasks.no comments available")}
+                {/each}
             </div>
         </div>
         {#if taskData.data.user_id == $currentUserInfo.id}
