@@ -1,13 +1,14 @@
 <script lang="ts">
     import { CreateProjectProgress } from "src/api/project/ReportProgress";
+    import type { PopulatedProject } from "src/api/project/types/project-types";
     import {
         indicateError,
         indicateSuccess,
     } from "src/lib/utils/indicatorDispatchers";
     import { createEventDispatcher } from "svelte";
 
-    export let initialPercentage = 50;
-    export let projectId = 0;
+    export let project: PopulatedProject;
+    let initialPercentage = project.ProjectProgress[0]?.percentage || 0;
 
     const dispatch = createEventDispatcher();
     let percentage: number = initialPercentage; // TODO : initialize with latest project progress's percentage
@@ -15,7 +16,7 @@
 
     const handleFormSubmit = async () => {
         try {
-            let response = await CreateProjectProgress(projectId, {
+            let response = await CreateProjectProgress(project.id, {
                 percentage,
                 note,
             });

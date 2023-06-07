@@ -6,8 +6,9 @@
     } from "src/lib/utils/indicatorDispatchers";
     import UploadComponent from "src/lib/upload/UploadComponent.svelte";
     import { createEventDispatcher } from "svelte";
+    import type { PopulatedProject } from "src/api/project/types/project-types";
 
-    export let projectId: number = 0;
+    export let project: PopulatedProject;
     let title: string = "";
     let description: string = "";
     let deadline: string;
@@ -33,7 +34,7 @@
         }
 
         try {
-            let response = await CreateProjectTask(projectId, {
+            let response = await CreateProjectTask(project.id, {
                 title,
                 description,
                 deadline: deadlineDate,

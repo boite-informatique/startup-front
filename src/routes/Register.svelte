@@ -84,7 +84,8 @@
                     invitation,
                     avatar,
                 },
-                Boolean(invitation)
+                Boolean(invitation),
+                +qs.get("defensePlanId") || undefined
             );
             switch (response.status) {
                 case 201:

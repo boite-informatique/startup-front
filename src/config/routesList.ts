@@ -13,6 +13,7 @@ let routesByUsers = {
     teacher: [
         { path: "projects?type=my", name: "my projects" },
         { path: "projects?type=supervisor", name: "supervised projects" },
+        { path: "projects?type=jury", name: "planned soutenances" },
         { path: "announcements", name: "announcements" },
         { path: "profile", name: "profile" },
     ],

@@ -8,7 +8,8 @@
         "my projects": "my projects",
         "supervised projects": "supervised projects",
         "validate projects": "validate projects",
-        "logout": "logout"
+        "logout": "logout",
+        "planned soutenances": "planned defenses"
     },
     "breadcrumb": {
         "projects": "projects",
@@ -24,7 +25,6 @@
         "roles": "roles",
         "periods": "periods",
         "projects": {},
-        "announcements": {},
         "profile": {},
         "my project": {},
         "general information": "general information",

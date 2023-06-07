@@ -80,6 +80,8 @@ export const actions = {
             disabled: (project: PopulatedProject): string => {
                 if (project.validation[0]?.decision != "favorable")
                     return "projectActions.addTask.disabled not accepted";
+                if (project.DefenseAuthorization != null)
+                    return "projectActions.addTask.disabled already authorized";
             },
         },
     ],
@@ -117,6 +119,20 @@ export const actions = {
                 return null;
             },
         },
+    ],
+    rs: [
+        {
+            name: "Plan Defense",
+            component: PlanSoutenance,
+            disabled: (project: PopulatedProject): string => {
+                if (project.DefenseAuthorization == null)
+                    return "projectActions.planDefense.disabled no defense authorization";
+                if (project.DefensePlanification != null)
+                    return "projectActions.planDefense.disabled already planned";
+            },
+        },
+    ],
+    "jury-president": [
         {
             name: "Soutenance Deliberation",
             component: SoutenanceDeliberationForm,
@@ -133,18 +149,6 @@ export const actions = {
                 if (project.Delibration != null)
                     return "projectActions.soutenanceDeliberation.disabled already deliberated";
                 return null;
-            },
-        },
-    ],
-    rs: [
-        {
-            name: "Plan Defense",
-            component: PlanSoutenance,
-            disabled: (project: PopulatedProject): string => {
-                if (project.DefenseAuthorization == null)
-                    return "projectActions.planDefense.disabled no defense authorization";
-                if (project.DefensePlanification != null)
-                    return "projectActions.planDefense.disabled already planned";
             },
         },
     ],

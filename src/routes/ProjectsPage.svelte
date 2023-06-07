@@ -5,6 +5,7 @@
 
     import ProjectsTables from "src/lib/components/project/ProjectsTables.svelte";
     import { canAddProject } from "src/lib/utils/canAddProject";
+    import { currentPeriod } from "src/stores/currentPeriod";
 
     export let queryString = "";
     let queryType = "";
@@ -22,7 +23,7 @@
         <div
             class="-mb-2 flex flex-col items-start justify-start gap-2 md:flex-row"
         >
-            {#if canAddProject(true, queryType)}
+            {#if canAddProject(true, queryType) && $currentPeriod == "Within submission phase"}
                 <AddProject on:showIndicator />
             {/if}
         </div>

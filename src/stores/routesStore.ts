@@ -13,18 +13,18 @@ export const routesStore = derived(
 
         let userIsTeacher = $currentUserInfo?.type == "teacher";
         let userIsSc = $userPermissions.some((obj) => obj.name === "sc");
-        let userIsRs = $userPermissions.some((obj) => obj.name === "rs"); // responsable de stage
-
+        let userIsRs = $userPermissions.some((obj) => obj.name == "rs"); // responsable de stage
+        console.log("userIsSc", userIsRs, $userPermissions);
         if (userIsSc) {
             set(routes.sc);
+        } else if (userIsRs) {
+            set(routes.rs);
         } else if (userIsAdmin) {
             set(routes.admin);
         } else if (userIsTeacher) {
             set(routes.teacher);
         } else if (userIsStudent) {
             set(routes.student);
-        } else if (userIsRs) {
-            set(routes.rs);
         } else {
             set(routes.guest);
         }

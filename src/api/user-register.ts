@@ -3,11 +3,12 @@ import type { RegistrationInput } from "./types/registration-types";
 
 export const register = async (
     input: RegistrationInput,
-    invitation: boolean = false
+    invitation: boolean = false,
+    defensePlanId: number = undefined
 ) => {
     try {
         const response = await api.post(
-            `/users/?invitation=${invitation}`,
+            `/users/?invitation=${invitation}&defensePlanId=${defensePlanId}`,
             input
         );
         return response;

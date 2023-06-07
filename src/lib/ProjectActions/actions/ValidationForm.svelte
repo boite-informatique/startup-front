@@ -1,4 +1,5 @@
 <script lang="ts">
+    import type { PopulatedProject } from "src/api/project/types/project-types";
     import { createValidation } from "src/api/project/validation";
     import {
         indicateError,
@@ -6,7 +7,8 @@
     } from "src/lib/utils/indicatorDispatchers";
     import { createEventDispatcher } from "svelte";
 
-    export let projectId: number = 0;
+    export let project: PopulatedProject;
+
     const dispatch = createEventDispatcher();
 
     let decision: "favorable" | "unfavorable" | "accepted_with_reservation";
@@ -18,7 +20,7 @@
 
     const handleFormSubmit = async () => {
         try {
-            let response = await createValidation(projectId, {
+            let response = await createValidation(project.id, {
                 decision,
                 reservation,
                 note,
@@ -59,9 +61,11 @@
                 >
                     <option disabled selected>Choose your decision</option>
                     <option value="favorable">Accepted</option>
-                    <option value="accepted_with_reservation"
-                        >Accepted Under Reservation</option
-                    >
+                    {#if project.validation.length == 0}
+                        <option value="accepted_with_reservation"
+                            >Accepted Under Reservation</option
+                        >
+                    {/if}
                     <option value="unfavorable">Refused</option>
                 </select>
             </div>

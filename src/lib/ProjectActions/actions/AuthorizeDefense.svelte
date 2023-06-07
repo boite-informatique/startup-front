@@ -6,8 +6,9 @@
     } from "src/lib/utils/indicatorDispatchers";
     import UploadComponent from "src/lib/upload/UploadComponent.svelte";
     import { createEventDispatcher } from "svelte";
+    import type { PopulatedProject } from "src/api/project/types/project-types";
 
-    export let projectId = 0;
+    export let project: PopulatedProject;
     let fileUpload; // file upload function
     const dispatch = createEventDispatcher();
 
@@ -22,7 +23,7 @@
         }
 
         try {
-            let response = await AuthorizeProjectDefense(projectId, document);
+            let response = await AuthorizeProjectDefense(project.id, document);
             console.log(response);
             switch (response.status) {
                 case 201:

@@ -6,8 +6,10 @@
     } from "src/lib/utils/indicatorDispatchers";
     import UploadDefenseDocuments from "src/lib/upload/UploadDefenseDocuments.svelte";
     import { createEventDispatcher } from "svelte";
+    import type { PopulatedProject } from "src/api/project/types/project-types";
 
-    export let projectId = 28;
+    export let project: PopulatedProject;
+
     let fileUpload; // file upload function
     const dispatch = createEventDispatcher();
 
@@ -23,7 +25,7 @@
         }
 
         try {
-            let response = await saveDefenseDocuments(projectId, document);
+            let response = await saveDefenseDocuments(project.id, document);
             console.log(response);
             switch (response.status) {
                 case 201:
