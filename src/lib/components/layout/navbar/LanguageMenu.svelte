@@ -1,12 +1,24 @@
 <script>
+    import { onMount } from "svelte";
     import { _, locale } from "svelte-i18n";
 
     const changleLanguage = (lang) => {
         locale.set(lang);
+        htmlRootTag = document.querySelector("html");
+        selectedLang = htmlRootTag?.lang;
     };
+
+    let htmlRootTag = document.querySelector("html");
+
+    $: selectedLang = htmlRootTag?.lang;
+
+    onMount(() => {
+        htmlRootTag = document.querySelector("html");
+        selectedLang = htmlRootTag.lang;
+    });
 </script>
 
-<div class="dropdown dropdown-bottom dropdown-end">
+<div class="dropdown-bottom dropdown-end dropdown">
     <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div
         tabindex="0"
@@ -34,6 +46,9 @@
         <!-- svelte-ignore a11y-missing-attribute -->
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <li
+            class="{selectedLang == 'en'
+                ? 'bg-black bg-opacity-20'
+                : ''} rounded-md"
             on:click={() => {
                 changleLanguage("en");
             }}
@@ -69,6 +84,9 @@
         <!-- svelte-ignore a11y-missing-attribute -->
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <li
+            class="{selectedLang == 'fr'
+                ? 'bg-black bg-opacity-20'
+                : ''} rounded-md"
             on:click={() => {
                 changleLanguage("fr");
             }}
