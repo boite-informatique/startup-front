@@ -30,7 +30,7 @@
         });
 
         switch (response.status) {
-            case 200:
+            case 201:
                 indicateSuccess(
                     dispatch,
                     $_("projects.tasks.comment added successfully")
