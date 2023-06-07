@@ -2,16 +2,19 @@
     import type { PopulatedProject } from "src/api/project/types/project-types";
     import { _ } from "svelte-i18n";
     import UserInfoAvatarName from "../components/UserInfoAvatarName.svelte";
+    import { onMount } from "svelte";
 
     export let data: PopulatedProject;
     let statusColor;
-    if (data.Delibration.status == "refused") {
-        statusColor = "text-red-600";
-    } else if (data.Delibration.status == "accepted_with_reservation") {
-        statusColor = "text-yellow-600";
-    } else {
-        statusColor = "text-green-600";
-    }
+    onMount(() => {
+        if (data.Delibration?.status == "refused") {
+            statusColor = "text-red-600";
+        } else if (data.Delibration?.status == "accepted_with_reservation") {
+            statusColor = "text-yellow-600";
+        } else {
+            statusColor = "text-green-600";
+        }
+    });
 </script>
 
 <div class="mb-3 text-3xl font-bold">
