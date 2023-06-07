@@ -129,7 +129,7 @@
 </label>
 
 <input type="checkbox" id="my-modal-97" class="modal-toggle" />
-<div class="modal">
+<div class="modal z-[9999]">
     <div class="modal-box flex w-11/12 max-w-5xl flex-col gap-6">
         <h3 class="mb-2 text-xl font-bold capitalize">
             {$_("projects.add a project")} !
