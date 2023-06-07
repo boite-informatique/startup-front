@@ -1,6 +1,6 @@
 {
     "landing":{
-        "title":"Bienvenue sur notre plateforme",
+        "title":"Diplôme-startup / Diplôme-brevet",
         "description":"L'objectif de notre plateforme est de permettre au service des stages de l'école de suivre et de gérer de manière fluide les projets 'un diplôme-une startup / un diplôme-un brevet', de leur dépôt à leur soutenance, dans le cadre des dispositions définies par l'arrêté 1275. Notre plateforme offre une solution complète qui optimise l'ensemble du processus de gestion de ces projets, de leur dépôt à leur soutenance, en mettant à disposition un ensemble d'outils facilitant le travail du service des stages et des encadrants de projet.",
         "login":"Se connecter",
         "register": "registrer"

@@ -1,6 +1,7 @@
 <script>
         // importing Modules
         import { _ } from "svelte-i18n";
+        import Typewriter from 'svelte-typewriter';
     import authenticateUser from "../api/authentication";
     import fetchUserPermissions from "../api/userPermissions";
     import fetchPeriods from "src/api/periods";
@@ -36,11 +37,13 @@
             src={logo}
             alt="Innovium logo with text"
         />
+        <div class="justify-start flex h-5 ">
+        <Typewriter  loop={1000} interval={50} cursor={false} delay={900}>
         <div
-            class="-mx-1 mt-6 text-center text-3xl font-bold tracking-tight"
+            class="-mx-1  mt-6 text-center text-3xl font-bold tracking-tight "
         >
             {$_("landing.title")}
-        </div>
+        </div></Typewriter></div>
     </div>
    
     <div class="description">{$_("landing.description")}</div>
@@ -73,6 +76,9 @@
       margin-bottom: 2rem;
       width: 50%;
       color: #666;
+    margin-top: 80px;
+      text-align: center;
+     
     }
    
      .btns{
