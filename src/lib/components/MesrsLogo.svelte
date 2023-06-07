@@ -3,7 +3,7 @@
 </script>
 
 <div
-    class="absolute -bottom-7 flex w-screen justify-center md:bottom-0 md:left-5 md:justify-start"
+    class="fixed -bottom-7 flex w-screen justify-center md:bottom-0 md:left-5 md:justify-start"
 >
     <div class="h-80 w-[310px]">
         <img

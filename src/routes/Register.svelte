@@ -13,6 +13,7 @@
     import type { InvitationType } from "src/api/types/registration-types";
     import UploadComponent from "src/lib/upload/UploadComponent.svelte";
     import { indicateError } from "src/lib/utils/indicatorDispatchers";
+    import MesrsLogo from "src/lib/components/MesrsLogo.svelte";
 
     const dispatch = createEventDispatcher();
     let qs = new URLSearchParams(window.location.search);
@@ -160,7 +161,7 @@
 <div
     class="relative flex min-h-screen w-full items-center justify-center justify-self-center overflow-hidden px-4 py-12 sm:px-6 lg:px-8"
 >
-    <!-- <MesrsLogo />  -->
+    <MesrsLogo />
     <div class="absolute top-5 right-5 flex gap-4">
         <DarkModeToggler />
         <LanguageMenu />
@@ -173,7 +174,7 @@
                 alt="Innovium logo with text"
             />
             <div
-                class="-mx-1 mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100"
+                class="-mx-1 mt-6 text-center text-3xl font-bold capitalize tracking-tight text-gray-900 dark:text-gray-100"
             >
                 {$_("register.header")}
             </div>
@@ -226,7 +227,8 @@
                     placeholder={$_("register.phone")}
                 />
                 <label for="date_of_birth">
-                    <span class="label-text">{$_("register.dateLabel")}</span
+                    <span class="label-text capitalize"
+                        >{$_("register.dateLabel")}</span
                     ></label
                 >
                 <input
@@ -239,7 +241,7 @@
                 />
                 <div>
                     <label for="type">
-                        <span class="label-text"
+                        <span class="label-text capitalize"
                             >{$_("register.select.label")}</span
                         >
                     </label>
@@ -322,7 +324,7 @@
                 {/if}
             </div>
 
-            <div class="form-control w-full max-w-xs">
+            <div class="form-control relative w-full max-w-xs">
                 <label class="label" for="file">
                     <span class="label-text">Select Avatar</span>
                 </label>
@@ -336,7 +338,7 @@
             <div>
                 <button
                     type="submit"
-                    class="group relative flex w-full justify-center rounded-md bg-light px-3 py-2 text-sm font-semibold text-white hover:bg-opacity-75 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light"
+                    class="group relative flex w-full justify-center rounded-md bg-light px-3 py-2 text-sm font-semibold capitalize text-white hover:bg-opacity-75 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light"
                 >
                     {$_("register.submit")}
                 </button>
@@ -344,7 +346,7 @@
         </form>
         <Link to="/login"
             ><div
-                class="link-hover link relative mt-4 text-gray-900 opacity-70 hover:opacity-100 dark:text-gray-200"
+                class="link-hover link relative mt-4 capitalize text-gray-900 opacity-70 hover:opacity-100 dark:text-gray-200"
             >
                 {$_("register.loginlink")}
             </div></Link

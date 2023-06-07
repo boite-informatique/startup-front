@@ -32,7 +32,7 @@
 </script>
 
 <div>
-    <label for="search-field" class="label-text"
+    <label for="search-field" class="label-text capitalize"
         >{$_("register.establishment name")}</label
     >
     <input
