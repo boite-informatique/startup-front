@@ -2,7 +2,6 @@
 let routesByUsers = {
     admin: [
         { path: "admin", name: "admin" },
-        { path: "announcements", name: "announcements" },
         { path: "profile", name: "profile" },
     ],
     student: [

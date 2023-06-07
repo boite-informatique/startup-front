@@ -15,3 +15,5 @@ export type CreateAnnouncementInput = {
     image: string;
     establishement: number[];
 };
+
+export type ModifyAnnouncementInput = Partial<CreateAnnouncementInput>;

@@ -62,7 +62,4 @@
     <Route path="/periods">
         <AdminPeriods on:showIndicator />
     </Route>
-    <Route path="/announcements">
-        <AdminAnnouncements on:showIndicator />
-    </Route>
 </div>
