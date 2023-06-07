@@ -5,9 +5,9 @@ import ProjectDefenseDocumentsUpload from "./actions/ProjectDefenseDocumentsUplo
 import ProjectModify from "./actions/ProjectModify.svelte";
 import ReportProgress from "./actions/ReportProgress.svelte";
 import ValidationForm from "./actions/ValidationForm.svelte";
-import { periods as periodsStore } from "../../stores/periodsStore";
 import PlanSoutenance from "./actions/PlanSoutenance.svelte";
 import SoutenanceDeliberationForm from "./actions/SoutenanceDelibrationForm.svelte";
+import { currentPeriod } from "src/stores/currentPeriod";
 
 function strToDatetime(str: string): number {
     return new Date(str).getTime();
@@ -21,17 +21,15 @@ let periods = {
     appeal: false,
     appealValidation: false,
 };
-periodsStore.subscribe((value) => {
-    if (today > strToDatetime(value.submission)) {
-        if (today <= strToDatetime(value.validation)) {
-            periods.submission = true;
-        } else if (today <= strToDatetime(value.appeal)) {
-            periods.validation = true;
-        } else if (today <= strToDatetime(value.appealValidation)) {
-            periods.appeal = true;
-        } else if (today <= strToDatetime(value.end)) {
-            periods.appealValidation = true;
-        }
+currentPeriod.subscribe((value) => {
+    if (value == "Within submission phase") {
+        periods.submission = true;
+    } else if (value == "Within validation phase") {
+        periods.validation = true;
+    } else if (value == "Within appeal phase") {
+        periods.appeal = true;
+    } else if (value == "Within appeal validation phase") {
+        periods.appealValidation = true;
     }
 });
 

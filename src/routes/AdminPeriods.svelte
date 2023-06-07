@@ -12,28 +12,23 @@
         <EditPeriods on:showIndicator />
     </div>
     <div class="flex flex-col gap-2 md:flex-row">
-        <div class="w-[330px] font-bold">Project Submission Start Date</div>
-        <div>{$periods.submission}</div>
+        <div class="w-[330px] font-bold">Project Submission</div>
+        <div>{$periods.submission.start} - {$periods.submission.end}</div>
     </div>
     <div class="flex flex-col gap-2 md:flex-row">
-        <div class="w-[330px] font-bold">Project Validation Start Date</div>
-        <div>{$periods.validation}</div>
+        <div class="w-[330px] font-bold">Project Validation</div>
+        <div>{$periods.validation.start} - {$periods.validation.end}</div>
     </div>
     <div class="flex flex-col gap-2 md:flex-row">
-        <div class="w-[330px] font-bold">Project Appeal Start Date</div>
-        <div>{$periods.appeal}</div>
+        <div class="w-[330px] font-bold">Project Appeal</div>
+        <div>{$periods.appeal.start} - {$periods.appeal.end}</div>
     </div>
     <div class="flex flex-col gap-2 md:flex-row">
         <div class="w-[330px] font-bold">
             Project Appeal Validation Start Date
         </div>
-        <div>{$periods.appealValidation}</div>
-    </div>
-
-    <div class="flex flex-col gap-2 md:flex-row">
-        <div class="w-[330px] font-bold">
-            Project Appeal Validation End Date
+        <div>
+            {$periods.appealValidation.start} - {$periods.appealValidation.end}
         </div>
-        <div>{$periods.end}</div>
     </div>
 </div>

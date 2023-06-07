@@ -5,26 +5,17 @@
     } from "src/lib/utils/indicatorDispatchers";
     import { createEventDispatcher } from "svelte";
     import { ModifyPeriods } from "src/api/periods";
-    import { periods } from "src/stores/periodsStore";
+    import { periods, type PeriodsType } from "src/stores/periodsStore";
 
-    let submission = $periods.submission;
-    let validation = $periods.validation;
-    let appeal = $periods.appeal;
-    let appealValidation = $periods.appealValidation;
-    let end = $periods.end;
+    let newPeriods: PeriodsType = $periods;
 
     const today = new Date().toISOString().split("T")[0];
     const dispatch = createEventDispatcher();
 
+    $: console.log(newPeriods);
     const handleFormSubmit = async () => {
         try {
-            let response = await ModifyPeriods({
-                submission: submission,
-                validation: validation,
-                appeal: appeal,
-                appealValidation: appealValidation,
-                end: end,
-            });
+            let response = await ModifyPeriods(newPeriods);
 
             console.log(response);
             switch (response.status) {
@@ -64,42 +55,62 @@
                 >
                     <div>
                         <label class="label" for="title"
-                            ><span class="label-text"
-                                >Project Submission Start Date</span
+                            ><span class="label-text">Project Submission</span
                             ></label
                         >
                         <input
-                            bind:value={submission}
+                            bind:value={newPeriods.submission.start}
                             type="date"
                             min={today}
+                            name="submission"
+                            class="input-bordered input w-full max-w-xs"
+                        />
+
+                        <input
+                            bind:value={newPeriods.submission.end}
+                            type="date"
+                            min={newPeriods.submission.start}
                             name="submission"
                             class="input-bordered input w-full max-w-xs"
                         />
                     </div>
                     <div>
                         <label class="label" for="deadline"
-                            ><span class="label-text"
-                                >Project Validation Start Date</span
+                            ><span class="label-text">Project Validation</span
                             ></label
                         >
                         <input
-                            bind:value={validation}
+                            bind:value={newPeriods.validation.start}
                             type="date"
-                            min={submission}
+                            min={newPeriods.submission.end}
+                            class="input-bordered input w-full max-w-xs"
+                            name="validation"
+                        />
+                        <input
+                            bind:value={newPeriods.validation.end}
+                            type="date"
+                            min={newPeriods.validation.start}
                             class="input-bordered input w-full max-w-xs"
                             name="validation"
                         />
                     </div>
                     <div>
                         <label class="label" for="deadline"
-                            ><span class="label-text"
-                                >Project Appeal Start Date</span
+                            ><span class="label-text">Project Appeal</span
                             ></label
                         >
                         <input
-                            bind:value={appeal}
+                            bind:value={newPeriods.appeal.start}
                             type="date"
-                            min={validation}
+                            min={newPeriods.validation.end}
+                            class="input-bordered input w-full max-w-xs"
+                            name="appeal"
+                        />
+
+                        <input
+                            bind:value={newPeriods.appeal.end}
+                            type="date"
+                            min={newPeriods.appeal.start}
                             class="input-bordered input w-full max-w-xs"
                             name="appeal"
                         />
@@ -107,29 +118,23 @@
                     <div>
                         <label class="label" for="deadline"
                             ><span class="label-text"
-                                >Project Appeal Validation Start Date</span
+                                >Project Appeal Validation</span
                             ></label
                         >
                         <input
-                            bind:value={appealValidation}
+                            bind:value={newPeriods.appealValidation.start}
                             type="date"
-                            min={appeal}
+                            min={newPeriods.appeal.end}
                             class="input-bordered input w-full max-w-xs"
                             name="appeal"
                         />
-                    </div>
-                    <div>
-                        <label class="label" for="deadline"
-                            ><span class="label-text"
-                                >Project Appeal Validation End Date</span
-                            ></label
-                        >
+
                         <input
-                            bind:value={end}
+                            bind:value={newPeriods.appealValidation.end}
                             type="date"
-                            min={appealValidation}
+                            min={newPeriods.appealValidation.start}
                             class="input-bordered input w-full max-w-xs"
-                            name="end"
+                            name="appeal"
                         />
                     </div>
                     <button class="btn" type="submit">Submit</button>

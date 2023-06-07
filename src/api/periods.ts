@@ -1,7 +1,7 @@
 // This module fetches the periods settings and adds them to a Svelte store.
 // This is useful for conditionally rendering UI elements based on the period we're in.
 import api from "../services/api";
-import { periods } from "../stores/periodsStore";
+import { periods, type PeriodsType } from "../stores/periodsStore";
 
 export type ModifyPeriodsInput = {
     submission: string;
@@ -21,7 +21,7 @@ const fetchPeriods = async () => {
     }
 };
 
-export const ModifyPeriods = async (input: ModifyPeriodsInput) => {
+export const ModifyPeriods = async (input: PeriodsType) => {
     try {
         const response = await api.put("/projects/settings", input);
         if (response.status >= 200 && response.status < 300) {
