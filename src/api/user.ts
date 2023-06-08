@@ -11,8 +11,8 @@ export async function getCurrentUserInfoAndStore(): Promise<
 > {
     try {
         const response = await api.get(`/users/me`);
-        if (response.status == 200) {
-            currentUserInfo.set(response.data);
+        if (response?.status == 200) {
+            currentUserInfo.set(response?.data);
         }
         return response;
     } catch (error) {
