@@ -3,9 +3,13 @@
     import { _ } from "svelte-i18n";
     import UserInfoAvatarName from "../components/UserInfoAvatarName.svelte";
     import { onMount } from "svelte";
+    import { userPermissions } from "src/stores/userPermissions";
 
     export let data: PopulatedProject;
     let statusColor;
+
+    let userIsRs = $userPermissions.some((obj) => obj.name === "rs");
+
     onMount(() => {
         if (data.Delibration?.status == "refused") {
             statusColor = "text-red-600";
@@ -30,6 +34,14 @@
                 <div class={"lowercase first-letter:capitalize " + statusColor}>
                     {data.Delibration.status}
                 </div>
+
+                {#if userIsRs}
+                    <a
+                        href={`http://localhost:3001/projects/${data.id}/delibration/defense-report`}
+                        target="_blank"
+                        class="btn-sm btn">PV</a
+                    >
+                {/if}
             </div>
             <div>
                 <span class="font-bold">{$_("projects.evaluations")} : </span>
@@ -65,6 +77,13 @@
                                     </div>
                                 </div>
                             </div>
+                            {#if userIsRs}
+                                <a
+                                    href={`http://localhost:3001/projects/${data.id}/delibration/diploma/${evaluation.member_id}`}
+                                    target="_blank"
+                                    class="btn-sm btn">Diploma</a
+                                >
+                            {/if}
                         </div>
                     {/each}
                 </div>
