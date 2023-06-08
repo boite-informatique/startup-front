@@ -38,7 +38,7 @@
             alt="Innovium logo with text"
         />
         <div class="justify-start flex h-5 ">
-        <Typewriter  loop={1000} interval={50} cursor={false} delay={900}>
+        <Typewriter  loop={100} interval={100} cursor={false} delay={10}>
         <div
             class="-mx-1  mt-6 text-center text-3xl font-bold tracking-tight "
         >

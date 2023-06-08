@@ -107,21 +107,22 @@
         </li>
         <!-- svelte-ignore a11y-missing-attribute -->
         <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <li on:click={() => {
+        <li 
+        class="{selectedLang == 'ar'
+        ? 'bg-black bg-opacity-20'
+        : ''} rounded-md"
+        on:click={() => {
                 changleLanguage("ar");
             }}
         >
             <a class="flex flex-row gap-4">
-                <svg
-                    class="h-7 rounded-[4px] border"
-                    xmlns="http://www.w3.org/2000/svg"
-                    id="flag
-                    -icons-ar"
-                    viewBox="0 0 640 480"
-                >
-                
-                <path fill="#063" d="M0 0h640v480H0z"  />
-                </svg>
+                <svg 
+                class="h-7 rounded-[4px] border"
+                xmlns="http://www.w3.org/2000/svg" id="flag-icons-dz" viewBox="0 0 640 480">
+                    <path fill="#fff" d="M320 0h320v480H320z"/>
+                    <path fill="#006233" d="M0 0h320v480H0z"/>
+                    <path fill="#d21034" d="M424 180a120 120 0 1 0 0 120 96 96 0 1 1 0-120m4 60-108-35.2 67.2 92V183.2l-67.2 92z"/>
+                  </svg>
                 <div>العربية</div>
             </a>
         </li>
