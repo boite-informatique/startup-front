@@ -1,8 +1,8 @@
 import api from "../../services/api";
 
-export const getFilieres = async (query: string) => {
+export const getFilieres = async () => {
     try {
-        const response = await api.get(`/filiere/?search=${query}`);
+        const response = await api.get(`/filiere`);
         return response;
     } catch (error) {
         console.error(error);

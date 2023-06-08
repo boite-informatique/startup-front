@@ -1,8 +1,8 @@
 import api from "../../services/api";
 
-export const getGradesForStaff = async (query: string) => {
+export const getGradesForStaff = async () => {
     try {
-        const response = await api.get(`/grade-staff/?search=${query}`);
+        const response = await api.get(`/grade-staff`);
         return response;
     } catch (error) {
         console.error(error);

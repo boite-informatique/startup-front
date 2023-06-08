@@ -1,8 +1,8 @@
 import api from "../../services/api";
 
-export const getSpecialities = async (query: string) => {
+export const getSpecialities = async () => {
     try {
-        const response = await api.get(`/speciality/?search=${query}`);
+        const response = await api.get(`/speciality`);
         return response;
     } catch (error) {
         console.error(error);
