@@ -10,8 +10,36 @@
     import { routesStore } from "src/stores/routesStore";
     import NavbarAvatar from "src/lib/components/layout/navbar/NavbarAvatar.svelte";
     import MenuButton from "./MenuButton.svelte";
+    import { onMount } from "svelte";
+    import { userPermissions } from "src/stores/userPermissions";
+    import { currentUserInfo } from "src/stores/currentUserInfo";
 
     let routesList = $routesStore;
+    let thisUserType = "guest";
+
+    onMount(() => {
+        let userIsAdmin = $userPermissions.some(
+            (obj) => obj.name === "canManageAll"
+        );
+        let userIsStudent = $currentUserInfo?.type == "student";
+        let userIsTeacher = $currentUserInfo?.type == "teacher";
+        let userIsSc = $userPermissions?.some((obj) => obj.name === "sc");
+        let userIsRs = $userPermissions?.some((obj) => obj.name == "rs"); // responsable de stage
+
+        if (userIsAdmin) {
+            thisUserType = "admin";
+        } else if (userIsRs) {
+            thisUserType = "RS";
+        } else if (userIsSc) {
+            thisUserType = "SC";
+        } else if (userIsStudent) {
+            thisUserType = "student";
+        } else if (userIsTeacher) {
+            thisUserType = "teacher";
+        } else {
+            thisUserType = "guest";
+        }
+    });
 
     const location = useLocation();
 </script>
@@ -20,7 +48,17 @@
     class="navbar sticky top-0 z-[9998] flex flex-row items-center justify-between bg-light bg-opacity-10 py-3 pl-0 pr-3 shadow-lg backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-50 lg:px-5"
 >
     <MenuButton />
-    <img src={innoviumLogo} alt="Innovium logo" class="hidden h-14 sm:block" />
+    <div class="relative inset-0">
+        <img
+            src={innoviumLogo}
+            alt="Innovium logo"
+            class="hidden h-14 sm:block"
+        />
+        <span
+            class="badge-primary badge indicator-item absolute top-[5px] -right-5 hidden border-light bg-light font-semibold capitalize sm:block"
+            >{thisUserType}</span
+        >
+    </div>
     <img
         src={innoviumLogoNoText}
         alt="Innovium logo"

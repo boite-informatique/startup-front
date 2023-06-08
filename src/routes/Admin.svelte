@@ -15,6 +15,7 @@
     import Sidebar from "src/lib/components/layout/Sidebar.svelte";
     import { sidebarLists } from "src/config/sidebarList";
     import AdminAnnouncements from "./AdminAnnouncements.svelte";
+    import Referential from "./Referential.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -61,5 +62,8 @@
     </Route>
     <Route path="/periods">
         <AdminPeriods on:showIndicator />
+    </Route>
+    <Route path="referentiel">
+        <Referential on:showIndicator />
     </Route>
 </div>

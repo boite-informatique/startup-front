@@ -3,7 +3,6 @@ let routesByUsers = {
     admin: [
         { path: "admin", name: "admin" },
         { path: "profile", name: "profile" },
-        { path: "referential", name: "referential" },
     ],
     student: [
         { path: "projects?type=my", name: "my project" },

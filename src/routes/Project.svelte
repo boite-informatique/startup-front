@@ -37,7 +37,11 @@
                     </Route>
                 {/each}
                 <Route path="tasks/:id" let:params>
-                    <ProjectTaskPage taskID={params.id} on:showIndicator />
+                    <ProjectTaskPage
+                        taskID={params.id}
+                        data={res.data}
+                        on:showIndicator
+                    />
                 </Route>
             </div>
         {:else}
