@@ -55,7 +55,7 @@
 {#await task}
     <button class="btn loading">{$_("admin.users.loading")}</button>
 {:then taskData}
-    {#if taskData.status >= 200 && taskData.status < 300}
+    {#if taskData?.status >= 200 && taskData?.status < 300}
         <div class="mb-3 text-3xl font-bold">
             {$_("projects.tasks.task informations")}
         </div>
@@ -65,8 +65,8 @@
                 {$_("projects.tasks.title")} :
             </div>
             <div>
-                {taskData.data.title
-                    ? taskData.data.title
+                {taskData?.data?.title
+                    ? taskData?.data?.title
                     : $_("projects.tasks.title not available")}
             </div>
         </div>
@@ -75,8 +75,8 @@
                 {$_("projects.tasks.description")} :
             </div>
             <div>
-                {taskData.data.description
-                    ? taskData.data.description
+                {taskData?.data?.description
+                    ? taskData?.data?.description
                     : $_("projects.tasks.description not available")}
             </div>
         </div>
@@ -84,22 +84,25 @@
             <div class="font-bold sm:w-[330px]">
                 {$_("projects.tasks.user")} :
             </div>
-            <UserInfoAvatarName user={taskData.data.user} />
+            <UserInfoAvatarName user={taskData?.data?.user} />
         </div>
         <div class="flex flex-col gap-2 md:flex-row">
             <div class="font-bold sm:w-[330px]">
                 {$_("projects.tasks.deadline")} :
             </div>
             <div>
-                {taskData.data.deadline
-                    ? new Date(taskData.data.deadline).toLocaleString("en-UK", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                          hour: "numeric",
-                          minute: "numeric",
-                          timeZone: "UTC",
-                      })
+                {taskData?.data?.deadline
+                    ? new Date(taskData?.data?.deadline).toLocaleString(
+                          "en-UK",
+                          {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                              hour: "numeric",
+                              minute: "numeric",
+                              timeZone: "UTC",
+                          }
+                      )
                     : $_("projects.tasks.no deadline available")}
             </div>
         </div>
@@ -110,7 +113,7 @@
             <div
                 class="flex flex-col justify-start items-start gap-1 items-center"
             >
-                {#each taskData.data.resources as ressource, i}
+                {#each taskData?.data?.resources as ressource, i}
                     <a
                         href={`http://localhost:3001/upload/${ressource}`}
                         target="_blank"
@@ -125,16 +128,16 @@
             <div class="font-bold sm:w-[330px]">
                 {$_("projects.tasks.finished")}? :
             </div>
-            {#if !taskData.data.TaskFinished}
+            {#if !taskData?.data?.TaskFinished}
                 No
-                {#if taskData.data.user_id == $currentUserInfo.id}
+                {#if taskData?.data?.user_id == $currentUserInfo?.id}
                     <!-- show this only if he is owner -->
                     <!-- svelte-ignore a11y-click-events-have-key-events -->
                     <div
                         class="font-semibold underline cursor-pointer"
                         on:click={() => {
                             taskFinishedModalState = true;
-                            taskFinishedModalData = taskData.data;
+                            taskFinishedModalData = taskData?.data;
                         }}
                     >
                         {$_("projects.tasks.click to mark task as finished")}
@@ -147,8 +150,8 @@
                             {$_("projects.tasks.description")} :
                         </div>
                         <div>
-                            {taskData.data.TaskFinished?.description
-                                ? taskData.data.TaskFinished?.description
+                            {taskData?.data?.TaskFinished?.description
+                                ? taskData?.data?.TaskFinished?.description
                                 : $_("projects.tasks.no description available")}
                         </div>
                     </div>
@@ -159,8 +162,8 @@
                         <div
                             class="flex flex-col justify-start items-start gap-1"
                         >
-                            {#if taskData.data.TaskFinished?.resources}
-                                {#each taskData.data.TaskFinished?.resources as ressource, i}
+                            {#if taskData?.data?.TaskFinished?.resources}
+                                {#each taskData?.data?.TaskFinished?.resources as ressource, i}
                                     <a
                                         href={`http://localhost:3001/upload/${ressource}`}
                                         target="_blank"
@@ -196,7 +199,8 @@
                         />
                         <button
                             class="btn-outline btn-square btn"
-                            on:click={() => handleAddComment(taskData.data.id)}
+                            on:click={() =>
+                                handleAddComment(taskData?.data?.id)}
                         >
                             <svg
                                 class="h-8 w-8"
@@ -216,7 +220,7 @@
                         </button>
                     </div>
                 {/if}
-                {#each taskData.data.comments as comment}
+                {#each taskData?.data?.comments as comment}
                     <div class="flex flex-row gap-4 items-center">
                         <UserInfoAvatarName user={comment.author} />
                         <div>
@@ -229,7 +233,7 @@
                 {/each}
             </div>
         </div>
-        {#if taskData.data.user_id == $currentUserInfo.id}
+        {#if taskData?.data?.user_id == $currentUserInfo?.id}
             <!-- show this only if he is owner -->
             <div class="flex flex-col gap-2 md:flex-row mb-5 mt-4">
                 <div class="font-bold sm:w-[330px] translate-y-2">
@@ -240,7 +244,7 @@
                     class="flex flex-row items-center justify-center btn gap-3"
                     on:click={() => {
                         editTaskModalState = true;
-                        editTaskModalData = taskData.data;
+                        editTaskModalData = taskData?.data;
                     }}
                 >
                     <div>{$_("projects.tasks.modify task")}</div>

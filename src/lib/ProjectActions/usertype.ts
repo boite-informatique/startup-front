@@ -19,7 +19,7 @@ export const getUserType = (
         return "owner";
     }
 
-    if (project.DefensePlanification.jury_president_id == currentUser.id) {
+    if (project?.DefensePlanification?.jury_president_id == currentUser?.id) {
         return "jury-president";
     }
     if (
