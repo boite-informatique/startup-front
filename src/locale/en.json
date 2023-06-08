@@ -1,4 +1,12 @@
 {
+    "landing":{
+        "title":"Diploma-startup / Diploma- patent",
+        "description":"The objective of our platform is to enable the school's internship service to seamlessly track and manage the 'one diploma-one startup / one diploma-one patent' projects from submission to defense, within the framework of the provisions outlined in decree 1275. Our platform provides a comprehensive solution that streamlines the entire process of managing these projects, from submission to defense, and provides a set of tools that facilitate the work of the internship service and the project supervisors.",
+        "login": "login",
+        "register": "register"
+    },
+
+    
     "navbar": {
         "admin": "admin",
         "projects": "projects",

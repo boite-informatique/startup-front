@@ -105,5 +105,25 @@
                 <div>Français</div>
             </a>
         </li>
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <li on:click={() => {
+                changleLanguage("ar");
+            }}
+        >
+            <a class="flex flex-row gap-4">
+                <svg
+                    class="h-7 rounded-[4px] border"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="flag
+                    -icons-ar"
+                    viewBox="0 0 640 480"
+                >
+                
+                <path fill="#063" d="M0 0h640v480H0z"  />
+                </svg>
+                <div>العربية</div>
+            </a>
+        </li>
     </ul>
 </div>
