@@ -15,6 +15,7 @@ export const sidebarLists = {
         { path: "users", name: "users" },
         { path: "roles", name: "roles" },
         { path: "periods", name: "periods" },
+        { path: "referentiel", name: "referentiel" },
     ],
     referential: [
         { path: "create", name: "create" },
