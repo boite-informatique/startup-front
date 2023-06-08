@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { _ } from "svelte-i18n";
+    import { _, date } from "svelte-i18n";
     import { getAnnouncements } from "src/api/announcements";
     import { userPermissions } from "src/stores/userPermissions";
     import EditAnnouncementButton from "src/lib/components/EditAnnouncementButton.svelte";
@@ -48,6 +48,17 @@
                             {/if}
                         </div>
                         <p>{announcement.description}</p>
+                        {#if isIncubator}
+                            <div>
+                                {new Date(announcement.dateStart)
+                                    .toISOString()
+                                    .split("T")[0]} - {new Date(
+                                    announcement.dateEnd
+                                )
+                                    .toISOString()
+                                    .split("T")[0]}
+                            </div>
+                        {/if}
                     </div>
                 </div>
             {/each}
