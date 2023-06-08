@@ -12,9 +12,12 @@
         indicateSuccess,
     } from "src/lib/utils/indicatorDispatchers";
     import { createEventDispatcher } from "svelte";
+    import type { PopulatedProject } from "src/api/project/types/project-types";
     const dispatch = createEventDispatcher();
 
     export let taskID: string | number = 1;
+    export let data: PopulatedProject;
+
     let newComment = "";
 
     let taskFinishedModalData;
@@ -111,7 +114,7 @@
                 {$_("projects.tasks.resources")} :
             </div>
             <div
-                class="flex flex-col justify-start items-start gap-1 items-center"
+                class="flex flex-row justify-start items-start gap-1 items-center"
             >
                 {#each taskData?.data?.resources as ressource, i}
                     <a
@@ -130,7 +133,7 @@
             </div>
             {#if !taskData?.data?.TaskFinished}
                 No
-                {#if taskData?.data?.user_id == $currentUserInfo?.id}
+                {#if data.owner_id == $currentUserInfo?.id}
                     <!-- show this only if he is owner -->
                     <!-- svelte-ignore a11y-click-events-have-key-events -->
                     <div

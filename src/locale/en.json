@@ -285,7 +285,10 @@
             "finished": "finished",
             "comments": "comments",
             "no tasks available": "no tasks available",
-            "modify task": "modify task"
+            "modify task": "modify task",
+            "click to mark task as finished": "click to mark task as finished",
+            "no comments available": "no comments available",
+            "task informations": "task information"
         },
         "co-supervisor": "co-supervisor",
         "optional": "optional",
