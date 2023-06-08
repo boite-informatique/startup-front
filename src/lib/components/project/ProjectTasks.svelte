@@ -107,12 +107,10 @@
                                 )}</td
                             >
                             <td
-                                class="bg-gray-200 font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
+                                class="bg-gray-200 text-4xl font-bold text-gray-800 transition-all dark:bg-gray-800 dark:text-gray-200"
                                 >{task.TaskFinished?.description
-                                    ? task.TaskFinished?.description
-                                    : $_(
-                                          "projects.tasks.no informations available"
-                                      )}</td
+                                    ? "✓"
+                                    : "྾"}</td
                             >
                         </tr>
                     {:else}

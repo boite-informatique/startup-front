@@ -55,7 +55,7 @@
                         <!-- svelte-ignore a11y-label-has-associated-control -->
                         <label
                             class="tooltip tooltip-left tooltip-warning cursor-default text-neutral-400 active:bg-base-content"
-                            data-tip={action.disabled(project)}
+                            data-tip={$_(action.disabled(project))}
                             on:click={() => setModalComponent(action.component)}
                             >{action.name}
                         </label>

@@ -36,7 +36,10 @@
         "defense": "defense informations",
         "project's edit history": "project's edit history",
         "project members": "project members",
-        "project supervisors": "project supervisors"
+        "project supervisors": "project supervisors",
+        "validation": "validation",
+        "defense plan": "defense planning",
+        "soutenance-delibration": "defense deliberation"
     },
     "register": {
         "indicator": {
@@ -64,7 +67,10 @@
         "submit": "submit",
         "loginlink": "go to login page",
         "establishment name": "establishment name",
-        "establishment": "establishment"
+        "establishment": "establishment",
+        "specialities": "specialty",
+        "grade-teacher": "grade",
+        "grade-staff": "grade"
     },
     "login": {
         "Sign in to your account": "Sign in to your account",
@@ -196,7 +202,7 @@
         "product": "product",
         "brand": "brand",
         "type": "type",
-        "resume": "résumé",
+        "resume": "resume",
         "owner": "owner",
         "supervisors": "supervisors",
         "created at": "created at",
@@ -271,7 +277,8 @@
             "resources": "resources",
             "finished": "finished",
             "comments": "comments",
-            "no tasks available": "no tasks available"
+            "no tasks available": "no tasks available",
+            "modify task": "modify task"
         },
         "co-supervisor": "co-supervisor",
         "optional": "optional",
@@ -279,7 +286,16 @@
         "no defense documents for this project": "no defense documents for this project",
         "no progress for this project": "no progress for this project",
         "modify project": "Modify Project",
-        "location": "location"
+        "location": "location",
+        "invited": "invited",
+        "defense planification jury": "defense jury",
+        "jury members": "jury members",
+        "jury invitees": "jury invitees",
+        "status": "status",
+        "evaluations": "evaluations",
+        "appreciation": "appreciation",
+        "none": "noneno validations",
+        "no validations": "no validations"
     },
     "profile": {
         "Account Activation": "Account Activation",
@@ -303,5 +319,33 @@
         "Within appeal validation phase": "Within appeal validation phase",
         "Platform is closed": "Platform is closed",
         "current period": "current period"
+    },
+    "projectActions": {
+        "uploadDefenseDocuments": {
+            "disabled no defense authorization": "no defense authorization",
+            "disabled already uploaded": "documents already uploaded"
+        },
+        "editProject": {
+            "disabled rejeceted": "project rejected",
+            "disabled only submission or validation recours": "only in submission or apeal period"
+        },
+        "planDefense": {
+            "disabled no defense authorization": "no defense authorization",
+            "disabled already planned": "already planned"
+        },
+        "soutenanceDeliberation": {
+            "disabled no defense planification": "no defense planning",
+            "disabled not yet": "can't deliberate before defense date",
+            "disabled already deliberated": "already deliberated"
+        },
+        "addTask": {
+            "disabled not accepted": "project not accepted yet",
+            "disabled already authorized": "already authorized"
+        },
+        "validate": {
+            "disabled not in validation period": "not in validation period",
+            "disabled not in appeal validation period": "not in appeal validation period",
+            "disabled already validated": "already validated"
+        }
     }
 }

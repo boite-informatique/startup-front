@@ -35,7 +35,7 @@
         {#if invitedSupervisors.length > 0}
             {#each invitedSupervisors as memberInvite}
                 <div class="lowercase">
-                    {memberInvite.email}
+                    {memberInvite.email} ({$_("projects.invited")})
                 </div>
             {/each}
         {/if}
@@ -51,7 +51,7 @@
                 <UserInfoAvatarName user={data.co_supervisor} />
             {:else if invitedCoSupervisor.length > 0}
                 <div class="lowercase">
-                    {invitedCoSupervisor[0].email}
+                    {invitedCoSupervisor[0].email} ({$_("projects.invited")})
                 </div>
             {/if}
         {:else}

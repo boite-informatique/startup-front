@@ -30,7 +30,7 @@
             {#if invitedMembers.length > 0}
                 {#each invitedMembers as memberInvite}
                     <div class="lowercase">
-                        {memberInvite.email}
+                        {memberInvite.email} ({$_("projects.invited")})
                     </div>
                 {/each}
             {/if}

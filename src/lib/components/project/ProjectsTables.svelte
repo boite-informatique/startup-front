@@ -123,10 +123,10 @@
                         >
                             {#if project.validation.length > 0}
                                 {$_(
-                                    "project." + project.validation[0].decision
+                                    "projects." + project.validation[0].decision
                                 )}
                             {:else}
-                                {$_("project.none")}
+                                {$_("projects.none")}
                             {/if}
                         </td>
                     </tr>

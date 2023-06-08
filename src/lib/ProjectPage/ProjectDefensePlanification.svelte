@@ -20,7 +20,7 @@
 </script>
 
 <div class="mb-3 text-3xl font-bold">
-    {$_("sidebar.planification")}
+    {$_("sidebar.defense plan")}
 </div>
 
 {#if data.DefensePlanification}
@@ -88,7 +88,7 @@
                 <div class="lowercase">
                     {data.DefensePlanification.DefenseInvitees.find(
                         (invitee) => invitee.type == "president"
-                    ).email}
+                    ).email} ({$_("projects.invited")})
                 </div>
             {/if}
         </div>
@@ -111,7 +111,7 @@
                 {#if unregisteredInvitedJuryMembers.length > 0}
                     {#each unregisteredInvitedJuryMembers as memberInvite}
                         <div class="lowercase">
-                            {memberInvite.email}
+                            {memberInvite.email} ({$_("projects.invited")})
                         </div>
                     {/each}
                 {/if}
@@ -136,7 +136,7 @@
                     {#if unregisteredInvitedJuryInvitees.length > 0}
                         {#each unregisteredInvitedJuryInvitees as memberInvite}
                             <div class="lowercase">
-                                {memberInvite.email}
+                                {memberInvite.email} ({$_("projects.invited")})
                             </div>
                         {/each}
                     {/if}

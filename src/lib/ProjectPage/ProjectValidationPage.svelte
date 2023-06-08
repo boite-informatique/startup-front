@@ -20,7 +20,7 @@
 </script>
 
 <div class="mb-3 text-3xl font-bold">
-    {$_("sidebar.project's validations")}
+    {$_("sidebar.validation")}
 </div>
 
 <div>

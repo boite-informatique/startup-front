@@ -51,20 +51,6 @@
                             {ProjectState.old_value}
                         {/if}
                     </div>
-                    <div class="flex items-center">
-                        <div class="inline-block w-[160px] font-bold">
-                            {$_("projects.new value")} :
-                        </div>
-                        {#if ProjectState.field === "logo"}
-                            <span
-                                ><ImageModal
-                                    src={ProjectState.new_value}
-                                /></span
-                            >
-                        {:else}
-                            {ProjectState.new_value}
-                        {/if}
-                    </div>
                 </div>
                 {#if i !== data.history.length - 1}
                     <div class="divider my-2 w-11/12" />

@@ -18,7 +18,7 @@
 </script>
 
 <div class="mb-3 text-3xl font-bold">
-    {$_("sidebar.delibration")}
+    {$_("sidebar.soutenance-delibration")}
 </div>
 
 {#if data.Delibration}
