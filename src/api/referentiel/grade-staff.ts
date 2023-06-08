@@ -8,3 +8,12 @@ export const getGradesForStaff = async (query: string) => {
         console.error(error);
     }
 };
+
+export const createGradesForStaff = async (query: string) => {
+    try {
+        const response = await api.post(`/grade-staff`, { name: query });
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
+};

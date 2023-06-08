@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
     import debounce from "lodash.debounce";
     import { _ } from "svelte-i18n";
-    import { getEstablishments } from "src/api/referentiel/establishments.ts";
+    import { getEstablishments } from "src/api/referentiel/establishments";
     import type { ReferentialItem } from "src/api/referentiel/types";
     import { getFilieres } from "src/api/referentiel/filiere";
     import { getGradesForStaff } from "src/api/referentiel/grade-staff";

@@ -8,3 +8,12 @@ export const getGradesForTeachers = async (query: string) => {
         console.error(error);
     }
 };
+
+export const createGradesForTeachers = async (query: string) => {
+    try {
+        const response = await api.post(`/grade-teacher`, { name: query });
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
+};
