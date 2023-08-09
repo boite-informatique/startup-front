@@ -56,6 +56,7 @@ export const sidebarLists = {
             component: ProjectDefensePlanification,
         },
         {
+            
             path: "soutenance-delibration",
             name: "soutenance-delibration",
             component: ProjectDefenseDelibration,

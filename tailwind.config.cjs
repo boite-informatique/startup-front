@@ -13,7 +13,7 @@ const config = {
                 darkest: "#2C3333",
                 dark: "#2E4F4F",
                 light: "#0E8388",
-                lightest: "#CBE4DE",
+                lightest: "#e4f4f0",
             },
         },
     },
