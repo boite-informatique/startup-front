@@ -19,7 +19,8 @@
         "supervised projects": "supervised projects",
         "validate projects": "validate projects",
         "logout": "logout",
-        "planned soutenances": "planned defenses"
+        "planned soutenances": "planned defenses",
+        "submitted projects": "submitted projects"
     },
     "breadcrumb": {
         "projects": "projects",
@@ -49,7 +50,8 @@
         "project supervisors": "project supervisors",
         "validation": "validation",
         "defense plan": "defense planning",
-        "soutenance-delibration": "defense deliberation"
+        "soutenance-delibration": "defense deliberation",
+        "referentiel": "referentiel"
     },
     "register": {
         "indicator": {
@@ -307,7 +309,7 @@
         "status": "status",
         "evaluations": "evaluations",
         "appreciation": "appreciation",
-        "none": "noneno validations",
+        "none": "none",
         "no validations": "no validations"
     },
     "profile": {
@@ -360,5 +362,19 @@
             "disabled not in appeal validation period": "not in appeal validation period",
             "disabled already validated": "already validated"
         }
+    },
+    "referential": {
+        "create referential": "create referential",
+        "add an establishment": "add an establishment",
+        "add a speciality": "add a speciality",
+        "add a filiere": "add a filiere",
+        "add a grade-teacher": "add a grade-teacher",
+        "add a grade-staff": "add a grade-staff",
+        "display referential": "display referential",
+        "establishments": "establishments",
+        "specialties": "specialties",
+        "filieres": "filieres",
+        "grade-teacher": "grade-teacher",
+        "grade-staff": "grade-staff"
     }
 }

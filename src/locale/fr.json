@@ -304,5 +304,19 @@
         "Within appeal validation phase": "Dans la phase de validation des recours",
         "Platform is closed": "La plateforme est fermée",
         "current period": "la période actuelle"
+    },
+    "referential": {
+        "create referential": "créer un référentiel",
+        "add an establishment": "ajouter un établissement",
+        "add a speciality": "ajouter une spécialité",
+        "add a filiere": "ajouter une filière",
+        "add a grade-teacher": "ajouter un grade-enseignant",
+        "add a grade-staff": "ajouter un grade-personnel",
+        "display referential": "afficher le référentiel",
+        "establishments": "établissements",
+        "specialties": "spécialités",
+        "filieres": "filières",
+        "grade-teacher": "grade-enseignant",
+        "grade-staff": "grade-personnel"
     }
 }
